@@ -1,0 +1,70 @@
+.solutions-visual {
+  width: 100%;
+  max-width: 340px;
+  margin: 1.25rem auto 0;
+  border: 1px solid #dae8fa;
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at center, #c9ecff 0, transparent 65%),
+    linear-gradient(145deg, #fff, #edf5ff);
+  overflow: hidden;
+}
+.solutions-visual > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.solutions-visual-orbit {
+  stroke: #bdd6f2;
+  stroke-dasharray: 3 7;
+}
+.solutions-visual-orbit-inner {
+  stroke: #cee1f5;
+  stroke-dasharray: none;
+}
+.solutions-visual-link {
+  stroke: #aec9eb;
+  stroke-width: 1.5;
+}
+.solutions-visual-signal {
+  stroke: #009ce5;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 10 90;
+  animation: solutions-data-flow 4s linear infinite;
+}
+.solutions-visual-node {
+  fill: #fff;
+  stroke: #bdd4f1;
+}
+.solutions-visual-icon {
+  color: #1261c7;
+}
+.solutions-visual-core {
+  fill: #075bd8;
+  stroke: #36baff;
+  stroke-width: 2;
+}
+.solutions-visual-halo {
+  fill: #139ef0;
+  opacity: 0.12;
+  transform-origin: 160px 160px;
+  animation: solutions-core-pulse 4s ease-in-out infinite;
+}
+@keyframes solutions-data-flow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes solutions-core-pulse {
+  50% {
+    transform: scale(1.15);
+    opacity: 0.22;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solutions-visual-signal,
+  .solutions-visual-halo {
+    animation: none;
+  }
+}

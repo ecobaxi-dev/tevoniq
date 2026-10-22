@@ -1,0 +1,51 @@
+.company-page {
+  color: var(--color-navy);
+}
+.company-hero {
+  background: var(--color-mist);
+  border-bottom: 1px solid var(--tv-line);
+}
+.company-eyebrow {
+  color: var(--color-electric);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.company-intro {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  max-width: 48rem;
+  line-height: 1.7;
+}
+.company-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+.company-section {
+  border-top: 1px solid var(--tv-line);
+  padding-block: 2rem;
+}
+.company-number {
+  color: var(--color-electric);
+  font-weight: 600;
+}
+.company-section h2 {
+  margin-block: 1rem;
+}
+.company-section p,
+.company-cta p {
+  white-space: pre-line;
+  line-height: 1.85;
+  max-width: 50rem;
+}
+.company-cta {
+  background: var(--color-mist);
+}
+.company-cta p {
+  margin-bottom: 2rem;
+}
+@media (max-width: 640px) {
+  .company-sections {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

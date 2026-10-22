@@ -1,0 +1,1061 @@
+{
+  "slug": "mobile-application-development",
+  "active": true,
+  "sortOrder": 42,
+  "version": 0,
+  "translations": [
+    {
+      "locale": "en",
+      "title": "Mobile App Development",
+      "summary": "Plan, build and evolve mobile applications around your users, your operations and your business goals.",
+      "published": true,
+      "seoTitle": "Mobile App Development | TEVONIQ",
+      "seoDescription": "Plan, build and evolve mobile applications around your users, your operations and your business goals.",
+      "blocks": [
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700001",
+          "type": "hero",
+          "title": "Mobile App Development Services",
+          "description": "Plan, build and evolve mobile applications around your users, your operations and your business goals.",
+          "assetKey": "none"
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700002",
+          "type": "overview",
+          "title": "Mobile experiences built around real business needs",
+          "body": "A useful mobile product connects a clear user need with dependable engineering. We bring product discovery, interface design and application development into one delivery approach.\n\nFrom a first release to the evolution of an existing platform, we help define what to build, how it connects to your systems and how it can be maintained after launch."
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700003",
+          "type": "benefits",
+          "title": "The value of a considered mobile experience",
+          "items": [
+            {
+              "title": "Reach people where they work",
+              "description": "Put essential tasks within reach, whether users are at a desk, on site or on the move."
+            },
+            {
+              "title": "Connect your operations",
+              "description": "Bring mobile workflows together with the data, services and systems your organization already uses."
+            },
+            {
+              "title": "Make everyday tasks simpler",
+              "description": "Design focused journeys that help people find information, complete actions and understand the next step."
+            },
+            {
+              "title": "Build a foundation for change",
+              "description": "Use an architecture and release process that can accommodate feedback, new features and evolving needs."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700004",
+          "type": "capabilities",
+          "title": "Our mobile app development services",
+          "items": [
+            {
+              "title": "Mobile strategy and discovery",
+              "description": "Clarify the audience, product goals and constraints. Turn the opportunity into a prioritized scope, an approach and a delivery plan."
+            },
+            {
+              "title": "Native iOS and Android development",
+              "description": "Build platform-specific experiences with attention to device capabilities, interface conventions and lifecycle behavior."
+            },
+            {
+              "title": "Cross-platform development",
+              "description": "Explore a shared codebase where it suits your product, while addressing the differences that matter on each platform."
+            },
+            {
+              "title": "Application modernization and support",
+              "description": "Review an existing application, improve its maintainability and plan updates around technical priorities and user needs."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700009",
+          "type": "use-cases",
+          "title": "Mobile possibilities for your business",
+          "items": [
+            {
+              "title": "Connected field teams",
+              "description": "Task lists, service records and practical workflows for teams working away from the office."
+            },
+            {
+              "title": "Customer self-service",
+              "description": "Account information, requests and status updates that customers can access on their own."
+            },
+            {
+              "title": "Commerce and ordering",
+              "description": "Product discovery, ordering and purchase journeys connected to your business systems."
+            },
+            {
+              "title": "Connected devices",
+              "description": "Companion applications that make device data and controls accessible to users."
+            },
+            {
+              "title": "Operational dashboards",
+              "description": "Focused views of the information people need to make decisions during their day."
+            },
+            {
+              "title": "Employee applications",
+              "description": "Internal tools for communication, approvals and everyday organizational tasks."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700005",
+          "type": "technology-stack",
+          "title": "iOS mobile app development",
+          "items": [
+            {
+              "title": "Swift",
+              "description": "Native application logic and integration with Apple platform capabilities."
+            },
+            {
+              "title": "SwiftUI & UIKit",
+              "description": "Interfaces matched to the product, interaction requirements and supported devices."
+            },
+            {
+              "title": "Apple platform integration",
+              "description": "Notifications, device features and authentication considered within the application architecture."
+            },
+            {
+              "title": "Testing & release",
+              "description": "Device checks, accessibility review and preparation for the App Store submission process."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700006",
+          "type": "technology-stack",
+          "title": "Android mobile app development",
+          "items": [
+            {
+              "title": "Kotlin",
+              "description": "A foundation for native Android application logic and platform integration."
+            },
+            {
+              "title": "Jetpack Compose",
+              "description": "Reusable interface components and application state that support clear user journeys."
+            },
+            {
+              "title": "Android device capabilities",
+              "description": "Plan for notifications, background work and the variety of devices your audience uses."
+            },
+            {
+              "title": "Testing & distribution",
+              "description": "Validate key flows, device compatibility and release readiness for Google Play."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700007",
+          "type": "technology-stack",
+          "title": "Cross-platform mobile app development",
+          "items": [
+            {
+              "title": "Flutter",
+              "description": "A shared application approach with a consistent interface system."
+            },
+            {
+              "title": "React Native",
+              "description": "Mobile experiences with shared JavaScript or TypeScript foundations."
+            },
+            {
+              "title": "Shared services",
+              "description": "Reuse appropriate domain logic, API clients and validation across platforms."
+            },
+            {
+              "title": "Platform-specific refinement",
+              "description": "Adapt navigation, permissions and device integrations where native behavior matters."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700008",
+          "type": "features",
+          "title": "Mobile engineering across the product lifecycle",
+          "items": [
+            {
+              "title": "Full-cycle development",
+              "description": "Connect discovery, design, engineering and release in a coordinated delivery plan."
+            },
+            {
+              "title": "API and system integration",
+              "description": "Connect the application to business services through well-defined interfaces."
+            },
+            {
+              "title": "Application security",
+              "description": "Consider access controls, secure data handling and threat scenarios throughout delivery."
+            },
+            {
+              "title": "UI/UX design",
+              "description": "Shape clear navigation, useful content and inclusive interactions for smaller screens."
+            },
+            {
+              "title": "Quality assurance",
+              "description": "Test important journeys, error states, interruptions and supported devices."
+            },
+            {
+              "title": "Maintenance and evolution",
+              "description": "Prioritize improvements, monitor issues and plan updates as the product changes."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700017",
+          "type": "use-cases",
+          "title": "Technologies that extend your mobile experience",
+          "items": [
+            {
+              "title": "Connected devices and IoT",
+              "description": "Explore mobile monitoring and control for connected equipment, with device permissions and connectivity in mind."
+            },
+            {
+              "title": "Cloud-connected applications",
+              "description": "Connect mobile workflows to scalable backend services and consistent data interfaces."
+            },
+            {
+              "title": "AI-assisted experiences",
+              "description": "Consider focused features such as assisted search or recommendations with appropriate human oversight and data handling."
+            },
+            {
+              "title": "Data and analytics",
+              "description": "Use relevant product signals to understand journeys and inform future improvements."
+            },
+            {
+              "title": "Location-aware workflows",
+              "description": "Support tasks that benefit from location context while considering permission and privacy requirements."
+            },
+            {
+              "title": "Offline-ready operations",
+              "description": "Plan local data, synchronization and conflict handling for work with intermittent connectivity."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701011",
+          "type": "capabilities",
+          "title": "A four-phase mobile app development journey",
+          "items": [
+            {
+              "title": "Discover and define",
+              "description": "Understand users, map the essential journeys and agree on scope, constraints and success criteria."
+            },
+            {
+              "title": "Design and validate",
+              "description": "Explore the experience through interface designs and prototypes; review assumptions before implementation."
+            },
+            {
+              "title": "Build and test",
+              "description": "Develop in manageable increments, integrate services and validate functionality, usability and reliability."
+            },
+            {
+              "title": "Launch and evolve",
+              "description": "Prepare the release, establish support responsibilities and use feedback to guide the next improvements."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701012",
+          "type": "features",
+          "title": "Choose a collaboration model for your project",
+          "items": [
+            {
+              "title": "A dedicated delivery team",
+              "description": "Bring product, design and engineering roles together around a shared backlog and an agreed delivery rhythm."
+            },
+            {
+              "title": "Extend your team",
+              "description": "Add the capabilities your existing team needs while keeping your processes and product direction in place."
+            },
+            {
+              "title": "A focused project",
+              "description": "Define a bounded outcome, scope and milestones for a new application, an integration or a modernization effort."
+            },
+            {
+              "title": "Consulting",
+              "description": "Assess your architecture, clarify a technical decision or shape a roadmap with a focused advisory engagement."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700015",
+          "type": "benefits",
+          "title": "A practical approach to mobile delivery",
+          "items": [
+            {
+              "title": "Business context first",
+              "description": "Align product choices with the people using the application and the operations it supports."
+            },
+            {
+              "title": "Visible progress",
+              "description": "Work from a prioritized backlog with regular reviews of completed work and upcoming decisions."
+            },
+            {
+              "title": "Quality throughout delivery",
+              "description": "Consider usability, security and maintainability alongside feature development."
+            },
+            {
+              "title": "A clear handover",
+              "description": "Document essential decisions, release steps and support responsibilities so the application can continue to evolve."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700013",
+          "type": "faq",
+          "title": "Frequently asked questions",
+          "items": [
+            {
+              "question": "How do we choose between native and cross-platform development?",
+              "answer": "The choice depends on your user experience, device integrations, team capabilities and maintenance expectations. Discovery helps weigh these tradeoffs before selecting an approach."
+            },
+            {
+              "question": "Can you work with an existing mobile application?",
+              "answer": "An initial review can identify architecture, quality and delivery constraints. From there, we can define a plan for targeted improvements, modernization or continued feature development."
+            },
+            {
+              "question": "How long does a mobile application take to develop?",
+              "answer": "Timing depends on scope, integrations, design complexity and release requirements. A discovery phase helps define milestones and a realistic delivery plan."
+            },
+            {
+              "question": "How are security and privacy addressed?",
+              "answer": "The requirements should cover authentication, authorization, sensitive data, third-party services and relevant organizational policies. These inform design decisions, implementation and testing."
+            },
+            {
+              "question": "What happens after launch?",
+              "answer": "Support responsibilities, monitoring, issue handling and planned improvements should be agreed before release. The ongoing approach can then evolve with the application and its users."
+            },
+            {
+              "question": "Can the app connect to our existing systems?",
+              "answer": "Integration begins with an assessment of the available APIs, data models and access requirements. This establishes a practical approach for connecting mobile workflows to existing systems."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700016",
+          "type": "related-services",
+          "title": "Explore related services",
+          "ids": [
+            "120a356c-457a-4482-9b46-fd63258c7e65",
+            "168250f3-b0b4-4d39-a5f6-67eb3d5b76d5",
+            "223835db-fd9e-483d-b1c9-d8cfec16b07f",
+            "ec778f13-2ca5-49f2-908c-8752292ee912",
+            "71f9d7bd-8456-40ea-a0b8-2cb3f821e156"
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700014",
+          "type": "cta",
+          "title": "Let’s discuss your mobile application",
+          "body": "Tell us about your users, your idea or your existing application. We can explore the scope and identify a practical next step.",
+          "label": "Contact us",
+          "href": "/contact"
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "title": "Mobil Uygulama Geliştirme",
+      "summary": "Mobil uygulamaları kullanıcılarınız, operasyonlarınız ve iş hedefleriniz doğrultusunda planlayın, geliştirin ve iyileştirin.",
+      "published": true,
+      "seoTitle": "Mobil Uygulama Geliştirme | TEVONIQ",
+      "seoDescription": "Mobil uygulamaları kullanıcılarınız, operasyonlarınız ve iş hedefleriniz doğrultusunda planlayın, geliştirin ve iyileştirin.",
+      "blocks": [
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700001",
+          "type": "hero",
+          "title": "Mobil Uygulama Geliştirme Hizmetleri",
+          "description": "Mobil uygulamaları kullanıcılarınız, operasyonlarınız ve iş hedefleriniz doğrultusunda planlayın, geliştirin ve iyileştirin.",
+          "assetKey": "none"
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700002",
+          "type": "overview",
+          "title": "Gerçek iş ihtiyaçları için mobil deneyimler",
+          "body": "Faydalı bir mobil ürün, açık bir kullanıcı ihtiyacını güvenilir mühendislikle birleştirir. Ürün keşfini, arayüz tasarımını ve uygulama geliştirmeyi ortak bir teslimat yaklaşımında buluşturuyoruz.\n\nİlk sürümden mevcut bir platformun gelişimine kadar neyin geliştirileceğini, sistemlerinize nasıl bağlanacağını ve yayından sonra nasıl sürdürüleceğini birlikte tanımlıyoruz."
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700003",
+          "type": "benefits",
+          "title": "Özenle tasarlanmış bir mobil deneyimin değeri",
+          "items": [
+            {
+              "title": "İnsanlara çalıştıkları yerde ulaşın",
+              "description": "Kullanıcılar masalarında, sahada veya hareket halindeyken temel işlemleri erişilebilir kılın."
+            },
+            {
+              "title": "Operasyonlarınızı birleştirin",
+              "description": "Mobil iş akışlarını kuruluşunuzun kullandığı veri, hizmet ve sistemlerle buluşturun."
+            },
+            {
+              "title": "Günlük işleri kolaylaştırın",
+              "description": "Bilgiye ulaşmayı, işlem yapmayı ve sonraki adımı anlamayı kolaylaştıran odaklı akışlar tasarlayın."
+            },
+            {
+              "title": "Değişime hazır bir temel kurun",
+              "description": "Geri bildirimleri, yeni özellikleri ve değişen ihtiyaçları karşılayabilecek bir mimari ve yayın süreci oluşturun."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700004",
+          "type": "capabilities",
+          "title": "Mobil uygulama geliştirme hizmetlerimiz",
+          "items": [
+            {
+              "title": "Mobil strateji ve keşif",
+              "description": "Hedef kitleyi, ürün amaçlarını ve kısıtları netleştirin. Fikri önceliklendirilmiş bir kapsama ve geliştirme planına dönüştürün."
+            },
+            {
+              "title": "Yerel iOS ve Android geliştirme",
+              "description": "Cihaz yeteneklerini, arayüz alışkanlıklarını ve uygulama yaşam döngüsünü dikkate alan platforma özgü deneyimler oluşturun."
+            },
+            {
+              "title": "Çapraz platform geliştirme",
+              "description": "Ürününüz için uygun olduğunda ortak kod tabanını değerlendirin ve her platformdaki önemli farklılıkları ele alın."
+            },
+            {
+              "title": "Uygulama modernizasyonu ve destek",
+              "description": "Mevcut uygulamayı inceleyin, sürdürülebilirliğini iyileştirin ve güncellemeleri teknik öncelikler ile kullanıcı ihtiyaçlarına göre planlayın."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700009",
+          "type": "use-cases",
+          "title": "İşletmeniz için mobil olanaklar",
+          "items": [
+            {
+              "title": "Bağlantılı saha ekipleri",
+              "description": "Ofis dışında çalışan ekipler için görev listeleri, servis kayıtları ve pratik iş akışları."
+            },
+            {
+              "title": "Müşteri self servis",
+              "description": "Müşterilerin bağımsız erişebileceği hesap bilgileri, talepler ve durum güncellemeleri."
+            },
+            {
+              "title": "Ticaret ve sipariş",
+              "description": "İş sistemlerinize bağlı ürün keşfi, sipariş ve satın alma akışları."
+            },
+            {
+              "title": "Bağlantılı cihazlar",
+              "description": "Cihaz verilerini ve denetimlerini kullanıcılara sunan yardımcı uygulamalar."
+            },
+            {
+              "title": "Operasyon panoları",
+              "description": "İnsanların günlük kararlarında ihtiyaç duyduğu bilgilerin odaklı görünümleri."
+            },
+            {
+              "title": "Çalışan uygulamaları",
+              "description": "İletişim, onay ve günlük kurumsal görevler için iç araçlar."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700005",
+          "type": "technology-stack",
+          "title": "iOS mobil uygulama geliştirme",
+          "items": [
+            {
+              "title": "Swift",
+              "description": "Yerel uygulama mantığı ve Apple platform özellikleriyle entegrasyon."
+            },
+            {
+              "title": "SwiftUI ve UIKit",
+              "description": "Ürüne, etkileşim ihtiyaçlarına ve desteklenen cihazlara uygun arayüzler."
+            },
+            {
+              "title": "Apple platform entegrasyonu",
+              "description": "Bildirimler, cihaz özellikleri ve kimlik doğrulamanın uygulama mimarisinde ele alınması."
+            },
+            {
+              "title": "Test ve yayın",
+              "description": "Cihaz kontrolleri, erişilebilirlik incelemesi ve App Store başvuru sürecine hazırlık."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700006",
+          "type": "technology-stack",
+          "title": "Android mobil uygulama geliştirme",
+          "items": [
+            {
+              "title": "Kotlin",
+              "description": "Yerel Android uygulama mantığı ve platform entegrasyonu için bir temel."
+            },
+            {
+              "title": "Jetpack Compose",
+              "description": "Anlaşılır kullanıcı akışlarını destekleyen yeniden kullanılabilir arayüz bileşenleri."
+            },
+            {
+              "title": "Android cihaz özellikleri",
+              "description": "Bildirimleri, arka plan işlemlerini ve kitlenizin kullandığı farklı cihazları planlayın."
+            },
+            {
+              "title": "Test ve dağıtım",
+              "description": "Temel akışları, cihaz uyumluluğunu ve Google Play yayın hazırlığını doğrulayın."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700007",
+          "type": "technology-stack",
+          "title": "Çapraz platform mobil uygulama geliştirme",
+          "items": [
+            {
+              "title": "Flutter",
+              "description": "Tutarlı bir arayüz sistemiyle ortak uygulama geliştirme yaklaşımı."
+            },
+            {
+              "title": "React Native",
+              "description": "Ortak JavaScript veya TypeScript temelleriyle mobil deneyimler."
+            },
+            {
+              "title": "Ortak hizmetler",
+              "description": "Uygun iş mantığını, API istemcilerini ve doğrulamayı platformlar arasında paylaşın."
+            },
+            {
+              "title": "Platforma özgü iyileştirmeler",
+              "description": "Yerel davranışın önemli olduğu noktalarda gezinme, izinler ve cihaz entegrasyonlarını uyarlayın."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700008",
+          "type": "features",
+          "title": "Ürün yaşam döngüsü boyunca mobil mühendislik",
+          "items": [
+            {
+              "title": "Uçtan uca geliştirme",
+              "description": "Keşif, tasarım, mühendislik ve yayını koordineli bir planla birleştirin."
+            },
+            {
+              "title": "API ve sistem entegrasyonu",
+              "description": "Uygulamayı açıkça tanımlanmış arayüzlerle iş hizmetlerine bağlayın."
+            },
+            {
+              "title": "Uygulama güvenliği",
+              "description": "Erişim denetimlerini, güvenli veri işlemeyi ve tehdit senaryolarını süreç boyunca değerlendirin."
+            },
+            {
+              "title": "UI/UX tasarımı",
+              "description": "Küçük ekranlar için anlaşılır gezinme, faydalı içerik ve kapsayıcı etkileşimler tasarlayın."
+            },
+            {
+              "title": "Kalite güvencesi",
+              "description": "Önemli akışları, hata durumlarını, kesintileri ve desteklenen cihazları test edin."
+            },
+            {
+              "title": "Bakım ve geliştirme",
+              "description": "Ürün değiştikçe iyileştirmeleri önceliklendirin, sorunları izleyin ve güncellemeleri planlayın."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700017",
+          "type": "use-cases",
+          "title": "Mobil deneyiminizi genişleten teknolojiler",
+          "items": [
+            {
+              "title": "Bağlantılı cihazlar ve IoT",
+              "description": "Cihaz izinlerini ve bağlantıyı dikkate alarak ekipmanların mobil izlenmesini ve kontrolünü değerlendirin."
+            },
+            {
+              "title": "Bulut bağlantılı uygulamalar",
+              "description": "Mobil iş akışlarını ölçeklenebilir arka uç hizmetleri ve tutarlı veri arayüzleriyle birleştirin."
+            },
+            {
+              "title": "Yapay zekâ destekli deneyimler",
+              "description": "Uygun insan denetimi ve veri işleme ile destekli arama veya öneriler gibi odaklı özellikleri değerlendirin."
+            },
+            {
+              "title": "Veri ve analitik",
+              "description": "Kullanıcı akışlarını anlamak ve gelecekteki iyileştirmeleri yönlendirmek için ilgili ürün sinyallerini kullanın."
+            },
+            {
+              "title": "Konum duyarlı iş akışları",
+              "description": "İzin ve gizlilik gereksinimlerini dikkate alarak konum bilgisinden yararlanan görevleri destekleyin."
+            },
+            {
+              "title": "Çevrimdışı çalışmaya hazırlık",
+              "description": "Kesintili bağlantı için yerel veriyi, eşitlemeyi ve çakışma yönetimini planlayın."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701011",
+          "type": "capabilities",
+          "title": "Dört aşamalı mobil uygulama geliştirme yolculuğu",
+          "items": [
+            {
+              "title": "Keşfedin ve tanımlayın",
+              "description": "Kullanıcıları anlayın, temel akışları haritalayın; kapsam, kısıtlar ve başarı ölçütlerinde uzlaşın."
+            },
+            {
+              "title": "Tasarlayın ve doğrulayın",
+              "description": "Arayüz tasarımları ve prototiplerle deneyimi inceleyin; geliştirmeden önce varsayımları değerlendirin."
+            },
+            {
+              "title": "Geliştirin ve test edin",
+              "description": "Yönetilebilir adımlarla geliştirin, hizmetleri entegre edin; işlevselliği, kullanılabilirliği ve güvenilirliği doğrulayın."
+            },
+            {
+              "title": "Yayınlayın ve iyileştirin",
+              "description": "Yayını hazırlayın, destek sorumluluklarını belirleyin ve sonraki iyileştirmeleri geri bildirimlerle yönlendirin."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701012",
+          "type": "features",
+          "title": "Projeniz için iş birliği modelini seçin",
+          "items": [
+            {
+              "title": "Özel geliştirme ekibi",
+              "description": "Ürün, tasarım ve mühendislik rollerini ortak bir iş listesi ve teslimat ritmi etrafında birleştirin."
+            },
+            {
+              "title": "Ekibinizi genişletin",
+              "description": "Süreçlerinizi ve ürün yönünüzü koruyarak mevcut ekibinizin ihtiyaç duyduğu yetkinlikleri ekleyin."
+            },
+            {
+              "title": "Odaklı bir proje",
+              "description": "Yeni uygulama, entegrasyon veya modernizasyon için sınırları belirli bir sonuç, kapsam ve kilometre taşları tanımlayın."
+            },
+            {
+              "title": "Danışmanlık",
+              "description": "Odaklı bir danışmanlık çalışmasıyla mimarinizi değerlendirin, teknik bir kararı netleştirin veya yol haritanızı oluşturun."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700015",
+          "type": "benefits",
+          "title": "Mobil geliştirmede pratik bir yaklaşım",
+          "items": [
+            {
+              "title": "Önce iş bağlamı",
+              "description": "Ürün kararlarını uygulamayı kullanan kişilerle ve desteklediği operasyonlarla uyumlu hale getirin."
+            },
+            {
+              "title": "Görünür ilerleme",
+              "description": "Tamamlanan işleri ve yaklaşan kararları düzenli değerlendirerek öncelikli bir iş listesiyle ilerleyin."
+            },
+            {
+              "title": "Süreç boyunca kalite",
+              "description": "Özellik geliştirmeyle birlikte kullanılabilirliği, güvenliği ve sürdürülebilirliği ele alın."
+            },
+            {
+              "title": "Açık bir devir süreci",
+              "description": "Uygulamanın gelişebilmesi için temel kararları, yayın adımlarını ve destek sorumluluklarını belgeleyin."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700013",
+          "type": "faq",
+          "title": "Sık sorulan sorular",
+          "items": [
+            {
+              "question": "Yerel ve çapraz platform geliştirme arasında nasıl seçim yapılır?",
+              "answer": "Seçim; kullanıcı deneyimine, cihaz entegrasyonlarına, ekip yetkinliklerine ve bakım beklentilerine bağlıdır. Keşif aşaması bu seçenekleri değerlendirmeye yardımcı olur."
+            },
+            {
+              "question": "Mevcut bir mobil uygulamayla çalışabilir misiniz?",
+              "answer": "İlk inceleme mimari, kalite ve teslimat kısıtlarını belirleyebilir. Ardından hedefli iyileştirme, modernizasyon veya özellik geliştirme planı oluşturulabilir."
+            },
+            {
+              "question": "Mobil uygulama geliştirmek ne kadar sürer?",
+              "answer": "Süre; kapsam, entegrasyonlar, tasarım karmaşıklığı ve yayın ihtiyaçlarına bağlıdır. Keşif aşaması gerçekçi bir plan oluşturmaya yardımcı olur."
+            },
+            {
+              "question": "Güvenlik ve gizlilik nasıl ele alınır?",
+              "answer": "Gereksinimler; kimlik doğrulama, yetkilendirme, hassas veriler, üçüncü taraf hizmetleri ve ilgili kurum politikalarını kapsamalıdır. Bunlar tasarım, uygulama ve test kararlarını yönlendirir."
+            },
+            {
+              "question": "Yayından sonra ne olur?",
+              "answer": "Destek sorumlulukları, izleme, sorun yönetimi ve planlanan iyileştirmeler yayından önce belirlenmelidir. Yaklaşım, uygulama ve kullanıcılarıyla birlikte gelişebilir."
+            },
+            {
+              "question": "Uygulama mevcut sistemlerimize bağlanabilir mi?",
+              "answer": "Entegrasyon; mevcut API, veri modeli ve erişim ihtiyaçlarının değerlendirilmesiyle başlar. Bu çalışma mobil iş akışlarının sistemlere bağlanması için pratik bir yaklaşım oluşturur."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700016",
+          "type": "related-services",
+          "title": "İlgili hizmetleri keşfedin",
+          "ids": [
+            "120a356c-457a-4482-9b46-fd63258c7e65",
+            "168250f3-b0b4-4d39-a5f6-67eb3d5b76d5",
+            "223835db-fd9e-483d-b1c9-d8cfec16b07f",
+            "ec778f13-2ca5-49f2-908c-8752292ee912",
+            "71f9d7bd-8456-40ea-a0b8-2cb3f821e156"
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700014",
+          "type": "cta",
+          "title": "Mobil uygulamanızı konuşalım",
+          "body": "Kullanıcılarınızı, fikrinizi veya mevcut uygulamanızı anlatın. Kapsamı inceleyip uygulanabilir bir sonraki adımı belirleyebiliriz.",
+          "label": "İletişime geçin",
+          "href": "/contact"
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "title": "تطوير تطبيقات الجوال",
+      "summary": "خطط لتطبيقات الجوال وطوّرها وحسّنها وفق احتياجات المستخدمين والعمليات وأهداف الأعمال.",
+      "published": true,
+      "seoTitle": "تطوير تطبيقات الجوال | TEVONIQ",
+      "seoDescription": "خطط لتطبيقات الجوال وطوّرها وحسّنها وفق احتياجات المستخدمين والعمليات وأهداف الأعمال.",
+      "blocks": [
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700001",
+          "type": "hero",
+          "title": "خدمات تطوير تطبيقات الجوال",
+          "description": "خطط لتطبيقات الجوال وطوّرها وحسّنها وفق احتياجات المستخدمين والعمليات وأهداف الأعمال.",
+          "assetKey": "none"
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700002",
+          "type": "overview",
+          "title": "تجارب جوال تلبي احتياجات الأعمال الفعلية",
+          "body": "يربط المنتج المفيد بين حاجة واضحة للمستخدم وهندسة موثوقة. نجمع استكشاف المنتج وتصميم الواجهات وتطوير التطبيقات ضمن نهج تسليم متكامل.\n\nمن الإصدار الأول إلى تطوير منصة قائمة، نساعدك على تحديد ما ينبغي بناؤه وكيفية ربطه بأنظمتك وصيانته بعد الإطلاق."
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700003",
+          "type": "benefits",
+          "title": "قيمة تجربة جوال مدروسة",
+          "items": [
+            {
+              "title": "الوصول إلى الأشخاص أينما يعملون",
+              "description": "أتح المهام الأساسية للمستخدمين في المكتب أو الميدان أو أثناء التنقل."
+            },
+            {
+              "title": "ربط العمليات",
+              "description": "اربط مسارات العمل عبر الجوال بالبيانات والخدمات والأنظمة التي تستخدمها مؤسستك."
+            },
+            {
+              "title": "تبسيط المهام اليومية",
+              "description": "صمّم مسارات مركزة تساعد الأشخاص على العثور على المعلومات وإنجاز المهام وفهم الخطوة التالية."
+            },
+            {
+              "title": "أساس قابل للتطور",
+              "description": "اعتمد بنية وعملية إصدار تستوعبان الملاحظات والخصائص الجديدة والاحتياجات المتغيرة."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700004",
+          "type": "capabilities",
+          "title": "خدماتنا لتطوير تطبيقات الجوال",
+          "items": [
+            {
+              "title": "استراتيجية الجوال والاستكشاف",
+              "description": "حدّد الجمهور وأهداف المنتج والقيود، وحوّل الفكرة إلى نطاق ذي أولويات وخطة تنفيذ."
+            },
+            {
+              "title": "تطوير أصلي لنظامي iOS وAndroid",
+              "description": "أنشئ تجارب خاصة بكل منصة مع مراعاة إمكانات الأجهزة وأنماط الواجهات وسلوك دورة حياة التطبيق."
+            },
+            {
+              "title": "التطوير متعدد المنصات",
+              "description": "قيّم استخدام قاعدة شيفرة مشتركة عندما تلائم المنتج، مع معالجة الفروق المهمة بين المنصات."
+            },
+            {
+              "title": "تحديث التطبيقات ودعمها",
+              "description": "راجع التطبيق الحالي وحسّن قابليته للصيانة وخطّط التحديثات وفق الأولويات التقنية واحتياجات المستخدمين."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700009",
+          "type": "use-cases",
+          "title": "إمكانات الجوال لأعمالك",
+          "items": [
+            {
+              "title": "فرق ميدانية متصلة",
+              "description": "قوائم مهام وسجلات خدمة ومسارات عمل عملية للفرق خارج المكتب."
+            },
+            {
+              "title": "الخدمة الذاتية للعملاء",
+              "description": "معلومات الحساب والطلبات وتحديثات الحالة التي يمكن للعملاء الوصول إليها بأنفسهم."
+            },
+            {
+              "title": "التجارة والطلبات",
+              "description": "اكتشاف المنتجات والطلب والشراء ضمن مسارات متصلة بأنظمة أعمالك."
+            },
+            {
+              "title": "الأجهزة المتصلة",
+              "description": "تطبيقات مرافقة تتيح بيانات الأجهزة وأدوات التحكم للمستخدمين."
+            },
+            {
+              "title": "لوحات معلومات العمليات",
+              "description": "عروض مركزة للمعلومات التي يحتاجها الأشخاص لاتخاذ قراراتهم اليومية."
+            },
+            {
+              "title": "تطبيقات الموظفين",
+              "description": "أدوات داخلية للتواصل والموافقات والمهام التنظيمية اليومية."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700005",
+          "type": "technology-stack",
+          "title": "تطوير تطبيقات iOS",
+          "items": [
+            {
+              "title": "Swift",
+              "description": "منطق التطبيق الأصلي والتكامل مع إمكانات منصات Apple."
+            },
+            {
+              "title": "SwiftUI وUIKit",
+              "description": "واجهات تلائم المنتج ومتطلبات التفاعل والأجهزة المدعومة."
+            },
+            {
+              "title": "التكامل مع منصة Apple",
+              "description": "معالجة الإشعارات وخصائص الأجهزة والمصادقة ضمن بنية التطبيق."
+            },
+            {
+              "title": "الاختبار والإصدار",
+              "description": "فحص الأجهزة ومراجعة إمكانية الوصول والتحضير لتقديم التطبيق إلى App Store."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700006",
+          "type": "technology-stack",
+          "title": "تطوير تطبيقات Android",
+          "items": [
+            {
+              "title": "Kotlin",
+              "description": "أساس لمنطق تطبيقات Android الأصلية والتكامل مع المنصة."
+            },
+            {
+              "title": "Jetpack Compose",
+              "description": "مكونات واجهة قابلة لإعادة الاستخدام تدعم مسارات مستخدم واضحة."
+            },
+            {
+              "title": "إمكانات أجهزة Android",
+              "description": "التخطيط للإشعارات والعمل في الخلفية وتنوع الأجهزة التي يستخدمها جمهورك."
+            },
+            {
+              "title": "الاختبار والتوزيع",
+              "description": "التحقق من المسارات الأساسية وتوافق الأجهزة والاستعداد للإصدار عبر Google Play."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700007",
+          "type": "technology-stack",
+          "title": "تطوير تطبيقات متعددة المنصات",
+          "items": [
+            {
+              "title": "Flutter",
+              "description": "نهج تطبيق مشترك مع نظام واجهة متسق."
+            },
+            {
+              "title": "React Native",
+              "description": "تجارب جوال مبنية على أسس JavaScript أو TypeScript مشتركة."
+            },
+            {
+              "title": "الخدمات المشتركة",
+              "description": "مشاركة منطق الأعمال المناسب وعملاء API والتحقق بين المنصات."
+            },
+            {
+              "title": "تحسينات خاصة بالمنصة",
+              "description": "تكييف التنقل والأذونات وتكامل الأجهزة حيث تكون السلوكيات الأصلية مهمة."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700008",
+          "type": "features",
+          "title": "هندسة الجوال عبر دورة حياة المنتج",
+          "items": [
+            {
+              "title": "التطوير المتكامل",
+              "description": "ربط الاستكشاف والتصميم والهندسة والإصدار ضمن خطة منسقة."
+            },
+            {
+              "title": "تكامل الأنظمة وواجهات API",
+              "description": "ربط التطبيق بخدمات الأعمال من خلال واجهات محددة بوضوح."
+            },
+            {
+              "title": "أمان التطبيق",
+              "description": "مراعاة ضوابط الوصول والتعامل الآمن مع البيانات وسيناريوهات التهديد طوال التنفيذ."
+            },
+            {
+              "title": "تصميم الواجهات وتجربة المستخدم",
+              "description": "إنشاء تنقل واضح ومحتوى مفيد وتفاعلات شاملة للشاشات الصغيرة."
+            },
+            {
+              "title": "ضمان الجودة",
+              "description": "اختبار المسارات المهمة وحالات الخطأ والانقطاعات والأجهزة المدعومة."
+            },
+            {
+              "title": "الصيانة والتطوير",
+              "description": "ترتيب التحسينات ومتابعة المشكلات والتخطيط للتحديثات مع تغير المنتج."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700017",
+          "type": "use-cases",
+          "title": "تقنيات توسّع تجربة الجوال",
+          "items": [
+            {
+              "title": "الأجهزة المتصلة وإنترنت الأشياء",
+              "description": "استكشاف مراقبة المعدات المتصلة والتحكم بها عبر الجوال مع مراعاة الأذونات والاتصال."
+            },
+            {
+              "title": "تطبيقات متصلة بالسحابة",
+              "description": "ربط مسارات الجوال بخدمات خلفية قابلة للتوسع وواجهات بيانات متسقة."
+            },
+            {
+              "title": "تجارب بمساعدة الذكاء الاصطناعي",
+              "description": "دراسة خصائص مركزة مثل البحث المساعد أو التوصيات مع إشراف بشري وتعامل مناسب مع البيانات."
+            },
+            {
+              "title": "البيانات والتحليلات",
+              "description": "الاستفادة من مؤشرات المنتج ذات الصلة لفهم المسارات وتوجيه التحسينات المستقبلية."
+            },
+            {
+              "title": "مسارات تراعي الموقع",
+              "description": "دعم المهام التي تستفيد من سياق الموقع مع مراعاة متطلبات الأذونات والخصوصية."
+            },
+            {
+              "title": "عمليات جاهزة للعمل دون اتصال",
+              "description": "تخطيط البيانات المحلية والمزامنة ومعالجة التعارضات عند الاتصال المتقطع."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701011",
+          "type": "capabilities",
+          "title": "رحلة تطوير تطبيق الجوال في أربع مراحل",
+          "items": [
+            {
+              "title": "الاستكشاف والتحديد",
+              "description": "فهم المستخدمين ورسم المسارات الأساسية والاتفاق على النطاق والقيود ومعايير النجاح."
+            },
+            {
+              "title": "التصميم والتحقق",
+              "description": "استكشاف التجربة من خلال الواجهات والنماذج الأولية ومراجعة الافتراضات قبل التنفيذ."
+            },
+            {
+              "title": "البناء والاختبار",
+              "description": "التطوير بخطوات قابلة للإدارة وربط الخدمات والتحقق من الوظائف وسهولة الاستخدام والموثوقية."
+            },
+            {
+              "title": "الإطلاق والتحسين",
+              "description": "تجهيز الإصدار وتحديد مسؤوليات الدعم والاستفادة من الملاحظات لتوجيه التحسينات القادمة."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399701012",
+          "type": "features",
+          "title": "اختر نموذج التعاون المناسب لمشروعك",
+          "items": [
+            {
+              "title": "فريق تنفيذ مخصص",
+              "description": "اجمع أدوار المنتج والتصميم والهندسة حول قائمة عمل مشتركة وإيقاع تسليم متفق عليه."
+            },
+            {
+              "title": "توسيع فريقك",
+              "description": "أضف القدرات التي يحتاجها فريقك الحالي مع الحفاظ على عملياتك واتجاه منتجك."
+            },
+            {
+              "title": "مشروع محدد النطاق",
+              "description": "حدّد نتيجة ونطاقًا ومراحل واضحة لتطبيق جديد أو تكامل أو عملية تحديث."
+            },
+            {
+              "title": "الاستشارات",
+              "description": "قيّم البنية أو احسم قرارًا تقنيًا أو طوّر خارطة طريق من خلال تعاون استشاري محدد."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700015",
+          "type": "benefits",
+          "title": "نهج عملي لتطوير الجوال",
+          "items": [
+            {
+              "title": "سياق الأعمال أولًا",
+              "description": "مواءمة قرارات المنتج مع الأشخاص الذين يستخدمون التطبيق والعمليات التي يدعمها."
+            },
+            {
+              "title": "تقدم واضح",
+              "description": "العمل من قائمة أولويات مع مراجعات منتظمة للأعمال المنجزة والقرارات القادمة."
+            },
+            {
+              "title": "الجودة طوال التنفيذ",
+              "description": "مراعاة سهولة الاستخدام والأمان وقابلية الصيانة إلى جانب تطوير الخصائص."
+            },
+            {
+              "title": "تسليم واضح",
+              "description": "توثيق القرارات الأساسية وخطوات الإصدار ومسؤوليات الدعم لتمكين التطبيق من مواصلة التطور."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700013",
+          "type": "faq",
+          "title": "الأسئلة الشائعة",
+          "items": [
+            {
+              "question": "كيف نختار بين التطوير الأصلي ومتعدد المنصات؟",
+              "answer": "يعتمد الاختيار على تجربة المستخدم وتكامل الأجهزة وقدرات الفريق وتوقعات الصيانة. تساعد مرحلة الاستكشاف على تقييم هذه الموازنة قبل اختيار النهج."
+            },
+            {
+              "question": "هل يمكنكم العمل على تطبيق جوال قائم؟",
+              "answer": "يمكن أن تحدد المراجعة الأولية قيود البنية والجودة والتسليم، ثم توضع خطة لتحسينات محددة أو تحديث التطبيق أو مواصلة تطوير خصائصه."
+            },
+            {
+              "question": "كم يستغرق تطوير تطبيق جوال؟",
+              "answer": "تعتمد المدة على النطاق والتكاملات وتعقيد التصميم ومتطلبات الإصدار. تساعد مرحلة الاستكشاف على تحديد مراحل وخطة تنفيذ واقعية."
+            },
+            {
+              "question": "كيف تتم معالجة الأمان والخصوصية؟",
+              "answer": "ينبغي أن تشمل المتطلبات المصادقة والتفويض والبيانات الحساسة وخدمات الأطراف الثالثة وسياسات المؤسسة ذات الصلة. وتوجّه هذه المتطلبات قرارات التصميم والتنفيذ والاختبار."
+            },
+            {
+              "question": "ماذا يحدث بعد الإطلاق؟",
+              "answer": "ينبغي الاتفاق على مسؤوليات الدعم والمراقبة ومعالجة المشكلات والتحسينات المخطط لها قبل الإصدار. ويمكن أن يتطور النهج مع التطبيق ومستخدميه."
+            },
+            {
+              "question": "هل يمكن ربط التطبيق بأنظمتنا الحالية؟",
+              "answer": "يبدأ التكامل بتقييم واجهات API ونماذج البيانات ومتطلبات الوصول المتاحة. ويحدد ذلك نهجًا عمليًا لربط مسارات الجوال بالأنظمة القائمة."
+            }
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700016",
+          "type": "related-services",
+          "title": "استكشف الخدمات ذات الصلة",
+          "ids": [
+            "120a356c-457a-4482-9b46-fd63258c7e65",
+            "168250f3-b0b4-4d39-a5f6-67eb3d5b76d5",
+            "223835db-fd9e-483d-b1c9-d8cfec16b07f",
+            "ec778f13-2ca5-49f2-908c-8752292ee912",
+            "71f9d7bd-8456-40ea-a0b8-2cb3f821e156"
+          ]
+        },
+        {
+          "id": "894c7159-bf42-47a7-9759-aac399700014",
+          "type": "cta",
+          "title": "لنتحدث عن تطبيق الجوال الخاص بك",
+          "body": "أخبرنا عن المستخدمين أو الفكرة أو التطبيق الحالي. يمكننا استكشاف النطاق وتحديد خطوة عملية تالية.",
+          "label": "تواصل معنا",
+          "href": "/contact"
+        }
+      ]
+    }
+  ]
+}

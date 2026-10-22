@@ -1,0 +1,13 @@
+'use client';
+import { createContext, useContext, type ReactNode } from 'react';
+const NonceContext = createContext<string | undefined>(undefined);
+export const useNonce = () => useContext(NonceContext);
+export function NonceProvider({
+  nonce,
+  children,
+}: {
+  nonce: string | undefined;
+  children: ReactNode;
+}) {
+  return <NonceContext.Provider value={nonce}>{children}</NonceContext.Provider>;
+}

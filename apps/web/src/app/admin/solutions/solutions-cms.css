@@ -1,0 +1,46 @@
+@import '../services/cms.css';
+@import '../../[locale]/solutions/solutions.css';
+.solution-service-options {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+.solution-selected-services {
+  padding-inline-start: 1.5rem;
+}
+.solution-selected-services li {
+  padding-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.solution-selected-services li > div {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-block-start: 0.5rem;
+}
+.solution-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1.5rem;
+}
+.solution-preview {
+  border: 2px dashed var(--color-electric);
+  margin-block: 2rem;
+  overflow: hidden;
+}
+.solution-preview > p {
+  padding: 1rem;
+}
+.solution-audit {
+  max-height: 24rem;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  padding-inline-start: 1.5rem;
+}
+.solution-audit li {
+  margin-block: 1rem;
+}
+.cms-editor form > .tv-field {
+  margin-block-end: 1.5rem;
+}

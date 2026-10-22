@@ -1,0 +1,167 @@
+.insights-page {
+  color: var(--color-navy);
+}
+.insights-hero {
+  background: var(--color-mist);
+  border-bottom: 1px solid var(--tv-line);
+}
+.insights-intro {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  max-width: 48rem;
+  line-height: 1.75;
+}
+.insight-kicker {
+  color: var(--color-electric);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.insight-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+.insight-nav a,
+.insight-pagination a,
+.insight-tags a {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.insight-card {
+  background: white;
+  border: 1px solid var(--tv-line);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.insight-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.insight-card-body {
+  padding: 1.5rem;
+}
+.insight-card h2 {
+  margin-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.insight-card p {
+  line-height: 1.7;
+}
+.insight-meta {
+  font-size: 0.85rem;
+  color: var(--tv-muted);
+}
+.insight-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.insight-filters label {
+  display: grid;
+  gap: 0.5rem;
+  flex: 1 1 10rem;
+}
+.insight-filters input,
+.insight-filters select,
+.insight-filters button {
+  padding: 0.8rem;
+  border: 1px solid var(--tv-line);
+  border-radius: 0.5rem;
+  background: white;
+  color: var(--color-navy);
+  max-width: 100%;
+}
+.insight-filters button {
+  background: var(--color-navy);
+  color: white;
+  cursor: pointer;
+}
+.insight-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.insight-article {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+.insight-prose {
+  line-height: 1.9;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+.insight-prose p {
+  white-space: pre-line;
+  margin-block: 1.5rem;
+}
+.insight-prose h2 {
+  font-size: 1.8rem;
+  margin-top: 3rem;
+}
+.insight-prose h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+.insight-prose ul {
+  list-style: disc;
+  padding-inline-start: 1.5rem;
+}
+.insight-prose ol {
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
+}
+.insight-prose blockquote {
+  border-inline-start: 3px solid var(--color-electric);
+  margin-inline: 0;
+  padding-inline-start: 1.5rem;
+}
+.insight-prose pre {
+  direction: ltr;
+  text-align: left;
+  overflow-x: auto;
+  padding: 1.5rem;
+  background: var(--color-navy);
+  color: white;
+  border-radius: 0.7rem;
+}
+.insight-prose figure {
+  margin: 2rem 0;
+}
+.insight-prose figcaption {
+  font-size: 0.85rem;
+  color: var(--tv-muted);
+}
+.insight-prose a {
+  text-decoration: underline;
+}
+.insight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+@media (max-width: 1000px) {
+  .insight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+  .insight-nav {
+    gap: 1rem;
+  }
+}

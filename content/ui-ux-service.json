@@ -1,0 +1,494 @@
+{
+  "slug": "ui-ux-design",
+  "active": true,
+  "sortOrder": 43,
+  "version": 0,
+  "translations": [
+    {
+      "locale": "en",
+      "title": "UI/UX Design",
+      "summary": "Research, product journeys and interface design that connect your users’ needs with your business goals.",
+      "published": true,
+      "seoTitle": "UI/UX Design | TEVONIQ",
+      "seoDescription": "Research, product journeys and interface design that connect your users’ needs with your business goals.",
+      "blocks": [
+        {
+          "id": "597ee112-23b9-5156-b97f-041bd1e3ce77",
+          "type": "hero",
+          "title": "Make every interaction feel considered.",
+          "description": "Research, product journeys and interface design that connect your users’ needs with your business goals.",
+          "assetKey": "none"
+        },
+        {
+          "id": "3193299f-3b3f-5109-89e7-47c0f7e9e7ae",
+          "type": "overview",
+          "title": "Useful to people. Purposeful for business.",
+          "body": "A good interface starts before the first screen. We explore what people need to do, where they get stuck and what your product needs to achieve. Those insights shape clear journeys, considered visual systems and designs your team can build on."
+        },
+        {
+          "id": "fa90577d-7a44-54a9-89b3-7b01d6cc73bd",
+          "type": "benefits",
+          "title": "Design decisions that move the product forward.",
+          "items": [
+            {
+              "title": "Clearer journeys",
+              "description": "Help people understand where they are, what to do next and how to complete their task."
+            },
+            {
+              "title": "A coherent experience",
+              "description": "Bring screens, language and interaction patterns into a recognizable whole."
+            },
+            {
+              "title": "Earlier learning",
+              "description": "Use prototypes to explore assumptions before committing to implementation."
+            },
+            {
+              "title": "Inclusive interactions",
+              "description": "Consider readability, keyboard use, contrast and different ways of navigating."
+            },
+            {
+              "title": "Shared understanding",
+              "description": "Give stakeholders and engineers a common view of intended product behavior."
+            },
+            {
+              "title": "Room to evolve",
+              "description": "Build reusable patterns that can grow with new features and changing needs."
+            }
+          ]
+        },
+        {
+          "id": "417928f9-113e-5d22-a403-29e136d65ebf",
+          "type": "capabilities",
+          "title": "From the first question to a build-ready design.",
+          "items": [
+            {
+              "title": "Discover the context",
+              "description": "Understand users, business priorities and existing constraints. Deliverables: a research plan, stakeholder insights and a problem statement."
+            },
+            {
+              "title": "Map the experience",
+              "description": "Organize information and identify the main tasks people need to complete. Deliverables: journey maps, information architecture and user flows."
+            },
+            {
+              "title": "Explore in wireframes",
+              "description": "Compare layouts and interaction ideas without getting distracted by visual polish. Deliverables: low-fidelity screens and flow alternatives."
+            },
+            {
+              "title": "Shape the visual system",
+              "description": "Develop a consistent visual language around your brand. Deliverables: interface designs, typography, color and component foundations."
+            },
+            {
+              "title": "Prototype and evaluate",
+              "description": "Make key journeys tangible and gather feedback on how they work. Deliverables: an interactive prototype, usability observations and prioritized refinements."
+            },
+            {
+              "title": "Prepare the handoff",
+              "description": "Clarify behavior and collaborate with the implementation team. Deliverables: design specifications, component states and a handoff walkthrough."
+            }
+          ]
+        },
+        {
+          "id": "be52307b-b31d-5a1b-a319-1e02c5657e43",
+          "type": "features",
+          "title": "The right design discipline for the challenge.",
+          "items": [
+            {
+              "title": "UX research & strategy",
+              "description": "Frame the problem through interviews, product reviews and focused exploration."
+            },
+            {
+              "title": "Product & interface design",
+              "description": "Connect information, interaction and visual hierarchy across web and mobile."
+            },
+            {
+              "title": "Design systems",
+              "description": "Define reusable components and practical guidance for consistent delivery."
+            },
+            {
+              "title": "UX audits & refinement",
+              "description": "Review an existing experience and prioritize specific, actionable improvements."
+            }
+          ]
+        },
+        {
+          "id": "8e94d62c-fff2-5385-a578-6333e6497c36",
+          "type": "use-cases",
+          "title": "What this could look like in your product.",
+          "items": [
+            {
+              "title": "A self-service portal",
+              "description": "Illustrative scenario: simplify a customer’s path from a request to a clear status update."
+            },
+            {
+              "title": "An operations workspace",
+              "description": "Illustrative scenario: organize tasks and exceptions so a team can identify its next action."
+            },
+            {
+              "title": "A mobile booking journey",
+              "description": "Illustrative scenario: make selection, review and confirmation easy to follow on a small screen."
+            }
+          ]
+        },
+        {
+          "id": "dd6b1947-4001-5ea2-a4ba-7bfcf5fee5f2",
+          "type": "faq",
+          "title": "Before we start.",
+          "items": [
+            {
+              "question": "Can you improve an existing product?",
+              "answer": "Yes. We can begin with an experience review and focus on priority journeys rather than redesigning every screen."
+            },
+            {
+              "question": "What do you need from our team?",
+              "answer": "Product context, access to relevant stakeholders and available user insights are useful starting points. We agree on the research and collaboration approach together."
+            },
+            {
+              "question": "How do you work with developers?",
+              "answer": "We discuss constraints early and document component states, responsive behavior and interaction details for implementation."
+            },
+            {
+              "question": "Is accessibility part of the design?",
+              "answer": "We consider accessibility throughout the design process. Specific standards, evaluation methods and verification responsibilities are agreed for the project."
+            },
+            {
+              "question": "How is the project scope defined?",
+              "answer": "Scope depends on the product, research needs and number of journeys. We define stages, deliverables and review points before work begins."
+            }
+          ]
+        },
+        {
+          "id": "667bca8f-e2a5-5910-b0ee-7736f931a610",
+          "type": "cta",
+          "title": "Let’s make the next interaction better.",
+          "body": "Tell us about your product, your users and the experience you want to improve.",
+          "label": "Discuss your project",
+          "href": "/contact"
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "title": "UI/UX Tasarımı",
+      "summary": "Kullanıcı ihtiyaçlarını iş hedeflerinizle buluşturan araştırma, ürün yolculukları ve arayüz tasarımı.",
+      "published": true,
+      "seoTitle": "UI/UX Tasarımı | TEVONIQ",
+      "seoDescription": "Kullanıcı ihtiyaçlarını iş hedeflerinizle buluşturan araştırma, ürün yolculukları ve arayüz tasarımı.",
+      "blocks": [
+        {
+          "id": "9326c9ff-6bb8-5138-a650-f0ecf63c0120",
+          "type": "hero",
+          "title": "Her etkileşimi özenle tasarlayın.",
+          "description": "Kullanıcı ihtiyaçlarını iş hedeflerinizle buluşturan araştırma, ürün yolculukları ve arayüz tasarımı.",
+          "assetKey": "none"
+        },
+        {
+          "id": "663a6783-c6a7-5725-a991-d29bfd09faab",
+          "type": "overview",
+          "title": "İnsanlar için kullanışlı. İş için anlamlı.",
+          "body": "İyi bir arayüz, ilk ekrandan önce başlar. İnsanların ne yapmak istediğini, nerede zorlandığını ve ürünün neyi başarması gerektiğini araştırırız. Bu bilgiler açık yolculuklara, tutarlı görsel sistemlere ve ekibinizin geliştirebileceği tasarımlara yön verir."
+        },
+        {
+          "id": "21262b92-7a9a-5f75-aa12-ddcbf4e4f80c",
+          "type": "benefits",
+          "title": "Ürünü ileri taşıyan tasarım kararları.",
+          "items": [
+            {
+              "title": "Daha açık yolculuklar",
+              "description": "İnsanların nerede olduklarını, sonraki adımı ve görevlerini nasıl tamamlayacaklarını anlamalarını sağlayın."
+            },
+            {
+              "title": "Tutarlı bir deneyim",
+              "description": "Ekranları, dili ve etkileşim kalıplarını tanınabilir bir bütünde birleştirin."
+            },
+            {
+              "title": "Erken öğrenme",
+              "description": "Uygulamaya geçmeden önce varsayımları prototiplerle keşfedin."
+            },
+            {
+              "title": "Kapsayıcı etkileşimler",
+              "description": "Okunabilirliği, klavye kullanımını, kontrastı ve farklı gezinme biçimlerini düşünün."
+            },
+            {
+              "title": "Ortak anlayış",
+              "description": "Paydaşlara ve mühendislere hedeflenen ürün davranışı için ortak bir bakış sunun."
+            },
+            {
+              "title": "Gelişmeye açık yapı",
+              "description": "Yeni özellikler ve değişen ihtiyaçlarla büyüyebilen yeniden kullanılabilir kalıplar oluşturun."
+            }
+          ]
+        },
+        {
+          "id": "ecb83f73-8d52-521e-a2cc-0aca813b17f1",
+          "type": "capabilities",
+          "title": "İlk sorudan geliştirmeye hazır tasarıma.",
+          "items": [
+            {
+              "title": "Bağlamı keşfedin",
+              "description": "Kullanıcıları, iş önceliklerini ve mevcut kısıtları anlayın. Çıktılar: araştırma planı, paydaş görüşleri ve problem tanımı."
+            },
+            {
+              "title": "Deneyimi haritalayın",
+              "description": "Bilgiyi düzenleyin ve temel kullanıcı görevlerini belirleyin. Çıktılar: yolculuk haritaları, bilgi mimarisi ve kullanıcı akışları."
+            },
+            {
+              "title": "Taslaklarla keşfedin",
+              "description": "Görsel ayrıntılara takılmadan düzenleri ve etkileşim fikirlerini karşılaştırın. Çıktılar: düşük detaylı ekranlar ve akış alternatifleri."
+            },
+            {
+              "title": "Görsel sistemi şekillendirin",
+              "description": "Markanız etrafında tutarlı bir görsel dil geliştirin. Çıktılar: arayüz tasarımları, tipografi, renk ve bileşen temelleri."
+            },
+            {
+              "title": "Prototip oluşturun ve değerlendirin",
+              "description": "Temel yolculukları somutlaştırın ve nasıl çalıştıklarına dair geri bildirim toplayın. Çıktılar: etkileşimli prototip, kullanılabilirlik gözlemleri ve öncelikli iyileştirmeler."
+            },
+            {
+              "title": "Teslimatı hazırlayın",
+              "description": "Davranışları netleştirin ve uygulama ekibiyle iş birliği yapın. Çıktılar: tasarım özellikleri, bileşen durumları ve teslimat görüşmesi."
+            }
+          ]
+        },
+        {
+          "id": "6db82ba4-55aa-585b-b065-6fb8667e4f61",
+          "type": "features",
+          "title": "Her zorluk için uygun tasarım disiplini.",
+          "items": [
+            {
+              "title": "UX araştırması ve strateji",
+              "description": "Görüşmeler, ürün incelemeleri ve odaklı araştırmalarla problemi çerçeveleyin."
+            },
+            {
+              "title": "Ürün ve arayüz tasarımı",
+              "description": "Web ve mobilde bilgiyi, etkileşimi ve görsel hiyerarşiyi bağlayın."
+            },
+            {
+              "title": "Tasarım sistemleri",
+              "description": "Tutarlı teslimat için yeniden kullanılabilir bileşenler ve pratik rehberlik tanımlayın."
+            },
+            {
+              "title": "UX denetimi ve iyileştirme",
+              "description": "Mevcut deneyimi inceleyin ve uygulanabilir iyileştirmeleri önceliklendirin."
+            }
+          ]
+        },
+        {
+          "id": "b9cd6cdb-5314-5d20-8298-cc75bea4c15a",
+          "type": "use-cases",
+          "title": "Ürününüzde nasıl görünebilir?",
+          "items": [
+            {
+              "title": "Self servis portalı",
+              "description": "Temsili senaryo: müşterinin talepten açık bir durum güncellemesine uzanan yolunu sadeleştirin."
+            },
+            {
+              "title": "Operasyon çalışma alanı",
+              "description": "Temsili senaryo: ekibin sonraki eylemini belirleyebilmesi için görevleri ve istisnaları düzenleyin."
+            },
+            {
+              "title": "Mobil rezervasyon yolculuğu",
+              "description": "Temsili senaryo: seçim, inceleme ve onay adımlarını küçük ekranda kolay izlenir hale getirin."
+            }
+          ]
+        },
+        {
+          "id": "302ff0ab-d113-5c9c-95e7-6337fcd60035",
+          "type": "faq",
+          "title": "Başlamadan önce.",
+          "items": [
+            {
+              "question": "Mevcut bir ürünü iyileştirebilir misiniz?",
+              "answer": "Evet. Her ekranı yeniden tasarlamak yerine deneyim incelemesiyle başlayıp öncelikli yolculuklara odaklanabiliriz."
+            },
+            {
+              "question": "Ekibimizden neye ihtiyacınız var?",
+              "answer": "Ürün bağlamı, ilgili paydaşlara erişim ve mevcut kullanıcı içgörüleri iyi bir başlangıçtır. Araştırma ve iş birliği yaklaşımını birlikte belirleriz."
+            },
+            {
+              "question": "Geliştiricilerle nasıl çalışıyorsunuz?",
+              "answer": "Kısıtları erken konuşur; bileşen durumlarını, duyarlı davranışı ve etkileşim ayrıntılarını uygulama için belgeleriz."
+            },
+            {
+              "question": "Erişilebilirlik tasarıma dahil mi?",
+              "answer": "Tasarım boyunca erişilebilirliği dikkate alırız. Belirli standartları, değerlendirme yöntemlerini ve doğrulama sorumluluklarını proje için kararlaştırırız."
+            },
+            {
+              "question": "Proje kapsamı nasıl belirlenir?",
+              "answer": "Kapsam ürüne, araştırma ihtiyaçlarına ve yolculuk sayısına bağlıdır. Çalışmadan önce aşamaları, çıktıları ve inceleme noktalarını belirleriz."
+            }
+          ]
+        },
+        {
+          "id": "96fbd481-cf49-56d0-8961-997524da15d5",
+          "type": "cta",
+          "title": "Bir sonraki etkileşimi birlikte iyileştirelim.",
+          "body": "Ürününüzü, kullanıcılarınızı ve geliştirmek istediğiniz deneyimi anlatın.",
+          "label": "Projenizi konuşalım",
+          "href": "/contact"
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "title": "تصميم واجهات وتجربة المستخدم",
+      "summary": "بحث ومسارات استخدام وتصميم واجهات تربط احتياجات مستخدميك بأهداف أعمالك.",
+      "published": true,
+      "seoTitle": "تصميم واجهات وتجربة المستخدم | TEVONIQ",
+      "seoDescription": "بحث ومسارات استخدام وتصميم واجهات تربط احتياجات مستخدميك بأهداف أعمالك.",
+      "blocks": [
+        {
+          "id": "38bd2e56-fe09-5994-8c52-3a01bfae25e7",
+          "type": "hero",
+          "title": "اجعل كل تفاعل تجربة مدروسة.",
+          "description": "بحث ومسارات استخدام وتصميم واجهات تربط احتياجات مستخدميك بأهداف أعمالك.",
+          "assetKey": "none"
+        },
+        {
+          "id": "62c0804b-a7b3-517a-b30f-083cc1aba566",
+          "type": "overview",
+          "title": "مفيد للأشخاص. هادف للأعمال.",
+          "body": "تبدأ الواجهة الجيدة قبل رسم الشاشة الأولى. نستكشف ما يحتاج الأشخاص إلى إنجازه، وأين يواجهون صعوبة، وما الذي ينبغي أن يحقّقه منتجك. تشكّل هذه الرؤية مسارات واضحة وأنظمة بصرية متّسقة وتصاميم يستطيع فريقك البناء عليها."
+        },
+        {
+          "id": "825032b2-98d2-5dc7-b24a-574e9f34d814",
+          "type": "benefits",
+          "title": "قرارات تصميم تدفع المنتج إلى الأمام.",
+          "items": [
+            {
+              "title": "مسارات أوضح",
+              "description": "ساعد الأشخاص على معرفة موقعهم والخطوة التالية وطريقة إكمال مهمتهم."
+            },
+            {
+              "title": "تجربة متّسقة",
+              "description": "اجمع الشاشات واللغة وأنماط التفاعل في تجربة مترابطة يمكن التعرّف عليها."
+            },
+            {
+              "title": "تعلّم مبكر",
+              "description": "استخدم النماذج الأولية لاستكشاف الافتراضات قبل الالتزام بالتنفيذ."
+            },
+            {
+              "title": "تفاعلات شاملة",
+              "description": "راعِ سهولة القراءة واستخدام لوحة المفاتيح والتباين وطرق التنقل المختلفة."
+            },
+            {
+              "title": "فهم مشترك",
+              "description": "امنح أصحاب المصلحة والمطوّرين رؤية مشتركة لسلوك المنتج المقصود."
+            },
+            {
+              "title": "مساحة للتطوّر",
+              "description": "ابنِ أنماطاً قابلة لإعادة الاستخدام تنمو مع الميزات الجديدة والاحتياجات المتغيّرة."
+            }
+          ]
+        },
+        {
+          "id": "c2c98820-0c57-5797-a941-2b42c4db152f",
+          "type": "capabilities",
+          "title": "من السؤال الأول إلى تصميم جاهز للتطوير.",
+          "items": [
+            {
+              "title": "اكتشاف السياق",
+              "description": "فهم المستخدمين وأولويات الأعمال والقيود الحالية. المخرجات: خطة بحث، ورؤى أصحاب المصلحة، وتحديد المشكلة."
+            },
+            {
+              "title": "رسم التجربة",
+              "description": "تنظيم المعلومات وتحديد المهام الأساسية للمستخدمين. المخرجات: خرائط الرحلة، وبنية المعلومات، ومسارات الاستخدام."
+            },
+            {
+              "title": "استكشاف المخططات الأولية",
+              "description": "مقارنة الترتيبات وأفكار التفاعل قبل الانشغال بالتفاصيل البصرية. المخرجات: شاشات أولية مبسّطة وبدائل للمسارات."
+            },
+            {
+              "title": "تشكيل النظام البصري",
+              "description": "تطوير لغة بصرية متّسقة مع علامتك. المخرجات: تصاميم الواجهات، والخطوط، والألوان، وأسس المكوّنات."
+            },
+            {
+              "title": "النمذجة والتقييم",
+              "description": "تحويل المسارات الأساسية إلى تجربة ملموسة وجمع الملاحظات حول استخدامها. المخرجات: نموذج تفاعلي، وملاحظات قابلية الاستخدام، وتحسينات مرتّبة حسب الأولوية."
+            },
+            {
+              "title": "التحضير للتسليم",
+              "description": "توضيح السلوك والتعاون مع فريق التنفيذ. المخرجات: مواصفات التصميم، وحالات المكوّنات، وجلسة شرح التسليم."
+            }
+          ]
+        },
+        {
+          "id": "6bc83143-e853-5c59-82c7-4ad1bf5b8f56",
+          "type": "features",
+          "title": "التخصص التصميمي المناسب لكل تحدٍّ.",
+          "items": [
+            {
+              "title": "بحث واستراتيجية تجربة المستخدم",
+              "description": "حدّد المشكلة عبر المقابلات ومراجعة المنتج والاستكشاف المركّز."
+            },
+            {
+              "title": "تصميم المنتجات والواجهات",
+              "description": "اربط المعلومات والتفاعل والتسلسل البصري عبر الويب والجوال."
+            },
+            {
+              "title": "أنظمة التصميم",
+              "description": "حدّد مكوّنات قابلة لإعادة الاستخدام وإرشادات عملية لتنفيذ متّسق."
+            },
+            {
+              "title": "مراجعة التجربة وتحسينها",
+              "description": "راجع التجربة الحالية وحدّد تحسينات واضحة وقابلة للتطبيق حسب الأولوية."
+            }
+          ]
+        },
+        {
+          "id": "7d1532bd-1c35-5897-bc8b-aa28c57787db",
+          "type": "use-cases",
+          "title": "كيف يمكن أن يظهر ذلك في منتجك؟",
+          "items": [
+            {
+              "title": "بوابة للخدمة الذاتية",
+              "description": "سيناريو توضيحي: تبسيط رحلة العميل من تقديم الطلب إلى متابعة حالته بوضوح."
+            },
+            {
+              "title": "مساحة للعمليات",
+              "description": "سيناريو توضيحي: تنظيم المهام والحالات الاستثنائية ليعرف الفريق الإجراء التالي."
+            },
+            {
+              "title": "رحلة حجز عبر الجوال",
+              "description": "سيناريو توضيحي: جعل الاختيار والمراجعة والتأكيد خطوات واضحة على شاشة صغيرة."
+            }
+          ]
+        },
+        {
+          "id": "0c6eb6a7-75e1-5274-aeb8-ab81c6a64270",
+          "type": "faq",
+          "title": "قبل أن نبدأ.",
+          "items": [
+            {
+              "question": "هل يمكن تحسين منتج قائم؟",
+              "answer": "نعم. يمكن أن نبدأ بمراجعة التجربة ونركّز على المسارات ذات الأولوية بدلاً من إعادة تصميم كل شاشة."
+            },
+            {
+              "question": "ماذا تحتاجون من فريقنا؟",
+              "answer": "سياق المنتج، والتواصل مع أصحاب المصلحة، والرؤى المتاحة عن المستخدمين نقاط بداية مفيدة. نتفق معاً على منهج البحث والتعاون."
+            },
+            {
+              "question": "كيف تتعاونون مع المطوّرين؟",
+              "answer": "نناقش القيود مبكراً ونوثّق حالات المكوّنات والسلوك المتجاوب وتفاصيل التفاعل لدعم التنفيذ."
+            },
+            {
+              "question": "هل تشمل العملية إمكانية الوصول؟",
+              "answer": "نراعي إمكانية الوصول خلال التصميم. ويُتفق ضمن المشروع على المعايير المحدّدة وأساليب التقييم ومسؤوليات التحقق."
+            },
+            {
+              "question": "كيف يُحدّد نطاق المشروع؟",
+              "answer": "يعتمد النطاق على المنتج واحتياجات البحث وعدد المسارات. نحدّد المراحل والمخرجات ونقاط المراجعة قبل بدء العمل."
+            }
+          ]
+        },
+        {
+          "id": "cc1635b0-ab4c-51e8-8def-a0260993e500",
+          "type": "cta",
+          "title": "لنصنع تفاعلاً أفضل، خطوة بخطوة.",
+          "body": "حدّثنا عن منتجك ومستخدميك والتجربة التي ترغب في تحسينها.",
+          "label": "ناقش مشروعك معنا",
+          "href": "/contact"
+        }
+      ]
+    }
+  ]
+}

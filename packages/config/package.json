@@ -1,0 +1,12 @@
+{
+  "name": "@tevoniq/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./typescript/base.json": "./typescript/base.json",
+    "./eslint/base": "./eslint/base.mjs",
+    "./tokens.css": "./tokens.css",
+    "./design-tokens.json": "./design-tokens.json"
+  }
+}

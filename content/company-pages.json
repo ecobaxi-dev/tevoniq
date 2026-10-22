@@ -1,0 +1,154 @@
+{
+  "ar": {
+    "cta": {
+      "title": "لنتحدث عن احتياجاتك",
+      "body": "أخبرنا بما تريد إنجازه لنناقش الخطوة التالية.",
+      "label": "تواصل معنا",
+      "href": "/contact"
+    },
+    "pages": {
+      "about": {
+        "title": "عن TEVONIQ",
+        "intro": "تقنية مدروسة، وهدف واضح، وتعاون مستمر.",
+        "sections": [
+          {
+            "title": "من نحن",
+            "body": "TEVONIQ علامة تقنية تابعة لشركة EVE WASEL ALIŞVERİŞ İTHALAT İHRACAT LİMİTED ŞİRKETİ في إسطنبول، تركيا. نجمع التفكير الهندسي والتصميم العملي لفهم احتياجات الأعمال ومناقشة الحلول المناسبة."
+          },
+          {
+            "title": "نهجنا",
+            "body": "نبدأ بفهم المتطلبات والأولويات، ونوضح الخيارات التقنية وحدودها، ونراعي قابلية الصيانة والأمان وإمكانية التطوير."
+          },
+          {
+            "title": "مجالات العمل",
+            "body": "تعرّف على مجالات البرمجيات والأنظمة المتصلة والبنية التحتية الرقمية عبر صفحات خدماتنا، وتواصل معنا لمناقشة متطلبات مشروعك."
+          }
+        ]
+      },
+      "why-tevoniq": {
+        "title": "لماذا TEVONIQ",
+        "intro": "المبادئ التي توجه قراراتنا وتعاوننا.",
+        "sections": [
+          {
+            "title": "وضوح المتطلبات",
+            "body": "نربط الخيارات التقنية بالأشخاص وسير العمل والنتائج المطلوبة، ونوضح الافتراضات والمفاضلات منذ البداية."
+          },
+          {
+            "title": "هندسة مسؤولة",
+            "body": "نهتم بتصميم قابل للصيانة، واختبارات للسلوك المهم، ومراعاة الأمان والموثوقية أثناء العمل."
+          },
+          {
+            "title": "تعاون مستمر",
+            "body": "نقدّر التواصل الواضح وتبادل المعرفة واحترام الأشخاص الذين يبنون التقنية ويستخدمونها."
+          }
+        ]
+      },
+      "team": {
+        "title": "فريقنا",
+        "intro": "التعاون وتبادل المعرفة جزء من طريقة عملنا.",
+        "sections": [
+          {
+            "title": "كيف نعمل",
+            "body": "نقدّر الفضول والتعلم والمسؤولية المشتركة. تواصل معنا للتعرف على أسلوب التعاون ومناقشة احتياجات مشروعك."
+          }
+        ]
+      },
+      "partners": {
+        "title": "الشركاء",
+        "intro": "تعاون قائم على أهداف واضحة وقدرات متكاملة.",
+        "sections": [
+          {
+            "title": "لنبنِ معًا",
+            "body": "تبدأ الشراكات بتوقعات واضحة ومسؤوليات متفق عليها. تواصل معنا لمناقشة فرص التعاون. لا نعرض أسماء شركاء إلا بعد التحقق واعتماد النشر."
+          }
+        ]
+      },
+      "careers": {
+        "title": "العمل معنا",
+        "intro": "نقدّر حل المشكلات بعناية والتعلم المستمر واحترام الآخرين.",
+        "sections": [
+          {
+            "title": "فرص العمل",
+            "body": "يمكنك استعراض فرص العمل المنشورة عبر صفحة الوظائف أو التواصل معنا للاستفسار عن العمل مع TEVONIQ."
+          }
+        ]
+      }
+    }
+  },
+  "tr": {
+    "cta": {
+      "title": "İhtiyaçlarınızı konuşalım",
+      "body": "Hedefinizi paylaşın, bir sonraki adımı birlikte değerlendirelim.",
+      "label": "Bize ulaşın",
+      "href": "/contact"
+    },
+    "pages": {
+      "about": {
+        "title": "TEVONIQ Hakkında",
+        "intro": "Düşünülmüş teknoloji, açık hedefler ve iş birliği.",
+        "sections": [
+          {
+            "title": "Biz kimiz",
+            "body": "TEVONIQ, İstanbul, Türkiye merkezli EVE WASEL ALIŞVERİŞ İTHALAT İHRACAT LİMİTED ŞİRKETİ bünyesindeki teknoloji markasıdır. İş ihtiyaçlarını anlamak ve uygun çözümleri değerlendirmek için mühendislik yaklaşımını ve kullanışlı tasarımı bir araya getiririz."
+          },
+          {
+            "title": "Yaklaşımımız",
+            "body": "Gereksinimleri ve öncelikleri anlamakla başlarız. Teknik seçenekleri ve sınırlarını açıklar; bakım kolaylığı, güvenlik ve geliştirme olanaklarını dikkate alırız."
+          },
+          {
+            "title": "Çalışma alanları",
+            "body": "Yazılım, bağlantılı sistemler ve dijital altyapı alanlarını hizmet sayfalarımızdan inceleyebilir, projenizin gereksinimlerini görüşmek için bizimle iletişime geçebilirsiniz."
+          }
+        ]
+      },
+      "why-tevoniq": {
+        "title": "Neden TEVONIQ",
+        "intro": "Teknoloji ve iş birliği yaklaşımımıza yön veren ilkeler.",
+        "sections": [
+          {
+            "title": "Açık gereksinimler",
+            "body": "Teknik kararları insanlarla, iş akışlarıyla ve hedeflenen sonuçlarla ilişkilendirir; varsayımları ve seçeneklerin etkilerini başlangıçta açıklarız."
+          },
+          {
+            "title": "Sorumlu mühendislik",
+            "body": "Bakımı kolay tasarımlara, önemli davranışları doğrulayan testlere, güvenlik ve güvenilirliğin geliştirme boyunca ele alınmasına önem veririz."
+          },
+          {
+            "title": "Sürekli iş birliği",
+            "body": "Açık iletişimi, bilgi paylaşımını ve teknolojiyi geliştiren ve kullanan insanlara saygıyı önemseriz."
+          }
+        ]
+      },
+      "team": {
+        "title": "Ekibimiz",
+        "intro": "İş birliği ve bilgi paylaşımı çalışma yaklaşımımızın bir parçasıdır.",
+        "sections": [
+          {
+            "title": "Nasıl çalışırız",
+            "body": "Merakı, öğrenmeyi ve ortak sorumluluğu önemseriz. Çalışma yaklaşımımızı ve projenizin ihtiyaçlarını konuşmak için bize ulaşın."
+          }
+        ]
+      },
+      "partners": {
+        "title": "İş Ortakları",
+        "intro": "Açık hedefler ve birbirini tamamlayan yetenekler etrafında iş birliği.",
+        "sections": [
+          {
+            "title": "Birlikte geliştirelim",
+            "body": "İş ortaklıkları açık beklentiler ve üzerinde uzlaşılmış sorumluluklarla başlar. İş birliği olanaklarını görüşmek için bize ulaşın. Ortak adları yalnızca doğrulama ve yayın onayından sonra gösterilir."
+          }
+        ]
+      },
+      "careers": {
+        "title": "Bizimle Çalışın",
+        "intro": "Özenli problem çözmeyi, sürekli öğrenmeyi ve başkalarına saygıyı önemseriz.",
+        "sections": [
+          {
+            "title": "Kariyer fırsatları",
+            "body": "Yayınlanan fırsatları kariyer sayfamızda inceleyebilir veya TEVONIQ ile çalışmak hakkında bilgi almak için bize ulaşabilirsiniz."
+          }
+        ]
+      }
+    }
+  }
+}

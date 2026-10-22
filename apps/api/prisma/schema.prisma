@@ -1,0 +1,762 @@
+generator client {
+ provider = "prisma-client"
+ output = "../src/generated/prisma"
+ moduleFormat = "esm"
+}
+datasource db {
+ provider = "postgresql"
+}
+
+enum EmploymentType {
+ FULL_TIME
+ PART_TIME
+ CONTRACT
+ INTERNSHIP
+}
+enum WorkMode {
+ ONSITE
+ REMOTE
+ HYBRID
+}
+enum JobStatus {
+ DRAFT
+ PUBLISHED
+ CLOSED
+ ARCHIVED
+}
+enum ApplicationStatus {
+ NEW
+ REVIEWING
+ SHORTLISTED
+ INTERVIEW
+ OFFER
+ HIRED
+ REJECTED
+}
+model CareerJob {
+ id String @id @default(uuid())
+ title String
+ slug String @unique
+ department String
+ location String
+ employmentType EmploymentType
+ workMode WorkMode
+ description String @default("")
+ responsibilities String[]
+ requirements String[]
+ preferredQualifications String[]
+ status JobStatus @default(DRAFT)
+ publishedAt DateTime?
+ closingDate DateTime?
+ version Int @default(1)
+ createdById String
+ updatedById String
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ applications JobApplication[]
+ @@index([status, publishedAt, closingDate])
+}
+model JobApplication {
+ id String @id @default(uuid())
+ jobId String
+ job CareerJob @relation(fields: [jobId], references: [id], onDelete: Restrict)
+ submissionId String @unique
+ submissionHash String
+ name String
+ email String
+ phone String @default("")
+ location String
+ linkedIn String @default("")
+ portfolio String @default("")
+ coverLetter String @default("")
+ consentAt DateTime
+ status ApplicationStatus @default(NEW)
+ version Int @default(1)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ cv JobCv?
+ history JobApplicationHistory[]
+ @@index([jobId, status, createdAt])
+ @@index([status, createdAt])
+}
+model JobCv {
+ id String @id @default(uuid())
+ applicationId String @unique
+ application JobApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+ name String
+ mimeType String
+ size Int
+ sha256 String
+ bytes Bytes
+ scanStatus String
+ createdAt DateTime @default(now())
+}
+model JobApplicationHistory {
+ id String @id @default(uuid())
+ applicationId String
+ application JobApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+ action String
+ fromStatus ApplicationStatus?
+ toStatus ApplicationStatus?
+ note String @default("")
+ actorId String?
+ createdAt DateTime @default(now())
+ @@index([applicationId, createdAt])
+}
+
+enum LeadStatus {
+ NEW
+ CONTACTED
+ QUALIFIED
+ PROPOSAL
+ WON
+ LOST
+ SPAM
+}
+model Lead {
+ id String @id @default(uuid())
+ submissionId String @unique
+ submissionHash String
+ type String
+ language Locale
+ name String
+ company String @default("")
+ email String
+ phone String @default("")
+ country String
+ subject String @default("")
+ message String @default("")
+ preferredContactMethod String @default("email")
+ industry String @default("")
+ servicesInterested Json @default("[]")
+ projectType String @default("")
+ budgetRange String @default("")
+ budgetLabel String @default("")
+ timeline String @default("")
+ projectDescription String @default("")
+ consent Boolean @default(false)
+ consentAt DateTime?
+ consentVersion String?
+ sourcePage String
+ utm Json @default("{}")
+ status LeadStatus @default(NEW)
+ version Int @default(1)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ updatedById String?
+ deletedAt DateTime?
+ attachments LeadAttachment[]
+ activities LeadActivity[]
+ emails LeadEmail[]
+ @@index([status, deletedAt, createdAt])
+ @@index([email])
+}
+model LeadAttachment {
+ id String @id @default(uuid())
+ leadId String
+ lead Lead @relation(fields: [leadId], references: [id], onDelete: Restrict)
+ name String
+ mimeType String
+ size Int
+ bytes Bytes
+ createdAt DateTime @default(now())
+}
+model LeadActivity {
+ id String @id @default(uuid())
+ leadId String
+ lead Lead @relation(fields: [leadId], references: [id], onDelete: Restrict)
+ actorId String?
+ action String
+ note String @default("")
+ fromStatus LeadStatus?
+ toStatus LeadStatus?
+ createdAt DateTime @default(now())
+ @@index([leadId, createdAt])
+}
+model LeadSettings {
+ id String @id @default("default")
+ value Json
+ version Int @default(1)
+ updatedById String?
+ updatedAt DateTime @updatedAt
+}
+model LeadThrottle {
+ key String @id
+ attempts Int @default(0)
+ expiresAt DateTime
+ @@index([expiresAt])
+}
+model LeadEmail {
+ id String @id @default(uuid())
+ leadId String
+ lead Lead @relation(fields: [leadId], references: [id], onDelete: Restrict)
+ kind String
+ status String @default("pending")
+ attempts Int @default(0)
+ nextAttemptAt DateTime @default(now())
+ lockedUntil DateTime?
+ sentAt DateTime?
+ lastError String?
+ createdAt DateTime @default(now())
+ @@unique([leadId, kind])
+ @@index([status, nextAttemptAt])
+}
+
+model CompanyPage {
+ createdAt DateTime @default(now())
+ createdById String?
+ updatedById String?
+ slug String
+ locale Locale
+ content Json
+ published Boolean @default(false)
+ version Int @default(1)
+ updatedAt DateTime @updatedAt
+ @@id([slug, locale])
+}
+
+model InsightTaxonomy {
+ id String @id @default(uuid())
+ name String
+ slug String
+ language Locale
+ type String
+ version Int @default(1)
+ articles InsightArticle[] @relation("ArticleCategory")
+ tags InsightArticleTag[]
+ @@unique([slug, language, type])
+}
+
+model InsightArticle {
+ createdById String?
+ updatedById String?
+ id String @id @default(uuid())
+ title String
+ slug String
+ excerpt String @default("")
+ content Json
+ coverImage String @default("")
+ coverImageAlt String @default("")
+ author String @default("")
+ categoryId String?
+ category InsightTaxonomy? @relation("ArticleCategory", fields: [categoryId], references: [id], onDelete: Restrict)
+ tags InsightArticleTag[]
+ publicationDate DateTime?
+ readingTime Int @default(1)
+ featured Boolean @default(false)
+ status String @default("draft")
+ language Locale
+ kind String @default("blog")
+ seoTitle String @default("")
+ seoDescription String @default("")
+ ogImage String @default("")
+ canonicalUrl String @default("")
+ version Int @default(1)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@unique([slug, language])
+ @@index([language, status, publicationDate])
+}
+
+model InsightArticleTag {
+ articleId String
+ tagId String
+ article InsightArticle @relation(fields: [articleId], references: [id], onDelete: Cascade)
+ tag InsightTaxonomy @relation(fields: [tagId], references: [id], onDelete: Restrict)
+ @@id([articleId, tagId])
+ @@index([tagId])
+}
+enum Locale {
+ en
+ tr
+ ar
+}
+model DevelopmentFixture {
+ id String @id
+ label String
+ createdAt DateTime @default(now())
+}
+
+
+enum CmsRole {
+ SUPER_ADMIN
+ ADMIN
+ CONTENT_MANAGER
+ EDITOR
+ MARKETING
+ SALES
+ HR
+ VIEWER
+}
+model CmsUser {
+ version Int @default(0)
+ updatedAt DateTime @updatedAt
+ createdById String?
+ updatedById String?
+ id String @id @default(uuid())
+ email String @unique
+ passwordHash String
+ role CmsRole @default(EDITOR)
+ disabled Boolean @default(false)
+ lastLoginAt DateTime?
+ authVersion Int @default(0)
+ passwordReset CmsPasswordReset?
+ sessions CmsSession[]
+ createdProjects Project[] @relation("ProjectCreator")
+ updatedProjects Project[] @relation("ProjectUpdater")
+ createdServices Service[] @relation("ServiceCreator")
+ updatedServices Service[] @relation("ServiceUpdater")
+ createdIndustries Industry[] @relation("IndustryCreator")
+ updatedIndustries Industry[] @relation("IndustryUpdater")
+ createdSolutions Solution[] @relation("SolutionCreator")
+ updatedSolutions Solution[] @relation("SolutionUpdater")
+ createdAt DateTime @default(now())
+}
+model CmsSession {
+ id String @unique @default(uuid())
+ tokenHash String @id
+ authVersion Int @default(0)
+ createdAt DateTime @default(now())
+ lastSeenAt DateTime @default(now())
+ userAgent String @default("")
+ userId String
+ user CmsUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+ expiresAt DateTime
+ @@index([expiresAt])
+ @@index([userId])
+}
+model CmsPasswordReset {
+ tokenHash String @id
+ userId String @unique
+ user CmsUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+ authVersion Int
+ expiresAt DateTime
+ @@index([expiresAt])
+}
+model CmsRecoveryJob {
+ id String @id @default(uuid())
+ email String
+ createdAt DateTime @default(now())
+ claimedAt DateTime?
+ attempts Int @default(0)
+ @@index([createdAt])
+}
+model LoginThrottle {
+ key String @id
+ attempts Int @default(0)
+ resetAt DateTime
+}
+model CmsAudit {
+ id String @id @default(uuid())
+ actorId String
+ action String
+ entityId String
+ createdAt DateTime @default(now())
+ @@index([entityId, createdAt])
+}
+model Service {
+ pageReferences PageCatalogReference[]
+ deletedAt DateTime?
+ projects ProjectService[]
+ industries IndustryService[]
+ solutions SolutionService[]
+ id String @id @default(uuid())
+ slug String @unique
+ active Boolean @default(false)
+ version Int @default(0)
+ sortOrder Int @default(0)
+ createdById String?
+ createdBy CmsUser? @relation("ServiceCreator", fields: [createdById], references: [id], onDelete: SetNull)
+ updatedById String?
+ updatedBy CmsUser? @relation("ServiceUpdater", fields: [updatedById], references: [id], onDelete: SetNull)
+ translations ServiceTranslation[]
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([active, slug])
+ @@index([active, sortOrder, slug])
+ @@index([createdById])
+ @@index([updatedById])
+}
+model ServiceTranslation {
+ id String @id @default(uuid())
+ serviceId String
+ service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+ locale Locale
+ title String
+ summary String @default("")
+ published Boolean @default(false)
+ seoTitle String @default("")
+ seoDescription String @default("")
+ blocks Json @default("[]")
+ @@unique([serviceId, locale])
+ @@index([locale, published])
+}
+enum ClientVisibility {
+ PUBLIC
+ ANONYMOUS
+ PRIVATE
+}
+model Project {
+ pageReferences PageCatalogReference[]
+ deletedAt DateTime?
+ clientName String @default("")
+ clientVisibility ClientVisibility @default(PRIVATE)
+ country String @default("")
+ city String @default("")
+ projectDate DateTime? @db.Date
+ featured Boolean @default(false)
+ sortOrder Int @default(0)
+ version Int @default(0)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ createdById String?
+ createdBy CmsUser? @relation("ProjectCreator", fields: [createdById], references: [id], onDelete: SetNull)
+ updatedById String?
+ updatedBy CmsUser? @relation("ProjectUpdater", fields: [updatedById], references: [id], onDelete: SetNull)
+ services ProjectService[]
+ @@index([published, verified, featured, sortOrder, slug])
+ @@index([createdById])
+ @@index([updatedById])
+ industries IndustryProject[]
+ solutions SolutionProject[]
+ id String @id @default(uuid())
+ slug String @unique
+ published Boolean @default(false)
+ verified Boolean @default(false)
+ translations ProjectTranslation[]
+}
+model ProjectTranslation {
+ anonymousClientName String @default("")
+ heroImage Json?
+ gallery Json @default("[]")
+ challenge String @default("")
+ approach String @default("")
+ solution String @default("")
+ implementation String @default("")
+ technologies Json @default("[]")
+ results Json @default("[]")
+ testimonial String @default("")
+ testimonialAuthor String @default("")
+ seoTitle String @default("")
+ seoDescription String @default("")
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([locale, published])
+ id String @id @default(uuid())
+ projectId String
+ project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+ locale Locale
+ title String
+ summary String
+ published Boolean @default(false)
+ @@unique([projectId, locale])
+}
+
+enum SolutionStatus {
+ DRAFT
+ PUBLISHED
+}
+model Solution {
+ pageReferences PageCatalogReference[]
+ deletedAt DateTime?
+ id String @id @default(uuid())
+ slug String @unique
+ status SolutionStatus @default(DRAFT)
+ active Boolean @default(false)
+ published Boolean @default(false)
+ featured Boolean @default(false)
+ sortOrder Int @default(0)
+ version Int @default(0)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ createdById String?
+ createdBy CmsUser? @relation("SolutionCreator", fields: [createdById], references: [id], onDelete: SetNull)
+ updatedById String?
+ updatedBy CmsUser? @relation("SolutionUpdater", fields: [updatedById], references: [id], onDelete: SetNull)
+ translations SolutionTranslation[]
+ services SolutionService[]
+ industries SolutionIndustry[]
+ projects SolutionProject[]
+ @@index([active, published, status, featured, sortOrder, slug])
+ @@index([createdById])
+ @@index([updatedById])
+}
+model SolutionTranslation {
+ id String @id @default(uuid())
+ solutionId String
+ solution Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+ locale Locale
+ name String
+ shortDescription String @default("")
+ published Boolean @default(false)
+ seoTitle String @default("")
+ seoDescription String @default("")
+ // Named business sections wrap the shared Services block payloads; no duplicated page body.
+ blocks Json @default("[]")
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@unique([solutionId, locale])
+ @@index([locale, published])
+}
+model SolutionService {
+ solutionId String
+ solution Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+ serviceId String
+ service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([solutionId, serviceId])
+ @@index([serviceId])
+ @@index([solutionId, sortOrder])
+}
+enum IndustryStatus {
+ DRAFT
+ PUBLISHED
+}
+model Industry {
+ pageReferences PageCatalogReference[]
+ deletedAt DateTime?
+ status IndustryStatus @default(DRAFT)
+ published Boolean @default(false)
+ featured Boolean @default(false)
+ sortOrder Int @default(0)
+ version Int @default(0)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ createdById String?
+ createdBy CmsUser? @relation("IndustryCreator", fields: [createdById], references: [id], onDelete: SetNull)
+ updatedById String?
+ updatedBy CmsUser? @relation("IndustryUpdater", fields: [updatedById], references: [id], onDelete: SetNull)
+ services IndustryService[]
+ projects IndustryProject[]
+ @@index([active, published, status, featured, sortOrder, slug])
+ @@index([createdById])
+ @@index([updatedById])
+ id String @id @default(uuid())
+ slug String @unique
+ active Boolean @default(false)
+ translations IndustryTranslation[]
+ solutions SolutionIndustry[]
+}
+model IndustryTranslation {
+ id String @id @default(uuid())
+ industryId String
+ industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+ locale Locale
+ name String
+ shortDescription String @default("")
+ seoTitle String @default("")
+ seoDescription String @default("")
+ blocks Json @default("[]")
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ published Boolean @default(false)
+ @@unique([industryId, locale])
+ @@index([locale, published])
+}
+model SolutionIndustry {
+ industrySortOrder Int @default(0)
+ @@index([industryId, industrySortOrder])
+ solutionId String
+ solution Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+ industryId String
+ industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([solutionId, industryId])
+ @@index([industryId])
+ @@index([solutionId, sortOrder])
+}
+model SolutionProject {
+ projectSortOrder Int @default(0)
+ @@index([projectId, projectSortOrder])
+ solutionId String
+ solution Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+ projectId String
+ project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([solutionId, projectId])
+ @@index([projectId])
+ @@index([solutionId, sortOrder])
+}
+
+model IndustryService {
+ industryId String
+ industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+ serviceId String
+ service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([industryId, serviceId])
+ @@index([serviceId])
+ @@index([industryId, sortOrder])
+}
+
+model IndustryProject {
+ projectSortOrder Int @default(0)
+ @@index([projectId, projectSortOrder])
+ industryId String
+ industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+ projectId String
+ project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([industryId, projectId])
+ @@index([projectId])
+ @@index([industryId, sortOrder])
+}
+
+model ProjectService {
+ projectId String
+ project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+ serviceId String
+ service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+ sortOrder Int @default(0)
+ @@id([projectId, serviceId])
+ @@index([serviceId])
+ @@index([projectId, sortOrder])
+}
+
+model AdminRecord {
+ id String @id @default(uuid())
+ module String
+ title String
+ language Locale @default(en)
+ status String @default("draft")
+ data Json @default("{}")
+ searchText String @default("")
+ version Int @default(1)
+ createdById String
+ updatedById String
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ deletedAt DateTime?
+ references AdminReference[] @relation("ReferenceSource")
+ referencedBy AdminReference[] @relation("ReferenceTarget")
+ @@index([module, deletedAt, status, updatedAt])
+}
+model AdminReference {
+ sourceId String
+ targetId String
+ source AdminRecord @relation("ReferenceSource", fields: [sourceId], references: [id], onDelete: Restrict)
+ target AdminRecord @relation("ReferenceTarget", fields: [targetId], references: [id], onDelete: Restrict)
+ @@id([sourceId, targetId])
+ @@index([targetId])
+}
+
+model CmsPage {
+ id String @id @default(uuid())
+ path String @unique
+ draft Json
+ published Json?
+ publishedAt DateTime?
+ version Int @default(1)
+ createdById String
+ updatedById String
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ deletedAt DateTime?
+ references PageCatalogReference[]
+ @@index([deletedAt, publishedAt, updatedAt])
+}
+model PageCatalogReference {
+ id String @id @default(uuid())
+ pageId String
+ page CmsPage @relation(fields:[pageId],references:[id],onDelete:Restrict)
+ serviceId String?
+ service Service? @relation(fields:[serviceId],references:[id],onDelete:Restrict)
+ solutionId String?
+ solution Solution? @relation(fields:[solutionId],references:[id],onDelete:Restrict)
+ industryId String?
+ industry Industry? @relation(fields:[industryId],references:[id],onDelete:Restrict)
+ projectId String?
+ project Project? @relation(fields:[projectId],references:[id],onDelete:Restrict)
+ @@unique([pageId,serviceId])
+ @@unique([pageId,solutionId])
+ @@unique([pageId,industryId])
+ @@unique([pageId,projectId])
+ @@index([serviceId])
+ @@index([solutionId])
+ @@index([industryId])
+ @@index([projectId])
+}
+model NewsletterSignup {
+ email String @id
+ recordId String @unique
+ createdAt DateTime @default(now())
+}
+
+enum NewsletterStatus {
+ PENDING
+ ACTIVE
+ UNSUBSCRIBED
+ BOUNCED
+}
+model NewsletterSubscriber {
+ id String @id @default(uuid())
+ email String @unique
+ name String @default("")
+ language Locale @default(en)
+ source String
+ status NewsletterStatus @default(PENDING)
+ subscribedAt DateTime?
+ unsubscribedAt DateTime?
+ consentAt DateTime
+ consentText String
+ generation Int @default(1)
+ version Int @default(1)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ tokens NewsletterToken[]
+ jobs NewsletterDeliveryJob[]
+ @@index([status, language, createdAt])
+}
+model NewsletterToken {
+ tokenHash String @id
+ subscriberId String
+ subscriber NewsletterSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+ purpose String
+ generation Int
+ expiresAt DateTime?
+ createdAt DateTime @default(now())
+ @@index([subscriberId, purpose])
+ @@index([expiresAt])
+}
+model NewsletterDeliveryJob {
+ id String @id @default(uuid())
+ subscriberId String
+ subscriber NewsletterSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+ kind String
+ dedupeKey String @unique
+ generation Int
+ status String @default("PENDING")
+ attempts Int @default(0)
+ availableAt DateTime @default(now())
+ claimedAt DateTime?
+ leaseId String?
+ sentAt DateTime?
+ lastError String?
+ createdAt DateTime @default(now())
+ @@index([status, availableAt])
+}
+
+model MediaAsset {
+ id String @id @default(uuid())
+ title String
+ originalName String
+ alt String @default("")
+ caption String @default("")
+ collection String @default("")
+ mimeType String
+ width Int
+ height Int
+ size Int
+ sha256 String
+ storage String
+ files Json
+ protected Boolean @default(false)
+ version Int @default(1)
+ createdById String
+ updatedById String
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ deletedAt DateTime?
+ @@index([deletedAt, createdAt])
+ @@index([collection, deletedAt])
+}

@@ -1,0 +1,22 @@
+-- Additive migration: existing DevelopmentFixture records remain untouched.
+CREATE TYPE "CmsRole" AS ENUM ('ADMIN', 'EDITOR');
+CREATE TABLE "CmsUser" ("id" TEXT NOT NULL PRIMARY KEY, "email" TEXT NOT NULL, "passwordHash" TEXT NOT NULL, "role" "CmsRole" NOT NULL DEFAULT 'EDITOR', "disabled" BOOLEAN NOT NULL DEFAULT false, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "CmsSession" ("tokenHash" TEXT NOT NULL PRIMARY KEY, "userId" TEXT NOT NULL, "expiresAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "LoginThrottle" ("key" TEXT NOT NULL PRIMARY KEY, "attempts" INTEGER NOT NULL DEFAULT 0, "resetAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "CmsAudit" ("id" TEXT NOT NULL PRIMARY KEY, "actorId" TEXT NOT NULL, "action" TEXT NOT NULL, "entityId" TEXT NOT NULL, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "Service" ("id" TEXT NOT NULL PRIMARY KEY, "slug" TEXT NOT NULL, "active" BOOLEAN NOT NULL DEFAULT false, "version" INTEGER NOT NULL DEFAULT 0, "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, "updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "ServiceTranslation" ("id" TEXT NOT NULL PRIMARY KEY, "serviceId" TEXT NOT NULL, "locale" "Locale" NOT NULL, "title" TEXT NOT NULL, "summary" TEXT NOT NULL DEFAULT '', "published" BOOLEAN NOT NULL DEFAULT false, "seoTitle" TEXT NOT NULL DEFAULT '', "seoDescription" TEXT NOT NULL DEFAULT '', "blocks" JSONB NOT NULL DEFAULT '[]');
+CREATE TABLE "Project" ("id" TEXT NOT NULL PRIMARY KEY, "slug" TEXT NOT NULL, "published" BOOLEAN NOT NULL DEFAULT false, "verified" BOOLEAN NOT NULL DEFAULT false);
+CREATE TABLE "ProjectTranslation" ("id" TEXT NOT NULL PRIMARY KEY, "projectId" TEXT NOT NULL, "locale" "Locale" NOT NULL, "title" TEXT NOT NULL, "summary" TEXT NOT NULL, "published" BOOLEAN NOT NULL DEFAULT false);
+CREATE UNIQUE INDEX "CmsUser_email_key" ON "CmsUser"("email");
+CREATE INDEX "CmsSession_expiresAt_idx" ON "CmsSession"("expiresAt");
+CREATE INDEX "CmsAudit_entityId_createdAt_idx" ON "CmsAudit"("entityId", "createdAt");
+CREATE UNIQUE INDEX "Service_slug_key" ON "Service"("slug");
+CREATE INDEX "Service_active_slug_idx" ON "Service"("active", "slug");
+CREATE UNIQUE INDEX "ServiceTranslation_serviceId_locale_key" ON "ServiceTranslation"("serviceId", "locale");
+CREATE INDEX "ServiceTranslation_locale_published_idx" ON "ServiceTranslation"("locale", "published");
+CREATE UNIQUE INDEX "Project_slug_key" ON "Project"("slug");
+CREATE UNIQUE INDEX "ProjectTranslation_projectId_locale_key" ON "ProjectTranslation"("projectId", "locale");
+ALTER TABLE "CmsSession" ADD CONSTRAINT "CmsSession_userId_fkey" FOREIGN KEY ("userId") REFERENCES "CmsUser"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "ServiceTranslation" ADD CONSTRAINT "ServiceTranslation_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "Service"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "ProjectTranslation" ADD CONSTRAINT "ProjectTranslation_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "Project"("id") ON DELETE CASCADE ON UPDATE CASCADE;

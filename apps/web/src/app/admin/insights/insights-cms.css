@@ -1,0 +1,55 @@
+.insight-cms-layout {
+  display: grid;
+  grid-template-columns: 18rem minmax(0, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.insight-editor-fields {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+.insight-block-editor {
+  padding: 1.25rem;
+  border: 1px solid var(--tv-line);
+  border-radius: 0.5rem;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.insight-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-block: 1rem;
+}
+.insight-taxonomies {
+  background: white;
+  border: 1px solid var(--tv-line);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+.insight-taxonomies summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.insight-cms-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 1rem;
+  background: white;
+}
+.insight-preview {
+  background: white;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid var(--tv-line);
+}
+@media (max-width: 850px) {
+  .insight-cms-layout {
+    grid-template-columns: 1fr;
+  }
+}

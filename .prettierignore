@@ -1,0 +1,10 @@
+node_modules
+dist
+.next
+package-lock.json
+apps/api/src/generated
+apps/web/next-env.d.ts
+packages/config/tokens.css
+test-results
+playwright-report
+*.png

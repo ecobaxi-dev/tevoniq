@@ -1,0 +1,44 @@
+# Free preview only. Free Postgres expires after 30 days.
+# One public web service keeps the API private on loopback and uses one hour pool.
+services:
+  - type: web
+    name: tevoniq-preview
+    runtime: node
+    plan: free
+    region: frankfurt
+    autoDeployTrigger: off
+    buildCommand: npm ci --include=dev && node scripts/render/build.mjs
+    startCommand: node scripts/render/start.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: '1'
+      - key: MEDIA_STORAGE
+        value: disabled
+      - key: EMAIL_TRANSPORT
+        value: disabled
+      - key: TURNSTILE_MODE
+        value: disabled
+      - key: LOG_LEVEL
+        value: warn
+      - key: CMS_ADMIN_EMAIL
+        value: kallas.hossam@gmail.com
+      - key: CMS_ADMIN_PASSWORD
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tevoniq-preview-db
+          property: connectionString
+
+databases:
+  - name: tevoniq-preview-db
+    plan: free
+    region: frankfurt
+    postgresMajorVersion: '17'
+    databaseName: tevoniq
+    user: tevoniq
+    ipAllowList: []

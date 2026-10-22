@@ -1,0 +1,56 @@
+{
+  "name": "tevoniq",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "env:setup": "node scripts/setup-env.mjs",
+    "build:packages": "npm run build -w @tevoniq/types && npm run build -w @tevoniq/validation && npm run build -w @tevoniq/ui",
+    "postinstall": "npm run db:generate && npm run build:packages",
+    "dev": "npm run build:packages && concurrently --kill-others -n types,validation,ui,api,web \"npm run dev -w @tevoniq/types\" \"npm run dev -w @tevoniq/validation\" \"npm run dev -w @tevoniq/ui\" \"npm run dev -w @tevoniq/api\" \"npm run dev -w @tevoniq/web\"",
+    "build": "npm run build:packages && npm run build -w @tevoniq/api && npm run build -w @tevoniq/web",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "npm run build:packages && npm run typecheck --workspaces --if-present",
+    "test": "npm run build:packages && npm run build -w @tevoniq/api && node --test tests/*.test.mjs",
+    "db:generate": "npm run db:generate -w @tevoniq/api",
+    "db:migrate": "npm run db:migrate -w @tevoniq/api --",
+    "db:deploy": "npm run db:deploy -w @tevoniq/api --",
+    "db:seed": "npm run db:seed -w @tevoniq/api --",
+    "db:studio": "npm run db:studio -w @tevoniq/api --",
+    "infra:up": "docker compose up -d postgres",
+    "infra:down": "docker compose down",
+    "test:smoke": "node --test tests/web.smoke.mjs",
+    "tokens:generate": "node scripts/generate-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check",
+    "test:e2e": "playwright test",
+    "cms:admin": "npm run cms:admin -w @tevoniq/api"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.0.0",
+    "concurrently": "^9.2.1",
+    "eslint": "9.39.5",
+    "eslint-config-next": "^16.4.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "prisma": "7.10.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.57.0"
+  },
+  "overrides": {
+    "deepmerge-ts": "8.0.2",
+    "mysql2": "3.24.3"
+  }
+}

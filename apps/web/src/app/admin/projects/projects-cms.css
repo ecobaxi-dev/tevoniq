@@ -1,0 +1,61 @@
+@import '../solutions/solutions-cms.css';
+@import '../../[locale]/projects/projects.css';
+.project-editor-section {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--tv-line);
+  margin-block-end: 1.5rem;
+}
+.project-editor-section h3 {
+  font-size: 1.2rem;
+  margin-block-end: 1rem;
+}
+.project-editor-section .tv-field {
+  margin-block: 1rem;
+}
+.project-editor-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.project-editor-row {
+  padding: 1rem;
+  margin-block: 1rem;
+}
+.project-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.project-media-fields img {
+  max-width: 100%;
+  height: auto;
+  max-height: 20rem;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+.project-privacy-note {
+  padding: 1rem;
+  background: #eef4ff;
+  border-inline-start: 3px solid var(--color-electric);
+}
+.project-preview {
+  border: 2px dashed var(--color-electric);
+  margin-block: 2rem;
+  overflow: hidden;
+}
+.project-preview > p {
+  padding: 1rem;
+}
+.project-preview .case-hero.has-image .case-hero-grid,
+.project-preview .case-body {
+  grid-template-columns: 1fr;
+}
+.project-preview .case-contents {
+  display: none;
+}
+@media (max-width: 600px) {
+  .project-editor-pair {
+    grid-template-columns: 1fr;
+  }
+}

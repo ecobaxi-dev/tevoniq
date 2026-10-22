@@ -1,0 +1,852 @@
+{
+  "groups": [
+    {
+      "id": "consulting",
+      "labels": {
+        "en": "Consulting & Delivery",
+        "tr": "Danışmanlık ve Teslimat",
+        "ar": "الاستشارات والتنفيذ"
+      },
+      "services": [
+        {
+          "slug": "ai-augmented-development",
+          "translations": {
+            "en": {
+              "title": "AI-Augmented Development Services",
+              "summary": "Use AI tools within a reviewed software development workflow."
+            },
+            "tr": {
+              "title": "Yapay Zekâ Destekli Geliştirme",
+              "summary": "Yapay zekâ araçlarını gözden geçirilen yazılım geliştirme akışına dahil edin."
+            },
+            "ar": {
+              "title": "التطوير المعزّز بالذكاء الاصطناعي",
+              "summary": "وظّف أدوات الذكاء الاصطناعي ضمن مسار تطوير برمجيات يخضع للمراجعة."
+            }
+          }
+        },
+        {
+          "slug": "it-consulting",
+          "translations": {
+            "en": {
+              "title": "Technology Consulting",
+              "summary": "Assess your technology needs and define a practical roadmap."
+            },
+            "tr": {
+              "title": "Teknoloji Danışmanlığı",
+              "summary": "Teknoloji ihtiyaçlarınızı değerlendirin ve uygulanabilir bir yol haritası belirleyin."
+            },
+            "ar": {
+              "title": "الاستشارات التقنية",
+              "summary": "قيّم احتياجاتك التقنية وحدّد خارطة طريق عملية."
+            }
+          }
+        },
+        {
+          "slug": "digital-transformation",
+          "translations": {
+            "en": {
+              "title": "Digital Transformation",
+              "summary": "Connect digital tools with the way your business operates."
+            },
+            "tr": {
+              "title": "Dijital Dönüşüm",
+              "summary": "Dijital araçları işletmenizin çalışma biçimiyle birleştirin."
+            },
+            "ar": {
+              "title": "التحول الرقمي",
+              "summary": "اربط الأدوات الرقمية بطريقة عمل مؤسستك."
+            }
+          }
+        },
+        {
+          "slug": "custom-software-development",
+          "translations": {
+            "en": {
+              "title": "Custom Solution Development",
+              "summary": "Shape software around your specific users, processes and goals."
+            },
+            "tr": {
+              "title": "Özel Çözüm Geliştirme",
+              "summary": "Yazılımı kullanıcılarınıza, süreçlerinize ve hedeflerinize göre şekillendirin."
+            },
+            "ar": {
+              "title": "تطوير الحلول المخصّصة",
+              "summary": "صمّم البرمجيات حول مستخدميك وعملياتك وأهدافك."
+            }
+          }
+        },
+        {
+          "slug": "team-extension",
+          "translations": {
+            "en": {
+              "title": "Team Extension",
+              "summary": "Plan additional engineering capacity around your team’s priorities."
+            },
+            "tr": {
+              "title": "Ekip Genişletme",
+              "summary": "Ek mühendislik kapasitesini ekibinizin önceliklerine göre planlayın."
+            },
+            "ar": {
+              "title": "توسعة الفرق",
+              "summary": "خطّط لقدرات هندسية إضافية وفق أولويات فريقك."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "labels": {
+        "en": "Software Product Engineering",
+        "tr": "Yazılım Ürün Mühendisliği",
+        "ar": "هندسة المنتجات البرمجية"
+      },
+      "services": [
+        {
+          "slug": "software-product-engineering",
+          "translations": {
+            "en": {
+              "title": "Software Product Engineering",
+              "summary": "Guide a software product from requirements through delivery and refinement."
+            },
+            "tr": {
+              "title": "Yazılım Ürün Mühendisliği",
+              "summary": "Yazılım ürününü gereksinimlerden teslimata ve iyileştirmeye taşıyın."
+            },
+            "ar": {
+              "title": "هندسة المنتجات البرمجية",
+              "summary": "وجّه المنتج البرمجي من المتطلبات إلى التسليم والتحسين."
+            }
+          }
+        },
+        {
+          "slug": "application-modernization",
+          "translations": {
+            "en": {
+              "title": "Application Modernization",
+              "summary": "Review existing applications and plan maintainable upgrades."
+            },
+            "tr": {
+              "title": "Uygulama Modernizasyonu",
+              "summary": "Mevcut uygulamaları inceleyin ve sürdürülebilir iyileştirmeler planlayın."
+            },
+            "ar": {
+              "title": "تحديث التطبيقات",
+              "summary": "راجع التطبيقات الحالية وخطّط لتحديثات قابلة للصيانة."
+            }
+          }
+        },
+        {
+          "slug": "qa-automation",
+          "translations": {
+            "en": {
+              "title": "QA Automation",
+              "summary": "Build repeatable checks into your software delivery process."
+            },
+            "tr": {
+              "title": "Test Otomasyonu",
+              "summary": "Yazılım teslimat sürecinize tekrarlanabilir kontroller ekleyin."
+            },
+            "ar": {
+              "title": "أتمتة ضمان الجودة",
+              "summary": "أدرج اختبارات قابلة للتكرار في عملية تسليم البرمجيات."
+            }
+          }
+        },
+        {
+          "slug": "mobile-application-development",
+          "translations": {
+            "en": {
+              "title": "Mobile App Development",
+              "summary": "Create mobile experiences around the tasks your users need."
+            },
+            "tr": {
+              "title": "Mobil Uygulama Geliştirme",
+              "summary": "Mobil deneyimleri kullanıcılarınızın ihtiyaç duyduğu görevlere göre oluşturun."
+            },
+            "ar": {
+              "title": "تطوير تطبيقات الجوال",
+              "summary": "أنشئ تجارب جوال حول المهام التي يحتاجها مستخدموك."
+            }
+          }
+        },
+        {
+          "slug": "ui-ux-design",
+          "translations": {
+            "en": {
+              "title": "UI/UX",
+              "summary": "Turn user needs into clear journeys and usable interfaces."
+            },
+            "tr": {
+              "title": "UI/UX Tasarımı",
+              "summary": "Kullanıcı ihtiyaçlarını açık akışlara ve kullanılabilir arayüzlere dönüştürün."
+            },
+            "ar": {
+              "title": "تصميم واجهات وتجربة المستخدم",
+              "summary": "حوّل احتياجات المستخدمين إلى مسارات واضحة وواجهات سهلة الاستخدام."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "labels": {
+        "en": "Cloud Solutions & Consulting",
+        "tr": "Bulut Çözümleri ve Danışmanlığı",
+        "ar": "الحلول والاستشارات السحابية"
+      },
+      "services": [
+        {
+          "slug": "cloud-solutions",
+          "translations": {
+            "en": {
+              "title": "Cloud Solutions and Consulting",
+              "summary": "Design cloud environments around workloads and operational needs."
+            },
+            "tr": {
+              "title": "Bulut Çözümleri ve Danışmanlığı",
+              "summary": "Bulut ortamlarını iş yüklerine ve operasyonel ihtiyaçlara göre tasarlayın."
+            },
+            "ar": {
+              "title": "الحلول والاستشارات السحابية",
+              "summary": "صمّم البيئات السحابية وفق أحمال العمل واحتياجات التشغيل."
+            }
+          }
+        },
+        {
+          "slug": "cloud-migration",
+          "translations": {
+            "en": {
+              "title": "Cloud Migration",
+              "summary": "Plan and move workloads with attention to dependencies and continuity."
+            },
+            "tr": {
+              "title": "Buluta Geçiş",
+              "summary": "Bağımlılıkları ve sürekliliği gözeterek iş yüklerini planlayın ve taşıyın."
+            },
+            "ar": {
+              "title": "الانتقال إلى السحابة",
+              "summary": "خطّط لنقل أحمال العمل مع مراعاة الترابط واستمرارية التشغيل."
+            }
+          }
+        },
+        {
+          "slug": "devops",
+          "translations": {
+            "en": {
+              "title": "DevOps",
+              "summary": "Connect development and operations through repeatable delivery practices."
+            },
+            "tr": {
+              "title": "DevOps",
+              "summary": "Geliştirme ve operasyonu tekrarlanabilir teslimat uygulamalarıyla birleştirin."
+            },
+            "ar": {
+              "title": "DevOps",
+              "summary": "اربط التطوير والتشغيل بممارسات تسليم قابلة للتكرار."
+            }
+          }
+        },
+        {
+          "slug": "cloud-infrastructure-management",
+          "translations": {
+            "en": {
+              "title": "Cloud Infrastructure Management",
+              "summary": "Organize cloud resources, monitoring and routine maintenance."
+            },
+            "tr": {
+              "title": "Bulut Altyapı Yönetimi",
+              "summary": "Bulut kaynaklarını, izlemeyi ve düzenli bakımı organize edin."
+            },
+            "ar": {
+              "title": "إدارة البنية التحتية السحابية",
+              "summary": "نظّم الموارد السحابية والمراقبة والصيانة الدورية."
+            }
+          }
+        },
+        {
+          "slug": "cloud-modernization",
+          "translations": {
+            "en": {
+              "title": "Cloud Modernization",
+              "summary": "Review cloud architectures and adapt them to changing requirements."
+            },
+            "tr": {
+              "title": "Bulut Modernizasyonu",
+              "summary": "Bulut mimarilerini inceleyin ve değişen gereksinimlere uyarlayın."
+            },
+            "ar": {
+              "title": "تحديث البيئات السحابية",
+              "summary": "راجع البنى السحابية وكيّفها مع المتطلبات المتغيّرة."
+            }
+          }
+        },
+        {
+          "slug": "cloud-application-development",
+          "translations": {
+            "en": {
+              "title": "Cloud Application Development",
+              "summary": "Build applications that fit your chosen cloud environment."
+            },
+            "tr": {
+              "title": "Bulut Uygulama Geliştirme",
+              "summary": "Seçtiğiniz bulut ortamına uygun uygulamalar geliştirin."
+            },
+            "ar": {
+              "title": "تطوير التطبيقات السحابية",
+              "summary": "طوّر تطبيقات تناسب بيئتك السحابية المختارة."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "automation",
+      "labels": {
+        "en": "Intelligent Platforms & Automation",
+        "tr": "Akıllı Platformlar ve Otomasyon",
+        "ar": "المنصات الذكية والأتمتة"
+      },
+      "services": [
+        {
+          "slug": "business-automation",
+          "translations": {
+            "en": {
+              "title": "Intelligent Platforms and Automation",
+              "summary": "Connect business platforms and reduce repetitive manual steps."
+            },
+            "tr": {
+              "title": "Akıllı Platformlar ve Otomasyon",
+              "summary": "İş platformlarını birleştirin ve tekrarlanan manuel adımları azaltın."
+            },
+            "ar": {
+              "title": "المنصات الذكية والأتمتة",
+              "summary": "اربط منصات الأعمال وقلّل الخطوات اليدوية المتكررة."
+            }
+          }
+        },
+        {
+          "slug": "robotic-process-automation",
+          "translations": {
+            "en": {
+              "title": "RPA",
+              "summary": "Automate defined repetitive tasks across existing tools."
+            },
+            "tr": {
+              "title": "Robotik Süreç Otomasyonu",
+              "summary": "Mevcut araçlardaki tanımlı, tekrarlanan görevleri otomatikleştirin."
+            },
+            "ar": {
+              "title": "أتمتة العمليات الروبوتية",
+              "summary": "أتمت المهام المتكررة المحدّدة عبر الأدوات الحالية."
+            }
+          }
+        },
+        {
+          "slug": "erp-solutions",
+          "translations": {
+            "en": {
+              "title": "ERP Solutions",
+              "summary": "Bring operational processes into a coordinated information flow."
+            },
+            "tr": {
+              "title": "ERP Çözümleri",
+              "summary": "Operasyonel süreçleri koordineli bir bilgi akışında birleştirin."
+            },
+            "ar": {
+              "title": "حلول تخطيط موارد المؤسسات",
+              "summary": "اجمع العمليات التشغيلية في تدفق منسّق للمعلومات."
+            }
+          }
+        },
+        {
+          "slug": "sap-services",
+          "translations": {
+            "en": {
+              "title": "SAP",
+              "summary": "Plan SAP-related integration and application work around business requirements."
+            },
+            "tr": {
+              "title": "SAP",
+              "summary": "SAP entegrasyon ve uygulama çalışmalarını iş gereksinimlerine göre planlayın."
+            },
+            "ar": {
+              "title": "SAP",
+              "summary": "خطّط لأعمال تطبيقات وتكامل SAP حول متطلبات الأعمال."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "labels": {
+        "en": "Data & Analytics",
+        "tr": "Veri ve Analitik",
+        "ar": "البيانات والتحليلات"
+      },
+      "services": [
+        {
+          "slug": "data-and-analytics",
+          "translations": {
+            "en": {
+              "title": "Data and Analytics",
+              "summary": "Build the foundations for collecting, organizing and interpreting data."
+            },
+            "tr": {
+              "title": "Veri ve Analitik",
+              "summary": "Veri toplama, düzenleme ve yorumlama için temel oluşturun."
+            },
+            "ar": {
+              "title": "البيانات والتحليلات",
+              "summary": "ابنِ أسس جمع البيانات وتنظيمها وتفسيرها."
+            }
+          }
+        },
+        {
+          "slug": "data-lake-consulting",
+          "translations": {
+            "en": {
+              "title": "Data Lake Consulting",
+              "summary": "Plan a data lake around sources, access patterns and governance."
+            },
+            "tr": {
+              "title": "Veri Gölü Danışmanlığı",
+              "summary": "Veri gölünü kaynaklara, erişim biçimlerine ve yönetişime göre planlayın."
+            },
+            "ar": {
+              "title": "استشارات بحيرات البيانات",
+              "summary": "خطّط لبحيرة بيانات وفق المصادر وأنماط الوصول والحوكمة."
+            }
+          }
+        },
+        {
+          "slug": "data-warehouse-consulting",
+          "translations": {
+            "en": {
+              "title": "Data Warehouse Consulting Services",
+              "summary": "Structure consolidated data for reporting and analytical workloads."
+            },
+            "tr": {
+              "title": "Veri Ambarı Danışmanlığı",
+              "summary": "Birleştirilmiş verileri raporlama ve analitik iş yükleri için yapılandırın."
+            },
+            "ar": {
+              "title": "استشارات مستودعات البيانات",
+              "summary": "هيكل البيانات المجمّعة لدعم التقارير والتحليلات."
+            }
+          }
+        },
+        {
+          "slug": "data-governance",
+          "translations": {
+            "en": {
+              "title": "Data Governance",
+              "summary": "Define ownership, access and quality practices for organizational data."
+            },
+            "tr": {
+              "title": "Veri Yönetişimi",
+              "summary": "Kurumsal veriler için sahiplik, erişim ve kalite uygulamalarını tanımlayın."
+            },
+            "ar": {
+              "title": "حوكمة البيانات",
+              "summary": "حدّد ملكية البيانات المؤسسية وضوابط الوصول وممارسات الجودة."
+            }
+          }
+        },
+        {
+          "slug": "data-migration",
+          "translations": {
+            "en": {
+              "title": "Data Migration",
+              "summary": "Move data between systems with mapping and validation steps."
+            },
+            "tr": {
+              "title": "Veri Taşıma",
+              "summary": "Verileri eşleme ve doğrulama adımlarıyla sistemler arasında taşıyın."
+            },
+            "ar": {
+              "title": "ترحيل البيانات",
+              "summary": "انقل البيانات بين الأنظمة مع خطوات المطابقة والتحقق."
+            }
+          }
+        },
+        {
+          "slug": "data-engineering",
+          "translations": {
+            "en": {
+              "title": "Data Engineering Services",
+              "summary": "Create pipelines that prepare data for applications and analysis."
+            },
+            "tr": {
+              "title": "Veri Mühendisliği",
+              "summary": "Verileri uygulamalar ve analiz için hazırlayan veri hatları oluşturun."
+            },
+            "ar": {
+              "title": "خدمات هندسة البيانات",
+              "summary": "أنشئ مسارات تجهّز البيانات للتطبيقات والتحليل."
+            }
+          }
+        },
+        {
+          "slug": "power-bi-consulting",
+          "translations": {
+            "en": {
+              "title": "Power BI Consulting",
+              "summary": "Shape reports and dashboards around useful business questions."
+            },
+            "tr": {
+              "title": "Power BI Danışmanlığı",
+              "summary": "Rapor ve panoları anlamlı iş soruları etrafında şekillendirin."
+            },
+            "ar": {
+              "title": "استشارات Power BI",
+              "summary": "صمّم التقارير ولوحات المعلومات حول أسئلة أعمال مفيدة."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "iot",
+      "labels": {
+        "en": "Embedded & IoT",
+        "tr": "Gömülü Sistemler ve IoT",
+        "ar": "الأنظمة المدمجة وإنترنت الأشياء"
+      },
+      "services": [
+        {
+          "slug": "iot-solutions",
+          "translations": {
+            "en": {
+              "title": "Embedded & IoT",
+              "summary": "Connect devices, embedded software and the systems that use their data."
+            },
+            "tr": {
+              "title": "Gömülü Sistemler ve IoT",
+              "summary": "Cihazları, gömülü yazılımları ve verilerini kullanan sistemleri bağlayın."
+            },
+            "ar": {
+              "title": "الأنظمة المدمجة وإنترنت الأشياء",
+              "summary": "اربط الأجهزة والبرمجيات المدمجة والأنظمة التي تستخدم بياناتها."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "labels": {
+        "en": "AI Consulting & Implementation",
+        "tr": "Yapay Zekâ Danışmanlığı ve Uygulama",
+        "ar": "استشارات وتطبيق الذكاء الاصطناعي"
+      },
+      "services": [
+        {
+          "slug": "artificial-intelligence",
+          "translations": {
+            "en": {
+              "title": "AI Consulting and Implementation",
+              "summary": "Evaluate AI use cases and plan responsible implementation."
+            },
+            "tr": {
+              "title": "Yapay Zekâ Danışmanlığı ve Uygulama",
+              "summary": "Yapay zekâ kullanım alanlarını değerlendirin ve sorumlu uygulama planlayın."
+            },
+            "ar": {
+              "title": "استشارات وتطبيق الذكاء الاصطناعي",
+              "summary": "قيّم حالات استخدام الذكاء الاصطناعي وخطّط لتطبيقها بمسؤولية."
+            }
+          }
+        },
+        {
+          "slug": "ai-agent-development",
+          "translations": {
+            "en": {
+              "title": "AI Agent Development Services",
+              "summary": "Design task-oriented AI agents with clear boundaries and oversight."
+            },
+            "tr": {
+              "title": "Yapay Zekâ Ajanı Geliştirme",
+              "summary": "Görev odaklı yapay zekâ ajanlarını belirgin sınırlar ve gözetimle tasarlayın."
+            },
+            "ar": {
+              "title": "تطوير وكلاء الذكاء الاصطناعي",
+              "summary": "صمّم وكلاء ذكاء اصطناعي للمهام بحدود واضحة وإشراف مناسب."
+            }
+          }
+        },
+        {
+          "slug": "computer-vision",
+          "translations": {
+            "en": {
+              "title": "Computer Vision",
+              "summary": "Explore image and video analysis for defined operational tasks."
+            },
+            "tr": {
+              "title": "Bilgisayarlı Görü",
+              "summary": "Belirli operasyonel görevler için görüntü ve video analizini keşfedin."
+            },
+            "ar": {
+              "title": "الرؤية الحاسوبية",
+              "summary": "استكشف تحليل الصور والفيديو لمهام تشغيلية محدّدة."
+            }
+          }
+        },
+        {
+          "slug": "generative-ai",
+          "translations": {
+            "en": {
+              "title": "Generative AI",
+              "summary": "Build assisted content and knowledge workflows with human review."
+            },
+            "tr": {
+              "title": "Üretken Yapay Zekâ",
+              "summary": "İnsan incelemesiyle destekli içerik ve bilgi iş akışları oluşturun."
+            },
+            "ar": {
+              "title": "الذكاء الاصطناعي التوليدي",
+              "summary": "ابنِ مسارات مساعدة للمحتوى والمعرفة مع مراجعة بشرية."
+            }
+          }
+        },
+        {
+          "slug": "ai-machine-learning",
+          "translations": {
+            "en": {
+              "title": "AI & Machine Learning",
+              "summary": "Develop models around available data and measurable business questions."
+            },
+            "tr": {
+              "title": "Yapay Zekâ ve Makine Öğrenimi",
+              "summary": "Modelleri mevcut veriler ve ölçülebilir iş soruları etrafında geliştirin."
+            },
+            "ar": {
+              "title": "الذكاء الاصطناعي وتعلّم الآلة",
+              "summary": "طوّر النماذج حول البيانات المتاحة وأسئلة أعمال قابلة للقياس."
+            }
+          }
+        },
+        {
+          "slug": "rag-development",
+          "translations": {
+            "en": {
+              "title": "RAG Development",
+              "summary": "Connect generated answers to retrieved information from selected sources."
+            },
+            "tr": {
+              "title": "RAG Geliştirme",
+              "summary": "Üretilen yanıtları seçili kaynaklardan getirilen bilgilerle ilişkilendirin."
+            },
+            "ar": {
+              "title": "تطوير أنظمة RAG",
+              "summary": "اربط الإجابات المولّدة بمعلومات مسترجعة من مصادر مختارة."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "labels": {
+        "en": "Security & Quality",
+        "tr": "Güvenlik ve Kalite",
+        "ar": "الأمن والجودة"
+      },
+      "services": [
+        {
+          "slug": "cybersecurity",
+          "translations": {
+            "en": {
+              "title": "Security and Quality",
+              "summary": "Consider security and validation across systems and delivery practices."
+            },
+            "tr": {
+              "title": "Güvenlik ve Kalite",
+              "summary": "Sistemlerde ve teslimat uygulamalarında güvenliği ve doğrulamayı ele alın."
+            },
+            "ar": {
+              "title": "الأمن والجودة",
+              "summary": "راعِ الأمن والتحقق عبر الأنظمة وممارسات التنفيذ."
+            }
+          }
+        },
+        {
+          "slug": "business-continuity",
+          "translations": {
+            "en": {
+              "title": "Business Continuity",
+              "summary": "Plan how critical operations can respond to disruptions."
+            },
+            "tr": {
+              "title": "İş Sürekliliği",
+              "summary": "Kritik operasyonların kesintilere nasıl yanıt vereceğini planlayın."
+            },
+            "ar": {
+              "title": "استمرارية الأعمال",
+              "summary": "خطّط لاستجابة العمليات الحيوية للانقطاعات."
+            }
+          }
+        },
+        {
+          "slug": "devsecops",
+          "translations": {
+            "en": {
+              "title": "DevSecOps",
+              "summary": "Integrate security checks into development and delivery workflows."
+            },
+            "tr": {
+              "title": "DevSecOps",
+              "summary": "Güvenlik kontrollerini geliştirme ve teslimat akışlarına dahil edin."
+            },
+            "ar": {
+              "title": "DevSecOps",
+              "summary": "أدرج فحوص الأمن في مسارات التطوير والتسليم."
+            }
+          }
+        },
+        {
+          "slug": "application-security-testing",
+          "translations": {
+            "en": {
+              "title": "Application Security Testing",
+              "summary": "Assess application behavior for security weaknesses within an agreed scope."
+            },
+            "tr": {
+              "title": "Uygulama Güvenlik Testi",
+              "summary": "Uygulama davranışlarını belirlenen kapsamda güvenlik zayıflıkları için değerlendirin."
+            },
+            "ar": {
+              "title": "اختبار أمن التطبيقات",
+              "summary": "قيّم سلوك التطبيقات بحثاً عن نقاط ضعف أمنية ضمن نطاق متفق عليه."
+            }
+          }
+        },
+        {
+          "slug": "penetration-testing",
+          "translations": {
+            "en": {
+              "title": "Penetration Testing",
+              "summary": "Test agreed systems under authorization and document remediation priorities."
+            },
+            "tr": {
+              "title": "Sızma Testi",
+              "summary": "Yetkilendirilmiş sistemleri test edin ve iyileştirme önceliklerini belgeleyin."
+            },
+            "ar": {
+              "title": "اختبار الاختراق",
+              "summary": "اختبر الأنظمة المصرّح بها ووثّق أولويات المعالجة."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "games",
+      "labels": {
+        "en": "Game Development",
+        "tr": "Oyun Geliştirme",
+        "ar": "تطوير الألعاب"
+      },
+      "services": [
+        {
+          "slug": "game-development",
+          "translations": {
+            "en": {
+              "title": "Game Development",
+              "summary": "Develop interactive game experiences around a defined concept and platform."
+            },
+            "tr": {
+              "title": "Oyun Geliştirme",
+              "summary": "Etkileşimli oyun deneyimlerini belirli bir konsept ve platform etrafında geliştirin."
+            },
+            "ar": {
+              "title": "تطوير الألعاب",
+              "summary": "طوّر تجارب ألعاب تفاعلية حول فكرة ومنصة محدّدتين."
+            }
+          }
+        },
+        {
+          "slug": "immersive-technology",
+          "translations": {
+            "en": {
+              "title": "Immersive Tech",
+              "summary": "Explore immersive interfaces for simulation, learning and interaction."
+            },
+            "tr": {
+              "title": "Sürükleyici Teknolojiler",
+              "summary": "Simülasyon, öğrenme ve etkileşim için sürükleyici arayüzleri keşfedin."
+            },
+            "ar": {
+              "title": "التقنيات الغامرة",
+              "summary": "استكشف واجهات غامرة للمحاكاة والتعلّم والتفاعل."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "additional",
+      "labels": {
+        "en": "Additional Services",
+        "tr": "Diğer Hizmetler",
+        "ar": "خدمات إضافية"
+      },
+      "services": [
+        {
+          "slug": "api-integration",
+          "translations": {
+            "en": {
+              "title": "API & System Integration",
+              "summary": "Connect platforms through defined interfaces and coordinated data flows."
+            },
+            "tr": {
+              "title": "API ve Sistem Entegrasyonu",
+              "summary": "Platformları tanımlı arayüzler ve koordineli veri akışlarıyla bağlayın."
+            },
+            "ar": {
+              "title": "تكامل الأنظمة وواجهات API",
+              "summary": "اربط المنصات عبر واجهات محدّدة وتدفقات منسّقة للبيانات."
+            }
+          }
+        },
+        {
+          "slug": "network-infrastructure",
+          "translations": {
+            "en": {
+              "title": "Network Infrastructure",
+              "summary": "Plan the connectivity that brings people, locations and systems together."
+            },
+            "tr": {
+              "title": "Ağ Altyapısı",
+              "summary": "İnsanları, konumları ve sistemleri bir araya getiren bağlantıyı planlayın."
+            },
+            "ar": {
+              "title": "البنية التحتية للشبكات",
+              "summary": "خطّط للاتصال الذي يجمع الأشخاص والمواقع والأنظمة."
+            }
+          }
+        },
+        {
+          "slug": "managed-it-services",
+          "translations": {
+            "en": {
+              "title": "Managed IT Operations",
+              "summary": "Coordinate everyday IT operations, maintenance and technical support."
+            },
+            "tr": {
+              "title": "Yönetilen BT Operasyonları",
+              "summary": "Günlük BT operasyonlarını, bakımı ve teknik desteği koordine edin."
+            },
+            "ar": {
+              "title": "إدارة وتشغيل تقنية المعلومات",
+              "summary": "نسّق عمليات تقنية المعلومات اليومية والصيانة والدعم التقني."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

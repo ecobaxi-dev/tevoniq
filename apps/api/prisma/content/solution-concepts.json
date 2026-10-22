@@ -1,0 +1,652 @@
+[
+  {
+    "slug": "intelligent-document-workflow",
+    "serviceSlugs": [
+      "artificial-intelligence",
+      "business-automation",
+      "api-integration",
+      "archiving-solutions"
+    ],
+    "sources": [
+      "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/accuracy-confidence?view=doc-intel-4.0.0"
+    ],
+    "translations": {
+      "en": {
+        "name": "Intelligent Document Workflow",
+        "summary": "Solution concept: turn incoming invoices, forms and correspondence into reviewable digital workflows, with people in control of important decisions.",
+        "challenge": "A document may arrive by email, be retyped into a spreadsheet, and wait for approval without a clear owner. Different formats, missing fields and duplicate files make it difficult to follow the request from receipt to completion.",
+        "overview": "A shared intake workspace could bring classification, data capture, validation and approval into one process. Staff would see the original document beside extracted fields, resolve exceptions and release approved information to the appropriate business system.",
+        "architecture": "Document intake → classification and extraction → validation rules → human review → approved integration → searchable archive. Access roles and retention rules would be defined before using representative documents in a pilot.",
+        "capabilities": [
+          [
+            "Controlled intake",
+            "Capture documents through agreed channels, assign a reference and flag possible duplicates."
+          ],
+          [
+            "Review before action",
+            "Route uncertain or incomplete fields to a reviewer; preserve corrections and approval history."
+          ],
+          [
+            "Connected records",
+            "Map approved fields to the target system through supported interfaces, with retry and exception handling."
+          ]
+        ],
+        "benefits": [
+          [
+            "Less repeated entry",
+            "The intended benefit is to reuse reviewed information instead of typing it into several systems."
+          ],
+          [
+            "Clear ownership",
+            "A visible queue could make pending decisions and unresolved exceptions easier to manage."
+          ]
+        ],
+        "delivery": "1. Select one document family and agree on data permissions.\n2. Prepare a representative sample and field checklist.\n3. Pilot extraction with human review and compare against checked records.\n4. Connect the approved workflow, document exceptions and train the operating team.",
+        "measurement": "Evaluate field-level accuracy on a reviewed sample, review time per document, duplicate flags and exception resolution. Targets would be agreed after establishing a baseline; no accuracy or cost saving is promised."
+      },
+      "tr": {
+        "name": "Akıllı Belge İş Akışı",
+        "summary": "Çözüm konsepti: faturaları, formları ve yazışmaları, önemli kararların insan denetiminde kaldığı izlenebilir dijital iş akışlarına dönüştürün.",
+        "challenge": "Bir belge e-postayla gelir, tabloya tekrar yazılır ve sorumlusu belli olmadan onay bekler. Farklı biçimler, eksik alanlar ve yinelenen dosyalar, talebin başlangıçtan sonuca kadar izlenmesini zorlaştırır.",
+        "overview": "Ortak bir belge çalışma alanı; sınıflandırmayı, veri çıkarmayı, doğrulamayı ve onayı tek süreçte birleştirebilir. Çalışanlar özgün belgeyi çıkarılan alanlarla birlikte inceleyebilir, istisnaları çözebilir ve onaylanan verileri ilgili sisteme aktarabilir.",
+        "architecture": "Belge alımı → sınıflandırma ve veri çıkarma → doğrulama kuralları → insan incelemesi → onaylı entegrasyon → aranabilir arşiv. Pilot öncesinde erişim rolleri ve saklama kuralları tanımlanır.",
+        "capabilities": [
+          [
+            "Kontrollü belge alımı",
+            "Belirlenen kanallardan belge alınır, referans atanır ve olası mükerrer kayıtlar işaretlenir."
+          ],
+          [
+            "İşlem öncesi inceleme",
+            "Belirsiz veya eksik alanlar incelemeye yönlendirilir; düzeltmeler ve onay geçmişi korunur."
+          ],
+          [
+            "Bağlantılı kayıtlar",
+            "Onaylanan alanlar desteklenen arayüzlerle hedef sisteme eşlenir; hata ve yeniden deneme süreçleri tanımlanır."
+          ]
+        ],
+        "benefits": [
+          [
+            "Daha az tekrar",
+            "Hedef, incelenmiş bilgiyi farklı sistemlere yeniden yazmak yerine tekrar kullanmaktır."
+          ],
+          [
+            "Net sorumluluk",
+            "Görünür bir iş kuyruğu, bekleyen kararların ve istisnaların yönetilmesini kolaylaştırabilir."
+          ]
+        ],
+        "delivery": "1. Bir belge türü seçilir ve veri izinleri belirlenir.\n2. Temsilî örnekler ve alan kontrol listesi hazırlanır.\n3. İnsan incelemeli pilot, doğrulanmış kayıtlarla karşılaştırılır.\n4. Onaylanan akış bağlanır, istisnalar belgelenir ve ekip eğitilir.",
+        "measurement": "İncelenmiş örneklerde alan doğruluğu, belge başına inceleme süresi, mükerrer kayıt uyarıları ve istisna çözümü değerlendirilir. Hedefler başlangıç ölçümünden sonra belirlenir; doğruluk veya tasarruf garantisi verilmez."
+      },
+      "ar": {
+        "name": "المعالجة الذكية للمستندات",
+        "summary": "تصور حل: تحويل الفواتير والنماذج والمراسلات إلى مسارات رقمية قابلة للمراجعة، مع بقاء القرارات المهمة تحت إشراف الموظفين.",
+        "challenge": "قد تصل الفاتورة عبر البريد، ثم تُنسخ بياناتها إلى جدول، وتنتظر موافقة دون مسؤول واضح. اختلاف التنسيقات ونقص البيانات وتكرار الملفات يجعل متابعة المستند من الاستلام إلى الإغلاق مهمة مرهقة.",
+        "overview": "مساحة عمل موحدة يمكن أن تجمع تصنيف المستندات واستخراج البيانات والتحقق منها واعتمادها. يرى الموظف المستند الأصلي بجانب الحقول المستخرجة، ويعالج الاستثناءات قبل إرسال المعلومات المعتمدة إلى النظام المعني.",
+        "architecture": "استلام المستند → التصنيف والاستخراج → قواعد التحقق → المراجعة البشرية → التكامل المعتمد → الأرشيف القابل للبحث. تُحدد صلاحيات الوصول وسياسات الاحتفاظ قبل بدء التجربة على عينة ممثلة.",
+        "capabilities": [
+          [
+            "استلام منظم",
+            "جمع المستندات من القنوات المتفق عليها، وإسناد مرجع لكل مستند والتنبيه إلى التكرار المحتمل."
+          ],
+          [
+            "مراجعة قبل الاعتماد",
+            "إحالة الحقول غير الواضحة أو الناقصة إلى الموظف المختص، مع حفظ التعديلات وتسلسل الموافقات."
+          ],
+          [
+            "تكامل مع الأنظمة",
+            "ربط الحقول المعتمدة بالنظام المستهدف عبر واجهاته المتاحة، مع معالجة الأخطاء ومحاولات الإرسال."
+          ]
+        ],
+        "benefits": [
+          [
+            "تقليل الإدخال المتكرر",
+            "الهدف هو إعادة استخدام البيانات المراجعة بدل نسخها يدويًا بين أنظمة متعددة."
+          ],
+          [
+            "وضوح المسؤوليات",
+            "قائمة عمل مشتركة يمكن أن تسهّل معرفة الموافقات المتأخرة والاستثناءات التي تحتاج إلى تدخل."
+          ]
+        ],
+        "delivery": "1. اختيار نوع مستند واحد وتحديد صلاحيات استخدام بياناته.\n2. تجهيز عينة ممثلة وقائمة الحقول المطلوبة.\n3. تجربة الاستخراج تحت مراجعة بشرية ومقارنته بسجلات مدققة.\n4. ربط المسار المعتمد وتوثيق الاستثناءات وتدريب فريق التشغيل.",
+        "measurement": "تُقاس دقة الحقول على عينة مدققة، ووقت المراجعة لكل مستند، والتنبيهات إلى التكرار، وزمن معالجة الاستثناءات. تُحدد المستهدفات بعد قياس الوضع الحالي، دون افتراض نسبة دقة أو وفر مالي."
+      }
+    }
+  },
+  {
+    "slug": "connected-retail-operations",
+    "serviceSlugs": ["pos-systems", "e-commerce-solutions", "barcode-solutions", "api-integration"],
+    "sources": [
+      "https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/smart-grocery-scan-and-go.html"
+    ],
+    "translations": {
+      "en": {
+        "name": "Connected Retail Operations",
+        "summary": "Solution concept: connect sales channels, stock movements and order fulfilment in a shared operational view for a growing retail business.",
+        "challenge": "When a store, an online shop and a warehouse maintain separate records, staff may have to reconcile stock manually. Orders can become difficult to trace when reservations, returns and fulfilment updates travel through different systems.",
+        "overview": "A connected operations layer could coordinate product identifiers, inventory events and order status without assuming that every existing application must be replaced. Store and fulfilment teams would work from agreed information and exception queues.",
+        "architecture": "Store and online events → integration layer → product and stock mapping → order coordination → operational dashboard. Define which system owns each record and how delayed, duplicate or conflicting updates are resolved.",
+        "capabilities": [
+          [
+            "Unified product references",
+            "Map product identifiers, variants and locations across the selected systems."
+          ],
+          [
+            "Order visibility",
+            "Track agreed order stages and surface failed updates, unconfirmed reservations and pending returns."
+          ],
+          [
+            "Store-ready workflows",
+            "Include barcode-led handling and an explicit procedure for temporary connectivity loss."
+          ]
+        ],
+        "benefits": [
+          [
+            "More consistent decisions",
+            "The intended outcome is a clearer view of stock and order exceptions across participating channels."
+          ],
+          [
+            "Less manual reconciliation",
+            "Shared identifiers and controlled updates could reduce repeated checking between teams."
+          ]
+        ],
+        "delivery": "1. Map sales, stock and return processes.\n2. Confirm system access and data ownership.\n3. Pilot one channel or location with representative transactions.\n4. Reconcile test results before extending the integration.",
+        "measurement": "Review stock discrepancies, failed synchronization events, time to locate an order and exception closure. The pilot would establish realistic targets; sales growth is not assumed."
+      },
+      "tr": {
+        "name": "Bağlantılı Perakende Operasyonları",
+        "summary": "Çözüm konsepti: büyüyen perakende işletmeleri için satış kanallarını, stok hareketlerini ve sipariş hazırlığını ortak bir operasyon görünümünde buluşturun.",
+        "challenge": "Mağaza, çevrimiçi satış ve depo ayrı kayıtlar tuttuğunda stokların elle uzlaştırılması gerekebilir. Rezervasyon, iade ve teslimat bilgileri farklı sistemlerde ilerlediğinde sipariş takibi zorlaşır.",
+        "overview": "Bağlantılı bir operasyon katmanı, mevcut uygulamaların tümünü değiştirmeden ürün kodlarını, stok olaylarını ve sipariş durumlarını koordine edebilir. Mağaza ve sevkiyat ekipleri ortak bilgi ve istisna kuyrukları üzerinden çalışabilir.",
+        "architecture": "Mağaza ve çevrimiçi satış olayları → entegrasyon katmanı → ürün ve stok eşleme → sipariş koordinasyonu → operasyon paneli. Her kaydın sahibi ve geciken, yinelenen veya çelişen güncellemelerin yönetimi tanımlanır.",
+        "capabilities": [
+          [
+            "Ortak ürün referansları",
+            "Seçilen sistemler arasında ürün kodları, varyantlar ve konumlar eşlenir."
+          ],
+          [
+            "Sipariş görünürlüğü",
+            "Sipariş aşamaları takip edilir; başarısız güncellemeler, bekleyen rezervasyonlar ve iadeler görünür kılınır."
+          ],
+          [
+            "Mağazaya uygun iş akışları",
+            "Barkodlu işlemler ve geçici bağlantı kesintilerine yönelik açık bir prosedür tasarlanır."
+          ]
+        ],
+        "benefits": [
+          [
+            "Daha tutarlı kararlar",
+            "Hedef, kanallar arasındaki stok ve sipariş istisnalarının daha açık görülmesidir."
+          ],
+          [
+            "Daha az elle uzlaştırma",
+            "Ortak kodlar ve kontrollü güncellemeler, ekipler arasındaki tekrarlanan kontrolleri azaltabilir."
+          ]
+        ],
+        "delivery": "1. Satış, stok ve iade süreçleri haritalanır.\n2. Sistem erişimi ve veri sahipliği doğrulanır.\n3. Tek kanal veya lokasyonda temsilî işlemlerle pilot yapılır.\n4. Entegrasyon genişletilmeden önce sonuçlar uzlaştırılır.",
+        "measurement": "Stok farkları, başarısız eşitlemeler, sipariş bulma süresi ve istisna çözümü incelenir. Gerçekçi hedefler pilotla belirlenir; satış artışı varsayılmaz."
+      },
+      "ar": {
+        "name": "إدارة عمليات التجزئة المترابطة",
+        "summary": "تصور حل: ربط قنوات البيع وحركة المخزون وتجهيز الطلبات في رؤية تشغيلية مشتركة للمتاجر التي تتوسع وتحتاج إلى تنسيق أدق.",
+        "challenge": "عندما يعمل المتجر والموقع الإلكتروني والمستودع بسجلات منفصلة، تصبح مطابقة المخزون مهمة يدوية. ويصعب تتبع الطلب حين تتوزع الحجوزات والمرتجعات وتحديثات التسليم بين أنظمة متعددة.",
+        "overview": "طبقة تشغيل مترابطة يمكن أن تنسق رموز المنتجات وحركات المخزون وحالات الطلبات دون افتراض ضرورة استبدال جميع الأنظمة. تعمل فرق المتاجر والتجهيز على معلومات متفق عليها وقوائم واضحة للاستثناءات.",
+        "architecture": "أحداث المتجر والبيع الإلكتروني → طبقة التكامل → مطابقة المنتجات والمخزون → تنسيق الطلبات → لوحة التشغيل. يُحدد النظام المسؤول عن كل سجل وطريقة معالجة التحديثات المتأخرة أو المكررة أو المتعارضة.",
+        "capabilities": [
+          [
+            "مرجع موحد للمنتجات",
+            "مطابقة رموز المنتجات ومتغيراتها ومواقع تخزينها عبر الأنظمة المشمولة."
+          ],
+          [
+            "متابعة دورة الطلب",
+            "إظهار مراحل الطلب والتحديثات الفاشلة والحجوزات غير المؤكدة والمرتجعات المعلقة."
+          ],
+          [
+            "إجراءات مناسبة للمتجر",
+            "دعم التعامل بالباركود ووضع إجراء واضح للعمل عند انقطاع الاتصال مؤقتًا."
+          ]
+        ],
+        "benefits": [
+          [
+            "قرارات أكثر اتساقًا",
+            "الهدف هو رؤية أوضح لاستثناءات المخزون والطلبات عبر القنوات المتصلة."
+          ],
+          [
+            "تقليل المطابقة اليدوية",
+            "الرموز المشتركة والتحديثات المنضبطة يمكن أن تقلل تكرار المراجعة بين الفرق."
+          ]
+        ],
+        "delivery": "1. رسم مسارات البيع والمخزون والمرتجعات.\n2. تأكيد صلاحيات الربط والمسؤولية عن البيانات.\n3. تجربة قناة أو موقع واحد بمعاملات ممثلة.\n4. مطابقة نتائج التجربة قبل توسيع التكامل.",
+        "measurement": "تُراجع فروقات المخزون، وأخطاء المزامنة، ووقت العثور على الطلب، وإغلاق الاستثناءات. تحدد التجربة مستهدفات واقعية دون افتراض زيادة في المبيعات."
+      }
+    }
+  },
+  {
+    "slug": "smart-workplace-experience",
+    "serviceSlugs": [
+      "video-conferencing",
+      "interactive-displays",
+      "digital-signage",
+      "network-infrastructure"
+    ],
+    "sources": ["https://enablement.microsoft.com/en-us/microsoft-teams/teams-rooms/"],
+    "translations": {
+      "en": {
+        "name": "Smart Workplace Experience",
+        "summary": "Solution concept: bring meeting spaces, collaboration tools and workplace information together around a consistent experience for employees and guests.",
+        "challenge": "Meeting rooms can behave differently from one another: unfamiliar controls, unreliable audio paths and unclear booking information interrupt collaboration. Support teams may not know a room has a problem until a meeting starts.",
+        "overview": "A room-by-room workplace concept could align booking information, meeting controls, displays and support procedures. The design would start with room purpose and user journeys, including remote participants and accessibility needs.",
+        "architecture": "Room requirements → network and device readiness → meeting platform and booking integration → managed room experience → support visibility. Equipment would be selected after testing compatibility, acoustics and the physical space.",
+        "capabilities": [
+          [
+            "Purposeful room standards",
+            "Define appropriate layouts and controls for small rooms, boardrooms and shared collaboration spaces."
+          ],
+          [
+            "Clear workplace information",
+            "Show approved booking and visitor information on suitable displays without exposing private meeting details."
+          ],
+          [
+            "Operational handover",
+            "Provide a room checklist, device inventory, support ownership and a documented fault-reporting route."
+          ]
+        ],
+        "benefits": [
+          [
+            "Easier meeting starts",
+            "A consistent set of controls could reduce confusion when people move between rooms."
+          ],
+          [
+            "More manageable spaces",
+            "A shared inventory and readiness checks could help support teams identify recurring issues."
+          ]
+        ],
+        "delivery": "1. Survey rooms and observe common meeting scenarios.\n2. Check network, acoustics and platform requirements.\n3. Pilot one room with local and remote participants.\n4. Agree the room standard, train users and plan expansion.",
+        "measurement": "Assess meeting-start issues, audio intelligibility in agreed test scenarios, support requests and user feedback. Acceptance criteria depend on each room; universal performance is not assumed."
+      },
+      "tr": {
+        "name": "Akıllı Çalışma Alanı Deneyimi",
+        "summary": "Çözüm konsepti: toplantı alanlarını, iş birliği araçlarını ve iş yeri bilgilendirmesini çalışanlar ve ziyaretçiler için tutarlı bir deneyimde birleştirin.",
+        "challenge": "Toplantı odaları farklı çalışabilir: yabancı kontroller, sorunlu ses bağlantıları ve belirsiz rezervasyon bilgileri iş birliğini kesintiye uğratır. Destek ekibi sorunu ancak toplantı başladığında öğrenebilir.",
+        "overview": "Oda bazlı bir çalışma alanı tasarımı; rezervasyon bilgisini, toplantı kontrollerini, ekranları ve destek süreçlerini uyumlu hâle getirebilir. Tasarım, uzaktan katılımı ve erişilebilirliği de içeren kullanım senaryolarıyla başlar.",
+        "architecture": "Oda ihtiyaçları → ağ ve cihaz hazırlığı → toplantı platformu ve rezervasyon entegrasyonu → yönetilebilir oda deneyimi → destek görünürlüğü. Donanım, uyumluluk, akustik ve fiziksel alan değerlendirilerek seçilir.",
+        "capabilities": [
+          [
+            "Amaca uygun oda standartları",
+            "Küçük odalar, yönetim toplantıları ve ortak çalışma alanları için uygun yerleşim ve kontroller tanımlanır."
+          ],
+          [
+            "Açık iş yeri bilgisi",
+            "Özel toplantı ayrıntılarını açığa çıkarmadan onaylı rezervasyon ve ziyaretçi bilgileri gösterilir."
+          ],
+          [
+            "İşletime devir",
+            "Oda kontrol listesi, cihaz envanteri, destek sorumluluğu ve arıza bildirim yolu hazırlanır."
+          ]
+        ],
+        "benefits": [
+          [
+            "Daha kolay toplantı başlangıcı",
+            "Tutarlı kontroller, farklı odalara geçen kullanıcıların yaşadığı karışıklığı azaltabilir."
+          ],
+          [
+            "Yönetilebilir alanlar",
+            "Ortak envanter ve hazırlık kontrolleri, tekrar eden sorunların tespitini kolaylaştırabilir."
+          ]
+        ],
+        "delivery": "1. Odalar ve yaygın toplantı senaryoları incelenir.\n2. Ağ, akustik ve platform gereksinimleri kontrol edilir.\n3. Yerel ve uzaktan katılımcılarla tek oda pilotu yapılır.\n4. Oda standardı belirlenir, kullanıcılar eğitilir ve yaygınlaştırma planlanır.",
+        "measurement": "Toplantı başlangıç sorunları, belirlenen senaryolarda ses anlaşılırlığı, destek talepleri ve kullanıcı görüşleri değerlendirilir. Kabul ölçütleri her odaya göre belirlenir."
+      },
+      "ar": {
+        "name": "تجربة بيئة العمل الذكية",
+        "summary": "تصور حل: جمع قاعات الاجتماعات وأدوات التعاون ومعلومات بيئة العمل في تجربة متناسقة للموظفين والزوار والمشاركين عن بُعد.",
+        "challenge": "قد تختلف طريقة تشغيل كل قاعة: أدوات تحكم غير مألوفة، ومشكلات صوت، ومعلومات حجز غير واضحة تعطل الاجتماع. وقد لا يعرف فريق الدعم بالمشكلة إلا بعد بدء الجلسة.",
+        "overview": "تصور لبيئة العمل يُبنى قاعة بقاعة، ينسق الحجز والتحكم في الاجتماعات والشاشات وإجراءات الدعم. يبدأ التصميم من غرض القاعة ورحلة المستخدم، مع مراعاة المشاركين عن بُعد واحتياجات الوصول.",
+        "architecture": "متطلبات القاعة → جاهزية الشبكة والأجهزة → تكامل منصة الاجتماعات والحجز → تجربة استخدام موحدة → متابعة الدعم. تُختار التجهيزات بعد اختبار التوافق والصوتيات وطبيعة المكان.",
+        "capabilities": [
+          [
+            "معايير تناسب كل قاعة",
+            "تحديد التوزيع وأدوات التحكم الملائمة للغرف الصغيرة وقاعات الإدارة ومساحات التعاون."
+          ],
+          [
+            "معلومات واضحة",
+            "عرض بيانات الحجز والزوار المسموح بها دون كشف تفاصيل الاجتماعات الخاصة."
+          ],
+          [
+            "تسليم تشغيلي منظم",
+            "توفير قائمة فحص وجرد للأجهزة وتحديد مسؤولية الدعم ومسار الإبلاغ عن الأعطال."
+          ]
+        ],
+        "benefits": [
+          [
+            "بداية أسهل للاجتماع",
+            "أدوات التحكم المتناسقة يمكن أن تقلل ارتباك المستخدم عند الانتقال بين القاعات."
+          ],
+          [
+            "إدارة أفضل للمساحات",
+            "الجرد المشترك وفحوص الجاهزية يمكن أن يساعدا فريق الدعم في اكتشاف المشكلات المتكررة."
+          ]
+        ],
+        "delivery": "1. مسح القاعات ومراجعة سيناريوهات الاجتماعات الشائعة.\n2. فحص متطلبات الشبكة والصوتيات والمنصة.\n3. تجربة قاعة واحدة بمشاركين محليين وعن بُعد.\n4. اعتماد معيار القاعة وتدريب المستخدمين وتخطيط التوسع.",
+        "measurement": "تُراجع مشكلات بدء الاجتماع، ووضوح الصوت ضمن سيناريوهات محددة، وطلبات الدعم وملاحظات المستخدمين. تختلف معايير القبول باختلاف كل قاعة، ولا تُفترض نتائج موحدة لجميع المساحات."
+      }
+    }
+  },
+  {
+    "slug": "resilient-hybrid-cloud",
+    "serviceSlugs": [
+      "cloud-solutions",
+      "backup-and-disaster-recovery",
+      "servers-and-storage",
+      "devops"
+    ],
+    "sources": [
+      "https://learn.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications"
+    ],
+    "translations": {
+      "en": {
+        "name": "Resilient Hybrid Cloud",
+        "summary": "Solution concept: plan how critical applications and data would recover from disruption across on-premises and cloud environments.",
+        "challenge": "A successful backup job does not demonstrate that a complete business service can be restored. Applications may depend on identities, network routes, databases and external systems that are absent from the recovery plan.",
+        "overview": "A recovery-led architecture could connect workload priorities, backup policies, infrastructure configuration and operational runbooks. The starting point is the business impact of interruption and the acceptable time and data loss for each service.",
+        "architecture": "Workload inventory → dependency map → agreed recovery objectives → protected copies and recovery environment → restore exercises → improvement log. Hosting choices would follow data, integration and operating requirements.",
+        "capabilities": [
+          [
+            "Workload-specific protection",
+            "Match backup frequency, retention and access restrictions to the importance of each workload."
+          ],
+          [
+            "Recoverable environments",
+            "Record the configuration, credentials handling and dependencies needed to rebuild the service."
+          ],
+          [
+            "Practised recovery",
+            "Test representative restoration scenarios and record deviations from the agreed recovery plan."
+          ]
+        ],
+        "benefits": [
+          [
+            "Clearer recovery decisions",
+            "A prioritised plan could help teams decide what to restore first and who owns each action."
+          ],
+          [
+            "Evidence instead of assumptions",
+            "Recorded recovery exercises could reveal gaps before a real disruption."
+          ]
+        ],
+        "delivery": "1. Classify critical applications and dependencies.\n2. Agree recovery time and recovery point objectives.\n3. Design and configure the pilot recovery path.\n4. Run a controlled exercise, document findings and assign follow-up actions.",
+        "measurement": "Measure observed restoration time, recovered data position and completion of dependency checks during exercises. These observations are not an uptime guarantee; recovery targets need workload-specific testing."
+      },
+      "tr": {
+        "name": "Dayanıklı Hibrit Bulut",
+        "summary": "Çözüm konsepti: yerel ve bulut ortamlarında kritik uygulamaların ve verilerin kesinti sonrasında nasıl geri getirileceğini planlayın.",
+        "challenge": "Başarılı bir yedekleme işlemi, iş hizmetinin bütünüyle geri yüklenebileceğini kanıtlamaz. Uygulamalar, kurtarma planında bulunmayan kimliklere, ağ yollarına, veri tabanlarına ve dış sistemlere bağlı olabilir.",
+        "overview": "Kurtarma odaklı mimari; iş yükü önceliklerini, yedekleme politikalarını, altyapı yapılandırmasını ve işletim kılavuzlarını birleştirebilir. Başlangıç noktası, kesintinin iş etkisi ile her hizmet için kabul edilebilir süre ve veri kaybıdır.",
+        "architecture": "İş yükü envanteri → bağımlılık haritası → kurtarma hedefleri → korunan kopyalar ve kurtarma ortamı → geri yükleme tatbikatları → iyileştirme kaydı. Barındırma tercihleri veri ve işletim ihtiyaçlarına göre belirlenir.",
+        "capabilities": [
+          [
+            "İş yüküne uygun koruma",
+            "Yedekleme sıklığı, saklama süresi ve erişim kısıtları her iş yükünün önemine göre belirlenir."
+          ],
+          [
+            "Yeniden kurulabilir ortamlar",
+            "Hizmeti yeniden oluşturmak için gereken yapılandırma, kimlik bilgisi yönetimi ve bağımlılıklar kaydedilir."
+          ],
+          [
+            "Denenmiş kurtarma",
+            "Temsilî geri yükleme senaryoları denenir ve plandan sapmalar belgelenir."
+          ]
+        ],
+        "benefits": [
+          [
+            "Daha açık kurtarma kararları",
+            "Öncelikli plan, önce neyin geri getirileceğini ve her adımın sorumlusunu belirlemeye yardımcı olabilir."
+          ],
+          [
+            "Varsayım yerine kanıt",
+            "Kayıtlı tatbikatlar, gerçek bir kesinti öncesinde eksikleri ortaya çıkarabilir."
+          ]
+        ],
+        "delivery": "1. Kritik uygulamalar ve bağımlılıklar sınıflandırılır.\n2. Kurtarma süresi ve kurtarma noktası hedefleri belirlenir.\n3. Pilot kurtarma yolu yapılandırılır.\n4. Kontrollü tatbikat yapılır, bulgular belgelenir ve takip işleri atanır.",
+        "measurement": "Tatbikatlarda gözlenen geri yükleme süresi, kurtarılan verinin zamanı ve bağımlılık kontrolleri ölçülür. Bunlar kesintisizlik garantisi değildir; hedefler iş yüküne özel test gerektirir."
+      },
+      "ar": {
+        "name": "السحابة الهجينة واستمرارية الأنظمة",
+        "summary": "تصور حل: تخطيط استعادة التطبيقات والبيانات المهمة بعد التعطل، عبر البيئات المحلية والسحابية وبحسب أولوية كل خدمة.",
+        "challenge": "نجاح عملية النسخ الاحتياطي لا يثبت إمكانية استعادة خدمة الأعمال كاملة. فقد يعتمد التطبيق على حسابات وصول ومسارات شبكة وقواعد بيانات وأنظمة خارجية غير مشمولة بخطة الاستعادة.",
+        "overview": "بنية تركز على التعافي يمكن أن تربط أولويات الأنظمة وسياسات النسخ وإعدادات البنية التحتية وأدلة التشغيل. نقطة البداية هي أثر الانقطاع على العمل، والمدة وحجم فقد البيانات المقبولان لكل خدمة.",
+        "architecture": "جرد الأنظمة → خريطة الاعتماديات → أهداف التعافي → نسخ محمية وبيئة استعادة → تجارب استرجاع → سجل تحسين. تُختار الاستضافة وفق متطلبات البيانات والتكامل والتشغيل.",
+        "capabilities": [
+          [
+            "حماية بحسب أولوية النظام",
+            "تحديد تكرار النسخ ومدد الاحتفاظ وضوابط الوصول بما يتناسب مع أهمية كل نظام."
+          ],
+          [
+            "بيئات قابلة لإعادة البناء",
+            "توثيق الإعدادات وإدارة بيانات الدخول والاعتماديات اللازمة لاستعادة الخدمة."
+          ],
+          [
+            "اختبارات تعافٍ عملية",
+            "تجربة سيناريوهات استعادة ممثلة وتسجيل الفروقات عن الخطة المتفق عليها."
+          ]
+        ],
+        "benefits": [
+          [
+            "قرارات أوضح وقت التعطل",
+            "الخطة المرتبة حسب الأولوية يمكن أن تحدد ما يُستعاد أولًا ومن يتولى كل إجراء."
+          ],
+          [
+            "اختبار بدل الافتراض",
+            "تجارب الاستعادة الموثقة يمكن أن تكشف الثغرات قبل وقوع انقطاع فعلي."
+          ]
+        ],
+        "delivery": "1. تصنيف التطبيقات المهمة واعتمادياتها.\n2. الاتفاق على زمن التعافي ونقطة الاستعادة المستهدفين.\n3. تصميم وتجهيز مسار استعادة تجريبي.\n4. تنفيذ تمرين منضبط وتوثيق النتائج وتوزيع إجراءات المعالجة.",
+        "measurement": "يُقاس زمن الاستعادة الفعلي في التجربة، وآخر نقطة بيانات مسترجعة، واكتمال فحص الاعتماديات. هذه قياسات اختبار وليست ضمانًا لاستمرار الخدمة؛ وتحتاج الأهداف إلى تحقق خاص بكل نظام."
+      }
+    }
+  },
+  {
+    "slug": "secure-digital-access",
+    "serviceSlugs": ["cybersecurity", "network-infrastructure", "cloud-solutions", "it-consulting"],
+    "sources": ["https://www.nist.gov/publications/zero-trust-architecture"],
+    "translations": {
+      "en": {
+        "name": "Secure Digital Access",
+        "summary": "Solution concept: organise access to business applications around verified users, appropriate permissions and controlled device conditions.",
+        "challenge": "Shared accounts, permissions that remain after a role change and inconsistent remote access make it difficult to explain who can reach sensitive systems. A trusted network location alone does not establish that an access request is appropriate.",
+        "overview": "An identity-led access design could define how employees, contractors and administrators reach selected applications. Permission ownership, stronger sign-in checks and reviewable access events would be considered together.",
+        "architecture": "Identity source → authentication checks → application-specific access policy → session and event visibility → periodic review. Begin with a limited application set and retain tested recovery access for operational emergencies.",
+        "capabilities": [
+          [
+            "Role-based access map",
+            "Identify application owners and define the permissions required for each agreed role."
+          ],
+          [
+            "Controlled sign-in",
+            "Evaluate authentication and device conditions appropriate to the application and its users."
+          ],
+          [
+            "Lifecycle and review",
+            "Specify onboarding, role-change and offboarding actions with a process for reviewing exceptions."
+          ]
+        ],
+        "benefits": [
+          [
+            "Accountable access",
+            "The intended outcome is a clearer explanation of who has access and why."
+          ],
+          [
+            "Less unmanaged privilege",
+            "Defined ownership and regular review could help identify unnecessary permissions."
+          ]
+        ],
+        "delivery": "1. Inventory identities and selected applications.\n2. Map access needs and identify legacy dependencies.\n3. Pilot policies with a defined user group and recovery procedure.\n4. Review usability and access events before phased rollout.",
+        "measurement": "Review privileged-account coverage, completion of access reviews, offboarding checks and unexpected sign-in failures. Controls would be tested against agreed scenarios; no system is described as completely secure."
+      },
+      "tr": {
+        "name": "Güvenli Dijital Erişim",
+        "summary": "Çözüm konsepti: iş uygulamalarına erişimi doğrulanmış kullanıcılar, uygun yetkiler ve tanımlı cihaz koşulları etrafında düzenleyin.",
+        "challenge": "Ortak hesaplar, görev değiştikten sonra kalan yetkiler ve tutarsız uzaktan erişim, hassas sistemlere kimin erişebildiğini açıklamayı zorlaştırır. Güvenilir bir ağ konumu tek başına erişim talebinin uygun olduğunu göstermez.",
+        "overview": "Kimlik odaklı erişim tasarımı, çalışanların, yüklenicilerin ve yöneticilerin seçilen uygulamalara nasıl ulaşacağını tanımlayabilir. Yetki sahipliği, güçlendirilmiş oturum açma ve incelenebilir erişim kayıtları birlikte ele alınır.",
+        "architecture": "Kimlik kaynağı → kimlik doğrulama kontrolleri → uygulamaya özel erişim politikası → oturum ve olay görünürlüğü → düzenli inceleme. Sınırlı uygulama grubuyla başlanır ve acil durum erişimi test edilir.",
+        "capabilities": [
+          [
+            "Rol bazlı erişim haritası",
+            "Uygulama sorumluları ve her rolün ihtiyaç duyduğu yetkiler belirlenir."
+          ],
+          [
+            "Kontrollü oturum açma",
+            "Uygulamaya ve kullanıcılara uygun kimlik doğrulama ve cihaz koşulları değerlendirilir."
+          ],
+          [
+            "Yaşam döngüsü ve inceleme",
+            "İşe giriş, görev değişikliği ve işten ayrılma adımları ile istisna incelemesi tanımlanır."
+          ]
+        ],
+        "benefits": [
+          [
+            "Hesap verebilir erişim",
+            "Hedef, kimin hangi gerekçeyle erişime sahip olduğunun daha açık görülebilmesidir."
+          ],
+          [
+            "Daha az denetimsiz yetki",
+            "Belirli sorumluluklar ve düzenli incelemeler gereksiz yetkilerin bulunmasına yardımcı olabilir."
+          ]
+        ],
+        "delivery": "1. Kimlikler ve seçilen uygulamalar envantere alınır.\n2. Erişim ihtiyaçları ve eski sistem bağımlılıkları belirlenir.\n3. Tanımlı kullanıcı grubunda kurtarma prosedürüyle pilot yapılır.\n4. Aşamalı yaygınlaştırmadan önce kullanım ve erişim kayıtları incelenir.",
+        "measurement": "Ayrıcalıklı hesapların kapsanması, erişim incelemeleri, ayrılış kontrolleri ve beklenmedik oturum açma hataları değerlendirilir. Hiçbir sistem tamamen güvenli olarak tanımlanmaz."
+      },
+      "ar": {
+        "name": "الوصول الرقمي الآمن",
+        "summary": "تصور حل: تنظيم الوصول إلى تطبيقات الأعمال على أساس هوية المستخدم وصلاحياته وشروط الأجهزة، مع وضوح المسؤولية عن كل قرار وصول.",
+        "challenge": "الحسابات المشتركة والصلاحيات التي تبقى بعد تغيير الوظيفة وتفاوت إجراءات الدخول عن بُعد تجعل تحديد من يستطيع الوصول إلى الأنظمة الحساسة أمرًا معقدًا. وجود المستخدم داخل شبكة موثوقة لا يكفي وحده لتبرير الوصول.",
+        "overview": "تصميم يضع الهوية في الأساس يمكن أن يحدد وصول الموظفين والمتعاقدين والمشرفين إلى التطبيقات المختارة. تُدرس مسؤولية الصلاحيات والتحقق من الدخول وسجلات الوصول ضمن مسار واحد.",
+        "architecture": "مصدر الهوية → التحقق من الدخول → سياسة خاصة بالتطبيق → متابعة الجلسات والأحداث → مراجعة دورية. تبدأ التجربة بمجموعة تطبيقات محدودة، مع اختبار إجراءات الوصول الطارئ.",
+        "capabilities": [
+          [
+            "خريطة صلاحيات مرتبطة بالأدوار",
+            "تحديد مالك كل تطبيق والصلاحيات اللازمة لكل دور وظيفي متفق عليه."
+          ],
+          ["دخول بضوابط محددة", "تقييم شروط التحقق والأجهزة المناسبة لطبيعة التطبيق ومستخدميه."],
+          [
+            "إدارة دورة الحساب",
+            "تحديد إجراءات الانضمام وتغيير الدور وإنهاء الوصول وآلية مراجعة الاستثناءات."
+          ]
+        ],
+        "benefits": [
+          ["وصول قابل للمساءلة", "الهدف هو تفسير أوضح لمن يمتلك صلاحية الوصول ولماذا يحتاج إليها."],
+          [
+            "تقليل الصلاحيات غير المنضبطة",
+            "تحديد المسؤوليات والمراجعة الدورية يمكن أن يساعدا في اكتشاف الصلاحيات غير اللازمة."
+          ]
+        ],
+        "delivery": "1. جرد الهويات والتطبيقات المشمولة.\n2. تحديد احتياجات الوصول واعتماديات الأنظمة القديمة.\n3. تجربة السياسات على مجموعة مستخدمين محددة مع إجراء استعادة.\n4. مراجعة سهولة الاستخدام وسجلات الدخول قبل التوسع التدريجي.",
+        "measurement": "تُراجع تغطية الحسابات ذات الامتيازات، واكتمال مراجعات الصلاحيات، وفحوص إنهاء الوصول، وأخطاء تسجيل الدخول غير المتوقعة. تُختبر الضوابط على سيناريوهات متفق عليها دون وصف أي نظام بأنه آمن بالكامل."
+      }
+    }
+  },
+  {
+    "slug": "business-operations-hub",
+    "serviceSlugs": [
+      "business-automation",
+      "erp-solutions",
+      "crm-solutions",
+      "custom-software-development"
+    ],
+    "sources": ["https://learn.microsoft.com/en-us/power-automate/get-started-approvals"],
+    "translations": {
+      "en": {
+        "name": "Business Operations Hub",
+        "summary": "Solution concept: give internal requests, approvals and follow-up tasks a clear route from submission to accountable completion.",
+        "challenge": "Purchase requests, service tasks and internal approvals can disappear into email threads. Teams may rely on repeated messages to identify the current owner, find supporting information or understand why a request is delayed.",
+        "overview": "A configurable request hub could provide structured forms, routing rules, approvals and a shared status view. It would complement existing business systems, with each process designed around real responsibilities rather than a single generic workflow.",
+        "architecture": "Request form → validation → assigned owner → approval or exception → business-system update → completion record. Permissions, notification rules and integration boundaries would be agreed for each workflow.",
+        "capabilities": [
+          [
+            "Structured requests",
+            "Collect the necessary information at the start, with process-specific fields and attachments."
+          ],
+          [
+            "Visible decisions",
+            "Record approval, rejection and clarification steps, including who is responsible for the next action."
+          ],
+          [
+            "Operational follow-up",
+            "Provide queues for overdue work, handovers and integration exceptions without relying on email as the system of record."
+          ]
+        ],
+        "benefits": [
+          [
+            "Fewer status-chasing messages",
+            "A shared view could let requesters see progress and the next required action."
+          ],
+          [
+            "Repeatable administration",
+            "Agreed routing and recorded decisions could make routine work easier to hand over and review."
+          ]
+        ],
+        "delivery": "1. Select one frequent internal process.\n2. Map its owners, decisions and exception routes.\n3. Prototype forms and approvals with the people doing the work.\n4. Pilot, refine notifications and publish an operating guide.",
+        "measurement": "Compare request completeness, time spent waiting at each stage, rework and overdue items against the starting process. Any improvement would be measured during the pilot, not assumed in advance."
+      },
+      "tr": {
+        "name": "İş Operasyonları Merkezi",
+        "summary": "Çözüm konsepti: iç talepleri, onayları ve takip işlerini başvurudan sorumlu bir şekilde tamamlanmasına kadar açık bir süreçte yönetin.",
+        "challenge": "Satın alma talepleri, hizmet işleri ve iç onaylar e-posta zincirlerinde kaybolabilir. Ekipler sorumluyu bulmak, belgeleri toplamak veya gecikme nedenini öğrenmek için tekrar tekrar mesaj göndermek zorunda kalabilir.",
+        "overview": "Yapılandırılabilir bir talep merkezi; düzenli formlar, yönlendirme kuralları, onaylar ve ortak durum görünümü sağlayabilir. Mevcut iş sistemlerini tamamlar; her süreç tek tip akış yerine gerçek sorumluluklara göre tasarlanır.",
+        "architecture": "Talep formu → doğrulama → sorumlu atama → onay veya istisna → iş sistemi güncellemesi → tamamlanma kaydı. Her akış için yetkiler, bildirimler ve entegrasyon sınırları belirlenir.",
+        "capabilities": [
+          [
+            "Yapılandırılmış talepler",
+            "Sürece özel alanlar ve eklerle gerekli bilgiler başlangıçta toplanır."
+          ],
+          [
+            "Görünür kararlar",
+            "Onay, ret ve açıklama adımları ile sonraki işlemin sorumlusu kaydedilir."
+          ],
+          [
+            "Operasyonel takip",
+            "Geciken işler, devirler ve entegrasyon istisnaları e-postaya bağımlı olmadan izlenir."
+          ]
+        ],
+        "benefits": [
+          [
+            "Daha az durum sorgulama",
+            "Ortak görünüm, talep sahibinin ilerlemeyi ve gereken sonraki adımı görmesini sağlayabilir."
+          ],
+          [
+            "Tekrarlanabilir yönetim",
+            "Belirli yönlendirme ve kayıtlı kararlar rutin işlerin devrini ve incelemesini kolaylaştırabilir."
+          ]
+        ],
+        "delivery": "1. Sık kullanılan bir iç süreç seçilir.\n2. Sorumlular, kararlar ve istisnalar haritalanır.\n3. Formlar ve onaylar süreci yürütenlerle prototiplenir.\n4. Pilot yapılır, bildirimler iyileştirilir ve işletim kılavuzu hazırlanır.",
+        "measurement": "Talep eksiksizliği, aşama bazında bekleme süresi, yeniden işleme ve gecikmiş kayıtlar başlangıç süreciyle karşılaştırılır. İyileşme önceden varsayılmak yerine pilotta ölçülür."
+      },
+      "ar": {
+        "name": "مركز إدارة عمليات الأعمال",
+        "summary": "تصور حل: منح الطلبات الداخلية والموافقات ومهام المتابعة مسارًا واضحًا من التقديم حتى الإغلاق، مع مسؤولية محددة في كل مرحلة.",
+        "challenge": "قد تضيع طلبات الشراء ومهام الخدمات والموافقات بين رسائل البريد. ويضطر الفريق إلى السؤال المتكرر لمعرفة المسؤول الحالي أو جمع المرفقات أو فهم سبب تأخر الطلب.",
+        "overview": "بوابة طلبات قابلة للتهيئة يمكن أن تجمع النماذج وقواعد التوجيه والموافقات وعرض الحالة. تكمل الأنظمة الحالية، ويُصمم كل مسار وفق المسؤوليات الفعلية بدل فرض إجراء واحد على جميع الأقسام.",
+        "architecture": "نموذج الطلب → التحقق → إسناد المسؤولية → الموافقة أو الاستثناء → تحديث نظام الأعمال → سجل الإغلاق. تُحدد صلاحيات كل مسار وإشعاراته وحدود الربط مع الأنظمة الأخرى.",
+        "capabilities": [
+          ["طلبات مكتملة من البداية", "جمع المعلومات اللازمة عبر حقول ومرفقات تناسب نوع الإجراء."],
+          ["قرارات ظاهرة", "توثيق الموافقة والرفض وطلب التوضيح، وإظهار المسؤول عن الخطوة التالية."],
+          [
+            "متابعة تشغيلية",
+            "قوائم للأعمال المتأخرة والتسليم بين الموظفين وأخطاء التكامل دون الاعتماد على البريد كسجل وحيد."
+          ]
+        ],
+        "benefits": [
+          [
+            "تقليل الاستفسار عن الحالة",
+            "الرؤية المشتركة يمكن أن تمكّن مقدم الطلب من متابعة التقدم والخطوة المطلوبة."
+          ],
+          [
+            "إجراءات قابلة للتكرار",
+            "التوجيه المتفق عليه والقرارات المسجلة يمكن أن يسهّلا تسليم الأعمال الروتينية ومراجعتها."
+          ]
+        ],
+        "delivery": "1. اختيار إجراء داخلي متكرر.\n2. رسم المسؤوليات والقرارات ومسارات الاستثناء.\n3. إعداد نموذج أولي بالتعاون مع الموظفين المنفذين.\n4. تجربة المسار وتحسين الإشعارات وإعداد دليل التشغيل.",
+        "measurement": "تُقارن نسبة اكتمال الطلبات ووقت الانتظار في كل مرحلة وإعادة العمل والسجلات المتأخرة بالوضع الحالي. يُقاس التحسن في التجربة ولا يُفترض مسبقًا."
+      }
+    }
+  }
+]

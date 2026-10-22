@@ -1,0 +1,29 @@
+.careers-page { color: #102445; background: #f7f9fc; min-height: 80vh; }
+.careers-container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.careers-hero { background: #102445; color: #fff; padding: 72px 0; }
+.careers-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.15; margin: 20px 0; }
+.careers-hero p { max-width: 65ch; line-height: 1.8; }
+.careers-hero a { color: #fff; text-underline-offset: 4px; }
+.career-apply-link { display: inline-block; margin-top: 20px; padding: 12px 20px; background: #2159d8; border-radius: 8px; }
+.careers-body { padding-block: 40px 80px; }
+.career-filters { display: flex; flex-wrap: wrap; gap: 18px; align-items: end; margin-bottom: 30px; }
+.career-filters label { display: grid; gap: 8px; flex: 1 1 180px; }
+.career-jobs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.career-job, .career-apply { background: white; padding: 28px; border: 1px solid #dce3ef; border-radius: 12px; }
+.career-job h2, .career-apply h2, .career-description h2 { font-size: 1.5rem; margin: 12px 0; }
+.career-job p { margin: 12px 0; }
+.career-job a { color: #1646ad; text-underline-offset: 4px; }
+.career-eyebrow { font-size: .85rem; font-weight: 600; }
+.career-description { max-width: 85ch; line-height: 1.8; margin-bottom: 48px; }
+.career-description p, .career-description li { white-space: pre-line; overflow-wrap: anywhere; }
+.career-description section { margin-block: 32px; }
+.career-description ul { list-style: disc; padding-inline-start: 24px; }
+.career-apply form { margin-top: 24px; }
+.career-apply fieldset { border: 0; display: grid; gap: 20px; min-width: 0; }
+.career-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.career-file { display: grid; gap: 10px; }
+.career-file input { max-width: 100%; padding: 10px; border: 1px solid #bac7d9; }
+.career-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.career-error { color: #a01522; }
+.career-pagination { display: flex; gap: 24px; margin-top: 32px; }
+@media (max-width: 650px) { .career-jobs, .career-form-grid { grid-template-columns: 1fr; } .career-job, .career-apply { padding: 20px; } .careers-hero { padding: 45px 0; } }

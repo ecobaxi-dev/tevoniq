@@ -1,0 +1,195 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/sora';
+@import '@fontsource-variable/inter';
+@import '@tevoniq/config/tokens.css';
+@import '@tevoniq/ui/styles.css';
+@source "../../../../packages/ui/src";
+@font-face {
+  font-family: 'Alkia';
+  src: url('/fonts/Alkia.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Use the supplied face for Arabic glyphs, including mixed-language CMS fields. */
+@font-face {
+  font-family: 'Alarabiya';
+  src: url('/fonts/Alarabiya.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+0870-089F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+10E60-10E7F,
+    U+10EC0-10EFF, U+1EE00-1EEFF;
+}
+:root {
+  color-scheme: light;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+/* Alkia is Regular-only. Override legacy bold/tight heading styles across pages. */
+:is(h1, h2, h3, h4, h5, h6, .tv-display, .tv-h1, .tv-h2, .tv-h3, .site-mega-title) {
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  font-synthesis: none;
+}
+/* Arabic is connected script: Latin tracking and tight leading impair readability. */
+:lang(ar) {
+  --type-body-size: 1.25rem;
+  --type-small-size: 1.125rem;
+  --type-caption-size: 1rem;
+  --type-h3-size: 1.625rem;
+  --type-body-line-height: 1.9;
+  --type-display-line-height: 1.35;
+  --type-h1-line-height: 1.4;
+  --type-h2-line-height: 1.45;
+  --type-h3-line-height: 1.5;
+  --type-display-tracking: 0;
+  --type-h1-tracking: 0;
+  --type-h2-tracking: 0;
+  --type-h3-tracking: 0;
+  --type-eyebrow-tracking: 0;
+}
+:lang(ar) :is(h1, h2, h3, h4, p, a, button, label, input, textarea, select) {
+  letter-spacing: normal;
+}
+:lang(ar) :is(p, li, label, input, textarea, select) {
+  line-height: 1.9;
+}
+:lang(ar) :is(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+html:lang(ar) :is(h1, h2, h3, h4),
+.pb-page:lang(ar) :is(h1, h2, h3, h4) {
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+html:lang(ar) :is(.tv-description, .tv-field-label, .lead-form label, .insight-meta, .pb-eyebrow) {
+  font-size: 1.25rem;
+  line-height: 1.9;
+}
+html:lang(ar) :is(.tv-button, .site-header-actions .tv-button) {
+  font-size: 1.25rem;
+}
+html:lang(ar) :is(.tv-card, .lead-card, .pb-card) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+:lang(ar) :is(input[type='email'], input[type='tel'], input[type='url']) {
+  direction: ltr;
+  text-align: end;
+}
+:lang(ar)
+  :is(
+    .lucide-arrow-right,
+    .lucide-arrow-up-right,
+    .lucide-arrow-left,
+    .lucide-chevron-right,
+    .lucide-chevron-left
+  ):not(.tv-directional) {
+  transform: scaleX(-1);
+}
+:lang(ar) :is(.site-nav-trigger, .site-nav-link) {
+  font-size: 1.375rem;
+  line-height: 1.7;
+}
+:lang(ar) :is(.tv-eyebrow, .lead-eyebrow) {
+  font-size: 1.125rem;
+}
+/* Alarabiya needs a larger reading size than the Latin faces. Scope to Arabic only. */
+html:lang(ar) body {
+  font-size: 1.25rem;
+}
+html:lang(ar) :is(main p, main li, input, textarea, select, .tv-accordion-trigger) {
+  font-size: 1.25rem;
+  line-height: 1.9;
+}
+html:lang(ar)
+  :is(
+    .site-submenu-link,
+    .site-mega-link,
+    .site-mega-quote,
+    .site-mobile-languages,
+    .site-search-results a
+  ) {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+html:lang(ar) .site-mobile-nav .tv-accordion-trigger {
+  font-size: 1.375rem;
+}
+/* Keep Arabic navigation in the supplied font's genuine Regular weight. */
+html:lang(ar)
+  :is(
+    .site-nav-trigger,
+    .site-nav-link,
+    .site-submenu-link,
+    .site-mega-link,
+    .site-mega-quote,
+    .site-mega-intro .tv-eyebrow,
+    .site-header-actions .tv-button,
+    .site-header-actions select,
+    .site-mobile-nav .tv-accordion-trigger,
+    .site-mobile-quote,
+    .site-mobile-languages .tv-button
+  ) {
+  font-weight: 400;
+  font-synthesis: none;
+}
+html:lang(ar) .site-header-actions .tv-language select {
+  font-size: 1.125rem;
+  max-width: 7rem;
+}
+html:lang(ar) .site-footer :is(p, li, a, label, input, button, select, address) {
+  font-size: 1.125rem;
+  line-height: 1.9;
+}
+html:lang(ar) .footer-link-group h2 {
+  font-size: 1.375rem;
+}
+html:lang(ar) :is(.concept-visual figcaption, .footer-eyebrow) {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+/* Give the larger Arabic menu its own collapse threshold to avoid crowding. */
+@media (width < 90rem) {
+  html:lang(ar) .site-desktop-nav {
+    display: none;
+  }
+  html:lang(ar) .site-mobile-toggle {
+    display: block;
+  }
+  html:lang(ar) .site-header-actions {
+    margin-inline-start: auto;
+  }
+}
+:focus-visible {
+  outline: 3px solid var(--color-electric);
+  outline-offset: 4px;
+}
+/* Keep every button label in the site's regular weight, including nested text. */
+:is(
+  button,
+  [role='button'],
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'],
+  .tv-button,
+  .pb-button,
+  .reference-start,
+  .media-upload-button
+),
+:is(button, [role='button'], .tv-button, .pb-button, .reference-start, .media-upload-button) * {
+  font-weight: 400 !important;
+  font-synthesis: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

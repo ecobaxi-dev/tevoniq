@@ -1,0 +1,855 @@
+[
+  {
+    "slug": "custom-software-development",
+    "sources": ["https://csrc.nist.gov/pubs/sp/800/218/final"],
+    "translations": {
+      "en": {
+        "title": "Custom Software Development",
+        "summary": "Proposed service: business applications shaped around your workflows, users and integration requirements.",
+        "overview": "A custom application can address a process that standard tools do not fit well. The proposed scope starts with user journeys and acceptance criteria, then develops a maintainable application with explicit access rules and a documented handover.",
+        "capabilities": [
+          [
+            "Workflow discovery",
+            "Map roles, decisions, exceptions and the information each user needs."
+          ],
+          [
+            "Application engineering",
+            "Develop agreed interfaces, business rules and data flows in reviewable increments."
+          ],
+          [
+            "Release readiness",
+            "Check critical journeys, access boundaries and operational needs before release."
+          ]
+        ],
+        "deliverables": [
+          [
+            "Product specification",
+            "Prioritised requirements, user journeys and agreed acceptance criteria."
+          ],
+          [
+            "Application and documentation",
+            "Agreed source-code handover, configuration guidance and interface documentation."
+          ],
+          [
+            "Release checklist",
+            "Test evidence, known limitations and a deployment and rollback procedure."
+          ]
+        ],
+        "useCases": [
+          "Internal operations portals",
+          "Customer self-service workspaces",
+          "Specialist business applications"
+        ],
+        "process": "1. Discover and prioritise.\n2. Prototype the critical journey.\n3. Build and review in increments.\n4. Validate, release and hand over.",
+        "acceptance": "Acceptance would check agreed user journeys, role permissions, error handling and representative workloads. Hosting, ownership, licences and ongoing support are defined separately in the scope.",
+        "question": "Can an existing application be extended?",
+        "answer": "Yes, this can be explored after reviewing its code, interfaces, licensing and technical condition. A discovery review would establish whether extension or replacement is more appropriate."
+      },
+      "tr": {
+        "title": "Özel Yazılım Geliştirme",
+        "summary": "Önerilen hizmet: iş akışlarınıza, kullanıcılarınıza ve entegrasyon ihtiyaçlarınıza göre tasarlanan iş uygulamaları.",
+        "overview": "Özel bir uygulama, hazır araçların yeterince karşılamadığı bir sürece odaklanabilir. Önerilen kapsam kullanıcı yolculukları ve kabul ölçütleriyle başlar; açık erişim kuralları ve belgelenmiş devir süreciyle sürdürülebilir bir uygulama hedefler.",
+        "capabilities": [
+          [
+            "İş akışı keşfi",
+            "Roller, kararlar, istisnalar ve kullanıcıların ihtiyaç duyduğu bilgiler belirlenir."
+          ],
+          [
+            "Uygulama geliştirme",
+            "Arayüzler, iş kuralları ve veri akışları incelenebilir adımlarla geliştirilir."
+          ],
+          [
+            "Yayına hazırlık",
+            "Kritik senaryolar, erişim sınırları ve işletim ihtiyaçları kontrol edilir."
+          ]
+        ],
+        "deliverables": [
+          ["Ürün tanımı", "Öncelikli gereksinimler, kullanıcı yolculukları ve kabul ölçütleri."],
+          [
+            "Uygulama ve belgeler",
+            "Anlaşılan kaynak kodu devri, yapılandırma rehberi ve arayüz belgeleri."
+          ],
+          [
+            "Yayın kontrol listesi",
+            "Test bulguları, bilinen sınırlamalar, dağıtım ve geri alma prosedürü."
+          ]
+        ],
+        "useCases": [
+          "İç operasyon portalları",
+          "Müşteri self servis alanları",
+          "Özel iş uygulamaları"
+        ],
+        "process": "1. Keşif ve önceliklendirme.\n2. Kritik yolculuğun prototipi.\n3. Aşamalı geliştirme ve inceleme.\n4. Doğrulama, yayın ve devir.",
+        "acceptance": "Kabul sürecinde kullanıcı yolculukları, rol izinleri, hata yönetimi ve temsilî yükler kontrol edilir. Barındırma, mülkiyet, lisanslar ve devam eden destek kapsamda ayrıca belirlenir.",
+        "question": "Mevcut bir uygulama genişletilebilir mi?",
+        "answer": "Kod, arayüzler, lisanslar ve teknik durum incelendikten sonra değerlendirilebilir. Keşif çalışması, genişletme veya değiştirme yaklaşımının uygunluğunu belirler."
+      },
+      "ar": {
+        "title": "تطوير البرمجيات المخصصة",
+        "summary": "نطاق خدمة مقترح: تطبيقات أعمال تُصمم حول إجراءاتك ومستخدميك ومتطلبات الربط مع أنظمتك.",
+        "overview": "يمكن للتطبيق المخصص معالجة إجراء لا تلائمه الأدوات الجاهزة. يبدأ النطاق المقترح برحلات المستخدم ومعايير القبول، ثم تطوير تطبيق قابل للصيانة بصلاحيات واضحة وتسليم موثق لفريق التشغيل.",
+        "capabilities": [
+          [
+            "تحليل إجراءات العمل",
+            "تحديد الأدوار والقرارات والاستثناءات والمعلومات التي يحتاجها كل مستخدم."
+          ],
+          [
+            "هندسة التطبيق",
+            "تطوير الواجهات وقواعد الأعمال ومسارات البيانات على مراحل قابلة للمراجعة."
+          ],
+          [
+            "الجاهزية للإطلاق",
+            "فحص الاستخدامات الأساسية وحدود الصلاحيات واحتياجات التشغيل قبل النشر."
+          ]
+        ],
+        "deliverables": [
+          ["وثيقة المنتج", "متطلبات مرتبة حسب الأولوية ورحلات استخدام ومعايير قبول متفق عليها."],
+          ["التطبيق ووثائقه", "تسليم الشفرة وفق الاتفاق وإرشادات الإعداد وتوثيق واجهات الربط."],
+          ["قائمة جاهزية الإطلاق", "نتائج الاختبارات والقيود المعروفة وإجراءات النشر والتراجع."]
+        ],
+        "useCases": [
+          "بوابات العمليات الداخلية",
+          "مساحات الخدمة الذاتية للعملاء",
+          "التطبيقات المتخصصة للأعمال"
+        ],
+        "process": "1. الاكتشاف وترتيب الأولويات.\n2. نموذج أولي لمسار الاستخدام الأساسي.\n3. التطوير والمراجعة على مراحل.\n4. التحقق والإطلاق والتسليم.",
+        "acceptance": "تشمل معايير القبول رحلات الاستخدام والصلاحيات ومعالجة الأخطاء وأحمالًا ممثلة. وتُحدد الاستضافة وملكية الشفرة والتراخيص والدعم المستمر ضمن نطاق مستقل وواضح.",
+        "question": "هل يمكن تطوير تطبيق موجود بدل استبداله؟",
+        "answer": "يمكن دراسة ذلك بعد مراجعة الشفرة وواجهات الربط والتراخيص والحالة التقنية. تحدد مرحلة الاكتشاف مدى مناسبة التوسعة مقارنة بإعادة البناء."
+      }
+    }
+  },
+  {
+    "slug": "api-integration",
+    "sources": ["https://devguide.owasp.org/en/07-training-education/07-api-top-ten/"],
+    "translations": {
+      "en": {
+        "title": "API & System Integration",
+        "summary": "Proposed service: connect applications through documented interfaces and controlled data exchange.",
+        "overview": "Integration is more than moving a record between two systems. This proposed service defines ownership, field mappings, authorization and failure handling so teams can understand how information travels and what happens when a connection fails.",
+        "capabilities": [
+          [
+            "Interface assessment",
+            "Review supported APIs, authentication, rate limits and versioning constraints."
+          ],
+          [
+            "Reliable exchanges",
+            "Define validation, duplicate handling, retries and reconciliation for the agreed data flow."
+          ],
+          [
+            "Integration visibility",
+            "Record operational events and actionable failures without exposing confidential payloads."
+          ]
+        ],
+        "deliverables": [
+          ["Integration contract", "Field mappings, event definitions and system ownership."],
+          [
+            "Tested connection",
+            "Configured connector or integration code with representative test scenarios."
+          ],
+          [
+            "Operations guide",
+            "Failure handling, credential responsibilities and troubleshooting instructions."
+          ]
+        ],
+        "useCases": [
+          "CRM to ERP handovers",
+          "Order and stock synchronization",
+          "Document-to-business-system workflows"
+        ],
+        "process": "1. Inventory interfaces.\n2. Agree data contracts.\n3. Build and test in an isolated environment.\n4. Reconcile pilot transactions and hand over.",
+        "acceptance": "Checks cover required fields, permission boundaries, duplicate requests, unavailable systems and reconciliation. Third-party access and licences must be confirmed before delivery planning.",
+        "question": "What if a system has no public API?",
+        "answer": "Supported alternatives can be assessed, such as an approved file exchange or vendor connector. Direct database access or screen automation is not assumed to be safe or supported."
+      },
+      "tr": {
+        "title": "API ve Sistem Entegrasyonu",
+        "summary": "Önerilen hizmet: uygulamaları belgelenmiş arayüzler ve kontrollü veri alışverişiyle birbirine bağlayın.",
+        "overview": "Entegrasyon yalnızca bir kaydı iki sistem arasında taşımak değildir. Önerilen hizmet veri sahipliğini, alan eşlemelerini, yetkilendirmeyi ve hata yönetimini tanımlar; böylece bilgi akışı ve bağlantı kesintilerindeki davranış anlaşılır olur.",
+        "capabilities": [
+          [
+            "Arayüz değerlendirmesi",
+            "Desteklenen API, kimlik doğrulama, hız sınırı ve sürüm koşulları incelenir."
+          ],
+          [
+            "Güvenilir veri alışverişi",
+            "Doğrulama, mükerrer kayıt, yeniden deneme ve uzlaştırma kuralları belirlenir."
+          ],
+          [
+            "Entegrasyon görünürlüğü",
+            "Gizli veriler açığa çıkarılmadan işletim olayları ve müdahale gerektiren hatalar kaydedilir."
+          ]
+        ],
+        "deliverables": [
+          ["Entegrasyon sözleşmesi", "Alan eşlemeleri, olay tanımları ve sistem sorumlulukları."],
+          [
+            "Test edilmiş bağlantı",
+            "Temsilî senaryolarla sınanmış bağlayıcı veya entegrasyon kodu."
+          ],
+          [
+            "İşletim rehberi",
+            "Hata yönetimi, erişim bilgilerinin sorumluluğu ve sorun giderme adımları."
+          ]
+        ],
+        "useCases": [
+          "CRM ve ERP arasında devir",
+          "Sipariş ve stok eşitleme",
+          "Belgeden iş sistemine veri akışı"
+        ],
+        "process": "1. Arayüz envanteri.\n2. Veri sözleşmelerinin belirlenmesi.\n3. Yalıtılmış ortamda geliştirme ve test.\n4. Pilot işlemlerin uzlaştırılması ve devir.",
+        "acceptance": "Gerekli alanlar, izin sınırları, yinelenen istekler, ulaşılamayan sistemler ve uzlaştırma kontrol edilir. Üçüncü taraf erişimleri ve lisansları planlama öncesinde doğrulanmalıdır.",
+        "question": "Bir sistemin açık API arayüzü yoksa ne olur?",
+        "answer": "Onaylı dosya aktarımı veya üretici bağlayıcısı gibi desteklenen seçenekler değerlendirilebilir. Doğrudan veri tabanı erişimi ya da ekran otomasyonu otomatik olarak güvenli kabul edilmez."
+      },
+      "ar": {
+        "title": "تكامل الأنظمة وواجهات API",
+        "summary": "نطاق خدمة مقترح: ربط التطبيقات عبر واجهات موثقة وتبادل بيانات منضبط وقابل للمتابعة.",
+        "overview": "التكامل ليس مجرد نقل سجل بين نظامين. يحدد هذا النطاق ملكية البيانات ومطابقة الحقول والصلاحيات ومعالجة الإخفاقات، حتى يعرف الفريق كيف تنتقل المعلومات وما الذي يحدث عند تعطل الاتصال.",
+        "capabilities": [
+          [
+            "تقييم واجهات الربط",
+            "مراجعة الواجهات المدعومة والتحقق من الهوية وحدود الطلبات وقيود الإصدارات."
+          ],
+          [
+            "تبادل بيانات منضبط",
+            "تحديد قواعد التحقق ومنع التكرار وإعادة المحاولة ومطابقة النتائج."
+          ],
+          ["متابعة التكامل", "تسجيل أحداث التشغيل والأخطاء القابلة للمعالجة دون كشف محتوى سري."]
+        ],
+        "deliverables": [
+          ["وثيقة التكامل", "مطابقة الحقول وتعريف الأحداث وتحديد النظام المسؤول عن البيانات."],
+          ["اتصال مختبر", "موصل أو شفرة تكامل مع سيناريوهات اختبار ممثلة."],
+          ["دليل التشغيل", "إجراءات معالجة الإخفاق ومسؤولية بيانات الدخول وخطوات التشخيص."]
+        ],
+        "useCases": [
+          "تبادل البيانات بين CRM وERP",
+          "مزامنة الطلبات والمخزون",
+          "ربط المستندات بأنظمة الأعمال"
+        ],
+        "process": "1. حصر واجهات الربط.\n2. الاتفاق على قواعد تبادل البيانات.\n3. البناء والاختبار في بيئة معزولة.\n4. مطابقة معاملات التجربة والتسليم.",
+        "acceptance": "تغطي الفحوص الحقول المطلوبة وحدود الصلاحيات والطلبات المكررة وتوقف الأنظمة ومطابقة النتائج. يلزم تأكيد صلاحيات الأطراف الخارجية وتراخيصها قبل تخطيط التنفيذ.",
+        "question": "ماذا لو لم يوفر النظام واجهة API؟",
+        "answer": "يمكن تقييم بدائل مدعومة مثل تبادل الملفات المعتمد أو موصل يوفره المورد. ولا يُفترض أن الوصول المباشر إلى قاعدة البيانات أو أتمتة الشاشة آمن أو مدعوم تلقائيًا."
+      }
+    }
+  },
+  {
+    "slug": "business-automation",
+    "sources": ["https://learn.microsoft.com/en-us/power-automate/get-started-approvals"],
+    "translations": {
+      "en": {
+        "title": "Business Process Automation",
+        "summary": "Proposed service: turn repetitive administrative work into structured workflows with clear ownership and human decision points.",
+        "overview": "Automation works best when the underlying process is understood. The proposed engagement maps a selected workflow, removes avoidable repetition and designs explicit routes for approvals, exceptions and follow-up.",
+        "capabilities": [
+          [
+            "Process mapping",
+            "Identify triggers, required information, owners and decision points."
+          ],
+          [
+            "Workflow configuration",
+            "Create forms, routing, reminders and approved system updates."
+          ],
+          [
+            "Exception handling",
+            "Keep unclear requests and failed actions visible to the responsible team."
+          ]
+        ],
+        "deliverables": [
+          ["Process map", "Current and proposed workflow with ownership and exception routes."],
+          ["Configured pilot", "A working workflow for the agreed process and user group."],
+          ["Handover pack", "Operating instructions, decision rules and a change checklist."]
+        ],
+        "useCases": [
+          "Purchase and expense approvals",
+          "Employee onboarding tasks",
+          "Internal service requests"
+        ],
+        "process": "1. Choose one repeatable process.\n2. Confirm responsibilities and rules.\n3. Pilot with actual process owners.\n4. Review exceptions and refine the workflow.",
+        "acceptance": "Test normal, rejected, incomplete and overdue requests. Compare waiting time, rework and request completeness against a baseline; savings are evaluated rather than promised.",
+        "question": "Does automation remove all human approvals?",
+        "answer": "No. Approval and exception decisions remain with designated people where required. The workflow should support accountability rather than bypass it."
+      },
+      "tr": {
+        "title": "İş Süreci Otomasyonu",
+        "summary": "Önerilen hizmet: tekrarlanan idari işleri açık sorumluluklar ve insan karar noktaları olan düzenli iş akışlarına dönüştürün.",
+        "overview": "Otomasyon, temel süreç anlaşıldığında daha anlamlıdır. Önerilen çalışma seçilen akışı haritalar, önlenebilir tekrarları azaltmayı hedefler ve onay, istisna ve takip yollarını açıkça tasarlar.",
+        "capabilities": [
+          [
+            "Süreç haritalama",
+            "Tetikleyiciler, gerekli bilgiler, sorumlular ve karar noktaları belirlenir."
+          ],
+          [
+            "İş akışı yapılandırması",
+            "Formlar, yönlendirmeler, hatırlatmalar ve onaylı sistem güncellemeleri oluşturulur."
+          ],
+          [
+            "İstisna yönetimi",
+            "Belirsiz talepler ve başarısız işlemler sorumlu ekip için görünür tutulur."
+          ]
+        ],
+        "deliverables": [
+          ["Süreç haritası", "Mevcut ve önerilen akış, sorumluluklar ve istisna yolları."],
+          ["Yapılandırılmış pilot", "Belirlenen süreç ve kullanıcı grubu için çalışan iş akışı."],
+          ["Devir paketi", "İşletim talimatları, karar kuralları ve değişiklik kontrol listesi."]
+        ],
+        "useCases": [
+          "Satın alma ve masraf onayları",
+          "Çalışan işe başlangıç görevleri",
+          "İç hizmet talepleri"
+        ],
+        "process": "1. Tekrarlanan bir süreç seçilir.\n2. Sorumluluk ve kurallar doğrulanır.\n3. Süreç sahipleriyle pilot yapılır.\n4. İstisnalar incelenir ve akış iyileştirilir.",
+        "acceptance": "Normal, reddedilen, eksik ve geciken talepler test edilir. Bekleme, yeniden işleme ve eksiksizlik başlangıç ölçümüyle karşılaştırılır; tasarruf vaat edilmez, değerlendirilir.",
+        "question": "Otomasyon tüm insan onaylarını kaldırır mı?",
+        "answer": "Hayır. Gereken onay ve istisna kararları belirlenen kişilerde kalır. Akış, sorumluluğu ortadan kaldırmak yerine desteklemelidir."
+      },
+      "ar": {
+        "title": "أتمتة إجراءات الأعمال",
+        "summary": "نطاق خدمة مقترح: تحويل الأعمال الإدارية المتكررة إلى مسارات منظمة بمسؤوليات واضحة ونقاط قرار بشرية.",
+        "overview": "تبدأ الأتمتة بفهم الإجراء نفسه. يرسم النطاق المقترح مسارًا محددًا، ويعالج التكرار الممكن تجنبه، ويحدد طرق الموافقة والاستثناء والمتابعة بدل نقل الفوضى اليدوية إلى نظام رقمي.",
+        "capabilities": [
+          ["تحليل الإجراء", "تحديد نقطة البدء والبيانات المطلوبة والمسؤولين ونقاط اتخاذ القرار."],
+          ["تهيئة مسار العمل", "إنشاء النماذج والتوجيه والتذكيرات وتحديثات الأنظمة المعتمدة."],
+          [
+            "معالجة الاستثناءات",
+            "إبقاء الطلبات غير الواضحة والإجراءات الفاشلة ظاهرة للفريق المسؤول."
+          ]
+        ],
+        "deliverables": [
+          ["خريطة الإجراء", "المسار الحالي والمقترح مع المسؤوليات وطرق الاستثناء."],
+          ["مسار تجريبي", "إجراء يعمل للمستخدمين والعملية المتفق عليهما."],
+          ["حزمة التسليم", "تعليمات التشغيل وقواعد القرار وقائمة فحص التغييرات."]
+        ],
+        "useCases": ["موافقات الشراء والمصروفات", "مهام انضمام الموظفين", "طلبات الخدمات الداخلية"],
+        "process": "1. اختيار إجراء متكرر.\n2. تأكيد المسؤوليات والقواعد.\n3. تجربة المسار مع القائمين عليه.\n4. مراجعة الاستثناءات وتحسين الإجراء.",
+        "acceptance": "تُختبر الطلبات المعتادة والمرفوضة والناقصة والمتأخرة. وتُقارن مدة الانتظار وإعادة العمل واكتمال الطلب بالوضع الحالي؛ ويُقيّم الوفر بدل الوعد به.",
+        "question": "هل تلغي الأتمتة جميع الموافقات البشرية؟",
+        "answer": "لا. تبقى قرارات الموافقة والاستثناء لدى الأشخاص المخولين عندما يتطلب الإجراء ذلك. دور المسار هو دعم المساءلة وليس تجاوزها."
+      }
+    }
+  },
+  {
+    "slug": "artificial-intelligence",
+    "sources": ["https://www.nist.gov/itl/ai-risk-management-framework"],
+    "translations": {
+      "en": {
+        "title": "Applied Artificial Intelligence",
+        "summary": "Proposed service: evaluate focused AI use cases with representative data, measurable criteria and appropriate human oversight.",
+        "overview": "An AI pilot should begin with a well-defined task, not a model choice. This proposed scope explores whether classification, extraction or assisted knowledge retrieval can support a specific workflow within its data and risk constraints.",
+        "capabilities": [
+          [
+            "Use-case assessment",
+            "Define users, permitted data, failure consequences and the alternative without AI."
+          ],
+          [
+            "Evaluation prototype",
+            "Compare outputs against reviewed examples and document limitations."
+          ],
+          [
+            "Controlled integration",
+            "Design review points, access boundaries and a way to handle uncertain answers."
+          ]
+        ],
+        "deliverables": [
+          [
+            "Feasibility brief",
+            "Task definition, data needs, constraints and evaluation criteria."
+          ],
+          [
+            "Reviewable prototype",
+            "A bounded demonstration using approved examples and an evaluation record."
+          ],
+          [
+            "Adoption decision",
+            "Documented findings, limitations and the conditions for any next phase."
+          ]
+        ],
+        "useCases": [
+          "Document classification",
+          "Assisted internal knowledge search",
+          "Routing of incoming requests"
+        ],
+        "process": "1. Define the task and risk context.\n2. Prepare authorised representative examples.\n3. Build and evaluate a limited prototype.\n4. Decide whether to refine, integrate or stop.",
+        "acceptance": "Evaluate task quality, unsupported outputs, latency and operating cost on an agreed dataset. Critical decisions require an appropriate review mechanism; a prototype does not establish production readiness.",
+        "question": "Is training a new model always necessary?",
+        "answer": "No. Existing models, retrieval approaches or ordinary business rules may be more appropriate. The choice depends on the task, data access, evaluation results and operating constraints."
+      },
+      "tr": {
+        "title": "Uygulamalı Yapay Zekâ",
+        "summary": "Önerilen hizmet: temsilî veriler, ölçülebilir ölçütler ve uygun insan denetimiyle odaklı yapay zekâ kullanım senaryolarını değerlendirin.",
+        "overview": "Bir yapay zekâ pilotu model seçimiyle değil, net bir görevle başlamalıdır. Önerilen kapsam sınıflandırma, veri çıkarma veya destekli bilgi aramanın belirli bir sürece veri ve risk sınırları içinde katkısını araştırır.",
+        "capabilities": [
+          [
+            "Senaryo değerlendirmesi",
+            "Kullanıcılar, izin verilen veriler, hata sonuçları ve yapay zekâsız alternatif belirlenir."
+          ],
+          [
+            "Değerlendirme prototipi",
+            "Çıktılar incelenmiş örneklerle karşılaştırılır ve sınırlamalar belgelenir."
+          ],
+          [
+            "Kontrollü entegrasyon",
+            "İnceleme noktaları, erişim sınırları ve belirsiz yanıtların yönetimi tasarlanır."
+          ]
+        ],
+        "deliverables": [
+          ["Fizibilite özeti", "Görev, veri ihtiyaçları, kısıtlar ve değerlendirme ölçütleri."],
+          ["İncelenebilir prototip", "Onaylı örneklerle sınırlı gösterim ve değerlendirme kaydı."],
+          ["Benimseme kararı", "Bulgular, sınırlamalar ve sonraki aşamanın koşulları."]
+        ],
+        "useCases": [
+          "Belge sınıflandırma",
+          "Destekli kurum içi bilgi arama",
+          "Gelen talepleri yönlendirme"
+        ],
+        "process": "1. Görev ve risk bağlamı tanımlanır.\n2. İzinli temsilî örnekler hazırlanır.\n3. Sınırlı prototip geliştirilip değerlendirilir.\n4. İyileştirme, entegrasyon veya durdurma kararı alınır.",
+        "acceptance": "Görev kalitesi, dayanağı olmayan çıktılar, gecikme ve işletim maliyeti belirlenen veri kümesinde değerlendirilir. Kritik kararlar uygun inceleme gerektirir; prototip üretim hazırlığını kanıtlamaz.",
+        "question": "Her zaman yeni model eğitmek gerekir mi?",
+        "answer": "Hayır. Mevcut modeller, bilgi getirme yaklaşımları veya olağan iş kuralları daha uygun olabilir. Seçim göreve, verilere, değerlendirmeye ve işletim koşullarına bağlıdır."
+      },
+      "ar": {
+        "title": "تطبيقات الذكاء الاصطناعي",
+        "summary": "نطاق خدمة مقترح: تقييم استخدامات محددة للذكاء الاصطناعي ببيانات ممثلة ومعايير قابلة للقياس وإشراف بشري مناسب.",
+        "overview": "تبدأ التجربة الجيدة بمهمة واضحة لا باختيار النموذج. يستكشف هذا النطاق إمكانية دعم إجراء محدد بالتصنيف أو استخراج المعلومات أو البحث المساعد، ضمن حدود البيانات والمخاطر المتعلقة بالاستخدام.",
+        "capabilities": [
+          [
+            "تقييم الاستخدام",
+            "تحديد المستخدمين والبيانات المسموحة وآثار الخطأ والبديل الذي لا يعتمد على الذكاء الاصطناعي."
+          ],
+          ["نموذج أولي قابل للتقييم", "مقارنة المخرجات بأمثلة مدققة وتوثيق القيود."],
+          [
+            "تكامل منضبط",
+            "تصميم نقاط المراجعة وحدود الوصول وطريقة التعامل مع الإجابات غير المؤكدة."
+          ]
+        ],
+        "deliverables": [
+          ["دراسة قابلية التطبيق", "تعريف المهمة واحتياجات البيانات والقيود ومعايير التقييم."],
+          ["نموذج تجريبي", "عرض محدود يستخدم أمثلة معتمدة مع سجل للتقييم."],
+          ["قرار المرحلة التالية", "نتائج موثقة وحدود معروفة وشروط الانتقال إلى التوسع."]
+        ],
+        "useCases": [
+          "تصنيف المستندات",
+          "البحث المساعد في المعرفة الداخلية",
+          "توجيه الطلبات الواردة"
+        ],
+        "process": "1. تعريف المهمة وسياق المخاطر.\n2. تجهيز أمثلة ممثلة ومصرح باستخدامها.\n3. بناء نموذج محدود وتقييمه.\n4. اتخاذ قرار بالتحسين أو الربط أو التوقف.",
+        "acceptance": "تُقيّم جودة المهمة والمخرجات غير المسندة ووقت الاستجابة وتكلفة التشغيل على بيانات متفق عليها. تحتاج القرارات الحساسة إلى مراجعة مناسبة؛ ولا يثبت نجاح النموذج الأولي جاهزيته للإنتاج.",
+        "question": "هل يلزم تدريب نموذج جديد دائمًا؟",
+        "answer": "لا. قد تكون النماذج المتاحة أو البحث في مصادر معتمدة أو قواعد الأعمال التقليدية أنسب. يعتمد الاختيار على المهمة والبيانات ونتائج التقييم وقيود التشغيل."
+      }
+    }
+  },
+  {
+    "slug": "cloud-solutions",
+    "sources": ["https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/overview"],
+    "translations": {
+      "en": {
+        "title": "Cloud Architecture & Modernization",
+        "summary": "Proposed service: plan cloud environments and workload transitions around business priorities, operational needs and recovery requirements.",
+        "overview": "A cloud decision should explain what changes, why it is needed and how the environment will be operated. The proposed scope evaluates selected workloads and develops a staged architecture or migration plan without assuming that every system belongs in the cloud.",
+        "capabilities": [
+          [
+            "Workload assessment",
+            "Map dependencies, access requirements, data location and operating constraints."
+          ],
+          [
+            "Environment design",
+            "Define identity, network boundaries, deployment structure and monitoring needs."
+          ],
+          [
+            "Migration planning",
+            "Sequence pilot workloads, validation steps and rollback decisions."
+          ]
+        ],
+        "deliverables": [
+          [
+            "Workload assessment",
+            "An inventory with priorities, dependencies and migration considerations."
+          ],
+          [
+            "Architecture pack",
+            "Environment diagrams, configuration principles and responsibility boundaries."
+          ],
+          ["Transition runbook", "Pilot plan, acceptance checks and operating handover."]
+        ],
+        "useCases": [
+          "Modernizing selected applications",
+          "Establishing a new cloud environment",
+          "Connecting local and cloud systems"
+        ],
+        "process": "1. Assess the starting environment.\n2. Agree the target design.\n3. Pilot a bounded workload.\n4. Validate and plan the next transition.",
+        "acceptance": "Validate access, connectivity, deployment and recovery procedures against agreed scenarios. Estimates must state consumption assumptions; cloud cost reductions are not guaranteed.",
+        "question": "Must all workloads move to the cloud?",
+        "answer": "No. Local, cloud and hybrid options should be assessed against the needs of each workload, including integration, data, licensing and operating constraints."
+      },
+      "tr": {
+        "title": "Bulut Mimarisi ve Modernizasyon",
+        "summary": "Önerilen hizmet: bulut ortamlarını ve iş yükü geçişlerini iş öncelikleri, işletim ihtiyaçları ve kurtarma gereksinimlerine göre planlayın.",
+        "overview": "Bulut kararı neyin, neden değişeceğini ve ortamın nasıl işletileceğini açıklamalıdır. Önerilen kapsam seçilen iş yüklerini değerlendirir; her sistemin buluta taşınması gerektiğini varsaymadan aşamalı mimari veya geçiş planı oluşturur.",
+        "capabilities": [
+          [
+            "İş yükü değerlendirmesi",
+            "Bağımlılıklar, erişim, veri konumu ve işletim kısıtları haritalanır."
+          ],
+          [
+            "Ortam tasarımı",
+            "Kimlik, ağ sınırları, dağıtım yapısı ve izleme ihtiyaçları belirlenir."
+          ],
+          ["Geçiş planı", "Pilot iş yükleri, doğrulama adımları ve geri alma kararları sıralanır."]
+        ],
+        "deliverables": [
+          ["İş yükü raporu", "Öncelikler, bağımlılıklar ve geçiş hususlarıyla envanter."],
+          ["Mimari paketi", "Ortam şemaları, yapılandırma ilkeleri ve sorumluluk sınırları."],
+          ["Geçiş kılavuzu", "Pilot planı, kabul kontrolleri ve işletime devir."]
+        ],
+        "useCases": [
+          "Seçilen uygulamaları modernleştirme",
+          "Yeni bulut ortamı oluşturma",
+          "Yerel ve bulut sistemlerini bağlama"
+        ],
+        "process": "1. Başlangıç ortamı değerlendirilir.\n2. Hedef tasarım belirlenir.\n3. Sınırlı bir iş yükü denenir.\n4. Doğrulama ve sonraki geçiş planlanır.",
+        "acceptance": "Erişim, bağlantı, dağıtım ve kurtarma adımları belirlenen senaryolarla kontrol edilir. Maliyet tahminleri tüketim varsayımlarını belirtmelidir; maliyet düşüşü garanti edilmez.",
+        "question": "Tüm iş yükleri buluta taşınmalı mı?",
+        "answer": "Hayır. Yerel, bulut ve hibrit seçenekler her iş yükünün entegrasyon, veri, lisans ve işletim koşullarına göre değerlendirilmelidir."
+      },
+      "ar": {
+        "title": "هندسة الحلول السحابية وتحديث الأنظمة",
+        "summary": "نطاق خدمة مقترح: تخطيط البيئات السحابية وانتقال الأنظمة وفق أولويات الأعمال واحتياجات التشغيل والتعافي.",
+        "overview": "يجب أن يوضح قرار السحابة ما الذي سيتغير ولماذا وكيف ستُدار البيئة. يقيّم النطاق المقترح أنظمة مختارة ويضع خطة بنية أو انتقال مرحلية، دون افتراض أن كل نظام ينبغي نقله إلى السحابة.",
+        "capabilities": [
+          ["تقييم الأنظمة", "رسم الاعتماديات ومتطلبات الوصول وموقع البيانات وقيود التشغيل."],
+          ["تصميم البيئة", "تحديد الهوية وحدود الشبكة وبنية النشر واحتياجات المراقبة."],
+          ["تخطيط الانتقال", "ترتيب التجارب وخطوات التحقق وقرارات التراجع."]
+        ],
+        "deliverables": [
+          ["تقرير تقييم", "جرد بالأولويات والاعتماديات واعتبارات الانتقال."],
+          ["حزمة التصميم", "مخططات البيئة ومبادئ الإعداد وحدود المسؤوليات."],
+          ["دليل الانتقال", "خطة التجربة وفحوص القبول والتسليم التشغيلي."]
+        ],
+        "useCases": [
+          "تحديث تطبيقات مختارة",
+          "تأسيس بيئة سحابية جديدة",
+          "ربط الأنظمة المحلية والسحابية"
+        ],
+        "process": "1. تقييم البيئة الحالية.\n2. الاتفاق على التصميم المستهدف.\n3. تجربة نظام محدود النطاق.\n4. التحقق وتخطيط الانتقال التالي.",
+        "acceptance": "تُفحص الصلاحيات والاتصال والنشر وإجراءات التعافي وفق سيناريوهات محددة. توضح تقديرات التكلفة افتراضات الاستهلاك، ولا يُضمن انخفاض المصروفات تلقائيًا.",
+        "question": "هل يجب نقل جميع الأنظمة إلى السحابة؟",
+        "answer": "لا. تُقارن الخيارات المحلية والسحابية والهجينة وفق احتياجات كل نظام، بما فيها التكامل والبيانات والتراخيص وقيود التشغيل."
+      }
+    }
+  },
+  {
+    "slug": "cybersecurity",
+    "sources": ["https://www.nist.gov/publications/zero-trust-architecture"],
+    "translations": {
+      "en": {
+        "title": "Cybersecurity Assessment & Hardening",
+        "summary": "Proposed service: assess defined security risks and turn findings into prioritised, reviewable improvements.",
+        "overview": "This proposed engagement focuses on the systems and controls explicitly included in its scope. It can examine access, configuration and operating practices, then separate urgent corrective actions from longer-term improvements. It is not a certification or a guarantee against incidents.",
+        "capabilities": [
+          [
+            "Scoped assessment",
+            "Agree assets, access permissions and permitted assessment methods before work begins."
+          ],
+          [
+            "Control review",
+            "Review selected identity, configuration, update and logging practices."
+          ],
+          [
+            "Remediation planning",
+            "Assign priorities, owners and a verification method to agreed findings."
+          ]
+        ],
+        "deliverables": [
+          [
+            "Assessment findings",
+            "Documented observations with context and a risk-based priority."
+          ],
+          [
+            "Improvement backlog",
+            "Actionable changes, responsible owners and implementation dependencies."
+          ],
+          ["Validation record", "Evidence from rechecking the controls included in the engagement."]
+        ],
+        "useCases": [
+          "Reviewing a new environment",
+          "Preparing an improvement programme",
+          "Checking access and configuration practices"
+        ],
+        "process": "1. Agree written scope and authorization.\n2. Review selected controls.\n3. Prioritise findings with system owners.\n4. Implement agreed changes and recheck.",
+        "acceptance": "Acceptance confirms the agreed assessment coverage and evidence for completed actions. Penetration testing, round-the-clock monitoring and incident response require their own explicit scope.",
+        "question": "Will the review certify the organisation?",
+        "answer": "No. An assessment can inform improvements, but formal certification depends on the relevant scheme and an authorised assessment body. No certification is implied."
+      },
+      "tr": {
+        "title": "Siber Güvenlik Değerlendirmesi ve Güçlendirme",
+        "summary": "Önerilen hizmet: tanımlı güvenlik risklerini değerlendirin ve bulguları öncelikli, incelenebilir iyileştirmelere dönüştürün.",
+        "overview": "Önerilen çalışma açıkça kapsama alınan sistem ve kontrollere odaklanır. Erişim, yapılandırma ve işletim uygulamalarını inceleyerek acil düzeltmeleri uzun vadeli iyileştirmelerden ayırabilir. Bir sertifika veya olay yaşanmayacağı garantisi değildir.",
+        "capabilities": [
+          [
+            "Sınırları belli değerlendirme",
+            "Varlıklar, erişim izinleri ve izin verilen yöntemler başlamadan belirlenir."
+          ],
+          [
+            "Kontrol incelemesi",
+            "Seçilen kimlik, yapılandırma, güncelleme ve kayıt uygulamaları incelenir."
+          ],
+          ["İyileştirme planı", "Bulgular için öncelik, sorumlu ve doğrulama yöntemi atanır."]
+        ],
+        "deliverables": [
+          ["Değerlendirme bulguları", "Bağlam ve risk önceliği içeren belgelenmiş gözlemler."],
+          ["İyileştirme listesi", "Uygulanabilir değişiklikler, sorumlular ve bağımlılıklar."],
+          ["Doğrulama kaydı", "Kapsamdaki kontrollerin yeniden incelenmesine ait kanıtlar."]
+        ],
+        "useCases": [
+          "Yeni ortamı inceleme",
+          "İyileştirme programı hazırlama",
+          "Erişim ve yapılandırma uygulamalarını kontrol etme"
+        ],
+        "process": "1. Yazılı kapsam ve yetkilendirme.\n2. Seçilen kontrollerin incelemesi.\n3. Sistem sahipleriyle önceliklendirme.\n4. Onaylanan değişiklikler ve yeniden kontrol.",
+        "acceptance": "Kabul, belirlenen değerlendirme kapsamını ve tamamlanan işler için kanıtları doğrular. Sızma testi, sürekli izleme ve olay müdahalesi ayrı ve açık kapsam gerektirir.",
+        "question": "İnceleme kuruma sertifika kazandırır mı?",
+        "answer": "Hayır. Değerlendirme iyileştirmeleri destekleyebilir; resmî sertifika ilgili programa ve yetkili değerlendirme kuruluşuna bağlıdır. Sertifika taahhüdü yoktur."
+      },
+      "ar": {
+        "title": "تقييم الأمن السيبراني وتعزيز الحماية",
+        "summary": "نطاق خدمة مقترح: تقييم مخاطر أمنية محددة وتحويل الملاحظات إلى تحسينات مرتبة وقابلة للتحقق.",
+        "overview": "يركز النطاق المقترح على الأنظمة والضوابط المحددة صراحة. يمكن أن يشمل مراجعة الوصول والإعدادات وممارسات التشغيل، ثم فصل المعالجات العاجلة عن التحسينات طويلة المدى. ولا يمثل شهادة اعتماد أو ضمانًا بعدم وقوع حوادث.",
+        "capabilities": [
+          [
+            "تقييم محدد النطاق",
+            "الاتفاق على الأصول وصلاحيات الوصول وأساليب التقييم المسموحة قبل البدء."
+          ],
+          ["مراجعة الضوابط", "فحص ممارسات مختارة للهوية والإعداد والتحديث والتسجيل."],
+          ["خطة معالجة", "تحديد الأولوية والمسؤول وطريقة التحقق لكل ملاحظة معتمدة."]
+        ],
+        "deliverables": [
+          ["تقرير الملاحظات", "نتائج موثقة بسياقها وأولويتها وفق المخاطر."],
+          ["قائمة تحسينات", "تغييرات قابلة للتنفيذ مع المسؤوليات والاعتماديات."],
+          ["سجل التحقق", "أدلة إعادة فحص الضوابط المشمولة بالعمل."]
+        ],
+        "useCases": [
+          "مراجعة بيئة جديدة",
+          "إعداد برنامج تحسين أمني",
+          "فحص الصلاحيات والإعدادات التشغيلية"
+        ],
+        "process": "1. الاتفاق الكتابي على النطاق والتفويض.\n2. مراجعة الضوابط المختارة.\n3. ترتيب المعالجات مع مالكي الأنظمة.\n4. تنفيذ التغييرات المعتمدة وإعادة الفحص.",
+        "acceptance": "يتحقق القبول من تغطية التقييم والأدلة الخاصة بالإجراءات المنجزة. تحتاج اختبارات الاختراق والمراقبة المستمرة والاستجابة للحوادث إلى نطاق مستقل وصريح.",
+        "question": "هل تمنح المراجعة شهادة اعتماد للمؤسسة؟",
+        "answer": "لا. يمكن للتقييم توجيه التحسينات، أما الشهادة الرسمية فتتبع البرنامج المعني والجهة المخولة بالتقييم. لا يتضمن هذا النطاق ادعاءً بالحصول على اعتماد."
+      }
+    }
+  },
+  {
+    "slug": "network-infrastructure",
+    "sources": [
+      "https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html"
+    ],
+    "translations": {
+      "en": {
+        "title": "Network Infrastructure",
+        "summary": "Proposed service: design and organise wired and wireless connectivity around users, devices and site requirements.",
+        "overview": "Connectivity needs differ across offices, meeting rooms, guest areas and connected devices. This proposed scope turns those needs into a documented network design with clear addressing, access boundaries and operating responsibilities.",
+        "capabilities": [
+          [
+            "Site and demand review",
+            "Assess floor plans, existing equipment, user density and application needs."
+          ],
+          [
+            "Network design",
+            "Plan switching, wireless coverage, addressing and appropriate traffic separation."
+          ],
+          [
+            "Operational preparation",
+            "Define configuration backups, inventory, monitoring and fault-reporting procedures."
+          ]
+        ],
+        "deliverables": [
+          ["Network design", "Logical diagrams, addressing plan and equipment requirements."],
+          ["Configuration record", "Agreed configurations and a documented change history."],
+          [
+            "Acceptance report",
+            "Results for the connectivity and coverage scenarios included in the scope."
+          ]
+        ],
+        "useCases": [
+          "New office connectivity",
+          "Expanding an existing location",
+          "Separating staff, guest and device access"
+        ],
+        "process": "1. Survey the site and demand.\n2. Design and review the network.\n3. Configure a pilot or agreed installation.\n4. Test and document the operating handover.",
+        "acceptance": "Agree coverage locations, representative client devices and application checks. Site conditions and equipment influence results; no blanket speed or coverage figure is assumed.",
+        "question": "Can existing equipment be reused?",
+        "answer": "Potentially, after checking capacity, support status, compatibility and security requirements. Reuse decisions should be documented rather than based only on purchase cost."
+      },
+      "tr": {
+        "title": "Ağ Altyapısı",
+        "summary": "Önerilen hizmet: kablolu ve kablosuz bağlantıyı kullanıcılar, cihazlar ve saha ihtiyaçları etrafında tasarlayın.",
+        "overview": "Ofisler, toplantı odaları, misafir alanları ve bağlı cihazların ihtiyaçları farklıdır. Önerilen kapsam bu ihtiyaçları açık adresleme, erişim sınırları ve işletim sorumlulukları içeren belgelenmiş bir ağ tasarımına dönüştürür.",
+        "capabilities": [
+          [
+            "Saha ve talep incelemesi",
+            "Kat planları, cihazlar, kullanıcı yoğunluğu ve uygulama ihtiyaçları değerlendirilir."
+          ],
+          [
+            "Ağ tasarımı",
+            "Anahtarlama, kablosuz kapsama, adresleme ve uygun trafik ayrımı planlanır."
+          ],
+          [
+            "İşletim hazırlığı",
+            "Yapılandırma yedekleri, envanter, izleme ve arıza bildirim adımları tanımlanır."
+          ]
+        ],
+        "deliverables": [
+          ["Ağ tasarımı", "Mantıksal şemalar, adresleme planı ve donanım ihtiyaçları."],
+          ["Yapılandırma kaydı", "Anlaşılan ayarlar ve belgelenmiş değişiklik geçmişi."],
+          ["Kabul raporu", "Kapsamdaki bağlantı ve kapsama senaryolarının sonuçları."]
+        ],
+        "useCases": [
+          "Yeni ofis bağlantısı",
+          "Mevcut konumu genişletme",
+          "Çalışan, misafir ve cihaz erişimini ayırma"
+        ],
+        "process": "1. Saha ve talep araştırması.\n2. Ağ tasarımı ve incelemesi.\n3. Pilot veya kararlaştırılan kurulum.\n4. Test ve işletim devrinin belgelenmesi.",
+        "acceptance": "Kapsama noktaları, temsilî istemciler ve uygulama kontrolleri belirlenir. Saha ve cihazlar sonucu etkiler; genel hız veya kapsama rakamı varsayılmaz.",
+        "question": "Mevcut cihazlar kullanılabilir mi?",
+        "answer": "Kapasite, destek durumu, uyumluluk ve güvenlik ihtiyaçları incelendikten sonra mümkün olabilir. Yeniden kullanım kararı yalnız satın alma maliyetine dayanmamalıdır."
+      },
+      "ar": {
+        "title": "البنية التحتية للشبكات",
+        "summary": "نطاق خدمة مقترح: تصميم الاتصال السلكي واللاسلكي وتنظيمه وفق المستخدمين والأجهزة واحتياجات الموقع.",
+        "overview": "تختلف احتياجات الاتصال بين المكاتب وقاعات الاجتماعات ومناطق الزوار والأجهزة المتصلة. يحول هذا النطاق الاحتياجات إلى تصميم شبكة موثق بعناوين منظمة وحدود وصول ومسؤوليات تشغيل واضحة.",
+        "capabilities": [
+          [
+            "دراسة الموقع والاحتياج",
+            "تقييم المخططات والتجهيزات الحالية وكثافة المستخدمين واحتياجات التطبيقات."
+          ],
+          [
+            "تصميم الشبكة",
+            "تخطيط المحولات والتغطية اللاسلكية والعنونة والفصل المناسب لحركة البيانات."
+          ],
+          ["التحضير للتشغيل", "تحديد نسخ الإعدادات والجرد والمراقبة وإجراءات الإبلاغ عن الأعطال."]
+        ],
+        "deliverables": [
+          ["تصميم موثق", "مخططات منطقية وخطة عنونة ومتطلبات التجهيز."],
+          ["سجل الإعدادات", "الإعدادات المتفق عليها وتاريخ التغييرات الموثق."],
+          ["تقرير القبول", "نتائج سيناريوهات الاتصال والتغطية المشمولة بالنطاق."]
+        ],
+        "useCases": [
+          "تجهيز اتصال مكتب جديد",
+          "توسعة موقع قائم",
+          "فصل وصول الموظفين والزوار والأجهزة"
+        ],
+        "process": "1. مسح الموقع والطلب المتوقع.\n2. تصميم الشبكة ومراجعته.\n3. تهيئة تجربة أو تركيب متفق عليه.\n4. الاختبار وتوثيق التسليم التشغيلي.",
+        "acceptance": "تُحدد نقاط اختبار التغطية والأجهزة الممثلة وفحوص التطبيقات. تؤثر ظروف الموقع والتجهيزات على النتائج؛ ولا تُفترض سرعة أو تغطية موحدة مسبقًا.",
+        "question": "هل يمكن الاستفادة من الأجهزة الحالية؟",
+        "answer": "قد يكون ذلك ممكنًا بعد فحص السعة وحالة الدعم والتوافق ومتطلبات الأمان. يُوثق قرار إعادة الاستخدام ولا يُبنى على تكلفة الشراء وحدها."
+      }
+    }
+  },
+  {
+    "slug": "managed-it-services",
+    "sources": ["https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/"],
+    "translations": {
+      "en": {
+        "title": "Managed IT Operations",
+        "summary": "Proposed service: define a practical operating model for selected systems, support requests and routine maintenance.",
+        "overview": "An operating arrangement should make ownership and escalation clear. This proposed scope organises the assets and tasks included in support, with documented boundaries for incident handling, scheduled work and changes.",
+        "capabilities": [
+          [
+            "Service inventory",
+            "Identify supported systems, responsible contacts and dependency information."
+          ],
+          [
+            "Support workflow",
+            "Define request categories, priorities, escalation paths and communication expectations."
+          ],
+          [
+            "Routine operations",
+            "Plan agreed maintenance, health checks, backup reviews and change records."
+          ]
+        ],
+        "deliverables": [
+          [
+            "Service scope",
+            "Supported assets, exclusions, responsibilities and agreed service hours."
+          ],
+          [
+            "Operating runbooks",
+            "Repeatable instructions for selected maintenance and support tasks."
+          ],
+          ["Review report", "A summary of requests, recurring issues and proposed improvements."]
+        ],
+        "useCases": [
+          "Organising support for business systems",
+          "Establishing maintenance routines",
+          "Improving handover between internal teams and suppliers"
+        ],
+        "process": "1. Inventory systems and current responsibilities.\n2. Agree service boundaries and priorities.\n3. Establish request and maintenance procedures.\n4. Review the operating model after an initial period.",
+        "acceptance": "Check inventory completeness, request ownership, maintenance records and escalation exercises. Response targets, coverage hours and on-site support are contractual choices, not implied commitments.",
+        "question": "Does this include support at all hours?",
+        "answer": "Only if explicitly agreed. Coverage hours, response targets, emergency handling and exclusions must be specified before the service begins."
+      },
+      "tr": {
+        "title": "Yönetilen BT Operasyonları",
+        "summary": "Önerilen hizmet: seçilen sistemler, destek talepleri ve rutin bakım için uygulanabilir bir işletim modeli tanımlayın.",
+        "overview": "İşletim düzeni sorumlulukları ve eskalasyonu açıklaştırmalıdır. Önerilen kapsam desteklenen varlıkları ve işleri düzenler; olay yönetimi, planlı çalışma ve değişiklikler için belgelenmiş sınırlar oluşturur.",
+        "capabilities": [
+          ["Hizmet envanteri", "Desteklenen sistemler, sorumlular ve bağımlılıklar belirlenir."],
+          [
+            "Destek iş akışı",
+            "Talep türleri, öncelikler, eskalasyon ve iletişim beklentileri tanımlanır."
+          ],
+          [
+            "Rutin işletim",
+            "Anlaşılan bakım, sağlık kontrolleri, yedek incelemeleri ve değişiklik kayıtları planlanır."
+          ]
+        ],
+        "deliverables": [
+          ["Hizmet kapsamı", "Varlıklar, hariç tutulan işler, sorumluluklar ve çalışma saatleri."],
+          [
+            "İşletim kılavuzları",
+            "Seçilen bakım ve destek görevleri için tekrarlanabilir talimatlar."
+          ],
+          ["İnceleme raporu", "Talepler, tekrar eden sorunlar ve iyileştirme önerilerinin özeti."]
+        ],
+        "useCases": [
+          "İş sistemleri desteğini düzenleme",
+          "Bakım rutinleri oluşturma",
+          "İç ekipler ve tedarikçiler arasında devri iyileştirme"
+        ],
+        "process": "1. Sistem ve sorumluluk envanteri.\n2. Hizmet sınırı ve öncelikler.\n3. Talep ve bakım prosedürleri.\n4. İlk dönem sonunda işletim modelinin gözden geçirilmesi.",
+        "acceptance": "Envanter eksiksizliği, talep sahipliği, bakım kayıtları ve eskalasyon denemeleri kontrol edilir. Yanıt hedefleri, hizmet saatleri ve yerinde destek sözleşmeyle belirlenir.",
+        "question": "Bu kapsam kesintisiz destek içerir mi?",
+        "answer": "Yalnızca açıkça kararlaştırılırsa. Hizmet başlamadan çalışma saatleri, yanıt hedefleri, acil durum işleyişi ve kapsam dışı işler belirtilmelidir."
+      },
+      "ar": {
+        "title": "إدارة وتشغيل تقنية المعلومات",
+        "summary": "نطاق خدمة مقترح: تنظيم تشغيل أنظمة مختارة وطلبات الدعم والصيانة الدورية ضمن مسؤوليات وحدود واضحة.",
+        "overview": "ينبغي لاتفاق التشغيل أن يوضح الملكية ومسار التصعيد. ينظم النطاق المقترح الأصول والمهام المشمولة بالدعم، ويضع حدودًا موثقة لمعالجة الحوادث والأعمال المجدولة والتغييرات.",
+        "capabilities": [
+          ["جرد الخدمة", "تحديد الأنظمة المشمولة وجهات الاتصال المسؤولة والاعتماديات."],
+          ["مسار الدعم", "تعريف أنواع الطلبات والأولويات والتصعيد وتوقعات التواصل."],
+          [
+            "التشغيل الدوري",
+            "تخطيط الصيانة وفحوص الحالة ومراجعات النسخ وسجلات التغيير المتفق عليها."
+          ]
+        ],
+        "deliverables": [
+          ["نطاق الخدمة", "الأصول المدعومة والاستثناءات والمسؤوليات وساعات الخدمة المتفق عليها."],
+          ["أدلة التشغيل", "تعليمات قابلة للتكرار لمهام صيانة ودعم محددة."],
+          ["تقرير المراجعة", "ملخص الطلبات والمشكلات المتكررة وفرص التحسين."]
+        ],
+        "useCases": [
+          "تنظيم دعم أنظمة الأعمال",
+          "تأسيس إجراءات صيانة منتظمة",
+          "تحسين التسليم بين الفرق الداخلية والموردين"
+        ],
+        "process": "1. جرد الأنظمة والمسؤوليات الحالية.\n2. الاتفاق على الحدود والأولويات.\n3. تأسيس إجراءات الطلب والصيانة.\n4. مراجعة نموذج التشغيل بعد فترة أولية.",
+        "acceptance": "تُراجع جودة الجرد وملكية الطلبات وسجلات الصيانة وتجارب التصعيد. تُحدد أزمنة الاستجابة وساعات التغطية والدعم الميداني تعاقديًا، ولا تُفترض ضمنًا.",
+        "question": "هل يشمل ذلك دعمًا على مدار الساعة؟",
+        "answer": "فقط إذا جرى الاتفاق عليه صراحة. يجب تحديد ساعات التغطية ومستهدفات الاستجابة وآلية الحالات الطارئة والاستثناءات قبل بدء الخدمة."
+      }
+    }
+  }
+]

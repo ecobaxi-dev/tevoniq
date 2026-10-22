@@ -1,0 +1,68 @@
+'use client';
+import { useId, useState } from 'react';
+import Link from 'next/link';
+import { NavigationMenu } from 'radix-ui';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
+import type { Locale } from '@tevoniq/types';
+import type { NavigationGroup } from '@/config/navigation';
+import { localizedHref } from '@/config/navigation';
+
+export function ServicesMenu({
+  groups,
+  locale,
+  allLabel,
+  onNavigate,
+}: {
+  groups: NavigationGroup[];
+  locale: Locale;
+  allLabel: string;
+  onNavigate: () => void;
+}) {
+  const [selected, setSelected] = useState(groups[0]?.id ?? '');
+  const id = useId();
+  const active = groups.find((group) => group.id === selected) ?? groups[0];
+  return (
+    <div className="site-services-menu">
+      <div className="site-services-categories" role="group" aria-label={allLabel}>
+        {groups.map((group) => (
+          <button
+            key={group.id}
+            type="button"
+            aria-pressed={active?.id === group.id}
+            aria-controls={`${id}-content`}
+            onClick={() => setSelected(group.id)}
+          >
+            <span>{group.label}</span>
+            <ChevronRight size={16} aria-hidden="true" />
+          </button>
+        ))}
+      </div>
+      <div className="site-services-content" id={`${id}-content`}>
+        <header>
+          <h2>{active?.label}</h2>
+          <NavigationMenu.Link asChild>
+            <Link href={localizedHref(locale, '/services')} onClick={onNavigate}>
+              {allLabel}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          </NavigationMenu.Link>
+        </header>
+        <ul aria-label={active?.label}>
+          {active?.items.map((item) => (
+            <li key={item.id}>
+              <NavigationMenu.Link asChild>
+                <Link href={localizedHref(locale, item.href)} onClick={onNavigate}>
+                  <span className="site-services-name">
+                    {item.label}
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </span>
+                  <span className="site-services-summary">{item.description}</span>
+                </Link>
+              </NavigationMenu.Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

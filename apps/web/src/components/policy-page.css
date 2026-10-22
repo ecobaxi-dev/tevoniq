@@ -1,0 +1,92 @@
+.policy-page {
+  padding-top: 110px;
+  color: #10233e;
+  background: #f7f9fc;
+  min-height: 60vh;
+}
+.policy-page header {
+  max-width: 880px;
+  margin: auto;
+  padding: 50px 24px 38px;
+  border-bottom: 1px solid #dbe3ee;
+}
+.policy-page header > p:first-child {
+  font-size: 12px;
+  color: #157899;
+  letter-spacing: 0.12em;
+}
+.policy-page h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 600;
+  margin: 12px 0 20px;
+  line-height: 1.25;
+}
+.policy-page p {
+  line-height: 1.85;
+  white-space: pre-line;
+  font-size: 15px;
+  color: #435671;
+}
+.policy-content {
+  max-width: 880px;
+  margin: auto;
+  padding: 20px 24px 64px;
+}
+.policy-content section {
+  margin-block: 28px 38px;
+}
+.policy-content h2 {
+  font-size: 23px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.policy-content h3 {
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+.policy-content a {
+  color: #075985;
+  text-decoration: underline;
+}
+.policy-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.policy-categories article {
+  padding: 22px;
+  background: white;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+}
+.policy-categories p {
+  font-size: 14px;
+}
+.policy-categories strong {
+  font-size: 12px;
+  color: #17644b;
+}
+.policy-cookie-button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 6px;
+  background: #0b1b32;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+.policy-cookie-button:focus-visible {
+  outline: 3px solid #009de0;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .policy-page {
+    padding-top: 80px;
+  }
+  .policy-page header {
+    padding-top: 26px;
+  }
+  .policy-categories {
+    grid-template-columns: 1fr;
+  }
+}
