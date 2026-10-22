@@ -157,7 +157,7 @@ export function HomeEditor() {
         <option value="tr">Türkçe</option>
         <option value="ar">العربية</option>
       </Select>
-      {message && <p role="status">{message}</p>}
+      {!record && message && <p role="status">{message}</p>}
       {!record ? (
         <Button onClick={() => setReload((n) => n + 1)}>Reload homepage</Button>
       ) : (
@@ -188,13 +188,17 @@ export function HomeEditor() {
               }}
             />
           </fieldset>
+          <p role="status" aria-live="polite">
+            {busy ? 'Saving homepage…' : message}
+          </p>
           <div className="admin-actions">
-            <Button type="submit" disabled={busy || !can(user, 'pages.update')}>
+            <Button type="submit" loading={busy} disabled={!can(user, 'pages.update')}>
               Save draft
             </Button>
             <Button
               type="button"
-              disabled={busy || !can(user, 'pages.publish')}
+              loading={busy}
+              disabled={!can(user, 'pages.publish')}
               onClick={() => void save('publish')}
             >
               Publish homepage

@@ -16,6 +16,7 @@ export async function cmsApi(path: string, method = 'GET', body?: unknown) {
     headers: { 'Content-Type': 'application/json' },
     ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
     cache: 'no-store',
+    signal: AbortSignal.timeout(20000),
   });
   const data = (await response.json()) as Record<string, unknown>;
   if (response.status === 401 && typeof window !== 'undefined')

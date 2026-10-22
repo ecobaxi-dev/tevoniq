@@ -7,7 +7,9 @@ type Card = { label: string; value: number | null; href: string };
 export default function Dashboard() {
   const [cards, setCards] = useState<Card[] | null>(null),
     [error, setError] = useState(''),
-    [attempt, setAttempt] = useState(0);
+    [attempt, setAttempt] = useState(0),
+    [loading, setLoading] = useState(true),
+    [updatedAt, setUpdatedAt] = useState<string | null>(null);
   useEffect(() => {
     let active = true;
     cmsApi('admin/dashboard')
@@ -15,10 +17,14 @@ export default function Dashboard() {
         if (active) {
           setCards(r.cards as Card[]);
           setError('');
+          setUpdatedAt(new Date().toLocaleTimeString('en-GB'));
         }
       })
       .catch((e: unknown) => {
         if (active) setError(e instanceof Error ? e.message : 'Dashboard unavailable');
+      })
+      .finally(() => {
+        if (active) setLoading(false);
       });
     return () => {
       active = false;
@@ -32,9 +38,22 @@ export default function Dashboard() {
           <h1>Dashboard</h1>
           <p>Content, conversations, and business activity.</p>
         </div>
-        <Button variant="secondary" onClick={() => setAttempt((a) => a + 1)}>
-          Refresh
-        </Button>
+        <div>
+          <Button
+            variant="secondary"
+            loading={loading}
+            onClick={() => {
+              setLoading(true);
+              setError('');
+              setAttempt((a) => a + 1);
+            }}
+          >
+            {loading ? 'Refreshing…' : 'Refresh'}
+          </Button>
+          <p role="status">
+            {loading ? 'Updating dashboard…' : updatedAt ? `Dashboard updated at ${updatedAt}` : ''}
+          </p>
+        </div>
       </div>
       {error ? (
         <p role="alert">{error}</p>
