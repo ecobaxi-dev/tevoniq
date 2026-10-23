@@ -25,10 +25,6 @@ body {
 :lang(ar) {
   --font-heading: 'Cairo Variable', 'Plus Jakarta Sans Variable', Tahoma, sans-serif;
   --font-sans: 'Cairo Variable', 'Plus Jakarta Sans Variable', Tahoma, sans-serif;
-  --type-body-size: 1.125rem;
-  --type-small-size: 1rem;
-  --type-caption-size: 1rem;
-  --type-h3-size: 1.625rem;
   --type-body-line-height: 1.9;
   --type-display-line-height: 1.35;
   --type-h1-line-height: 1.4;
@@ -54,13 +50,6 @@ html:lang(ar) :is(h1, h2, h3, h4),
   line-height: 1.45;
   letter-spacing: 0;
 }
-html:lang(ar) :is(.tv-description, .tv-field-label, .lead-form label, .insight-meta, .pb-eyebrow) {
-  font-size: 1.25rem;
-  line-height: 1.9;
-}
-html:lang(ar) :is(.tv-button, .site-header-actions .tv-button) {
-  font-size: 1.25rem;
-}
 html:lang(ar) :is(.tv-card, .lead-card, .pb-card) {
   min-width: 0;
   overflow-wrap: anywhere;
@@ -78,80 +67,6 @@ html:lang(ar) :is(.tv-card, .lead-card, .pb-card) {
     .lucide-chevron-left
   ):not(.tv-directional) {
   transform: scaleX(-1);
-}
-:lang(ar) :is(.site-nav-trigger, .site-nav-link) {
-  font-size: 1.375rem;
-  line-height: 1.7;
-}
-:lang(ar) :is(.tv-eyebrow, .lead-eyebrow) {
-  font-size: 1.125rem;
-}
-/* Preserve comfortable reading sizes for Arabic content. */
-html:lang(ar) body {
-  font-size: 1.25rem;
-}
-html:lang(ar) :is(main p, main li, input, textarea, select, .tv-accordion-trigger) {
-  font-size: 1.25rem;
-  line-height: 1.9;
-}
-html:lang(ar)
-  :is(
-    .site-submenu-link,
-    .site-mega-link,
-    .site-mega-quote,
-    .site-mobile-languages,
-    .site-search-results a
-  ) {
-  font-size: 1.25rem;
-  line-height: 1.8;
-}
-html:lang(ar) .site-mobile-nav .tv-accordion-trigger {
-  font-size: 1.375rem;
-}
-/* Navigation uses the selected font with a genuine medium weight. */
-html:lang(ar)
-  :is(
-    .site-nav-trigger,
-    .site-nav-link,
-    .site-submenu-link,
-    .site-mega-link,
-    .site-mega-quote,
-    .site-mega-intro .tv-eyebrow,
-    .site-header-actions .tv-button,
-    .site-header-actions select,
-    .site-mobile-nav .tv-accordion-trigger,
-    .site-mobile-quote,
-    .site-mobile-languages .tv-button
-  ) {
-  font-weight: 600;
-  font-synthesis: none;
-}
-html:lang(ar) .site-header-actions .tv-language select {
-  font-size: 1.125rem;
-  max-width: 7rem;
-}
-html:lang(ar) .site-footer :is(p, li, a, label, input, button, select, address) {
-  font-size: 1.125rem;
-  line-height: 1.9;
-}
-html:lang(ar) .footer-link-group h2 {
-  font-size: 1.375rem;
-}
-html:lang(ar) :is(.concept-visual figcaption, .footer-eyebrow) {
-  font-size: 1rem;
-  line-height: 1.8;
-}
-/* Give the larger Arabic menu its own collapse threshold to avoid crowding. */
-@media (width < 90rem) {
-  html:lang(ar) .site-desktop-nav {
-    display: none;
-  }
-  html:lang(ar) .site-mobile-toggle {
-    display: block;
-  }
-  html:lang(ar) .site-header-actions {
-    margin-inline-start: auto;
-  }
 }
 :focus-visible {
   outline: 3px solid var(--color-electric);

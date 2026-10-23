@@ -471,18 +471,6 @@
 [dir='rtl'] .site-services-menu svg {
   transform: scaleX(-1);
 }
-[dir='rtl'] .site-services-categories button {
-  font-size: 1.125rem;
-}
-[dir='rtl'] .site-services-name {
-  font-size: 1.2rem;
-}
-[dir='rtl'] .site-services-summary {
-  font-size: 1rem;
-}
-[dir='rtl'] .site-services-content header a {
-  font-size: 1rem;
-}
 .site-mobile-service-links {
   padding-inline-start: 0.5rem;
   border-inline-start: 2px solid #d7e6f2;
@@ -496,7 +484,4 @@
   font-size: 0.9rem;
   line-height: 1.55;
   text-align: start;
-}
-[dir='rtl'] .site-mobile-children > .tv-accordion .tv-accordion-trigger {
-  font-size: 1.125rem;
 }

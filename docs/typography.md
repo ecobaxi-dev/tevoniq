@@ -8,8 +8,9 @@ Mixed-script content falls back to the other family when needed.
 Design tokens are maintained in `packages/config/design-tokens.json`; regenerate
 `packages/config/tokens.css` with `npm run tokens:generate` after changing them.
 Section headings now scale from 32px to 44px; card headings scale from 22px to
-26px. Shared body/description tokens are 18px/16px, with Arabic reading and
-line-height overrides retained. Existing page-specific sizes can override tokens.
+26px. Shared body/description tokens are 18px/16px, with Arabic line-height and connected-script spacing retained. Arabic uses the
+same component font sizes as English and Turkish; legacy per-locale enlargement
+rules for headers, menus, body text, buttons, forms and footer were removed. Existing page-specific sizes can override tokens.
 
 Arabic homepage hero copy is rendered as live text over the existing text-free
 hero artwork. English and Turkish retain the original artwork composition;
@@ -22,3 +23,9 @@ English/Arabic home, services and contact at 1440px and 390px. Checks confirm
 selected font families, Arabic hero content fit and no page
 horizontal overflow. Mobile-application service layouts are checked separately.
 Screenshots are kept locally under `artifacts/typography` and are not deployed.
+
+Arabic sizing correction: 18 browser comparisons across three locales, three
+routes and two viewport widths verified equal computed component font sizes and
+no horizontal overflow. All three mobile menus opened successfully. The Arabic
+header now uses the shared navigation breakpoint rather than a separate 90rem
+threshold. Production web build and lint passed.
