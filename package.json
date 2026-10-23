@@ -32,7 +32,9 @@
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",
     "test:e2e": "playwright test",
-    "cms:admin": "npm run cms:admin -w @tevoniq/api"
+    "cms:admin": "npm run cms:admin -w @tevoniq/api",
+    "dev:neon": "node scripts/neon/run.mjs npm run dev",
+    "db:deploy:neon": "node scripts/neon/run.mjs npm run db:deploy"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
@@ -52,5 +54,9 @@
   "overrides": {
     "deepmerge-ts": "8.0.2",
     "mysql2": "3.24.3"
+  },
+  "dependencies": {
+    "@neon/config": "^1.9.3",
+    "@neon/env": "^1.6.4"
   }
 }

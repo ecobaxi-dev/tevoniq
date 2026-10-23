@@ -16,3 +16,4 @@ playwright-report/
 artifacts/
 .zencoder/
 .DS_Store
+.neon

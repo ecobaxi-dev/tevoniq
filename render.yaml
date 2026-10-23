@@ -1,4 +1,5 @@
-# Free preview only. Free Postgres expires after 30 days.
+# Free web hosting with external Neon PostgreSQL.
+# The original Render database is retained below for rollback until verified.
 # One public web service keeps the API private on loopback and uses one hour pool.
 services:
   - type: web
@@ -30,9 +31,9 @@ services:
       - key: CMS_ADMIN_PASSWORD
         generateValue: true
       - key: DATABASE_URL
-        fromDatabase:
-          name: tevoniq-preview-db
-          property: connectionString
+        sync: false
+      - key: DATABASE_URL_UNPOOLED
+        sync: false
 
 databases:
   - name: tevoniq-preview-db
