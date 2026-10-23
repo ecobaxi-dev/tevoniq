@@ -391,13 +391,13 @@ export function DesignSystemShowcase() {
                 <SectionHeader
                   eyebrow="02 / FOUNDATIONS"
                   title="A clear voice."
-                  description="Sora brings character to headlines. Inter keeps the details effortless to read."
+                  description="Plus Jakarta Sans defines our Latin typography. Cairo gives Arabic content a clear, confident voice."
                 />
                 <div className="ds-type-grid">
                   <div className="ds-type-card">
                     <div className="ds-type-label">
                       <span>HEADINGS</span>
-                      <Badge>Sora Variable</Badge>
+                      <Badge>Plus Jakarta Sans</Badge>
                     </div>
                     <p className="ds-type-display">
                       Technology
@@ -414,7 +414,7 @@ export function DesignSystemShowcase() {
                   <div className="ds-type-card ds-body-type">
                     <div className="ds-type-label">
                       <span>BODY & INTERFACE</span>
-                      <Badge>Inter Variable</Badge>
+                      <Badge>Cairo / Plus Jakarta Sans</Badge>
                     </div>
                     <p className="ds-body-display">
                       Clarity in

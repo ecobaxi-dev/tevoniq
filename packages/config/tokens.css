@@ -20,9 +20,9 @@
   --container-narrow: 48rem;
   --container-content: 80rem;
   --container-wide: 96rem;
-  --font-heading: 'Alkia', 'Alarabiya', 'Sora Variable', 'Sora', 'Segoe UI', Tahoma, sans-serif;
-  --font-sans: 'Alkia', 'Alarabiya', 'Inter Variable', 'Inter', 'Segoe UI', Tahoma, sans-serif;
-  --font-mono: 'Alarabiya', 'Cascadia Code', Consolas, monospace;
+  --font-heading: 'Plus Jakarta Sans Variable', 'Cairo Variable', 'Segoe UI', Tahoma, sans-serif;
+  --font-sans: 'Plus Jakarta Sans Variable', 'Cairo Variable', 'Segoe UI', Tahoma, sans-serif;
+  --font-mono: 'Cascadia Code', Consolas, monospace;
 }
 :root {
   --space-0: 0;
@@ -66,25 +66,25 @@
   --z-toast: 90;
   --type-display-size: clamp(2.75rem, 5.2vw, 5rem);
   --type-display-line-height: 1.08;
-  --type-display-weight: 400;
+  --type-display-weight: 700;
   --type-display-tracking: 0;
   --type-h1-size: clamp(2.25rem, 4vw, 3.5rem);
   --type-h1-line-height: 1.15;
-  --type-h1-weight: 400;
+  --type-h1-weight: 700;
   --type-h1-tracking: 0;
-  --type-h2-size: clamp(1.75rem, 3vw, 2.5rem);
+  --type-h2-size: clamp(2rem, 3.2vw, 2.75rem);
   --type-h2-line-height: 1.2;
-  --type-h2-weight: 400;
+  --type-h2-weight: 700;
   --type-h2-tracking: 0;
-  --type-h3-size: 1.375rem;
+  --type-h3-size: clamp(1.375rem, 1.6vw, 1.625rem);
   --type-h3-line-height: 1.35;
-  --type-h3-weight: 400;
+  --type-h3-weight: 600;
   --type-h3-tracking: 0;
-  --type-body-size: 1rem;
+  --type-body-size: 1.125rem;
   --type-body-line-height: 1.7;
   --type-body-weight: 400;
   --type-body-tracking: 0;
-  --type-small-size: 0.875rem;
+  --type-small-size: 1rem;
   --type-small-line-height: 1.6;
   --type-small-weight: 400;
   --type-small-tracking: 0;

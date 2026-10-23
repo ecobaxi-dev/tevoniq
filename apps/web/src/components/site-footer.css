@@ -204,7 +204,7 @@
   gap: 30px 28px;
 }
 .footer-link-group h2 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0 0 17px;
   letter-spacing: 0.02em;
@@ -347,7 +347,7 @@
     gap: 26px 24px;
   }
   .footer-link-group h2 {
-    font-size: 13px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
   .footer-link-group li {

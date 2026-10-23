@@ -1,15 +1,8 @@
-@font-face {
-  font-family: 'Mobile Geologica';
-  src: url('/fonts/Geologica-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 .mobile-service {
   --mobile-orange: #ff6900;
   color: #090909;
   background: #fff;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 .mobile-service * {
   box-sizing: border-box;
@@ -18,7 +11,7 @@
 .mobile-service h2,
 .mobile-service h3 {
   color: inherit;
-  font-family: 'Mobile Geologica', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700 !important;
   letter-spacing: -0.035em;
 }
