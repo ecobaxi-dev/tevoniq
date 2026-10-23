@@ -728,7 +728,7 @@
 }
 
 /* Arabic uses live localized copy over the preserved globe and brand artwork. */
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) > .tv-root {
+.artwork-hero[data-locale='ar'] > .tv-root {
   position: absolute;
   top: 27%;
   left: 1.5%;
@@ -738,7 +738,7 @@
   gap: clamp(0.75rem, 1.2vw, 1.5rem);
   text-align: right;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en'])
+.artwork-hero[data-locale='ar']
   :is(.artwork-hero-copy, .artwork-hero-values, .artwork-hero-actions) {
   position: static;
   width: auto;
@@ -749,7 +749,7 @@
   clip-path: none;
   white-space: normal;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-eyebrow {
+.artwork-hero[data-locale='ar'] .reference-eyebrow {
   margin: 0 0 0.5rem;
   font-size: clamp(1.35rem, 2vw, 2.1rem);
   font-weight: 600;
@@ -758,7 +758,7 @@
   text-shadow: 0 0 22px rgb(33 212 255 / 20%);
 }
 @supports (background-clip: text) {
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-eyebrow {
+  .artwork-hero[data-locale='ar'] .reference-eyebrow {
     background-image: linear-gradient(
       110deg,
       #c9e5ff 35%,
@@ -785,38 +785,38 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-eyebrow {
+  .artwork-hero[data-locale='ar'] .reference-eyebrow {
     animation: none;
   }
 }
 @media (forced-colors: active) {
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-eyebrow {
+  .artwork-hero[data-locale='ar'] .reference-eyebrow {
     background: none;
     color: CanvasText;
     text-shadow: none;
   }
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) h1 {
+.artwork-hero[data-locale='ar'] h1 {
   font-size: clamp(2.5rem, 4.2vw, 4.5rem);
   line-height: 1.25;
   margin: 0 0 0.75rem;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) h1 span {
+.artwork-hero[data-locale='ar'] h1 span {
   display: block;
   color: #21d4ff;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-description {
+.artwork-hero[data-locale='ar'] .reference-description {
   margin: 0;
   color: #d6e3f3;
   line-height: 1.65;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-actions {
+.artwork-hero[data-locale='ar'] .artwork-hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   direction: rtl;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-actions > :is(a, button) {
+.artwork-hero[data-locale='ar'] .artwork-hero-actions > :is(a, button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -830,32 +830,32 @@
   text-decoration: none;
   background: #031328;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-actions > .reference-start {
+.artwork-hero[data-locale='ar'] .artwork-hero-actions > .reference-start {
   background: linear-gradient(110deg, #007dbb, #164cff);
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-actions :is(span, svg) {
+.artwork-hero[data-locale='ar'] .artwork-hero-actions :is(span, svg) {
   position: static;
   width: auto;
   height: auto;
   overflow: visible;
   clip-path: none;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-actions svg {
+.artwork-hero[data-locale='ar'] .artwork-hero-actions svg {
   width: 1.25rem;
   height: 1.25rem;
   flex-shrink: 0;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .reference-start svg {
+.artwork-hero[data-locale='ar'] .reference-start svg {
   transform: rotate(180deg);
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values {
+.artwork-hero[data-locale='ar'] .artwork-hero-values {
   display: flex;
   direction: ltr;
   gap: 0;
   padding-top: clamp(1rem, 1.5vw, 1.5rem);
   list-style: none;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li {
   display: flex;
   align-items: center;
   flex: 1 1 0;
@@ -864,32 +864,32 @@
   font-size: clamp(0.875rem, 0.96vw, 1rem);
   line-height: 1.5;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li:first-child {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li:first-child {
   padding-left: 0;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li:last-child {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li:last-child {
   padding-right: 0;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li + li {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li + li {
   border-left: 1px solid rgb(201 229 255 / 30%);
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li > div {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li > div {
   direction: rtl;
   text-align: right;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values :is(strong, span) {
+.artwork-hero[data-locale='ar'] .artwork-hero-values :is(strong, span) {
   display: block;
   font-weight: 400;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values span {
+.artwork-hero[data-locale='ar'] .artwork-hero-values span {
   color: #c3d5eb;
   margin-top: 0.15rem;
   font-size: 0.875em;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values strong {
+.artwork-hero[data-locale='ar'] .artwork-hero-values strong {
   font-weight: 400;
 }
-.artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li > svg {
+.artwork-hero[data-locale='ar'] .artwork-hero-values li > svg {
   flex-shrink: 0;
   width: clamp(1.75rem, 2.4vw, 2.5rem);
   height: clamp(1.75rem, 2.4vw, 2.5rem);
@@ -897,19 +897,19 @@
   color: #c9e5ff;
 }
 @media (width < 40rem) {
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values {
+  .artwork-hero[data-locale='ar'] .artwork-hero-values {
     flex-direction: column;
     gap: 1.5rem;
   }
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li {
+  .artwork-hero[data-locale='ar'] .artwork-hero-values li {
     padding-inline: 0;
   }
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) .artwork-hero-values li + li {
+  .artwork-hero[data-locale='ar'] .artwork-hero-values li + li {
     border-left: 0;
   }
 }
 @media (width < 70rem) {
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) > .tv-root {
+  .artwork-hero[data-locale='ar'] > .tv-root {
     position: relative;
     top: auto;
     left: auto;
@@ -917,42 +917,7 @@
     padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 3rem;
     gap: 1.5rem;
   }
-  .artwork-hero:is([data-locale='ar'], [data-locale='en']) h1 {
+  .artwork-hero[data-locale='ar'] h1 {
     font-size: clamp(2.5rem, 7vw, 3.75rem);
-  }
-}
-
-/* English hero copy is live text so font and size choices work at every viewport. */
-.artwork-hero[data-locale='en'] > .tv-root {
-  text-align: left;
-}
-.artwork-hero[data-locale='en'] h1 {
-  font-size: clamp(2.25rem, 3.5vw, 3.5rem);
-  line-height: 1.18;
-}
-.artwork-hero[data-locale='en'] .reference-eyebrow {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.artwork-hero[data-locale='en'] .reference-description {
-  font-size: 1rem;
-  line-height: 1.7;
-}
-.artwork-hero[data-locale='en'] .artwork-hero-actions {
-  direction: ltr;
-}
-.artwork-hero[data-locale='en'] .reference-start svg {
-  transform: none;
-}
-.artwork-hero[data-locale='en'] .artwork-hero-actions > :is(a, button) {
-  font-size: 1rem;
-}
-.artwork-hero[data-locale='en'] .artwork-hero-values li > div {
-  direction: ltr;
-  text-align: left;
-}
-@media (width < 70rem) {
-  .artwork-hero[data-locale='en'] h1 {
-    font-size: clamp(2.25rem, 7vw, 3.5rem);
   }
 }

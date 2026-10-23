@@ -17,7 +17,7 @@ export function ReferenceHero({
     <section className="artwork-hero" data-locale={locale} aria-labelledby="home-title">
       <Image
         className="artwork-hero-image"
-        src={locale !== 'tr' ? '/brand/hero-ar-background.png' : brandAssets.uiReference.home.src}
+        src={locale === 'ar' ? '/brand/hero-ar-background.png' : brandAssets.uiReference.home.src}
         width={brandAssets.uiReference.home.width}
         height={brandAssets.uiReference.home.height}
         alt=""

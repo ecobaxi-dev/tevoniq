@@ -11,14 +11,14 @@ Section headings now scale from 32px to 44px; card headings scale from 22px to
 26px. Shared body/description tokens are 18px/16px, with Arabic reading and
 line-height overrides retained. Existing page-specific sizes can override tokens.
 
-English and Arabic homepage hero copy is rendered as live text over the existing
-text-free hero artwork, so it responds to the selected fonts and screen size.
-The Turkish artwork composition is preserved. No CMS copy was changed.
+Arabic homepage hero copy is rendered as live text over the existing text-free
+hero artwork. English and Turkish retain the original artwork composition;
+lettering embedded in that image retains its original appearance. No CMS copy was changed.
 The mobile-application service uses the same selected fonts instead of its separate
 Arial/Geologica stack. The design-system specimen labels match the new pairing.
 
 Validation: production build, lint, token synchronization, plus browser checks of
 English/Arabic home, services and contact at 1440px and 390px. Checks confirm
-visible homepage headings, selected font families, hero content fit and no page
+selected font families, Arabic hero content fit and no page
 horizontal overflow. Mobile-application service layouts are checked separately.
 Screenshots are kept locally under `artifacts/typography` and are not deployed.
