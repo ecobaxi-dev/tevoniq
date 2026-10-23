@@ -247,6 +247,9 @@ test('Email abstraction sends both messages through a fake adapter and records d
   assert.equal(f.sent.length, 2);
   assert.deepEqual(f.sent[0].to, ['team@example.test']);
   assert.deepEqual(f.sent[1].to, ['sender@example.test']);
+  assert.ok(f.sent[1].html.includes('What happens next?'));
+  assert.ok(f.sent[1].text.includes('Reference:'));
+  assert.equal(f.sent[1].replyTo, 'team@example.test');
   assert.equal(
     f.updates.every((u) => u.status === 'sent'),
     true,

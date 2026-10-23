@@ -9,6 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { DatabaseService } from '../database/database.service.js';
 import { EmailTransport, type EmailMessage } from './email-transport.js';
 import { LeadSettingsService } from '../leads/lead-settings.service.js';
+import { confirmationHtml } from './confirmation-template.js';
 @Injectable()
 export class LeadEmailWorker implements OnModuleInit, OnModuleDestroy {
   private timer?: ReturnType<typeof setInterval>;
@@ -87,6 +88,19 @@ export class LeadEmailWorker implements OnModuleInit, OnModuleDestroy {
               ? {
                   to: [lead.email],
                   ...confirmation,
+                  ...(lead.language === 'en'
+                    ? {
+                        html: confirmationHtml({
+                          name: lead.name,
+                          reference: lead.id,
+                          quote: lead.type === 'quote',
+                          origin: this.config.getOrThrow<string>('CORS_ORIGIN'),
+                        }),
+                      }
+                    : {}),
+                  ...(settings.notificationRecipients[0]
+                    ? { replyTo: settings.notificationRecipients[0] }
+                    : {}),
                   messageId: `<${job.id}@${new URL(this.config.getOrThrow<string>('CORS_ORIGIN')).hostname}>`,
                 }
               : {

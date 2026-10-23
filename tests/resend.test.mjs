@@ -27,6 +27,7 @@ test('Resend maps messages, preserves retry identity, and rejects failed or inva
     to: ['owner@example.test'],
     subject: 'New enquiry',
     text: 'Test',
+    html: '<p>Test</p>',
     replyTo: 'visitor@example.test',
     messageId: '<job-123@tevoniq.com>',
   };
@@ -48,6 +49,7 @@ test('Resend maps messages, preserves retry identity, and rejects failed or inva
       to: message.to,
       subject: message.subject,
       text: message.text,
+      html: message.html,
       reply_to: message.replyTo,
     });
     globalThis.fetch = async () =>

@@ -6,6 +6,7 @@ export type EmailMessage = {
   to: string[];
   subject: string;
   text: string;
+  html?: string;
   messageId: string;
   replyTo?: string;
 };
@@ -32,6 +33,7 @@ export class ResendEmailTransport extends EmailTransport {
         to: message.to,
         subject: message.subject,
         text: message.text,
+        ...(message.html ? { html: message.html } : {}),
         ...(message.replyTo ? { reply_to: message.replyTo } : {}),
       }),
       signal: AbortSignal.timeout(20000),

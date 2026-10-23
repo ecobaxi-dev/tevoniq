@@ -36,3 +36,17 @@ stable retry identity, provider errors, required settings, queue delivery/retrie
 and Render configuration. No real email was sent during local tests.
 
 API reference: https://resend.com/docs/api-reference/emails/send-email
+
+## English confirmation design
+
+English enquiry and quote confirmations include a responsive HTML layout using
+TEVONIQ navy and gold, an escaped visitor name, reference card, review/follow-up
+steps, contact button, website, phone, and legal company footer. The plain text
+alternative remains included. Arabic and Turkish confirmation text is unchanged.
+No visitor message body or attachments are included in the confirmation.
+Confirmation replies are directed to the first configured notification recipient.
+Resend accepts both HTML and text; SMTP receives the same multipart content.
+
+A local sample is generated at `artifacts/email/confirmation-preview.html` for
+review. Browser checks cover desktop and 375px mobile widths; inbox rendering
+still needs a post-deployment check in Gmail. Already-sent messages are unchanged.
