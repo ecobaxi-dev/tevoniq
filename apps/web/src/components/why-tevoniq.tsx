@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import {
   ArrowUpRight,
   Cpu,
@@ -165,7 +166,9 @@ export function WhyTevoniq({
               <span aria-hidden="true" />
               {copy.whyLabel}
             </p>
-            <h2 id="why-tevoniq-title">{copy.whyTitle}</h2>
+            <Heading as="h2" id="why-tevoniq-title">
+              {copy.whyTitle}
+            </Heading>
           </div>
           <p className="why-tevoniq__intro">{intro[locale]}</p>
         </header>
@@ -185,7 +188,7 @@ export function WhyTevoniq({
                   <ValueVisual kind={value?.kind ?? 'quality'} Icon={value?.icon ?? Gem} />
                 </div>
                 <div className="why-tevoniq__value-copy">
-                  <h3>{title}</h3>
+                  <Heading as="h3">{title}</Heading>
                   <p>{value?.description[locale] ?? fallback[locale]}</p>
                 </div>
               </article>
@@ -195,7 +198,7 @@ export function WhyTevoniq({
         <aside className="why-tevoniq__callout">
           <div>
             <p className="why-tevoniq__eyebrow">{copy.eyebrow}</p>
-            <h3>{copy.footer}</h3>
+            <Heading as="h3">{copy.footer}</Heading>
           </div>
           <div>
             <p className="why-tevoniq__callout-body">{copy.capabilityBody}</p>

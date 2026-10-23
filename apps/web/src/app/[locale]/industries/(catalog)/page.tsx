@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -62,7 +63,9 @@ async function PublicPage({ params, searchParams }: Props) {
       <Section tone="navy" spacing="generous" className="industries-hero">
         <Container>
           <p className="tv-eyebrow">{labels.eyebrow}</p>
-          <h1 className="tv-h1">{labels.title}</h1>
+          <Heading as="h1" className="tv-h1">
+            {labels.title}
+          </Heading>
           <p className="tv-description">{labels.intro}</p>
         </Container>
       </Section>
@@ -97,7 +100,9 @@ async function PublicPage({ params, searchParams }: Props) {
               {result.items.map((s) => (
                 <Card key={s.id} className="industry-card" data-featured={s.featured}>
                   {s.featured && <Badge>{labels.featuredBadge}</Badge>}
-                  <h2 className="tv-h3">{s.name}</h2>
+                  <Heading as="h2" className="tv-h3">
+                    {s.name}
+                  </Heading>
                   <p className="tv-description">{s.shortDescription}</p>
                   <a
                     href={`/${locale.data}/industries/${s.slug}`}

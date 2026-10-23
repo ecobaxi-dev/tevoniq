@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import type { Locale } from '@tevoniq/types';
 import { Container, Section, ButtonLink } from '@tevoniq/ui';
 import { getServices } from '@/lib/services';
@@ -39,7 +40,9 @@ export async function VisualDiscovery({
       <Container>
         <div className="visual-discovery-heading">
           <div>
-            <h2 className="tv-h2">{l.explore}</h2>
+            <Heading as="h2" className="tv-h2">
+              {l.explore}
+            </Heading>
             <p className="tv-description">{l.intro}</p>
           </div>
           <div className="visual-discovery-links">
@@ -60,7 +63,9 @@ export async function VisualDiscovery({
                 href={`/${locale}/${item.kind}/${item.slug}`}
               >
                 <CatalogVisual slug={item.slug} locale={locale} />
-                <h3 className="tv-h3">{item.title}</h3>
+                <Heading as="h3" className="tv-h3">
+                  {item.title}
+                </Heading>
                 <p className="tv-description">{item.summary}</p>
                 <span>
                   {l.view} <span aria-hidden="true">{locale === 'ar' ? '←' : '→'}</span>

@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { headers } from 'next/headers';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -54,7 +55,9 @@ async function PublicPage({ params }: Props) {
       <main id="main-content">
         <Section>
           <Container>
-            <h1 className="tv-h1">{labels.title}</h1>
+            <Heading as="h1" className="tv-h1">
+              {labels.title}
+            </Heading>
             <p role="status">{labels.error}</p>
             <ButtonLink href={`/${locale}/industries`}>{labels.all}</ButtonLink>
           </Container>

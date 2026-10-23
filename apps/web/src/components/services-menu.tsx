@@ -1,4 +1,6 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
+
 import { useId, useState } from 'react';
 import Link from 'next/link';
 import { NavigationMenu } from 'radix-ui';
@@ -39,7 +41,7 @@ export function ServicesMenu({
       </div>
       <div className="site-services-content" id={`${id}-content`}>
         <header>
-          <h2>{active?.label}</h2>
+          <Heading as="h2">{active?.label}</Heading>
           <NavigationMenu.Link asChild>
             <Link href={localizedHref(locale, '/services')} onClick={onNavigate}>
               {allLabel}

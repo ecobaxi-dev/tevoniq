@@ -1,4 +1,5 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
 
 import { useId, useState } from 'react';
 import { ArrowRight, Layers3, Network, Play } from 'lucide-react';
@@ -47,7 +48,9 @@ export function ConnectedThinking({
         </div>
         <div className="connected-thinking__layout">
           <div className="connected-thinking__intro" data-entrance>
-            <h2 id={`${id}-title`}>{copy.capabilityTitle}</h2>
+            <Heading as="h2" id={`${id}-title`}>
+              {copy.capabilityTitle}
+            </Heading>
             <p className="connected-thinking__body">{copy.capabilityBody}</p>
             <a className="connected-thinking__link" href={localizedHref(locale, '/solutions')}>
               {copy.explore}
@@ -128,7 +131,7 @@ export function ConnectedThinking({
               </div>
               <div>
                 <p className="connected-thinking__detail-label">{ui.detail}</p>
-                <h3>{solution?.title}</h3>
+                <Heading as="h3">{solution?.title}</Heading>
                 <p className="connected-thinking__description">{solution?.description}</p>
               </div>
             </div>

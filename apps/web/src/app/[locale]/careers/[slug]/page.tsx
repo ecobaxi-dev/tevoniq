@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { StructuredData } from '@/components/seo/json-ld';
 import { getOrganization } from '@/lib/seo';
 import { jobPostingData } from '@/lib/seo-core';
@@ -42,7 +43,7 @@ async function PublicPage({ params }: Props) {
         <div className="careers-container">
           <a href={`/${locale.data}/careers`}>{copy.openings}</a>
           <p>{job.department}</p>
-          <h1>{job.title}</h1>
+          <Heading as="h1">{job.title}</Heading>
           <p>
             {job.location} · {careerLabel(job.employmentType)} · {careerLabel(job.workMode)}
           </p>
@@ -58,7 +59,9 @@ async function PublicPage({ params }: Props) {
             (key) =>
               !!job[key].length && (
                 <section key={key}>
-                  <h2>{copy[key === 'preferredQualifications' ? 'preferred' : key]}</h2>
+                  <Heading as="h2">
+                    {copy[key === 'preferredQualifications' ? 'preferred' : key]}
+                  </Heading>
                   <ul>
                     {job[key].map((item, i) => (
                       <li key={i}>{item}</li>

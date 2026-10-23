@@ -1,4 +1,6 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
+
 import Script from 'next/script';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -211,13 +213,13 @@ export function SiteAnalytics({
       >
         {legal.privacyInformation && (
           <section aria-label={labels.privacy}>
-            <h3>{labels.privacy}</h3>
+            <Heading as="h3">{labels.privacy}</Heading>
             <p style={{ whiteSpace: 'pre-line' }}>{legal.privacyInformation}</p>
           </section>
         )}
         {legal.cookiePolicyInformation && (
           <section aria-label={labels.policy}>
-            <h3>{labels.policy}</h3>
+            <Heading as="h3">{labels.policy}</Heading>
             <p style={{ whiteSpace: 'pre-line' }}>{legal.cookiePolicyInformation}</p>
           </section>
         )}
@@ -253,7 +255,7 @@ export function SiteAnalytics({
       {loaded && !currentRecord && !open && (
         <section className="site-cookie-banner" aria-label={labels.settings}>
           <div>
-            <h2>{labels.title}</h2>
+            <Heading as="h2">{labels.title}</Heading>
             <p>{notice}</p>
             <div className="cookie-policy-links">
               <a href={privacy}>{labels.privacy}</a>

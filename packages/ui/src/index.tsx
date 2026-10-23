@@ -7,3 +7,4 @@ export * from './provider.js';
 export * from './disclosure.js';
 export * from './overlays.js';
 export * from './navigation.js';
+export * from './typography.js';

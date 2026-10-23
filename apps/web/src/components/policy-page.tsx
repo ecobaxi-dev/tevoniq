@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import type { Locale } from '@tevoniq/types';
 import { getSiteSettings } from '@/lib/site-settings';
 import { cookieCopy } from '@/content/cookies';
@@ -24,30 +25,30 @@ export async function PolicyPage({
     <main id="main-content" className="policy-page">
       <header>
         <p>{settings.general.siteName}</p>
-        <h1>{kind === 'privacy' ? copy.privacy : copy.policy}</h1>
+        <Heading as="h1">{kind === 'privacy' ? copy.privacy : copy.policy}</Heading>
         <p>{kind === 'privacy' ? copy.privacyIntro : copy.cookieIntro}</p>
       </header>
       <div className="policy-content">
         {kind === 'privacy' ? (
           <>
             <section>
-              <h2>{copy.dataTitle}</h2>
+              <Heading as="h2">{copy.dataTitle}</Heading>
               <p>{copy.dataText}</p>
             </section>
             <section>
-              <h2>{copy.choicesTitle}</h2>
+              <Heading as="h2">{copy.choicesTitle}</Heading>
               <p>{copy.choicesText}</p>
               <CookieSettingsButton locale={locale} />
             </section>
             {settings.legal.privacyInformation && (
               <section>
-                <h2>{copy.policyDetails}</h2>
+                <Heading as="h2">{copy.policyDetails}</Heading>
                 <p>{settings.legal.privacyInformation}</p>
               </section>
             )}
             {settings.contact.email && (
               <section>
-                <h2>{copy.contact}</h2>
+                <Heading as="h2">{copy.contact}</Heading>
                 {settings.general.legalCompanyName && <p>{settings.general.legalCompanyName}</p>}
                 <a href={'mailto:' + settings.contact.email}>{settings.contact.email}</a>
               </section>
@@ -56,12 +57,12 @@ export async function PolicyPage({
         ) : (
           <>
             <section>
-              <h2>{copy.settings}</h2>
+              <Heading as="h2">{copy.settings}</Heading>
               <div className="policy-categories">
                 {(['necessary', 'analytics', 'marketing', 'preferences'] as const).map(
                   (category) => (
                     <article key={category}>
-                      <h3>{copy[category]}</h3>
+                      <Heading as="h3">{copy[category]}</Heading>
                       <p>{copy[`${category}Text`]}</p>
                       {category === 'necessary' && <strong>{copy.always}</strong>}
                     </article>
@@ -70,7 +71,7 @@ export async function PolicyPage({
               </div>
             </section>
             <section>
-              <h2>{copy.providers}</h2>
+              <Heading as="h2">{copy.providers}</Heading>
               {providers.length ? (
                 <ul>
                   {providers.map((name) => (
@@ -82,7 +83,7 @@ export async function PolicyPage({
               )}
             </section>
             <section>
-              <h2>{copy.retentionTitle}</h2>
+              <Heading as="h2">{copy.retentionTitle}</Heading>
               <p>
                 {copy.retention} {settings.legal.cookieConsentDays} {copy.days}
               </p>
@@ -91,7 +92,7 @@ export async function PolicyPage({
             </section>
             {settings.legal.cookiePolicyInformation && (
               <section>
-                <h2>{copy.policyDetails}</h2>
+                <Heading as="h2">{copy.policyDetails}</Heading>
                 <p>{settings.legal.cookiePolicyInformation}</p>
               </section>
             )}

@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { CatalogVisual } from '@/components/concept-visual';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -36,7 +37,9 @@ async function PublicPage({
     <main id="main-content" className="services-page">
       <Section tone="navy" spacing="generous">
         <Container>
-          <h1 className="tv-h1">{labels.title}</h1>
+          <Heading as="h1" className="tv-h1">
+            {labels.title}
+          </Heading>
           <p className="tv-description">{labels.intro}</p>
         </Container>
       </Section>
@@ -66,9 +69,9 @@ async function PublicPage({
               {result.items.map((item) => (
                 <Card key={item.id}>
                   <CatalogVisual slug={item.slug} locale={locale.data} />
-                  <h2 className="tv-h3">
+                  <Heading as="h2" className="tv-h3">
                     <a href={`/${locale.data}/services/${item.slug}`}>{item.title}</a>
-                  </h2>
+                  </Heading>
                   <p className="tv-description">{item.summary}</p>
                 </Card>
               ))}

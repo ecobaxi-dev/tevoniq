@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { VisualDiscovery } from '@/components/visual-discovery';
 import { headers } from 'next/headers';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -55,7 +56,9 @@ async function PublicPage({ params }: Props) {
       <main id="main-content">
         <Section>
           <Container>
-            <h1 className="tv-h1">{labels.title}</h1>
+            <Heading as="h1" className="tv-h1">
+              {labels.title}
+            </Heading>
             <p role="status">{labels.error}</p>
             <ButtonLink href={`/${locale}/solutions`}>{labels.all}</ButtonLink>
           </Container>

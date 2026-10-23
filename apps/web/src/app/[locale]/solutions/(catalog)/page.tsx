@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { CatalogVisual } from '@/components/concept-visual';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -63,7 +64,9 @@ async function PublicPage({ params, searchParams }: Props) {
       <Section tone="navy" spacing="generous" className="solutions-hero">
         <Container>
           <p className="tv-eyebrow">{labels.eyebrow}</p>
-          <h1 className="tv-h1">{labels.title}</h1>
+          <Heading as="h1" className="tv-h1">
+            {labels.title}
+          </Heading>
           <p className="tv-description">{labels.intro}</p>
         </Container>
       </Section>
@@ -99,7 +102,9 @@ async function PublicPage({ params, searchParams }: Props) {
                 <Card key={s.id} className="solution-card" data-featured={s.featured}>
                   <CatalogVisual slug={s.slug} locale={locale.data} />
                   {s.featured && <Badge>{labels.featuredBadge}</Badge>}
-                  <h2 className="tv-h3">{s.name}</h2>
+                  <Heading as="h2" className="tv-h3">
+                    {s.name}
+                  </Heading>
                   <p className="tv-description">{s.shortDescription}</p>
                   <a
                     href={`/${locale.data}/solutions/${s.slug}`}

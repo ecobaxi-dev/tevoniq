@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { StructuredData } from '../seo/json-ld';
 import { faqData } from '@/lib/seo-core';
 /* eslint-disable @next/next/no-img-element -- CMS media URLs are validated and rendered without server-side fetching. */
@@ -73,7 +74,15 @@ function Content({
               case 'paragraph':
                 return <p key={i}>{n.text}</p>;
               case 'heading':
-                return n.level === 'h3' ? <h3 key={i}>{n.text}</h3> : <h4 key={i}>{n.text}</h4>;
+                return n.level === 'h3' ? (
+                  <Heading as="h3" key={i}>
+                    {n.text}
+                  </Heading>
+                ) : (
+                  <Heading as="h4" key={i}>
+                    {n.text}
+                  </Heading>
+                );
               case 'quote':
                 return (
                   <blockquote key={i}>
@@ -112,7 +121,7 @@ function Content({
               <span className="pb-marker" aria-hidden="true">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3>{item.title}</h3>
+              <Heading as="h3">{item.title}</Heading>
               <p>{item.text}</p>
             </article>
           ))}
@@ -127,12 +136,12 @@ function Content({
           {cards.map((card) => (
             <article className="pb-card" key={card.id}>
               {card.image && <Picture media={card.image} />}
-              <h3>
+              <Heading as="h3">
                 <a href={card.href}>
                   {card.title}
                   <span aria-hidden="true"> ↗</span>
                 </a>
-              </h3>
+              </Heading>
               <p>{card.text}</p>
             </article>
           ))}
@@ -174,7 +183,7 @@ function Content({
           {copy<'TeamGrid'>().items.map((item, i) => (
             <article className="pb-card" key={i}>
               {item.media && <Picture media={item.media} />}
-              <h3>{item.name}</h3>
+              <Heading as="h3">{item.name}</Heading>
               <p className="pb-role">{item.role}</p>
               <p>{item.bio}</p>
             </article>
@@ -262,7 +271,7 @@ function Content({
             <li key={i}>
               <span>{item.label}</span>
               <div>
-                <h3>{item.title}</h3>
+                <Heading as="h3">{item.title}</Heading>
                 <p>{item.text}</p>
               </div>
             </li>
@@ -328,9 +337,9 @@ export function PageRenderer({
               )
         }
       />
-      <h1 className={sections[0]?.type === 'Hero' ? 'pb-sr-only' : 'pb-page-title'}>
+      <Heading as="h1" className={sections[0]?.type === 'Hero' ? 'pb-sr-only' : 'pb-page-title'}>
         {document.translations[locale]?.title || (preview ? 'Page preview' : '')}
-      </h1>
+      </Heading>
       {sections.map((s) => {
         const c = s.content[locale]!;
         const imageText = s.type === 'ImageText';
@@ -342,9 +351,9 @@ export function PageRenderer({
           sections
             .slice(0, sections.indexOf(s))
             .some((previous) => previous.content[locale]?.heading) ? (
-            <h3>{c.heading}</h3>
+            <Heading as="h3">{c.heading}</Heading>
           ) : (
-            <h2>{c.heading}</h2>
+            <Heading as="h2">{c.heading}</Heading>
           );
         return (
           <section

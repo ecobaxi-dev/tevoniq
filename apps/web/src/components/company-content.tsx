@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { Container, Section, ButtonLink } from '@tevoniq/ui';
 import type { CompanyContent } from '@tevoniq/validation';
 export function CompanyContentView({
@@ -17,7 +18,9 @@ export function CompanyContentView({
       <Section className="company-hero">
         <Container>
           <p className="company-eyebrow">TEVONIQ</p>
-          <h1 className="tv-h1">{content.title}</h1>
+          <Heading as="h1" className="tv-h1">
+            {content.title}
+          </Heading>
           <p className="company-intro">{content.intro}</p>
           {content.foundingYear !== null && (
             <p>
@@ -40,7 +43,9 @@ export function CompanyContentView({
                 <span className="company-number" aria-hidden="true">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h2 className="tv-h3">{section.title}</h2>
+                <Heading as="h2" className="tv-h3">
+                  {section.title}
+                </Heading>
                 <p>{section.body}</p>
               </article>
             ))}
@@ -53,7 +58,9 @@ export function CompanyContentView({
             <div className="company-sections">
               {partners.map((partner) => (
                 <article className="company-section" key={partner.id}>
-                  <h2 className="tv-h3">{partner.title}</h2>
+                  <Heading as="h2" className="tv-h3">
+                    {partner.title}
+                  </Heading>
                   <p>{partner.description}</p>
                 </article>
               ))}
@@ -61,7 +68,9 @@ export function CompanyContentView({
           </Container>
         )}
         <Container>
-          <h2 className="tv-h2">{content.cta.title}</h2>
+          <Heading as="h2" className="tv-h2">
+            {content.cta.title}
+          </Heading>
           <p>{content.cta.body}</p>
           <ButtonLink href={href}>{content.cta.label}</ButtonLink>
         </Container>

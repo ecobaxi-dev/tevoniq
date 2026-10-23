@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { localeSchema } from '@tevoniq/validation';
@@ -37,13 +38,13 @@ export async function ContactPage({
     <main id="main-content" className="lead-page">
       <header className="lead-hero">
         <p className="lead-eyebrow">TEVONIQ / {quote ? copy.sendQuote : copy.send}</p>
-        <h1>{quote ? copy.quote : copy.contact}</h1>
+        <Heading as="h1">{quote ? copy.quote : copy.contact}</Heading>
         <p>{quote ? copy.quoteIntro : copy.contactIntro}</p>
       </header>
       <div className="lead-layout">
         <aside>
           <span className="lead-accent" />
-          <h2>{copy.context}</h2>
+          <Heading as="h2">{copy.context}</Heading>
           <p>{copy.contextBody}</p>
           <address className="lead-contact-details">
             {settings.general.legalCompanyName && (

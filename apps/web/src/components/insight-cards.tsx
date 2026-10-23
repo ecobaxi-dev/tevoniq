@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { PublicArticle } from '@tevoniq/validation';
@@ -29,9 +30,9 @@ export function InsightCards({
               {article.featured ? `${labels.featured} · ` : ''}
               {article.category?.name || labels.blog}
             </p>
-            <h2 className="tv-h3">
+            <Heading as="h2" className="tv-h3">
               <Link href={`/${locale}/insights/blog/${article.slug}`}>{article.title}</Link>
-            </h2>
+            </Heading>
             <p>{article.excerpt}</p>
             <p className="insight-meta">
               <time dateTime={article.publicationDate}>

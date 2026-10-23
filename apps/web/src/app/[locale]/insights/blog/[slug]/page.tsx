@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { headers } from 'next/headers';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { getOrganization, routeMetadata } from '@/lib/seo';
@@ -70,7 +71,9 @@ async function PublicPage({ params }: Props) {
       <main id="main-content">
         <Section>
           <Container>
-            <h1 className="tv-h1">{labels.title}</h1>
+            <Heading as="h1" className="tv-h1">
+              {labels.title}
+            </Heading>
             <p role="status">{labels.error}</p>
           </Container>
         </Section>
@@ -91,7 +94,9 @@ async function PublicPage({ params }: Props) {
             </nav>
             <header>
               <p className="insight-kicker">{article.category?.name}</p>
-              <h1 className="tv-h1">{article.title}</h1>
+              <Heading as="h1" className="tv-h1">
+                {article.title}
+              </Heading>
               <p className="insights-intro">{article.excerpt}</p>
               <p className="insight-meta">
                 {labels.by} {article.author} ·{' '}
@@ -147,7 +152,9 @@ async function PublicPage({ params }: Props) {
       {!!related.length && (
         <Section>
           <Container>
-            <h2 className="tv-h2">{labels.related}</h2>
+            <Heading as="h2" className="tv-h2">
+              {labels.related}
+            </Heading>
             <InsightCards articles={related} locale={locale} />
           </Container>
         </Section>

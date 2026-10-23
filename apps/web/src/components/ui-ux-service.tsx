@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import {
   ArrowUpRight,
   ArrowRight,
@@ -131,7 +132,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
               <Container className="ux-hero__layout">
                 <div className="ux-hero__copy">
                   <p className="ux-eyebrow">{service.title}</p>
-                  <h1>{block.title}</h1>
+                  <Heading as="h1">{block.title}</Heading>
                   <p className="ux-hero__description">{block.description}</p>
                   {contact?.type === 'cta' && (
                     <a className="ux-button" href={`/${locale}${contact.href}`}>
@@ -148,7 +149,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
           return (
             <section key={block.id} className="ux-overview ux-section" data-block-id={block.id}>
               <Container className="ux-overview__layout">
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <p>{block.body}</p>
               </Container>
             </section>
@@ -157,7 +158,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
           return (
             <section key={block.id} className="ux-benefits ux-section" data-block-id={block.id}>
               <Container>
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <div className="ux-benefits__grid">
                   {block.items.map((item, index) => (
                     <article key={index}>
@@ -165,7 +166,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
                         {String(index + 1).padStart(2, '0')}
                       </span>
                       <div>
-                        <h3>{item.title}</h3>
+                        <Heading as="h3">{item.title}</Heading>
                         <p>{item.description}</p>
                       </div>
                     </article>
@@ -180,7 +181,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
               <Container className="ux-process__layout">
                 <div>
                   <p className="ux-eyebrow">{ui.process}</p>
-                  <h2>{block.title}</h2>
+                  <Heading as="h2">{block.title}</Heading>
                   <div className="ux-process__diagram" aria-hidden="true">
                     <Search />
                     <span />
@@ -196,7 +197,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
                         <span className="ux-number" aria-hidden="true">
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <h3>{item.title}</h3>
+                        <Heading as="h3">{item.title}</Heading>
                         <Plus size={21} aria-hidden="true" />
                       </summary>
                       <p>{item.description}</p>
@@ -210,14 +211,14 @@ export function UiUxService({ service, locale }: { service: PublicService; local
           return (
             <section key={block.id} className="ux-disciplines ux-section" data-block-id={block.id}>
               <Container>
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <div className="ux-disciplines__grid">
                   {block.items.map((item, index) => {
                     const Icon = disciplineIcons[index] ?? Layers3;
                     return (
                       <article key={index}>
                         <Icon size={31} strokeWidth={1.3} aria-hidden="true" />
-                        <h3>{item.title}</h3>
+                        <Heading as="h3">{item.title}</Heading>
                         <p>{item.description}</p>
                       </article>
                     );
@@ -231,7 +232,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
             <section key={block.id} className="ux-scenarios ux-section" data-block-id={block.id}>
               <Container>
                 <div className="ux-section-heading">
-                  <h2>{block.title}</h2>
+                  <Heading as="h2">{block.title}</Heading>
                   <span>{ui.illustration}</span>
                 </div>
                 <div className="ux-scenarios__grid">
@@ -244,7 +245,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
                         }
                       />
                       <div className="ux-scenarios__copy">
-                        <h3>{item.title}</h3>
+                        <Heading as="h3">{item.title}</Heading>
                         <p>{item.description}</p>
                       </div>
                     </article>
@@ -257,12 +258,12 @@ export function UiUxService({ service, locale }: { service: PublicService; local
           return (
             <section key={block.id} className="ux-faq ux-section" data-block-id={block.id}>
               <Container className="ux-faq__layout">
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <div>
                   {block.items.map((item, index) => (
                     <details key={index}>
                       <summary>
-                        <h3>{item.question}</h3>
+                        <Heading as="h3">{item.question}</Heading>
                         <Plus size={19} aria-hidden="true" />
                       </summary>
                       <p>{item.answer}</p>
@@ -277,7 +278,7 @@ export function UiUxService({ service, locale }: { service: PublicService; local
             <section key={block.id} className="ux-contact ux-section" data-block-id={block.id}>
               <Container className="ux-contact__layout">
                 <div>
-                  <h2>{block.title}</h2>
+                  <Heading as="h2">{block.title}</Heading>
                   <p>{block.body}</p>
                 </div>
                 <a className="ux-button" href={`/${locale}${block.href}`}>

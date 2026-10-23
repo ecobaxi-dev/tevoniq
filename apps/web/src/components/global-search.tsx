@@ -1,4 +1,6 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
+
 import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import type { Locale, SearchResponse } from '@tevoniq/types';
@@ -182,9 +184,9 @@ export function GlobalSearch({
       <div id={id + '-results'} aria-busy={busy} className="global-search-results">
         {groups.map((group) => (
           <section key={group.type} aria-labelledby={id + group.type}>
-            <h2 id={id + group.type} className="tv-h3">
+            <Heading as="h2" id={id + group.type} className="tv-h3">
               {labels.types[group.type]}
-            </h2>
+            </Heading>
             <ul>
               {group.items.map((item) => (
                 <li key={item.type + item.id}>

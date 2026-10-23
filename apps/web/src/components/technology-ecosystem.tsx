@@ -1,4 +1,5 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
 
 import { useId, useRef, useState } from 'react';
 import {
@@ -329,7 +330,9 @@ export function TechnologyEcosystem({
               <span aria-hidden="true" />
               {copy.technologiesLabel}
             </p>
-            <h2 id={`${id}-title`}>{copy.technologiesTitle}</h2>
+            <Heading as="h2" id={`${id}-title`}>
+              {copy.technologiesTitle}
+            </Heading>
           </div>
           <p className="technology-ecosystem__intro">{text.intro}</p>
         </header>
@@ -407,7 +410,7 @@ export function TechnologyEcosystem({
                   <span>/ {String(names.length).padStart(2, '0')}</span>
                 </span>
               </div>
-              <h3>{active ?? text.core}</h3>
+              <Heading as="h3">{active ?? text.core}</Heading>
               <p>{info?.description[locale] ?? text.fallback}</p>
             </div>
             <a className="technology-ecosystem__link" href={localizedHref(locale, '/solutions')}>

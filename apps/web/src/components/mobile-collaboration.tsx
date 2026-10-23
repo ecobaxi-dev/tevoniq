@@ -1,4 +1,5 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
 
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 
@@ -52,7 +53,7 @@ export function MobileCollaboration({
           hidden={selected !== index}
           tabIndex={0}
         >
-          <h3>{item.title}</h3>
+          <Heading as="h3">{item.title}</Heading>
           <p>{item.description}</p>
         </div>
       ))}

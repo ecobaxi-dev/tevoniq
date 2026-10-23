@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { VisualDiscovery } from '@/components/visual-discovery';
 import { StructuredData } from '@/components/seo/json-ld';
 import { getOrganization } from '@/lib/seo';
@@ -45,7 +46,9 @@ async function PublicPage({ params }: Props) {
       <main id="main-content">
         <Section>
           <Container>
-            <h1 className="tv-h1">{serviceLabels[locale].title}</h1>
+            <Heading as="h1" className="tv-h1">
+              {serviceLabels[locale].title}
+            </Heading>
             <p role="status">{serviceLabels[locale].error}</p>
             <ButtonLink href={`/${locale}/services`}>{serviceLabels[locale].back}</ButtonLink>
           </Container>

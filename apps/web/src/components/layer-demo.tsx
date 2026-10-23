@@ -1,4 +1,6 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
+
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import {
   BrainCircuit,
@@ -163,7 +165,7 @@ export function LayerDemo({ kind, locale }: { kind: DemoKind; locale: Locale }) 
         aria-live={playing ? 'off' : 'polite'}
         aria-atomic="true"
       >
-        <h3>{scenario[step]?.title}</h3>
+        <Heading as="h3">{scenario[step]?.title}</Heading>
         <p>{scenario[step]?.body}</p>
       </div>
       <div className="layer-demo__steps" role="group" aria-label={copy.steps}>

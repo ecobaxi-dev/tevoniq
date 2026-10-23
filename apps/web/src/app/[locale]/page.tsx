@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -85,9 +86,9 @@ async function PublicPage({ params }: PageProps) {
                       <div className="home-records">
                         {collections[key].map((record) => (
                           <Card key={record.id}>
-                            <h3 className="tv-h3">
+                            <Heading as="h3" className="tv-h3">
                               <a href={href(record.href)}>{record.title}</a>
-                            </h3>
+                            </Heading>
                             <p className="tv-description">{record.description}</p>
                           </Card>
                         ))}

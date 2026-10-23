@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { notFound } from 'next/navigation';
 import { localeSchema } from '@tevoniq/validation';
 import { GlobalSearch } from '@/components/global-search';
@@ -15,7 +16,9 @@ export default async function SearchPage({
   const query = typeof q === 'string' ? q.slice(0, 200) : '';
   return (
     <main id="main-content" className="global-search-page">
-      <h1 className="tv-h1">{{ en: 'Search', tr: 'Ara', ar: 'بحث' }[locale.data]}</h1>
+      <Heading as="h1" className="tv-h1">
+        {{ en: 'Search', tr: 'Ara', ar: 'بحث' }[locale.data]}
+      </Heading>
       <GlobalSearch key={query} locale={locale.data} initialQuery={query} fullPage />
     </main>
   );

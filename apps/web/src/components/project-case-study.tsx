@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Image from 'next/image';
 import { Container, ButtonLink } from '@tevoniq/ui';
 import type { PublicProject } from '@tevoniq/validation';
@@ -26,7 +27,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
           <div className="case-hero-grid">
             <div className="case-hero-copy">
               <p className="tv-eyebrow">{p.featured ? l.featured : l.caseStudy}</p>
-              <h1>{p.title}</h1>
+              <Heading as="h1">{p.title}</Heading>
               <p className="case-summary">{p.summary}</p>
               <dl className="case-facts">
                 {p.clientLabel && (
@@ -104,13 +105,13 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
                 <p className="case-section-number" aria-hidden="true">
                   0{i + 1}
                 </p>
-                <h2>{l[key]}</h2>
+                <Heading as="h2">{l[key]}</Heading>
                 <p className="case-prose">{p[key]}</p>
               </section>
             ))}
             {p.technologies.length > 0 && (
               <section>
-                <h2>{l.technologies}</h2>
+                <Heading as="h2">{l.technologies}</Heading>
                 <ul className="project-tags">
                   {p.technologies.map((t, i) => (
                     <li key={i}>{t}</li>
@@ -133,7 +134,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
       {p.gallery.length > 0 && (
         <section id="project-gallery" className="case-gallery">
           <Container>
-            <h2>{l.gallery}</h2>
+            <Heading as="h2">{l.gallery}</Heading>
             <div>
               {p.gallery.map((img, i) => (
                 <figure key={i}>
@@ -155,7 +156,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
                 (key) =>
                   p[key].length > 0 && (
                     <section key={key}>
-                      <h2>{l[key]}</h2>
+                      <Heading as="h2">{l[key]}</Heading>
                       <ul>
                         {p[key].map((r) => (
                           <li key={r.id}>
@@ -177,7 +178,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
         <Container>
           <div>
             <p className="tv-eyebrow">TEVONIQ</p>
-            <h2>{l.contactTitle}</h2>
+            <Heading as="h2">{l.contactTitle}</Heading>
             <p>{l.contactBody}</p>
             <ButtonLink href={`/${p.locale}/contact`}>{l.contact}</ButtonLink>
           </div>

@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { ConceptVisual } from './concept-visual';
 import type { ConceptArt } from '@/config/concept-art';
 import { StructuredData } from './seo/json-ld';
@@ -30,7 +31,9 @@ export function ContentBlocks({
               <Container>
                 <div className="service-hero-grid">
                   <div>
-                    <h1 className="tv-h1">{block.title}</h1>
+                    <Heading as="h1" className="tv-h1">
+                      {block.title}
+                    </Heading>
                     <p className="tv-description">{block.description}</p>
                   </div>
                   {block.assetKey === 'brand-icon' && art ? (
@@ -70,17 +73,19 @@ export function ContentBlocks({
           return (
             <Section key={block.id}>
               <Container>
-                <h2 className="tv-h2">{block.title}</h2>
+                <Heading as="h2" className="tv-h2">
+                  {block.title}
+                </Heading>
                 <div className="services-grid">
                   {records.map((item) => (
                     <Card key={item.id}>
-                      <h3 className="tv-h3">
+                      <Heading as="h3" className="tv-h3">
                         {block.type === 'related-services' ? (
                           <a href={`/${locale}/services/${item.slug}`}>{item.title}</a>
                         ) : (
                           <a href={`/${locale}/projects/${item.slug}`}>{item.title}</a>
                         )}
-                      </h3>
+                      </Heading>
                       <p className="tv-description">{item.summary}</p>
                     </Card>
                   ))}
@@ -92,7 +97,9 @@ export function ContentBlocks({
         return (
           <Section key={block.id} className="service-content-section">
             <Container width="narrow">
-              <h2 className="tv-h2">{block.title}</h2>
+              <Heading as="h2" className="tv-h2">
+                {block.title}
+              </Heading>
               {block.type === 'overview' ? (
                 <p className="service-prose">{block.body}</p>
               ) : block.type === 'faq' ? (
@@ -107,7 +114,9 @@ export function ContentBlocks({
                 <div className="service-items">
                   {block.items.map((item, index) => (
                     <Card key={index}>
-                      <h3 className="tv-h3">{item.title}</h3>
+                      <Heading as="h3" className="tv-h3">
+                        {item.title}
+                      </Heading>
                       <p className="tv-description service-prose">{item.description}</p>
                     </Card>
                   ))}

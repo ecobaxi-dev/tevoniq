@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -56,7 +57,7 @@ async function PublicPage({ params, searchParams }: Props) {
       <header className="projects-intro">
         <Container>
           <p className="tv-eyebrow">{l.eyebrow}</p>
-          <h1>{l.title}</h1>
+          <Heading as="h1">{l.title}</Heading>
           <p className="tv-description">{l.intro}</p>
         </Container>
       </header>
@@ -124,7 +125,7 @@ async function PublicPage({ params, searchParams }: Props) {
                   </div>
                   <div className="project-card-copy">
                     <p className="tv-eyebrow">{p.clientLabel ?? l.caseStudy}</p>
-                    <h2>{p.title}</h2>
+                    <Heading as="h2">{p.title}</Heading>
                     <p className="project-card-summary">{p.summary}</p>
                     {(p.country || p.city) && (
                       <p className="project-card-location">

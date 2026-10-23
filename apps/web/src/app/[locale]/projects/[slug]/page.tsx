@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { VisualDiscovery } from '@/components/visual-discovery';
 import { headers } from 'next/headers';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -50,7 +51,7 @@ async function PublicPage({ params }: Props) {
       <main id="main-content">
         <Section>
           <Container>
-            <h1>{l.title}</h1>
+            <Heading as="h1">{l.title}</Heading>
             <p role="status">{l.error}</p>
           </Container>
         </Section>

@@ -1,3 +1,4 @@
+import '@/components/public-design.css';
 import { NonceProvider } from '@/components/nonce-provider';
 import { headers } from 'next/headers';
 import { getSiteSettings } from '@/lib/site-settings';
@@ -53,7 +54,7 @@ export default async function LocaleLayout({
   if (!settings.localization.enabledLanguages.includes(parsed.data)) notFound();
   return (
     <html lang={parsed.data} dir={directionFor(parsed.data)}>
-      <body className="bg-mist font-sans text-navy antialiased">
+      <body className="public-site bg-mist font-sans text-navy antialiased">
         <NonceProvider nonce={nonce}>
           <SiteHeader
             content={navigation}

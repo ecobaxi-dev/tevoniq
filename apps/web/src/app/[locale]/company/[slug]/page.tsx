@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -37,7 +38,9 @@ async function PublicPage({ params }: Props) {
       ) : (
         <Section>
           <Container>
-            <h1 className="tv-h1">TEVONIQ</h1>
+            <Heading as="h1" className="tv-h1">
+              TEVONIQ
+            </Heading>
             <p role="status">
               {
                 {

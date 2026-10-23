@@ -1,3 +1,4 @@
+import { Heading } from './typography.js';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { X, Inbox, CircleAlert } from 'lucide-react';
 import { cx } from './utils.js';
@@ -57,7 +58,9 @@ function State({
       <span className="tv-state-icon" aria-hidden="true">
         {icon ?? (error ? <CircleAlert /> : <Inbox />)}
       </span>
-      <h3 className="tv-h3">{title}</h3>
+      <Heading as="h3" className="tv-h3">
+        {title}
+      </Heading>
       {description && <p className="tv-description">{description}</p>}
       {action}
     </div>

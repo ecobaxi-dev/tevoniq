@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Container, Section } from '@tevoniq/ui';
@@ -45,7 +46,9 @@ export async function InsightsCatalog({
       <main id="main-content">
         <Section>
           <Container>
-            <h1 className="tv-h1">{title}</h1>
+            <Heading as="h1" className="tv-h1">
+              {title}
+            </Heading>
             <p role="status">{labels.error}</p>
           </Container>
         </Section>
@@ -66,7 +69,9 @@ export async function InsightsCatalog({
       <Section className="insights-hero">
         <Container>
           <p className="insight-kicker">TEVONIQ / {labels.title}</p>
-          <h1 className="tv-h1">{title}</h1>
+          <Heading as="h1" className="tv-h1">
+            {title}
+          </Heading>
           <p className="insights-intro">{labels.intro}</p>
           <nav className="insight-nav" aria-label={labels.title}>
             {[

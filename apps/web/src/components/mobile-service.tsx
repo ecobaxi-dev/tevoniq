@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Image from 'next/image';
 import { mobileServiceAssets } from '@/config/mobile-assets';
 import { MobileContactSection } from './mobile-contact-section';
@@ -52,7 +53,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
           return (
             <section className="mobile-directory" data-block-id={block.id} key={block.id}>
               <Container>
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <ul className="mobile-directory__links">
                   {records.map((record) => (
                     <li key={record.id}>
@@ -69,7 +70,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
             <section className="mobile-hero" data-block-id={block.id} key={block.id}>
               <Container className="mobile-hero__layout">
                 <div className="mobile-hero__copy">
-                  <h1>{block.title}</h1>
+                  <Heading as="h1">{block.title}</Heading>
                   <p>{block.description}</p>
                   {contactLink}
                 </div>
@@ -94,7 +95,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
               key={block.id}
             >
               <Container className="mobile-overview__layout">
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <p>{block.body}</p>
               </Container>
             </section>
@@ -103,7 +104,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
           return (
             <section className="mobile-section mobile-faq" data-block-id={block.id} key={block.id}>
               <Container>
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 <div className="mobile-faq__list">
                   {block.items.map((item, index) => (
                     <details key={index}>
@@ -143,7 +144,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
               key={block.id}
             >
               <Container>
-                <h2>{block.title}</h2>
+                <Heading as="h2">{block.title}</Heading>
                 {variant === 'collaboration' ? (
                   <MobileCollaboration items={block.items} />
                 ) : (
@@ -166,7 +167,7 @@ export function MobileService({ service, locale }: { service: PublicService; loc
                               aria-hidden="true"
                             />
                           ) : null}
-                          <h3>{item.title}</h3>
+                          <Heading as="h3">{item.title}</Heading>
                           <p>{item.description}</p>
                         </article>
                       );

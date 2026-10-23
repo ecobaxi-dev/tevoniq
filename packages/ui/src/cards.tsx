@@ -1,3 +1,4 @@
+import { Heading } from './typography.js';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { cx } from './utils.js';
@@ -33,7 +34,9 @@ function ContentCard({
         )}
         {eyebrow && <span className="tv-eyebrow">{eyebrow}</span>}
       </div>
-      <h3 className="tv-h3">{title}</h3>
+      <Heading as="h3" className="tv-h3">
+        {title}
+      </Heading>
       <p className="tv-description">{description}</p>
       {action && <div className="tv-card-action">{action}</div>}
     </Card>
@@ -97,7 +100,7 @@ export function StatCard({
     <Card className="tv-stat-card">
       {development && <span className="tv-eyebrow">{developmentLabel}</span>}
       <p className="tv-stat-value">{value}</p>
-      <h3>{label}</h3>
+      <Heading as="h3">{label}</Heading>
       {detail && <p className="tv-description">{detail}</p>}
     </Card>
   );
@@ -117,7 +120,9 @@ export function CTA({
     <section className="tv-cta" data-theme="dark">
       <div>
         {eyebrow && <p className="tv-eyebrow">{eyebrow}</p>}
-        <h2 className="tv-h2">{title}</h2>
+        <Heading as="h2" className="tv-h2">
+          {title}
+        </Heading>
         {description && <p className="tv-description">{description}</p>}
       </div>
       <div className="tv-cta-actions">{actions}</div>

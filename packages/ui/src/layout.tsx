@@ -1,3 +1,4 @@
+import { Heading } from './typography.js';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from './utils.js';
 
@@ -44,7 +45,9 @@ export function SectionHeader({
     <div className="tv-section-header" data-align={align}>
       <div>
         {eyebrow && <p className="tv-eyebrow">{eyebrow}</p>}
-        <h2 className="tv-h2">{title}</h2>
+        <Heading as="h2" className="tv-h2">
+          {title}
+        </Heading>
         {description && <p className="tv-description">{description}</p>}
       </div>
       {action && <div className="tv-section-action">{action}</div>}

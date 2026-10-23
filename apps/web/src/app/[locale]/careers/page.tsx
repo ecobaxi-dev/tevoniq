@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
@@ -42,7 +43,7 @@ async function PublicPage({
       <header className="careers-hero">
         <div className="careers-container">
           <p>TEVONIQ</p>
-          <h1>{copy.title}</h1>
+          <Heading as="h1">{copy.title}</Heading>
           <p>{copy.intro}</p>
         </div>
       </header>
@@ -91,9 +92,9 @@ async function PublicPage({
             {result.items.map((job) => (
               <article className="career-job" key={job.id}>
                 <p className="career-eyebrow">{job.department}</p>
-                <h2>
+                <Heading as="h2">
                   <a href={`/${locale.data}/careers/${job.slug}`}>{job.title}</a>
-                </h2>
+                </Heading>
                 <p>
                   {job.location} · {careerLabel(job.workMode)} · {careerLabel(job.employmentType)}
                 </p>

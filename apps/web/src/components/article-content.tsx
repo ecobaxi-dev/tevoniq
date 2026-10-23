@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import Image from 'next/image';
 import type { ArticleBlock } from '@tevoniq/validation';
 export function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
@@ -9,9 +10,13 @@ export function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
             return <p key={index}>{block.text}</p>;
           case 'heading':
             return block.level === 2 ? (
-              <h2 key={index}>{block.text}</h2>
+              <Heading as="h2" key={index}>
+                {block.text}
+              </Heading>
             ) : (
-              <h3 key={index}>{block.text}</h3>
+              <Heading as="h3" key={index}>
+                {block.text}
+              </Heading>
             );
           case 'list': {
             const List = block.ordered ? 'ol' : 'ul';

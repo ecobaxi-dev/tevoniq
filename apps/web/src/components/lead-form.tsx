@@ -1,4 +1,6 @@
 'use client';
+import { Heading } from '@tevoniq/ui';
+
 import { useState, useRef, useCallback } from 'react';
 import { Button, Input, Select, Textarea, Checkbox } from '@tevoniq/ui';
 import { leadSubmissionSchema } from '@tevoniq/validation';
@@ -30,7 +32,9 @@ export function LeadForm({
     return (
       <section className="lead-success" role="status">
         <span aria-hidden="true">✓</span>
-        <h2 className="tv-h2">{copy.success}</h2>
+        <Heading as="h2" className="tv-h2">
+          {copy.success}
+        </Heading>
         <p>{copy.successBody}</p>
         <p className="lead-reference">
           {copy.reference}: {reference}

@@ -1,3 +1,4 @@
+import { Heading } from '@tevoniq/ui';
 import type { PublicIndustry } from '@tevoniq/validation';
 import { Container, Section, Card } from '@tevoniq/ui';
 import { ContentBlocks } from './content-blocks';
@@ -9,13 +10,15 @@ export function IndustryBlocks({ industry }: { industry: PublicIndustry }) {
       return (
         <Section key={content.id}>
           <Container>
-            <h2 className="tv-h2">{content.title}</h2>
+            <Heading as="h2" className="tv-h2">
+              {content.title}
+            </Heading>
             <div className="services-grid">
               {industry.solutions.map((solution) => (
                 <Card key={solution.id}>
-                  <h3 className="tv-h3">
+                  <Heading as="h3" className="tv-h3">
                     <a href={`/${industry.locale}/solutions/${solution.slug}`}>{solution.title}</a>
-                  </h3>
+                  </Heading>
                   <p className="tv-description">{solution.summary}</p>
                 </Card>
               ))}
