@@ -13,6 +13,39 @@ export abstract class EmailTransport {
   abstract readonly enabled: boolean;
   abstract send(message: EmailMessage): Promise<void>;
 }
+export class ResendEmailTransport extends EmailTransport {
+  readonly enabled = true;
+  constructor(private readonly config: ConfigService) {
+    super();
+  }
+  async send(message: EmailMessage) {
+    // Keep the verified sender in server configuration. Visitor addresses are Reply-To only.
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${this.config.getOrThrow<string>('RESEND_API_KEY')}`,
+        'Content-Type': 'application/json',
+        'Idempotency-Key': message.messageId.replace(/[<>]/g, ''),
+      },
+      body: JSON.stringify({
+        from: `TEVONIQ <${this.config.getOrThrow<string>('EMAIL_FROM')}>`,
+        to: message.to,
+        subject: message.subject,
+        text: message.text,
+        ...(message.replyTo ? { reply_to: message.replyTo } : {}),
+      }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!response.ok) throw new Error('Resend delivery failed');
+    const result = (await response.json()) as { id?: unknown };
+    if (typeof result.id !== 'string' || !result.id) throw new Error('Invalid delivery response');
+  }
+}
+export function emailTransportFactory(config: ConfigService, settings: SiteSettingsService) {
+  return config.get('EMAIL_TRANSPORT') === 'resend'
+    ? new ResendEmailTransport(config)
+    : new SmtpEmailTransport(config, settings);
+}
 @Injectable()
 export class SmtpEmailTransport extends EmailTransport {
   readonly enabled: boolean;

@@ -82,9 +82,15 @@ try {
     await delay(500);
   }
   if (!ready || stopping) throw new Error('Preview API was not ready');
-  const { DATABASE_URL: _database, DATABASE_URL_UNPOOLED: _directDatabase, ...webEnv } = runtime;
+  const {
+    DATABASE_URL: _database,
+    DATABASE_URL_UNPOOLED: _directDatabase,
+    RESEND_API_KEY: _resendKey,
+    ...webEnv
+  } = runtime;
   void _database;
   void _directDatabase;
+  void _resendKey;
   const cwd = resolve('apps/web/.next/standalone');
   launch(
     process.execPath,

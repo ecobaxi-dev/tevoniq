@@ -1,7 +1,8 @@
 import { z } from 'zod';
 export const leadEnvironmentSchema = z
   .object({
-    EMAIL_TRANSPORT: z.enum(['disabled', 'smtp']).default('disabled'),
+    EMAIL_TRANSPORT: z.enum(['disabled', 'smtp', 'resend']).default('disabled'),
+    RESEND_API_KEY: z.string().min(1).optional(),
     SMTP_HOST: z.string().min(1).optional(),
     SMTP_PORT: z.coerce.number().int().min(1).max(65535).default(587),
     SMTP_SECURE: z.enum(['true', 'false']).default('false'),
@@ -15,6 +16,10 @@ export const leadEnvironmentSchema = z
     LEAD_PROXY_SECRET: z.string().min(32).optional(),
   })
   .superRefine((v, ctx) => {
+    if (v.EMAIL_TRANSPORT === 'resend')
+      for (const key of ['RESEND_API_KEY', 'EMAIL_FROM'] as const)
+        if (!v[key])
+          ctx.addIssue({ code: 'custom', path: [key], message: 'Required for Resend delivery' });
     if (v.EMAIL_TRANSPORT === 'smtp')
       for (const key of ['SMTP_HOST', 'EMAIL_FROM'] as const)
         if (!v[key])

@@ -27,7 +27,9 @@ export class CmsSiteSettingsController {
     return {
       ...(await this.settings.read()),
       deployment: {
-        emailConfigured: this.config.get('EMAIL_TRANSPORT') === 'smtp',
+        emailConfigured: ['smtp', 'resend'].includes(
+          this.config.get<string>('EMAIL_TRANSPORT', 'disabled'),
+        ),
         botProtectionEnabled: this.config.get('TURNSTILE_MODE') === 'turnstile',
         storageConfigured:
           !!this.config.get('MEDIA_STORAGE') && this.config.get('MEDIA_STORAGE') !== 'disabled',

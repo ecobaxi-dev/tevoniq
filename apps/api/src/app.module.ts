@@ -27,7 +27,7 @@ import {
 import { LeadsController, CmsLeadsController } from './leads/leads.controller.js';
 import { LeadSettingsService } from './leads/lead-settings.service.js';
 import { LeadBotProtection, LeadSubmissionGuard } from './leads/bot-protection.js';
-import { EmailTransport, SmtpEmailTransport } from './email/email-transport.js';
+import { EmailTransport, emailTransportFactory } from './email/email-transport.js';
 import { LeadEmailWorker } from './email/lead-email.worker.js';
 import { AdminController } from './admin/admin.controller.js';
 import { InsightsController, CmsInsightsController } from './insights/insights.controller.js';
@@ -117,7 +117,11 @@ import { HealthController } from './health/health.controller.js';
     LeadBotProtection,
     LeadSubmissionGuard,
     LeadEmailWorker,
-    { provide: EmailTransport, useClass: SmtpEmailTransport },
+    {
+      provide: EmailTransport,
+      useFactory: emailTransportFactory,
+      inject: [ConfigService, SiteSettingsService],
+    },
   ],
 })
 export class AppModule {}

@@ -21,7 +21,11 @@ services:
       - key: MEDIA_STORAGE
         value: disabled
       - key: EMAIL_TRANSPORT
-        value: disabled
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
       - key: TURNSTILE_MODE
         value: disabled
       - key: LOG_LEVEL
