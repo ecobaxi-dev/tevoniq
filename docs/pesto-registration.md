@@ -2,8 +2,9 @@
 
 This API foundation is disabled by default. It does not start a trial, issue a
 license, create a CMS login or subscribe a customer to marketing. The public Pesto
-page remains informational. Native onboarding and a public web proxy are pending;
-the Render API remains private.
+page remains informational. Native onboarding is prepared in RestaurantOS; the
+separately gated [public proxy](pesto-public-proxy.md) is now prepared here. The
+Render API remains private, and deployment/configuration remain separate.
 
 ## Contract
 
