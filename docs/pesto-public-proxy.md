@@ -68,8 +68,10 @@ to the local probe helper, never via an external command line or plaintext file.
 It checks both www.tevoniq.com and the current Render hostname with baseline,
 injected documentation IPv4/IPv6 headers, then baseline again. Redirects fail;
 responses are bounded and their HMAC/context is verified before displaying a table.
-404 means disabled/not deployed; 403 means invalid proof, stale clock or ingress
-request metadata rejection. A different preexisting Render proxy secret must be
+404 means disabled/not deployed; 403 has a fixed, nonsecret reason code for invalid
+proof, stale clock or rejected request metadata. HTTP body framing is not an
+authentication signal: trusted proxies may reframe even empty requests. The
+diagnostic never reads or uses a request body. A different preexisting Render proxy secret must be
 reconciled locally rather than pasted in chat or blindly replaced.
 
 SingleIpEveryProbe and UnchangedBySpoofProbes are observations, not automatic trust

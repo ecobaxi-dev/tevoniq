@@ -30,12 +30,37 @@ test('transport diagnostic is independently disabled and authenticated, with fre
     { 'x-pesto-check-time': '0' },
     { origin: 'https://example.test' },
     { cookie: 'test=1' },
-    { 'content-length': '2' },
     { 'x-pesto-check-nonce': 'x'.repeat(5000) },
   ])
     assert.equal(run(request(extra)).status, 403);
   assert.equal(run(request({}, '?secret=no')).status, 403);
   assert.equal(run(request(), { now: now + 121000 }).status, 403);
+});
+test('proxy request framing does not replace or bypass operator authentication', async () => {
+  for (const framing of [
+    { 'transfer-encoding': 'chunked' },
+    { 'content-length': '0' },
+    { 'content-length': '2' },
+  ]) {
+    const response = run(request(framing));
+    assert.equal(response.status, 200);
+    assert.equal(
+      run(request({ ...framing, 'x-pesto-check-signature': 'b'.repeat(64) })).status,
+      403,
+    );
+  }
+  assert.equal(
+    (await run(request({ 'x-pesto-check-signature': 'b'.repeat(64) })).json()).code,
+    'transport_check_proof_rejected',
+  );
+  assert.equal(
+    (await run(request(), { now: now + 121000 }).json()).code,
+    'transport_check_clock_rejected',
+  );
+  assert.equal(
+    (await run(request({ cookie: 'test=1' })).json()).code,
+    'transport_check_request_rejected',
+  );
 });
 test('signed observations reveal only allowed header shape and nonce-bound HMACs', async () => {
   const response = run(

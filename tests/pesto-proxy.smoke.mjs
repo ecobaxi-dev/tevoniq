@@ -4,7 +4,7 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { mkdtemp, readFile, writeFile, unlink, rmdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { createServer } from 'node:http';
+import { createServer, request as httpRequest } from 'node:http';
 import { createHmac, randomUUID, randomBytes } from 'node:crypto';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
@@ -116,6 +116,32 @@ try {
       const data = JSON.parse(Buffer.from(envelope.payload, 'base64'));
       assert.equal(data.nonce, nonce);
       assert.equal(data.observations[0].singleIp, true);
+      const chunkedStatus = await new Promise((resolve, reject) => {
+        const req = httpRequest(
+          checkUrl,
+          {
+            method: 'POST',
+            headers: {
+              'transfer-encoding': 'chunked',
+              'x-pesto-check-time': timestamp,
+              'x-pesto-check-nonce': nonce,
+              'x-pesto-check-signature': createHmac('sha256', secret)
+                .update(
+                  `pesto-transport-v1\nPOST\n/api/pesto/transport-check\n${timestamp}\n${nonce}`,
+                )
+                .digest('hex'),
+            },
+          },
+          (res) => {
+            res.resume();
+            res.once('end', () => resolve(res.statusCode));
+          },
+        );
+        req.setTimeout(10000, () => req.destroy(new Error('Local chunked probe timeout')));
+        req.once('error', reject);
+        req.end();
+      });
+      assert.equal(chunkedStatus, 200, 'Proxy-reframed empty request must still authenticate');
       // Real PowerShell client + real Next server, synthetic secret and loopback only.
       // The local server has no trusted ingress: spoofable headers must NOT pass.
       if (process.platform === 'win32') {
