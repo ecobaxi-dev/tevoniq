@@ -1,12 +1,15 @@
 // Exercises the actual built Next handlers, with only a synthetic loopback upstream.
 import assert from 'node:assert/strict';
-import { spawn } from 'node:child_process';
+import { spawn, execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { mkdtemp, readFile, writeFile, unlink, rmdir } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { createServer } from 'node:http';
-import { createHmac, randomUUID } from 'node:crypto';
+import { createHmac, randomUUID, randomBytes } from 'node:crypto';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 
-const secret = 'synthetic-proxy-secret-' + randomUUID(),
+const secret = randomBytes(32).toString('hex'),
   calls = [];
 const upstream = createServer(async (req, res) => {
   let raw = '';
@@ -65,6 +68,7 @@ try {
         SITE_URL: origin,
         API_URL: `http://127.0.0.1:${upstream.address().port}/api/v1`,
         PESTO_PUBLIC_ENROLLMENT_ENABLED: String(enabled),
+        PESTO_TRANSPORT_DIAGNOSTICS_ENABLED: String(!enabled),
         PESTO_CLIENT_IP_HEADER: 'x-test-ingress-ip',
         LEAD_PROXY_SECRET: secret,
         NEXT_TELEMETRY_DISABLED: '1',
@@ -84,6 +88,75 @@ try {
       await delay(100);
     }
     assert.ok(ready, 'Standalone server did not become ready');
+    const checkUrl = origin + '/api/pesto/transport-check';
+    assert.equal((await fetch(checkUrl)).status, 405);
+    assert.equal((await fetch(checkUrl, { method: 'POST' })).status, enabled ? 404 : 403);
+    const timestamp = String(Math.floor(Date.now() / 1000)),
+      nonce = randomBytes(32).toString('hex');
+    const check = await fetch(checkUrl, {
+      method: 'POST',
+      headers: {
+        'x-pesto-check-time': timestamp,
+        'x-pesto-check-nonce': nonce,
+        'x-pesto-check-signature': createHmac('sha256', secret)
+          .update(`pesto-transport-v1\nPOST\n/api/pesto/transport-check\n${timestamp}\n${nonce}`)
+          .digest('hex'),
+        'cf-connecting-ip': '203.0.113.17',
+      },
+    });
+    assert.equal(check.status, enabled ? 404 : 200);
+    if (!enabled) {
+      const envelope = await check.json();
+      assert.equal(
+        envelope.signature,
+        createHmac('sha256', secret)
+          .update(`pesto-transport-response-v1\n${envelope.payload}`)
+          .digest('hex'),
+      );
+      const data = JSON.parse(Buffer.from(envelope.payload, 'base64'));
+      assert.equal(data.nonce, nonce);
+      assert.equal(data.observations[0].singleIp, true);
+      // Real PowerShell client + real Next server, synthetic secret and loopback only.
+      // The local server has no trusted ingress: spoofable headers must NOT pass.
+      if (process.platform === 'win32') {
+        const helper = resolve('../../setup/Test-PestoIngress.ps1');
+        const folder = await mkdtemp(resolve(tmpdir(), 'pesto-ingress-smoke-'));
+        const file = resolve(folder, 'probe.ps1');
+        const wrapper = resolve(folder, 'run.ps1');
+        try {
+          const source = (await readFile(helper, 'utf8'))
+            .replaceAll('https://www.tevoniq.com', origin)
+            .replaceAll('https://tevoniq-preview.onrender.com', origin);
+          await writeFile(file, source);
+          await writeFile(
+            wrapper,
+            "& (Join-Path $PSScriptRoot 'probe.ps1') -ProxySecret $args[0] | ConvertTo-Json -Depth 8",
+          );
+          const { stdout } = await promisify(execFile)(
+            'pwsh',
+            ['-NoProfile', '-NonInteractive', '-File', wrapper, secret],
+            { timeout: 60000 },
+          );
+          assert.ok(stdout.includes('Read-only probes completed.'));
+          assert.ok(!stdout.includes(secret) && !stdout.includes('198.51.100.71'));
+          const rows = JSON.parse(stdout).filter((row) => typeof row === 'object');
+          assert.equal(rows.length, 8);
+          for (const row of rows.filter((row) =>
+            ['cf-connecting-ip', 'true-client-ip'].includes(row.Header),
+          )) {
+            assert.equal(
+              row.UnchangedBySpoofProbes,
+              false,
+              'Spoofable loopback header was accepted',
+            );
+          }
+        } finally {
+          await unlink(file).catch(() => {});
+          await unlink(wrapper).catch(() => {});
+          await rmdir(folder);
+        }
+      }
+    }
     const input = {
       requestId: randomUUID(),
       installationId: randomUUID(),
@@ -138,7 +211,7 @@ try {
     '/api/v1/pesto/registrations/trial',
   ]);
   console.log(
-    'PASS: built Next production handlers honor runtime gates, fixed routes, signed IP metadata, native requests, credential/header isolation and no-store. Synthetic loopback upstream only.',
+    'PASS: built Next enrollment and transport handlers honor independent runtime gates, signed metadata and no-store. Real PowerShell probe detects spoofable loopback headers. Synthetic loopback only.',
   );
 } finally {
   if (child && child.exitCode === null) {
