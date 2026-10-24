@@ -106,15 +106,15 @@ export function PestoPage({ locale }: { locale: Locale }) {
               </div>
               <div className="pesto-terminal-order">
                 <Receipt size={21} aria-hidden="true" />
-                <Heading as="h2">{c.order}</Heading>
-                <p>
+                <span className="pesto-terminal-title">{c.order}</span>
+                <div className="pesto-terminal-line">
                   <span>2 ×</span>
                   {c.itemA}
-                </p>
-                <p>
+                </div>
+                <div className="pesto-terminal-line">
                   <span>1 ×</span>
                   {c.itemB}
-                </p>
+                </div>
                 <div className="pesto-terminal-payment">{c.cashier}</div>
               </div>
             </div>
