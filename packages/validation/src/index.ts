@@ -96,3 +96,5 @@ export * from './seo.js';
 export * from './site-settings.js';
 export * from './home.js';
 export * from './navigation.js';
+
+export * from './pesto-registration.js';
