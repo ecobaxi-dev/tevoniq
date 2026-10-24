@@ -2,6 +2,7 @@ import { apiEnvironmentSchema } from '@tevoniq/validation';
 import { leadEnvironmentSchema } from '../leads/lead-config.js';
 import { mediaEnvironmentSchema } from '../media/media-config.js';
 import { pestoRegistrationEnvironmentSchema } from '../pesto/registration-config.js';
+import { pestoTrialEnvironmentSchema } from '../pesto/trial-signing.js';
 export function validateEnvironment(input: Record<string, unknown>) {
   const result = apiEnvironmentSchema.safeParse(input);
   if (!result.success) {
@@ -31,5 +32,11 @@ export function validateEnvironment(input: Record<string, unknown>) {
       'Invalid Pesto registration configuration: ' +
         pesto.error.issues.map((i) => i.path.join('.')).join('; '),
     );
-  return { ...result.data, ...leads.data, ...media.data, ...pesto.data };
+  const trials = pestoTrialEnvironmentSchema.safeParse(input);
+  if (!trials.success)
+    throw new Error(
+      'Invalid Pesto trial configuration: ' +
+        trials.error.issues.map((i) => i.path.join('.')).join('; '),
+    );
+  return { ...result.data, ...leads.data, ...media.data, ...pesto.data, ...trials.data };
 }

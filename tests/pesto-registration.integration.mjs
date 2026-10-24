@@ -13,6 +13,7 @@ import {
 } from '../apps/api/dist/pesto/registration.service.js';
 import { PestoRegistrationWorker } from '../apps/api/dist/pesto/registration.worker.js';
 import { PestoRegistrationController } from '../apps/api/dist/pesto/registration.controller.js';
+import { PestoTrialService } from '../apps/api/dist/pesto/trial.service.js';
 import { LeadBotProtection } from '../apps/api/dist/leads/bot-protection.js';
 import { CmsGuard } from '../apps/api/dist/cms/cms.guard.js';
 import { Module } from '@nestjs/common';
@@ -216,6 +217,7 @@ try {
     controllers: [PestoRegistrationController],
     providers: [
       { provide: PestoRegistrationService, useValue: service },
+      { provide: PestoTrialService, useValue: new PestoTrialService(db, config) },
       { provide: LeadBotProtection, useValue: bot },
       { provide: ConfigService, useValue: config },
     ],
@@ -240,6 +242,7 @@ try {
   const httpSignup = signup('http@example.test');
   assert.equal((await post('', httpSignup, { Origin: 'https://untrusted.example' })).status, 403);
   const response = await post('', httpSignup, { Origin: settings.CORS_ORIGIN });
+  assert.equal((await post('/trial', {})).status, 503);
   assert.equal(response.status, 202);
   assert.equal(response.headers.get('cache-control'), 'no-store');
   assert.equal((await response.json()).canStartTrial, false);

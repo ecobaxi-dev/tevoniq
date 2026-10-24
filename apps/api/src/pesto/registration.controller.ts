@@ -14,6 +14,7 @@ import type { Request } from 'express';
 import { LeadBotProtection, submissionIp } from '../leads/bot-protection.js';
 import { PestoRegistrationService } from './registration.service.js';
 import { registrationInputSchema } from './registration-protocol.js';
+import { PestoTrialService } from './trial.service.js';
 
 @Controller('pesto/registrations')
 export class PestoRegistrationController {
@@ -21,6 +22,7 @@ export class PestoRegistrationController {
     @Inject(PestoRegistrationService) private readonly service: PestoRegistrationService,
     @Inject(LeadBotProtection) private readonly bot: LeadBotProtection,
     @Inject(ConfigService) private readonly config: ConfigService,
+    @Inject(PestoTrialService) private readonly trial: PestoTrialService,
   ) {}
   private origin(req: Request) {
     const origin = req.headers.origin;
@@ -50,5 +52,14 @@ export class PestoRegistrationController {
     const ip = this.origin(req);
     await this.bot.rateLimit(`pesto:verify:ip:${ip}`, 30, 15 * 60000);
     return this.service.verify(body);
+  }
+  @Post('trial')
+  @HttpCode(200)
+  @Header('Cache-Control', 'no-store')
+  async issueTrial(@Body() body: unknown, @Req() req: Request) {
+    this.trial.ensureEnabled();
+    const ip = this.origin(req);
+    await this.bot.rateLimit(`pesto:trial:ip:${ip}`, 20, 15 * 60000);
+    return this.trial.issue(body);
   }
 }

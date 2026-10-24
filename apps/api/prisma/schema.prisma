@@ -772,6 +772,7 @@ model PestoCustomer {
  emailVerifiedAt DateTime
  createdAt DateTime @default(now())
  registrations PestoRegistration[]
+ trials PestoTrial[]
 }
 model PestoRegistration {
  id String @id
@@ -808,4 +809,28 @@ model PestoRegistration {
  @@index([deliveryStatus, availableAt])
  @@index([expiresAt])
  @@index([customerId])
+ trialGrant PestoTrialGrant?
+}
+
+model PestoTrial {
+ id String @id
+ customerId String
+ customer PestoCustomer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+ registrationId String
+ installationId String @unique
+ deviceHash String @unique
+ issuedAt DateTime
+ expiresAt DateTime
+ envelope String
+ grants PestoTrialGrant[]
+ @@index([customerId])
+}
+
+model PestoTrialGrant {
+ registrationId String @id
+ registration PestoRegistration @relation(fields: [registrationId], references: [id], onDelete: Restrict)
+ trialId String
+ trial PestoTrial @relation(fields: [trialId], references: [id], onDelete: Restrict)
+ retryUntil DateTime
+ @@index([trialId])
 }

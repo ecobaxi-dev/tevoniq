@@ -122,5 +122,5 @@ test('registration is disabled by default and requires separate email key and de
   await assert.rejects(service.register(input), { status: 503 });
   await assert.rejects(service.verify({}), { status: 503 });
   await new PestoRegistrationWorker(db, config, email).process();
-  assert.deepEqual(publicEndpoints.PestoRegistrationController, ['register', 'verify']);
+  assert.deepEqual(publicEndpoints.PestoRegistrationController, ['register', 'verify', 'issueTrial']);
 });
