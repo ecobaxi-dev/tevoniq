@@ -174,6 +174,8 @@ export function getBootstrapNavigation(locale: Locale): NavigationContent {
       label: copy.company[index] ?? id,
       href: id === 'careers' ? '/careers' : `/company/${id}`,
     }));
+    if (locale === 'en' || locale === 'ar')
+      company.children.push({ id: 'advocas-platform', label: 'Advocas', href: '/advocas' });
   }
   const insights = items.find((item) => item.id === 'insights');
   if (insights) {

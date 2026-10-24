@@ -1,0 +1,147 @@
+.advocas-showcase {
+  background: #f4f7fb;
+}
+.advocas-section-intro {
+  max-width: 44rem;
+  margin-bottom: 2rem;
+}
+.advocas-section-intro h2 {
+  margin-block: 0.75rem;
+}
+.advocas-section-intro > p:last-child {
+  color: #53657c;
+}
+.advocas-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border: 1px solid #d8e3ec;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 20px 60px -40px #0a1f443d;
+}
+.advocas-card-copy {
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  min-width: 0;
+}
+.advocas-category {
+  color: #007c86;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.advocas-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem) !important;
+  font-weight: 700;
+  color: #007c86;
+  margin-block: 1.5rem;
+}
+.advocas-wordmark span {
+  color: #53657c;
+  font-size: 0.6em;
+  font-weight: 400;
+}
+.advocas-card-copy > :is(h1, h3) {
+  margin-block: 1.5rem;
+}
+.advocas-card-copy > p:not(.advocas-category):not(.advocas-wordmark) {
+  color: #53657c;
+  line-height: 1.85;
+}
+.advocas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.advocas-actions > a:not(.tv-button) {
+  color: #0a1f44;
+  text-underline-offset: 0.3em;
+}
+.advocas-journey {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  color: #0a1f44;
+  background: linear-gradient(145deg, #eaf9f8, #edf3fc);
+  border-inline-start: 1px solid #d8e3ec;
+}
+.advocas-journey > svg {
+  color: #007c86;
+  margin-bottom: 1.25rem;
+}
+.advocas-journey > :is(h2, h4) {
+  margin-block: 0 1rem;
+}
+.advocas-journey > p {
+  color: #53657c;
+}
+.advocas-journey ol {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.85rem;
+}
+.advocas-journey li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffffb8;
+  border: 1px solid #d8e3ec;
+  padding: 0.9rem 1rem;
+  border-radius: 0.5rem;
+}
+.advocas-journey li > span {
+  color: #007c86;
+  font: 600 0.875rem monospace;
+}
+.advocas-domain {
+  font-size: 0.875rem;
+  color: #53657c;
+  text-align: start;
+}
+.advocas-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.advocas-feature {
+  padding: 1.75rem;
+  border: 1px solid #d8e3ec;
+  border-radius: 1rem;
+  background: white;
+}
+.advocas-feature > svg {
+  color: #007c86;
+  margin-bottom: 1rem;
+}
+.advocas-feature h3 {
+  margin-bottom: 1rem;
+}
+.advocas-note {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-inline-start: 3px solid #007c86;
+  background: #edf7f7;
+  color: #354d5d;
+}
+:lang(ar) .advocas-category {
+  letter-spacing: 0;
+}
+@media (width < 60rem) {
+  .advocas-card,
+  .advocas-features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .advocas-journey {
+    border-inline-start: 0;
+    border-top: 1px solid #d8e3ec;
+  }
+}

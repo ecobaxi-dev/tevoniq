@@ -22,6 +22,7 @@ import { ConnectedThinking } from '@/components/connected-thinking';
 import { SolutionsVisual } from '@/components/solutions-visual';
 import { TechnologyEcosystem } from '@/components/technology-ecosystem';
 import { WhyTevoniq } from '@/components/why-tevoniq';
+import { AdvocasShowcase } from '@/components/advocas-showcase';
 
 import { getHomeContent } from '@/lib/home';
 import { localizedHref } from '@/config/navigation';
@@ -76,6 +77,7 @@ async function PublicPage({ params }: PageProps) {
           <TechnologyEcosystem locale={locale} copy={copy} />
           <WhyTevoniq locale={locale} copy={copy} />
           <ConnectedThinking locale={locale} copy={copy} />
+          {locale === 'en' && <AdvocasShowcase locale="en" />}
           {(['industries', 'projects', 'partners', 'insights'] as const).map(
             (key) =>
               collections[key].length > 0 && (
