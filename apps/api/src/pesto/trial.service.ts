@@ -7,17 +7,12 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { randomUUID } from 'node:crypto';
-import { z } from 'zod';
+import { trialInputSchema } from '@tevoniq/validation';
+export { trialInputSchema } from '@tevoniq/validation';
 import { DatabaseService } from '../database/database.service.js';
 import { consumePestoRegistration } from './registration.service.js';
 import { hash } from './registration-protocol.js';
 import { readTrialKey, signTrial } from './trial-signing.js';
-
-export const trialInputSchema = z.strictObject({
-  registrationTicket: z.string().regex(/^[a-f0-9]{64}$/),
-  installationId: z.uuid().transform((v) => v.toLowerCase()),
-  deviceHash: z.string().regex(/^[A-F0-9]{64}$/),
-});
 
 @Injectable()
 export class PestoTrialService {

@@ -56,8 +56,8 @@ devices. It contains opaque identifiers, not email addresses or purchase secrets
 The response uses no-store; never log its permit or registration ticket.
 
 Origin validation and existing signed proxy IP resolution apply. Trial requests
-are limited to 20/IP/15 minutes. A public web proxy/native client integration is
-still pending. This endpoint does not implement purchase activation, email-based
+are limited to 20/IP/15 minutes. The [public proxy](pesto-public-proxy.md) and native
+client foundation are prepared; production setup remains pending. This endpoint does not implement purchase activation, email-based
 password recovery, sale enforcement or an installer.
 
 ## Validation
