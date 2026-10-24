@@ -49,6 +49,8 @@ createServer(async (req, res) => {
     res.end(JSON.stringify(body));
   };
   if (url.pathname === '/health') return send(200, { ok: true });
+  // Code-owned product sitemap entries are tested independently of CMS records.
+  if (url.pathname === '/api/v1/seo/routes') return send(200, { items: [], total: 0 });
   const home = url.pathname.match(/^\/api\/v1\/home\/(en|tr|ar)$/);
   if (home)
     return send(200, {
