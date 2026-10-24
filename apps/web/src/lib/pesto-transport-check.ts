@@ -14,8 +14,8 @@ export function checkPestoTransport(
   request: Request,
   config: { enabled: boolean; secret?: string | undefined; now?: number },
 ) {
-  const reject = (status: number) =>
-    Response.json({ code: 'transport_check_unavailable' }, { status, headers });
+  const reject = (status: number, code = 'transport_check_unavailable') =>
+    Response.json({ code }, { status, headers });
   if (!config.enabled || !config.secret || config.secret.length < 32) return reject(404);
   const url = new URL(request.url);
   const timestamp = request.headers.get('x-pesto-check-time') ?? '';
@@ -27,18 +27,20 @@ export function checkPestoTransport(
     url.search ||
     request.headers.has('origin') ||
     request.headers.has('cookie') ||
-    request.headers.get('transfer-encoding') ||
-    ![null, '0'].includes(request.headers.get('content-length')) ||
     !/^\d{10}$/.test(timestamp) ||
     !/^[a-f0-9]{64}$/.test(nonce) ||
-    !/^[a-f0-9]{64}$/.test(signature) ||
-    Math.abs((config.now ?? Date.now()) / 1000 - Number(timestamp)) > 120
+    !/^[a-f0-9]{64}$/.test(signature)
   )
-    return reject(403);
+    return reject(403, 'transport_check_request_rejected');
+  if (Math.abs((config.now ?? Date.now()) / 1000 - Number(timestamp)) > 120)
+    return reject(403, 'transport_check_clock_rejected');
   const mac = (value: string) => createHmac('sha256', config.secret!).update(value).digest('hex');
   const context = `pesto-transport-v1\nPOST\n${path}\n${timestamp}\n${nonce}`;
   if (!timingSafeEqual(Buffer.from(signature, 'hex'), Buffer.from(mac(context), 'hex')))
-    return reject(403);
+    return reject(403, 'transport_check_proof_rejected');
+  // Reverse proxies can reframe an empty HTTP/1 request as chunked. Framing is
+  // the HTTP server's responsibility, not part of operator authentication.
+  // No request body is read, reflected, hashed, forwarded or used by this route.
   const observations = candidates.map((name) => {
     const raw = request.headers.get(name);
     // No raw client address or arbitrary reflected header is returned or logged.
