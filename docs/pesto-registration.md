@@ -27,8 +27,9 @@ with the same proof while the original request and ticket remain valid. It retur
 the same ticket and expiry. Tickets last 15 minutes and are installation/device
 bound. They are not offline signed permits or authentication sessions.
 
-Future trial issuance must call consumePestoRegistration inside the SAME database
-transaction as recording the central trial entitlement. Consumption is single use.
+The separately gated [trial service](pesto-trials.md) calls consumePestoRegistration
+inside the SAME database transaction as recording the central trial entitlement.
+Consumption is single use.
 Do not add a client-side trial switch or consume the ticket before that transaction.
 Existing verified customer profiles are not overwritten by a new registration.
 

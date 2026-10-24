@@ -51,6 +51,7 @@ import { validateEnvironment } from './config/environment.js';
 import { DatabaseService } from './database/database.service.js';
 import { HealthController } from './health/health.controller.js';
 import { PestoRegistrationController } from './pesto/registration.controller.js';
+import { PestoTrialService } from './pesto/trial.service.js';
 import { PestoRegistrationService } from './pesto/registration.service.js';
 import { PestoRegistrationWorker } from './pesto/registration.worker.js';
 @Module({
@@ -105,6 +106,7 @@ import { PestoRegistrationWorker } from './pesto/registration.worker.js';
     CmsAuthController,
   ],
   providers: [
+    PestoTrialService,
     PestoRegistrationService,
     PestoRegistrationWorker,
     SiteSettingsService,

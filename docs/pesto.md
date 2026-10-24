@@ -29,6 +29,8 @@ must never issue a license.
 The separate [customer registration API foundation](pesto-registration.md) is
 disabled by default. It requires an additive database migration when deployed and
 does not enable this page's downloads, trials or activation controls.
+The [trial signing service](pesto-trials.md) is separately disabled and requires
+trusted Windows public-key configuration and host enrollment before public use.
 
 The page supplies localized metadata and hreflang links for enabled languages.
 Sitemap entries are deduplicated and defer to any explicit CMS route policy.
