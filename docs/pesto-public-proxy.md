@@ -51,6 +51,40 @@ logging at an ingress/APM layer.
 
 ## Before enabling
 
+### Temporary operator ingress probe
+
+The POST-only `/api/pesto/transport-check` is independently disabled unless
+`PESTO_TRANSPORT_DIAGNOSTICS_ENABLED=true`. Keep all three enrollment flags false.
+Only an operator with the matching LEAD_PROXY_SECRET can authenticate a probe.
+Requests have a purpose-separated HMAC, random nonce and two-minute timestamp
+window. Responses include a signed payload with only allowlisted header shape and
+nonce-bound keyed IP digests; no raw address, secret, customer data or environment
+is returned. There is no API/database/mail call and no configuration mutation.
+An authenticated request may be replayed within the short window; it is read-only.
+
+After deploying, run the RestaurantOS issuer manager with `-Action TestTransport`.
+It reads the existing restricted DPAPI vault and passes its proxy secret in memory
+to the local probe helper, never via an external command line or plaintext file.
+It checks both www.tevoniq.com and the current Render hostname with baseline,
+injected documentation IPv4/IPv6 headers, then baseline again. Redirects fail;
+responses are bounded and their HMAC/context is verified before displaying a table.
+404 means disabled/not deployed; 403 means invalid proof, stale clock or ingress
+request metadata rejection. A different preexisting Render proxy secret must be
+reconciled locally rather than pasted in chat or blindly replaced.
+
+SingleIpEveryProbe and UnchangedBySpoofProbes are observations, not automatic trust
+certification. Review provider ingress topology and origin bypasses too; never
+choose a header merely because it contains an IP. Disable the diagnostic flag
+after the operator test. This does not enable registration or change the selected
+PESTO_CLIENT_IP_HEADER. Header rewriting/hostname changes require retesting.
+
+Render documents Cloudflare in front of web services:
+https://render.com/articles/how-render-handles-ddos-attacks
+Cloudflare documents its connecting-IP header and proxy/Worker caveats:
+https://developers.cloudflare.com/fundamentals/reference/http-headers/
+
+### Enrollment rollout
+
 1. Deploy the reviewed change, leaving PESTO_PUBLIC_ENROLLMENT_ENABLED=false.
 2. Confirm the trusted ingress header and matching proxy secret configuration.
 3. Configure real API mail, registration HMAC and the separate licensing signer.
