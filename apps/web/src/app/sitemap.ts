@@ -15,14 +15,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: routeLanguages(route, env.SITE_URL, settings.localization.defaultLanguage),
       },
     }));
-  const languages = Object.fromEntries(
-    ['en', 'ar']
-      .filter((locale) => settings.localization.enabledLanguages.includes(locale as 'en' | 'ar'))
-      .map((locale) => [locale, absoluteUrl(`/${locale}/advocas`, env.SITE_URL)]),
-  );
-  for (const url of Object.values(languages)) {
-    if (!entries.some((entry) => entry.url === url))
-      entries.push({ url, alternates: { languages } });
+  const existing = new Set(entries.map((entry) => entry.url));
+  for (const path of ['/pesto', '/advocas']) {
+    const locales = settings.localization.enabledLanguages.filter(
+      (locale) => path === '/pesto' || locale === 'en' || locale === 'ar',
+    );
+    const languages: Record<string, string> = {};
+    for (const locale of locales)
+      languages[locale] = absoluteUrl(`/${locale}${path}`, env.SITE_URL);
+    const defaultUrl = languages[settings.localization.defaultLanguage] ?? languages.en;
+    if (defaultUrl) languages['x-default'] = defaultUrl;
+    for (const locale of locales) {
+      const url = languages[locale]!;
+      // Preserve CMS noindex and canonical policies instead of re-adding excluded routes.
+      const managed = routes.some((route) => route.locale === locale && route.route === path);
+      if (!existing.has(url) && !managed) {
+        entries.push({ url, alternates: { languages } });
+        existing.add(url);
+      }
+    }
   }
   return entries;
 }

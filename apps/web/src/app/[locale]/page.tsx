@@ -3,6 +3,7 @@ import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { ReferenceHero } from '@/components/reference-hero';
+import { PestoHomeEntry } from '@/components/pesto-page';
 import { notFound } from 'next/navigation';
 import { localeSchema } from '@tevoniq/validation';
 import {
@@ -50,6 +51,7 @@ async function PublicPage({ params }: PageProps) {
     <div className="home-page" data-theme="light">
       <main id="main-content">
         <ReferenceHero locale={locale} copy={hero} />
+        <PestoHomeEntry locale={locale} />
         <HomeEntrances>
           <Section id="solutions" tone="muted" spacing="compact" className="home-solutions-section">
             <Container className="home-solutions-layout">
