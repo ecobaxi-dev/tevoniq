@@ -113,6 +113,7 @@ export const endpointPermissions: Record<string, Record<string, Policy>> = {
   },
 };
 export const publicEndpoints: Record<string, readonly string[]> = {
+  PestoRegistrationController: ['register', 'verify'],
   HomeController: ['get'],
   PublicNavigationController: ['get'],
   SeoController: ['organization', 'routes'],

@@ -50,6 +50,9 @@ import { LoggerModule } from 'nestjs-pino';
 import { validateEnvironment } from './config/environment.js';
 import { DatabaseService } from './database/database.service.js';
 import { HealthController } from './health/health.controller.js';
+import { PestoRegistrationController } from './pesto/registration.controller.js';
+import { PestoRegistrationService } from './pesto/registration.service.js';
+import { PestoRegistrationWorker } from './pesto/registration.worker.js';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, validate: validateEnvironment }),
@@ -67,6 +70,7 @@ import { HealthController } from './health/health.controller.js';
     }),
   ],
   controllers: [
+    PestoRegistrationController,
     PublicSiteSettingsController,
     CmsSiteSettingsController,
     SeoController,
@@ -101,6 +105,8 @@ import { HealthController } from './health/health.controller.js';
     CmsAuthController,
   ],
   providers: [
+    PestoRegistrationService,
+    PestoRegistrationWorker,
     SiteSettingsService,
     { provide: SearchProvider, useClass: PostgresSearchProvider },
     CvSecurity,

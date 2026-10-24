@@ -86,11 +86,13 @@ try {
     DATABASE_URL: _database,
     DATABASE_URL_UNPOOLED: _directDatabase,
     RESEND_API_KEY: _resendKey,
+    PESTO_REGISTRATION_EMAIL_KEY: _pestoEmailKey,
     ...webEnv
   } = runtime;
   void _database;
   void _directDatabase;
   void _resendKey;
+  void _pestoEmailKey;
   const cwd = resolve('apps/web/.next/standalone');
   launch(
     process.execPath,
