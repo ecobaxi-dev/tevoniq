@@ -760,3 +760,52 @@ model MediaAsset {
  @@index([deletedAt, createdAt])
  @@index([collection, deletedAt])
 }
+
+model PestoCustomer {
+ id String @id @default(uuid())
+ email String @unique
+ managerName String
+ businessName String
+ country String
+ phone String
+ language Locale
+ emailVerifiedAt DateTime
+ createdAt DateTime @default(now())
+ registrations PestoRegistration[]
+}
+model PestoRegistration {
+ id String @id
+ installationId String
+ deviceHash String
+ email String
+ managerName String
+ businessName String
+ country String
+ phone String
+ language Locale
+ consentAt DateTime
+ consentVersion String
+ inputHash String
+ clientSecretHash String
+ codeNonce String
+ codeHash String
+ expiresAt DateTime
+ verificationAttempts Int @default(0)
+ verifiedAt DateTime?
+ customerId String?
+ customer PestoCustomer? @relation(fields: [customerId], references: [id], onDelete: Restrict)
+ ticketHash String? @unique
+ ticketExpiresAt DateTime?
+ ticketConsumedAt DateTime?
+ deliveryStatus String @default("PENDING")
+ deliveryAttempts Int @default(0)
+ availableAt DateTime @default(now())
+ claimedAt DateTime?
+ leaseId String?
+ sentAt DateTime?
+ lastError String?
+ createdAt DateTime @default(now())
+ @@index([deliveryStatus, availableAt])
+ @@index([expiresAt])
+ @@index([customerId])
+}
