@@ -416,29 +416,87 @@
   font-size: 0.9rem;
 }
 .pesto-home-entry {
-  border-block: 1px solid #dde3ec;
-  padding-block: 2.3rem;
-  background: #f5f7fa;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-block: 1px solid #416797;
+  padding-block: 2.6rem;
+  color: #fff;
+  background: radial-gradient(ellipse at 8% 0%, #194b7d 0%, transparent 55%), #0a1f44;
+}
+.pesto-home-entry::before,
+.pesto-home-entry::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+.pesto-home-entry::before {
+  inset: 0;
+  border-block: 2px solid #71bdff;
+  box-shadow:
+    inset 0 8px 28px -18px #77c9ff,
+    inset 0 -8px 28px -18px #f7cd70;
+  opacity: 0.5;
+}
+.pesto-home-entry::after {
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    #a2d5ff16 47%,
+    #ffe5a62b 50%,
+    transparent 65%
+  );
+  background-size: 250% 100%;
+  background-position: 100% 0;
 }
 .pesto-entry-layout {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 3rem;
+  grid-template-columns: 232px minmax(0, 1fr) auto;
+  gap: 2rem;
   align-items: center;
 }
+.pesto-entry-logo {
+  width: 232px;
+  padding: 22px 16px;
+  border: 1px solid #e3e9f0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 32px #0003;
+}
+.pesto-entry-logo img {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+.pesto-entry-copy {
+  min-width: 0;
+}
 .pesto-entry-layout h2 {
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  color: #fff;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
   font-weight: 600;
 }
 .pesto-entry-layout p:last-child {
   font-size: 0.9rem;
-  color: var(--pesto-muted);
+  color: #cfdef0;
   max-width: 45rem;
   margin-top: 0.5rem;
 }
-.pesto-entry-layout .pesto-kicker {
-  margin-bottom: 0.4rem;
-  font-size: 0.65rem;
+.pesto-home-entry .pesto-entry-cta[data-variant='gold-accent'] {
+  color: #0a1f44;
+  background: #ffdc83;
+  border-color: #ffdc83;
+  box-shadow: 0 4px 20px #ffdc831a;
+}
+.pesto-home-entry .pesto-entry-cta[data-variant='gold-accent']:hover {
+  color: #0a1f44;
+  background: #ffe8af;
+  border-color: #ffe8af;
+}
+.pesto-home-entry .pesto-entry-cta:focus-visible {
+  outline-color: #fff;
 }
 [dir='rtl'] .pesto-page h1,
 [dir='rtl'] .pesto-page h2,
@@ -487,11 +545,19 @@
     grid-column: 1/-1;
   }
   .pesto-entry-layout {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 200px minmax(0, 1fr);
     gap: 1.5rem;
   }
-  .pesto-entry-layout > .pesto-wordmark {
-    display: none;
+  .pesto-entry-logo {
+    width: 200px;
+    padding-inline: 16px;
+  }
+  .pesto-entry-logo img {
+    width: 168px;
+  }
+  .pesto-entry-layout > a {
+    grid-column: 2;
+    justify-self: start;
   }
 }
 @media (max-width: 640px) {
@@ -573,13 +639,46 @@
     gap: 1.2rem;
   }
   .pesto-entry-layout > a {
+    grid-column: auto;
     justify-self: start;
+  }
+  .pesto-entry-logo {
+    width: 192px;
+    padding-block: 18px;
+  }
+  .pesto-entry-logo img {
+    width: 160px;
   }
   .pesto-page h2 {
     font-size: 1.8rem;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .pesto-home-entry::before {
+    animation: pesto-entry-glow 5s ease-in-out infinite;
+  }
+  .pesto-home-entry::after {
+    animation: pesto-entry-sheen 5s ease-in-out infinite;
+  }
+  @keyframes pesto-entry-glow {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+  @keyframes pesto-entry-sheen {
+    0%,
+    20% {
+      background-position: 100% 0;
+    }
+    75%,
+    100% {
+      background-position: 0% 0;
+    }
+  }
   .pesto-terminal {
     animation: pesto-appear 0.7s ease-out both;
   }
