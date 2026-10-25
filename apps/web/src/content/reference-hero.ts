@@ -1,4 +1,8 @@
-import { approvedArabicHero, approvedArabicValues } from './home-presentation.ts';
+import {
+  approvedArabicHero,
+  approvedArabicHeroActions,
+  approvedArabicValues,
+} from './home-presentation.ts';
 import type { Locale } from '@tevoniq/types';
 export const referenceHeroCopy: Record<
   Locale,
@@ -49,7 +53,7 @@ export const referenceHeroCopy: Record<
   },
   ar: {
     ...approvedArabicHero,
-    start: 'ابدأ الآن',
+    start: approvedArabicHeroActions.start,
     watch: 'شاهد الفيديو',
     unavailable: 'لم يتم توفير الفيديو التعريفي لشركة TEVONIQ بعد.',
     close: 'إغلاق',

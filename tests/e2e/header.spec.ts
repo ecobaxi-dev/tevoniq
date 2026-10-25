@@ -24,11 +24,11 @@ test('desktop header supports scroll state, menus, routes, search, and locale pr
   ).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(solutions).toBeFocused();
-  await mainNavigation.getByRole('button', { name: 'Company', exact: true }).click();
+  await mainNavigation.getByRole('button', { name: 'About us', exact: true }).click();
   await mainNavigation.getByRole('link', { name: 'Team', exact: true }).click();
   await expect(page).toHaveURL('/en/company/team');
   await expect(
-    mainNavigation.getByRole('button', { name: 'Company', exact: true }),
+    mainNavigation.getByRole('button', { name: 'About us', exact: true }),
   ).toHaveAttribute('data-active', 'true');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   await page.route('**/api/search?**', (route) =>
@@ -70,7 +70,7 @@ test('mobile drawer closes on navigation and Arabic layout works', async ({ page
   await trigger.click();
   const dialog = page.getByRole('dialog', { name: 'Explore TEVONIQ' });
   await expect(dialog).toBeVisible();
-  await dialog.getByRole('button', { name: 'Company', exact: true }).click();
+  await dialog.getByRole('button', { name: 'About us', exact: true }).click();
   await dialog.getByRole('link', { name: 'Partners', exact: true }).click();
   await expect(page).toHaveURL('/en/company/partners');
   await expect(dialog).toBeHidden();
@@ -86,6 +86,38 @@ test('mobile drawer closes on navigation and Arabic layout works', async ({ page
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
   ).toBeTruthy();
+});
+
+test('Arabic hero shows two useful actions and the chosen clean header exposes product links', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/ar');
+  await expect(page.locator('.artwork-hero .reference-eyebrow')).toHaveCount(0);
+  const actions = page.locator('.artwork-hero-actions');
+  await expect(actions.getByRole('link')).toHaveCount(2);
+  await expect(actions.getByRole('link', { name: 'لنناقش احتياجك' })).toHaveAttribute(
+    'href',
+    '/ar/contact?intent=quote',
+  );
+  await expect(actions.getByRole('link', { name: 'استكشف الخدمات' })).toHaveAttribute(
+    'href',
+    '/ar/services',
+  );
+  const nav = page.locator('.site-desktop-nav');
+  await expect(nav.locator('.site-nav-list > li')).toHaveCount(5);
+  await nav.getByRole('button', { name: 'منتجاتنا', exact: true }).click();
+  await expect(nav.getByRole('link', { name: 'Pesto', exact: true })).toHaveAttribute(
+    'href',
+    '/ar/pesto',
+  );
+  await expect(nav.getByRole('link', { name: 'Advocas', exact: true })).toHaveAttribute(
+    'href',
+    '/ar/advocas',
+  );
+  await page.keyboard.press('Escape');
+  await actions.getByRole('link', { name: 'استكشف الخدمات' }).click();
+  await expect(page).toHaveURL('/ar/services');
 });
 
 test('header has no automated accessibility violations in desktop and mobile states', async ({

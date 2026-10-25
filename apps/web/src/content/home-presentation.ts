@@ -7,6 +7,10 @@ export const approvedArabicHero = {
   accent: 'تقنيات متقدمة لغد أكثر ذكاءً',
   body: 'نساعد أصحاب المنشآت الصغيرة والمتوسطة على تطوير مواقع وأنظمة وأتمتة تسهّل متابعة الطلبات وتقلّل العمل المتكرر، بتواصل مباشر ونطاق واضح وتنفيذ على مراحل.',
 };
+export const approvedArabicHeroActions = {
+  start: 'لنناقش احتياجك',
+  explore: 'استكشف الخدمات',
+};
 export const approvedArabicValues = [
   { title: 'تواصل مباشر', body: 'نفهم احتياجك بوضوح' },
   { title: 'حلول عملية', body: 'تسهّل عملك اليومي' },
@@ -28,6 +32,7 @@ const legacyHero = {
 export function presentHomeContent(locale: Locale, content: HomeContent): HomeContent {
   if (locale !== 'ar') return content;
   const hero = { ...content.hero };
+  if (hero.start === 'ابدأ الآن') hero.start = approvedArabicHeroActions.start;
   for (const key of ['eyebrow', 'title', 'accent', 'body'] as const)
     if (hero[key] === legacyHero[key]) hero[key] = approvedArabicHero[key];
   hero.values = hero.values.map((value, index) => {

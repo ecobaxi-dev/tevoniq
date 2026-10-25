@@ -1,5 +1,7 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
+import { approvedArabicHeroActions } from '@/content/home-presentation';
 import { brandAssets } from '@/config/assets';
 import { ArrowRight, Play, UsersRound, Cpu, Leaf, ClipboardCheck } from 'lucide-react';
 import type { Locale } from '@tevoniq/types';
@@ -28,7 +30,7 @@ export function ReferenceHero({
       />
       <UIProvider theme="dark" direction={locale === 'ar' ? 'rtl' : 'ltr'}>
         <div className="artwork-hero-copy">
-          <p className="reference-eyebrow">{copy.eyebrow}</p>
+          {locale !== 'ar' && <p className="reference-eyebrow">{copy.eyebrow}</p>}
           <h1 id="home-title">
             {copy.title}
             {locale !== 'ar' && <span>{copy.accent}</span>}
@@ -37,11 +39,24 @@ export function ReferenceHero({
           <p className="reference-description">{copy.body}</p>
         </div>
         <div className="artwork-hero-actions">
-          <a className="reference-start" href="#solutions">
-            <span>{copy.start}</span>
-            <ArrowRight size={20} aria-hidden="true" />
-          </a>
-          {copy.videoUrl && (
+          {locale === 'ar' ? (
+            <>
+              <Link className="reference-start" href="/ar/contact?intent=quote">
+                <span>{copy.start}</span>
+                <ArrowRight size={20} aria-hidden="true" />
+              </Link>
+              <Link className="reference-explore" href="/ar/services">
+                <span>{approvedArabicHeroActions.explore}</span>
+                <ArrowRight size={20} aria-hidden="true" />
+              </Link>
+            </>
+          ) : (
+            <a className="reference-start" href="#solutions">
+              <span>{copy.start}</span>
+              <ArrowRight size={20} aria-hidden="true" />
+            </a>
+          )}
+          {locale !== 'ar' && copy.videoUrl && (
             <Modal
               title={copy.watch}
               description={copy.body}

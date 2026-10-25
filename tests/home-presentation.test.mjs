@@ -4,6 +4,7 @@ import { homeCopy } from '../apps/web/src/content/home.ts';
 import { referenceHeroCopy } from '../apps/web/src/content/reference-hero.ts';
 import {
   approvedArabicHero,
+  approvedArabicHeroActions,
   approvedArabicValues,
   presentHomeContent,
 } from '../apps/web/src/content/home-presentation.ts';
@@ -23,7 +24,12 @@ test('approved company wording upgrades existing Arabic CMS bootstrap content wi
       introduction:
         'تقدم TEVONIQ حلولاً تقنية متقدمة مصممة لربط الأعمال الحديثة وتأمينها وأتمتتها وتطويرها.',
     },
-    hero: { ...referenceHeroCopy.ar, ...priorHero, videoUrl: 'https://example.test/intro.mp4' },
+    hero: {
+      ...referenceHeroCopy.ar,
+      ...priorHero,
+      start: 'ابدأ الآن',
+      videoUrl: 'https://example.test/intro.mp4',
+    },
   };
   const original = structuredClone(content),
     result = presentHomeContent('ar', content);
@@ -33,6 +39,7 @@ test('approved company wording upgrades existing Arabic CMS bootstrap content wi
   assert.equal(result.copy.headline, approvedArabicHero.title);
   assert.equal(result.copy.introduction, approvedArabicHero.body);
   assert.equal(result.hero.videoUrl, content.hero.videoUrl);
+  assert.equal(result.hero.start, approvedArabicHeroActions.start);
   assert.deepEqual(result.hero.values, approvedArabicValues);
 });
 test('custom Arabic CMS text survives the approved bootstrap update', () => {

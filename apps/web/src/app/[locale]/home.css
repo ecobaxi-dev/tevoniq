@@ -845,53 +845,6 @@
   clip-path: none;
   white-space: normal;
 }
-.artwork-hero[data-locale='ar'] .reference-eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.35rem, 2vw, 2.1rem);
-  font-weight: 600;
-  line-height: 1.65;
-  color: #c9e5ff;
-  text-shadow: 0 0 22px rgb(33 212 255 / 20%);
-}
-@supports (background-clip: text) {
-  .artwork-hero[data-locale='ar'] .reference-eyebrow {
-    background-image: linear-gradient(
-      110deg,
-      #c9e5ff 35%,
-      #72dfff 44%,
-      #fff 50%,
-      #72dfff 56%,
-      #c9e5ff 65%
-    );
-    background-size: 250% 100%;
-    background-position: 100% 50%;
-    background-clip: text;
-    color: transparent;
-    animation: arabic-hero-shine 5s ease-in-out infinite;
-  }
-}
-@keyframes arabic-hero-shine {
-  0%,
-  15% {
-    background-position: 100% 50%;
-  }
-  70%,
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .artwork-hero[data-locale='ar'] .reference-eyebrow {
-    animation: none;
-  }
-}
-@media (forced-colors: active) {
-  .artwork-hero[data-locale='ar'] .reference-eyebrow {
-    background: none;
-    color: CanvasText;
-    text-shadow: none;
-  }
-}
 .artwork-hero[data-locale='ar'] h1 {
   font-size: clamp(2.5rem, 4.2vw, 4.5rem);
   line-height: 1.25;
@@ -1027,6 +980,38 @@
   line-height: 1.6;
   color: #21d4ff;
   margin: 0 0 1rem;
+}
+.artwork-hero[data-locale='ar'] .artwork-hero-actions > a {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  min-height: 3.5rem;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+.artwork-hero[data-locale='ar'] .reference-explore {
+  background: #071c35;
+  border-color: #7296be;
+}
+.artwork-hero[data-locale='ar'] .reference-explore svg {
+  transform: rotate(180deg);
+}
+.artwork-hero[data-locale='ar'] .artwork-hero-actions > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px #009dff33;
+}
+@media (width < 40rem) {
+  .artwork-hero[data-locale='ar'] .artwork-hero-actions {
+    align-items: stretch;
+  }
+  .artwork-hero[data-locale='ar'] .artwork-hero-actions > a {
+    padding-inline: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .artwork-hero[data-locale='ar'] .artwork-hero-actions > a {
+    transition: none;
+  }
 }
 @media (width < 70rem) {
   .artwork-hero[data-locale='ar'] h1 {

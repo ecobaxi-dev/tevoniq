@@ -9,7 +9,7 @@ for (const locale of ['en', 'ar'] as const) {
     await page.goto(`/${locale}`);
     const navigation = page.locator('.site-desktop-nav');
     await navigation
-      .getByRole('button', { name: locale === 'ar' ? 'الخدمات' : 'Services', exact: true })
+      .getByRole('button', { name: locale === 'ar' ? 'خدماتنا' : 'Services', exact: true })
       .click();
     const panel = page.locator('.site-services-panel');
     await expect(panel).toBeVisible();

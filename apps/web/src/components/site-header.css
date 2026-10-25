@@ -485,3 +485,98 @@
   line-height: 1.55;
   text-align: start;
 }
+
+/* Approved white header: a clear five-entry navigation and restrained interactive detail. */
+.site-header-shell[data-design='clean'] {
+  --site-header-height: 5.5rem;
+}
+[data-design='clean'] .site-header-inner {
+  gap: clamp(1rem, 2vw, 2rem);
+}
+[data-design='clean'] .site-header {
+  border-bottom-color: #e2e9f5;
+}
+[data-design='clean'] .site-header[data-scrolled='true'] {
+  box-shadow: 0 8px 28px #0a254412;
+}
+[data-design='clean'] .site-nav-list {
+  gap: clamp(0.75rem, 1.4vw, 1.5rem);
+}
+[data-design='clean'] :is(.site-nav-link, .site-nav-trigger) {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.6rem;
+  font-size: 0.875rem;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+[data-design='clean']
+  :is(.site-nav-link, .site-nav-trigger):is(
+    :hover,
+    :focus-visible,
+    [data-state='open'],
+    [data-active='true'],
+    [aria-current='page']
+  ) {
+  background: #f0f5ff;
+  color: #174ed1;
+}
+[data-design='clean'] :is(.site-nav-link, .site-nav-trigger)::after {
+  inset-inline: 0.7rem;
+  transform-origin: right;
+  background: #245cff;
+}
+[data-design='clean'] .site-nav-trigger > svg {
+  transition: transform 180ms ease;
+}
+[data-design='clean'] .site-quote {
+  border-radius: 0.65rem;
+  box-shadow: 0 6px 18px #245cff26;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+  white-space: nowrap;
+}
+[data-design='clean'] .site-quote:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 24px #245cff40;
+}
+[data-design='clean'] :is(.site-submenu-link, .site-mega-link) {
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+[data-design='clean'] :is(.site-submenu-link, .site-mega-link):hover {
+  transform: translateY(-2px);
+}
+[data-design='clean'] .site-submenu-panel {
+  max-height: calc(100dvh - var(--site-header-height) - 2rem);
+  overflow-y: auto;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+@media (width >= 64rem) and (width < 80rem) {
+  [data-design='clean'] .site-desktop-nav {
+    display: block;
+  }
+  [data-design='clean'] .site-mobile-toggle {
+    display: none;
+  }
+  [data-design='clean'] .site-logo {
+    width: 8.5rem;
+  }
+}
+@media (width < 64rem) {
+  .site-header-shell[data-design='clean'] {
+    --site-header-height: 5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-design='clean'] *,
+  [data-design='clean'] *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

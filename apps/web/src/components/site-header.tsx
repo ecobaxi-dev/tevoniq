@@ -23,6 +23,7 @@ import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import { isActivePath, localizedHref } from '@/config/navigation';
 import { assetCatalog } from '@/config/assets';
 import { ServicesMenu } from '@/components/services-menu';
+import { headerNavigation } from '@/content/header-navigation';
 
 const GlobalSearch = dynamic(() => import('./global-search').then((module) => module.GlobalSearch));
 
@@ -49,7 +50,12 @@ export function SiteHeader({
   const [desktopMenu, setDesktopMenu] = useState('');
   const homeHref = localizedHref(locale, '/');
   const transparent = overHero && pathname === homeHref && !scrolled;
-  const { labels, items } = content;
+  const cleanDesign = locale !== 'tr';
+  const { labels, items } = headerNavigation(locale, content);
+  const itemActive = (item: NavigationItem) =>
+    [item, ...(item.children ?? [])].some((entry) =>
+      isActivePath(pathname, localizedHref(locale, entry.href), homeHref),
+    );
   useEffect(() => {
     let frame = 0;
     let previous = window.scrollY > 24;
@@ -111,15 +117,23 @@ export function SiteHeader({
     );
   };
   return (
-    <div className="site-header-shell" data-over-hero={overHero && pathname === homeHref}>
+    <div
+      className="site-header-shell"
+      data-over-hero={!cleanDesign && overHero && pathname === homeHref}
+      data-design={cleanDesign ? 'clean' : undefined}
+    >
       <UIProvider
-        theme={transparent ? 'dark' : 'light'}
+        theme={!cleanDesign && transparent ? 'dark' : 'light'}
         direction={locale === 'ar' ? 'rtl' : 'ltr'}
       >
         <a href="#main-content" className="site-skip">
           {labels.skip}
         </a>
-        <header className="site-header" data-transparent={transparent} data-scrolled={scrolled}>
+        <header
+          className="site-header"
+          data-transparent={!cleanDesign && transparent}
+          data-scrolled={scrolled}
+        >
           <div className="site-header-inner">
             <Link
               href={homeHref}
@@ -144,7 +158,7 @@ export function SiteHeader({
               <NavigationMenu.List className="site-nav-list">
                 {items.map((item) => {
                   const href = localizedHref(locale, item.href);
-                  const active = isActivePath(pathname, href, homeHref);
+                  const active = itemActive(item);
                   return (
                     <NavigationMenu.Item key={item.id} value={item.id} className="site-nav-item">
                       {item.menu ? (
@@ -199,7 +213,11 @@ export function SiteHeader({
                               </>
                             ) : (
                               <>
-                                <NavigationMenu.Link asChild>{itemLink(item)}</NavigationMenu.Link>
+                                {item.id !== 'products' && (
+                                  <NavigationMenu.Link asChild>
+                                    {itemLink(item)}
+                                  </NavigationMenu.Link>
+                                )}
                                 {item.children?.map((child) => (
                                   <NavigationMenu.Link key={child.id} asChild>
                                     {itemLink(child)}
@@ -285,9 +303,10 @@ export function SiteHeader({
                               title: item.label,
                               content: (
                                 <div className="site-mobile-children">
-                                  {itemLink(
-                                    item.groups ? { ...item, label: labels.allServices } : item,
-                                  )}
+                                  {item.id !== 'products' &&
+                                    itemLink(
+                                      item.groups ? { ...item, label: labels.allServices } : item,
+                                    )}
                                   {item.groups && (
                                     <Accordion
                                       items={item.groups.map((group) => ({
@@ -304,7 +323,9 @@ export function SiteHeader({
                                     />
                                   )}
                                   {item.children
-                                    ?.filter((child) => child.href !== item.href)
+                                    ?.filter(
+                                      (child) => item.id === 'products' || child.href !== item.href,
+                                    )
                                     .map((child) => (
                                       <div key={child.id}>{itemLink(child)}</div>
                                     ))}
