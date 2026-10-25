@@ -1,6 +1,5 @@
 [
   {
-    "source": "https://www.n-ix.com/technology-consulting/",
     "slug": "it-consulting",
     "titles": {
       "en": "Technology consulting services",
@@ -9,79 +8,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/digital-twins-consulting/",
-    "slug": "",
-    "titles": {
-      "en": "Digital Twins",
-      "ar": "التوائم الرقمية",
-      "tr": "Dijital ikizler"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/software-audit-services/",
-    "slug": "",
-    "titles": {
-      "en": "Software Code Audit",
-      "ar": "تدقيق الكود",
-      "tr": "Kod denetimi"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/technology-assessment-services/",
-    "slug": "",
-    "titles": {
-      "en": "Technology assessment services",
-      "ar": "تقييم التقنية",
-      "tr": "Teknoloji değerlendirmesi"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/product-discovery-phase/",
-    "slug": "",
-    "titles": {
-      "en": "Product Discovery",
-      "ar": "اكتشاف المنتج",
-      "tr": "Ürün keşfi"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/software-architecture-consulting/",
-    "slug": "",
-    "titles": {
-      "en": "Software Architecture Consulting Services",
-      "ar": "استشارات معمارية البرمجيات",
-      "tr": "Yazılım mimarisi danışmanlığı"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/technical-due-diligence-services/",
-    "slug": "",
-    "titles": {
-      "en": "Technical Due Diligence",
-      "ar": "العناية الواجبة التقنية",
-      "tr": "Teknik durum tespiti"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/product-management-consulting-services/",
-    "slug": "",
-    "titles": {
-      "en": "Product Management Consulting",
-      "ar": "استشارات إدارة المنتج",
-      "tr": "Ürün yönetimi danışmanlığı"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/agile-consulting-services/",
-    "slug": "",
-    "titles": {
-      "en": "Agile Consulting",
-      "ar": "استشارات Agile",
-      "tr": "Çevik danışmanlık"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/system-integration-services/",
     "slug": "api-integration",
     "titles": {
       "en": "System integration services",
@@ -90,7 +16,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/qa-automation-services/",
     "slug": "qa-automation",
     "titles": {
       "en": "QA Automation Services",
@@ -99,7 +24,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/software-engineering-services/",
     "slug": "software-product-engineering",
     "titles": {
       "en": "Software Engineering",
@@ -108,7 +32,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/custom-software-development/",
     "slug": "custom-software-development",
     "titles": {
       "en": "Custom Software Development",
@@ -117,7 +40,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/application-modernization-services/",
     "slug": "application-modernization",
     "titles": {
       "en": "AI-driven application modernization services",
@@ -126,25 +48,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/application-re-engineering-services/",
-    "slug": "",
-    "titles": {
-      "en": "Application Re-engineering",
-      "ar": "إعادة هندسة التطبيقات",
-      "tr": "Uygulama yeniden mühendisliği"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/software-testing/",
-    "slug": "",
-    "titles": {
-      "en": "Software QA & Testing",
-      "ar": "اختبار البرمجيات وضمان الجودة",
-      "tr": "Yazılım testi ve kalite"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/mobile-development/",
     "slug": "mobile-application-development",
     "titles": {
       "en": "Mobile App Development",
@@ -153,7 +56,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/ui-ux-design/",
     "slug": "ui-ux-design",
     "titles": {
       "en": "UI/UX Design",
@@ -162,70 +64,6 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/mvp-development/",
-    "slug": "",
-    "titles": {
-      "en": "MVP Development",
-      "ar": "تطوير MVP",
-      "tr": "MVP geliştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/poc-development-services/",
-    "slug": "",
-    "titles": {
-      "en": "PoC Development",
-      "ar": "تطوير إثبات المفهوم",
-      "tr": "PoC geliştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/technical-writing-services/",
-    "slug": "",
-    "titles": {
-      "en": "Technical Writing and Documentation",
-      "ar": "الكتابة التقنية والتوثيق",
-      "tr": "Teknik yazım ve belgeleme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/it-project-management-services/",
-    "slug": "",
-    "titles": {
-      "en": "IT Project Management",
-      "ar": "إدارة المشاريع التقنية",
-      "tr": "BT proje yönetimi"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/enterprise-app-development-services/",
-    "slug": "",
-    "titles": {
-      "en": "Enterprise Application Development",
-      "ar": "تطوير تطبيقات المؤسسات",
-      "tr": "Kurumsal uygulama geliştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/software-development-consulting/",
-    "slug": "",
-    "titles": {
-      "en": "Software Development Consulting",
-      "ar": "استشارات تطوير البرمجيات",
-      "tr": "Yazılım geliştirme danışmanlığı"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/software-development/",
-    "slug": "",
-    "titles": {
-      "en": "Software Product Development",
-      "ar": "تطوير المنتجات البرمجية",
-      "tr": "Yazılım ürünü geliştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/custom-erp-development-services/",
     "slug": "erp-solutions",
     "titles": {
       "en": "Custom ERP Development",
@@ -234,30 +72,11 @@
     }
   },
   {
-    "source": "https://www.n-ix.com/erp-customization-services/",
     "slug": "erp-solutions",
     "titles": {
       "en": "ERP Customization",
       "ar": "تخصيص ERP",
       "tr": "ERP özelleştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/custom-crm-development-services/",
-    "slug": "",
-    "titles": {
-      "en": "Custom CRM Development",
-      "ar": "تطوير CRM مخصّص",
-      "tr": "Özel CRM geliştirme"
-    }
-  },
-  {
-    "source": "https://www.n-ix.com/centers-of-excellence/",
-    "slug": "",
-    "titles": {
-      "en": "Centers of Excellence",
-      "ar": "مراكز التميّز",
-      "tr": "Mükemmeliyet merkezleri"
     }
   }
 ]

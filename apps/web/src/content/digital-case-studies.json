@@ -100,7 +100,7 @@
           {
             "title": "Müşteri hakkında",
             "paragraphs": [
-              "Müşteri, dünya çapında kesintisiz kapsama sağlayan gelişmiş bir uydu ağı ve bağlantı altyapısı işletir. Kaynak, ortaklığın Ocak 2021’de başladığını belirtir."
+              "Müşteri, dünya çapında kesintisiz kapsama sağlayan gelişmiş bir uydu ağı ve bağlantı altyapısı işletir. Proje profili, ortaklığın Ocak 2021’de başladığını belirtir."
             ]
           },
           {
@@ -204,35 +204,35 @@
           {
             "title": "Delivery approach",
             "paragraphs": [
-              "The delivery team assisted the client in designing a new, highly scalable infrastructure for the monitoring solution and all its additional features. We assessed the client’s existing architecture, which included comprehensive analyses of the monitoring solution, the administration platform, and the risk-based oversight application. During this assessment, the delivery team engineers:",
+              "The delivery team assisted the client in designing a new, highly scalable infrastructure for the monitoring solution and all its additional features. The delivery team assessed the client’s existing architecture, which included comprehensive analyses of the monitoring solution, the administration platform, and the risk-based oversight application. During this assessment, the delivery team engineers:",
               "Helped design the new architecture;",
               "Analyzed data storage systems;",
               "Identified challenges in the existing data architecture;",
               "Determined business needs and requirements, such as migration to the cloud, data storage and management standardization, pre-production and production testing automation, and others.",
-              "Finally, our engineers helped the client conduct code refactoring and utilize a data-centric architecture approach while developing new microservices-based solutions."
+              "Finally, the engineers helped the client conduct code refactoring and utilize a data-centric architecture approach while developing new microservices-based solutions."
             ]
           },
           {
             "title": "Implementation",
             "paragraphs": [
-              "The delivery team helped the client re-architecture the monitoring platform, making it more scalable and allowing it to process larger volumes of data quickly and efficiently. We implemented a microservices-based Data Storage service and set up a data pipeline that ingests, processes, and transports data in the following stages:",
+              "The delivery team helped the client re-architecture the monitoring platform, making it more scalable and allowing it to process larger volumes of data quickly and efficiently. The delivery team implemented a microservices-based Data Storage service and set up a data pipeline that ingests, processes, and transports data in the following stages:",
               "Conversion of csv files to the Parquet format, which resulted in faster data transfer and reduced storage costs.",
               "Transformation of data written in Python and SAS into a Parquet file, which is easier to analyze.",
               "Creation of dataset snapshots which store data in various formats for several applications.",
               "Storage of datasets on Azure blob storage instead of MySQL, which resulted in high scalability of the solution in terms of the amount of data it can store and the rate at which data can be accessed.",
               "Data from the Data Storage service is rendered in the new medical study and review platform that the delivery team engineers helped develop. This platform contains interactive dashboards and charts that display insights on each clinical study. It allows data analysts to filter trial details by various attributes, leave comments, and assign reviewers to conduct deeper data analysis.",
-              "Furthermore, we helped automate the process of creating data cubes, which represent and analyze data across different characteristics, such as patient ID, region, country, etc. As a result, this accelerated the data analysis setup from approximately 2 hours to just under 3 minutes per customer.",
+              "Furthermore, the delivery team helped automate the process of creating data cubes, which represent and analyze data across different characteristics, such as patient ID, region, country, etc. As a result, this accelerated the data analysis setup from approximately 2 hours to just under 3 minutes per customer.",
               "The delivery team also helped automate action item generation for cases when data anomalies are detected. Instead of manually inspecting data and creating action items for deviations, customers can simply set up and configure specific thresholds. If data crosses the set threshold, the system automatically generates notifications to the customer’s CRM and ERP systems. This accelerated data anomaly detection from several days to just minutes.",
               "Next, the delivery team assisted the client with manual and AQA testing of third-party integrations and system UI, as well as the setting up of new tools. Our AQA engineers helped unify automation tests across the monitoring platform and optimize end-to-end automation test cases. This reduced the test automation lifecycle from 24 to 3 hours and achieved a 90% test automation pass rate.",
-              "Moreover, we helped design and implement a performance testing solution that can launch multiple tests with different scenarios on numerous environments at the same time. This included implementing a single test reporting tool for all QA teams, which provides analytics for all unit tests and aggregates and compares results on a daily, weekly, or quarterly basis.",
-              "Together with the client, we implemented automated regression testing for multiple solution environments. We set up testing for system migration to a separate environment, which allowed us to verify changes in the database and architecture components without disturbing other environments, manual testing, or the development process.",
-              "Finally, the delivery team helped the client build a new separate administration platform, which was originally part of the monitoring platform. We migrated all its features from the monitoring platform, such as user and study management. We also established effective synchronization between the two systems."
+              "Moreover, the delivery team helped design and implement a performance testing solution that can launch multiple tests with different scenarios on numerous environments at the same time. This included implementing a single test reporting tool for all QA teams, which provides analytics for all unit tests and aggregates and compares results on a daily, weekly, or quarterly basis.",
+              "Together with the client, the delivery team implemented automated regression testing for multiple solution environments. The delivery team set up testing for system migration to a separate environment, which allowed us to verify changes in the database and architecture components without disturbing other environments, manual testing, or the development process.",
+              "Finally, the delivery team helped the client build a new separate administration platform, which was originally part of the monitoring platform. The delivery team migrated all its features from the monitoring platform, such as user and study management. The delivery team also established effective synchronization between the two systems."
             ]
           },
           {
             "title": "Value delivered",
             "paragraphs": [
-              "The delivery team helped the client re-architecture the monitoring platform, which included providing a comprehensive architecture assessment, implementing and integrating new features and tools, and setting up automation tests. We also helped develop a separate medical study and review platform, and an administration platform. As a result of our cooperation, the client gained several substantial benefits:",
+              "The delivery team helped the client re-architecture the monitoring platform, which included providing a comprehensive architecture assessment, implementing and integrating new features and tools, and setting up automation tests. The delivery team also helped develop a separate medical study and review platform, and an administration platform. As a result of the engagement, the client gained several substantial benefits:",
               "Increased customer base and engaged a Fortune Global 500 company by enhancing their services with a new monitoring platform that offers a wide range of useful features;",
               "Grew their revenue by 115% in 2023 alone as a result of the increase in customer base;",
               "Improved platform performance by up to 14.5 times by utilizing cloud-native features for storing data and applying a data-centric approach that allows the platform to be scaled easily.",
@@ -373,12 +373,12 @@
     "slug": "brand-protection-security",
     "source": "https://www.n-ix.com/case-study/security-assessment-brand-infringement-protection-service-provider/",
     "cover": "/brand/digital-transformation/case-3-cover.webp",
-    "diagram": "/brand/digital-transformation/case-3-image-1.webp",
+    "diagram": "/brand/digital-transformation/security-assessment.svg",
     "gallery": [
       {
-        "src": "/brand/digital-transformation/case-3-image-1.webp",
-        "width": 1125,
-        "height": 695
+        "src": "/brand/digital-transformation/security-assessment.svg",
+        "width": 960,
+        "height": 500
       }
     ],
     "imageSection": 2,
@@ -403,9 +403,9 @@
           {
             "title": "Implementation",
             "paragraphs": [
-              "The delivery team performed a comprehensive security assessment of the client’s applications, analyzing their external interfaces and business logic implementation and focusing on security flaws, vulnerabilities, and misconfigurations. We provided actionable recommendations based on our analysis that helped the client strengthen their security posture. Our specialists conducted penetration testing using the OWASP Web Security Testing Guide checklist to ensure comprehensive coverage of all web security aspects.",
-              "In addition, the delivery team helped the client migrate their applications from Java to Python to ensure more efficient data scraping and processing. We also developed several new applications to cover more marketplaces and emulated human-like behavior to make their detection more difficult.",
-              "Finally, our engineers helped improve the efficiency of the client’s applications by utilizing several Python optimization techniques. This ensured they could process large amounts of data with minimal resource usage."
+              "The delivery team performed a comprehensive security assessment of the client’s applications, analyzing their external interfaces and business logic implementation and focusing on security flaws, vulnerabilities, and misconfigurations. The delivery team provided actionable recommendations based on our analysis that helped the client strengthen their security posture. The specialists conducted penetration testing using the OWASP Web Security Testing Guide checklist to ensure comprehensive coverage of all web security aspects.",
+              "In addition, the delivery team helped the client migrate their applications from Java to Python to ensure more efficient data scraping and processing. The delivery team also developed several new applications to cover more marketplaces and emulated human-like behavior to make their detection more difficult.",
+              "Finally, the engineers helped improve the efficiency of the client’s applications by utilizing several Python optimization techniques. This ensured they could process large amounts of data with minimal resource usage."
             ]
           },
           {
@@ -459,7 +459,7 @@
           {
             "title": "Müşteri hakkında",
             "paragraphs": [
-              "Müşteri, makine öğrenmesi dahil teknolojilerle korsanlık ve marka kötüye kullanımına karşı koruma hizmetleri sunar. Kaynak Avrupa konumunu, Şubat 2017 ortaklık başlangıcını, on yılı aşkın faaliyeti, 300’den fazla çalışanı ve 1.000’den fazla müşteriyi bildirir."
+              "Müşteri, makine öğrenmesi dahil teknolojilerle korsanlık ve marka kötüye kullanımına karşı koruma hizmetleri sunar. Proje profili Avrupa konumunu, Şubat 2017 ortaklık başlangıcını, on yılı aşkın faaliyeti, 300’den fazla çalışanı ve 1.000’den fazla müşteriyi bildirir."
             ]
           },
           {
@@ -517,8 +517,8 @@
         "height": 703
       },
       "diagram": {
-        "width": 1125,
-        "height": 695
+        "width": 960,
+        "height": 500
       }
     }
   },
@@ -526,12 +526,12 @@
     "slug": "media-platform-microservices",
     "source": "https://www.n-ix.com/case-study/platform-re-architecture-microservices-media-licensing/",
     "cover": "/brand/digital-transformation/case-4-cover.webp",
-    "diagram": "/brand/digital-transformation/case-4-image-1.webp",
+    "diagram": "/brand/digital-transformation/microservices-architecture.svg",
     "gallery": [
       {
-        "src": "/brand/digital-transformation/case-4-image-1.webp",
-        "width": 1125,
-        "height": 542
+        "src": "/brand/digital-transformation/microservices-architecture.svg",
+        "width": 960,
+        "height": 500
       }
     ],
     "imageSection": 2,
@@ -556,8 +556,8 @@
           {
             "title": "Implementation",
             "paragraphs": [
-              "The delivery team helped the client re-architecture a massive monolithic architecture into microservices to make the web and admin platforms easier to maintain and customize. We utilized the serverless approach for the architecture, eliminating the need to maintain servers and enabling the client to use the pay-as-you-go model. After successfully developing a PoC of the Transition microservice using Nest.js, we applied its TypeScript-based framework for microservices related to user identity, subscription, and online sales.",
-              "Additionally, the delivery team engineers helped implement a Single Sign-On multi-factor authentication and a social login for the client’s products. We also helped improve subscription management by decoupling a massive legacy Subscription module into smaller and more flexible microservices, such as Rebilling, Adjustment, and Transition.",
+              "The delivery team helped the client re-architecture a massive monolithic architecture into microservices to make the web and admin platforms easier to maintain and customize. The delivery team utilized the serverless approach for the architecture, eliminating the need to maintain servers and enabling the client to use the pay-as-you-go model. After successfully developing a PoC of the Transition microservice using Nest.js, the delivery team applied its TypeScript-based framework for microservices related to user identity, subscription, and online sales.",
+              "Additionally, the delivery team engineers helped implement a Single Sign-On multi-factor authentication and a social login for the client’s products. The delivery team also helped improve subscription management by decoupling a massive legacy Subscription module into smaller and more flexible microservices, such as Rebilling, Adjustment, and Transition.",
               "Finally, the delivery team helped the client develop Promotions and Product APIs to facilitate the management of promotional activities."
             ]
           },
@@ -611,7 +611,7 @@
           {
             "title": "Müşteri hakkında",
             "paragraphs": [
-              "Müşteri video, müzik, görsel ve markaya özel içerik lisanslamada küresel bir liderdir. Kaynak Haziran 2019 ortaklık başlangıcını, 20 yılı aşkın deneyimi, 1.000’den fazla çalışanı ve milyonlarca katkı sağlayanı belirtir."
+              "Müşteri video, müzik, görsel ve markaya özel içerik lisanslamada küresel bir liderdir. Proje profili Haziran 2019 ortaklık başlangıcını, 20 yılı aşkın deneyimi, 1.000’den fazla çalışanı ve milyonlarca katkı sağlayanı belirtir."
             ]
           },
           {
@@ -669,8 +669,8 @@
         "height": 703
       },
       "diagram": {
-        "width": 1125,
-        "height": 542
+        "width": 960,
+        "height": 500
       }
     }
   },
@@ -715,8 +715,8 @@
               "Related suppliers view for viewing dashboards with visualization of hierarchy tiers, supplier collaboration, and market distribution.",
               "Ranking and performance view for monitoring social and environmental ranking for suppliers, such as energy consumption. It also enables creating supplier improvement plans and tracking of how these criteria change over time.",
               "Corporate information view for keeping track of supplier contacts, locations, and tax information.",
-              "The client’s employees can use the iOS application to easily add new suppliers using a QR code on their devices. Also, our engineers helped set up the testing process for the supply chain visibility module from scratch, covering more than 90% of the code with unit tests, and more than 80% with integration tests.",
-              "Additionally, the delivery team helped the client develop an MVP version of the raw material management module. It allows the client’s buyers (employees responsible for ordering raw materials for production) to see a detailed overview of all their purchases, enabling effective raw material management. We helped implement a key feature—KPIs of raw materials that outline the number of ordered materials that can be used for production and the number of expected deliverables. It improves buyers’ decision-making and ensures timely material availability for production."
+              "The client’s employees can use the iOS application to easily add new suppliers using a QR code on their devices. Also, the engineers helped set up the testing process for the supply chain visibility module from scratch, covering more than 90% of the code with unit tests, and more than 80% with integration tests.",
+              "Additionally, the delivery team helped the client develop an MVP version of the raw material management module. It allows the client’s buyers (employees responsible for ordering raw materials for production) to see a detailed overview of all their purchases, enabling effective raw material management. The delivery team helped implement a key feature—KPIs of raw materials that outline the number of ordered materials that can be used for production and the number of expected deliverables. It improves buyers’ decision-making and ensures timely material availability for production."
             ]
           },
           {
@@ -773,7 +773,7 @@
           {
             "title": "Müşteri hakkında",
             "paragraphs": [
-              "Müşteri, binlerce mağazası ve on binlerce çalışanı bulunan küresel moda perakendecisidir. Kaynak 50 yılı aşkın faaliyet, 5.000’den fazla mağaza, 100.000’den fazla çalışan ve 30 milyar dolar üzeri yıllık gelir ile Ekim 2019 ortaklık başlangıcını bildirir."
+              "Müşteri, binlerce mağazası ve on binlerce çalışanı bulunan küresel moda perakendecisidir. Proje profili 50 yılı aşkın faaliyet, 5.000’den fazla mağaza, 100.000’den fazla çalışan ve 30 milyar dolar üzeri yıllık gelir ile Ekim 2019 ortaklık başlangıcını bildirir."
             ]
           },
           {
@@ -873,7 +873,7 @@
           {
             "title": "Implementation",
             "paragraphs": [
-              "The delivery team engineers investigated several AI and ML-based models, defined their strengths and weaknesses, and helped the client choose the model best suited to their needs. We then prepared a comprehensive roadmap for building an AI-powered solution that generates photorealistic 2D and 3D models of clothing for both men and women.",
+              "The delivery team engineers investigated several AI and ML-based models, defined their strengths and weaknesses, and helped the client choose the model best suited to their needs. The delivery team then prepared a comprehensive roadmap for building an AI-powered solution that generates photorealistic 2D and 3D models of clothing for both men and women.",
               "The solution analyzes sketches of clothes prepared by a designer and the set body parameters required for testing. Based on this data, it generates a 2D or 3D model of how the product would fit on a person."
             ]
           },
@@ -926,7 +926,7 @@
           {
             "title": "Müşteri hakkında",
             "paragraphs": [
-              "Müşteri, kadın ve erkek iç giyim ve uyku giyimi tasarlayan, üreten ve satan, Avrupa’da bölgesel lider bir şirkettir. Kaynak Avusturya konumunu, Şubat 2024 ortaklık başlangıcını, 100 yılı aşkın faaliyeti, 15’ten fazla ülkeyi ve 200’den fazla konumu bildirir."
+              "Müşteri, kadın ve erkek iç giyim ve uyku giyimi tasarlayan, üreten ve satan, Avrupa’da bölgesel lider bir şirkettir. Proje profili Avusturya konumunu, Şubat 2024 ortaklık başlangıcını, 100 yılı aşkın faaliyeti, 15’ten fazla ülkeyi ve 200’den fazla konumu bildirir."
             ]
           },
           {

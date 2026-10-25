@@ -953,3 +953,18 @@
     grid-template-columns: 1fr;
   }
 }
+/* The overview and technology catalogue no longer contain reference material. */
+.digital-overview {
+  grid-template-columns: 1fr;
+}
+.digital-partner-logos li {
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 110px;
+  color: #375887;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.digital-partner-logos svg {
+  color: var(--dx-blue);
+}

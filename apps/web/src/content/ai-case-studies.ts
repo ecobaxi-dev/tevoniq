@@ -63,3 +63,19 @@ export const aiCaseCopy = {
     snapshot: 'Sonuçlar kaynak yayında bildirildiği şekildedir; projeye göre farklılık gösterir.',
   },
 } satisfies Record<Locale, Record<string, string>>;
+
+export const digitalCasePresentation = {
+  ar: {
+    notice: 'توضح هذه الدراسات نتائج مشاريع محددة، ولا تمثل أعمالًا نفّذتها TEVONIQ.',
+    snapshot: 'تختلف النتائج بحسب نطاق المشروع وظروفه.',
+  },
+  en: {
+    notice: 'These studies describe specific project outcomes, not projects delivered by TEVONIQ.',
+    snapshot: 'Outcomes vary by project scope and circumstances.',
+  },
+  tr: {
+    notice:
+      'Bu çalışmalar belirli projelerin sonuçlarını anlatır; TEVONIQ tarafından teslim edilen projeler değildir.',
+    snapshot: 'Sonuçlar projenin kapsamına ve koşullarına göre değişir.',
+  },
+};

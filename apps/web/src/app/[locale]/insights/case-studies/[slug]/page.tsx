@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { Container } from '@tevoniq/ui';
 import { localeSchema } from '@tevoniq/validation';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
-import { aiCaseStudies, aiCaseCopy } from '@/content/ai-case-studies';
+import { aiCaseStudies, aiCaseCopy, digitalCasePresentation } from '@/content/ai-case-studies';
 import { AiCaseCards } from '@/components/ai-case-cards';
 import { routeMetadata } from '@/lib/seo';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -41,7 +41,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 export default async function Page({ params }: Props) {
   const { locale, study } = await resolve(params),
-    c = aiCaseCopy[locale],
+    c =
+      study.serviceSlug === 'digital-transformation'
+        ? { ...aiCaseCopy[locale], ...digitalCasePresentation[locale] }
+        : aiCaseCopy[locale],
     t = study.translations[locale];
   return (
     <>
@@ -134,15 +137,17 @@ export default async function Page({ params }: Props) {
                 </li>
               ))}
             </ol>
-            <a
-              className="ai-case-source"
-              href={study.source}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {c.source}
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
+            {study.serviceSlug !== 'digital-transformation' && (
+              <a
+                className="ai-case-source"
+                href={study.source}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {c.source}
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            )}
           </aside>
         </Container>
         <section className="ai-case-more">

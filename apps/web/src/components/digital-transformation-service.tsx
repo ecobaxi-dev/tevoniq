@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Container } from '@tevoniq/ui';
 import {
   ArrowUpRight,
-  ArrowRight,
   Check,
   ChevronDown,
   Compass,
@@ -14,7 +13,6 @@ import {
   BarChart3,
   Cloud,
   TrendingUp,
-  Quote,
 } from 'lucide-react';
 import type { Locale } from '@tevoniq/types';
 import type { PublicService } from '@tevoniq/validation';
@@ -37,51 +35,9 @@ const ids = [
   'digital-challenges',
   'digital-roadmap',
   'digital-expertise',
-  'digital-recognition',
   'digital-faq',
 ];
 const icons = [Compass, Cpu, Search, Bot, Code2];
-function SourceLink({ locale }: { locale: Locale }) {
-  return (
-    <a className="digital-source" href={assets.source} target="_blank" rel="noopener noreferrer">
-      {copy[locale].source}
-      <ArrowUpRight size={16} aria-hidden="true" />
-    </a>
-  );
-}
-function ExpertQuote({ locale, index }: { locale: Locale; index: number }) {
-  const c = copy[locale],
-    q = assets.quotes[index]!;
-  return (
-    <section className="digital-quote-section">
-      <Container>
-        <figure className="digital-quote">
-          <Image src={q.image} alt={q.name} width={195} height={230} unoptimized />
-          <div>
-            <p className="digital-eyebrow">{c.quoteLabel}</p>
-            <Quote size={24} aria-hidden="true" />
-            <blockquote>{c.quotes[index]}</blockquote>
-            <figcaption>
-              <strong>{q.name}</strong>
-              <span>
-                {locale === 'ar'
-                  ? index === 0
-                    ? c.leaderRoles[3]
-                    : 'رئيس مجموعة الحلول'
-                  : locale === 'tr'
-                    ? index === 0
-                      ? c.leaderRoles[3]
-                      : 'Çözüm Grubu Lideri'
-                    : q.role}
-              </span>
-            </figcaption>
-            <SourceLink locale={locale} />
-          </div>
-        </figure>
-      </Container>
-    </section>
-  );
-}
 export async function DigitalTransformationService({
   service,
   locale,
@@ -130,22 +86,7 @@ export async function DigitalTransformationService({
           ))}
         </Container>
       </nav>
-      <section className="digital-section digital-tint" aria-labelledby="digital-clients-title">
-        <Container>
-          <div className="digital-heading">
-            <h2 id="digital-clients-title">{c.clientsTitle}</h2>
-            <p className="digital-disclosure">{c.external}</p>
-          </div>
-          <ul className="digital-logos digital-client-logos">
-            {assets.clients.map((a) => (
-              <li key={a.name}>
-                <Image src={a.src} alt={a.name} width={180} height={90} unoptimized />
-              </li>
-            ))}
-          </ul>
-          <SourceLink locale={locale} />
-        </Container>
-      </section>
+
       <section className="digital-section" aria-labelledby="digital-overview-title">
         <Container>
           <div className="digital-overview">
@@ -154,53 +95,10 @@ export async function DigitalTransformationService({
               <h2 id="digital-overview-title">{c.overview}</h2>
               <p>{c.overviewBody}</p>
             </div>
-            <aside className="digital-market">
-              <h3>{c.marketTitle}</h3>
-              {c.market.map((m) => (
-                <div key={m.value}>
-                  <strong dir="ltr">{m.value}</strong>
-                  <div>
-                    <p>{m.body}</p>
-                    <small>{m.source}</small>
-                  </div>
-                </div>
-              ))}
-              <SourceLink locale={locale} />
-            </aside>
           </div>
         </Container>
       </section>
-      <section
-        className="digital-section digital-framework"
-        aria-labelledby="digital-framework-title"
-      >
-        <Container>
-          <div className="digital-heading">
-            <p className="digital-eyebrow">APEX / EXTERNAL FRAMEWORK</p>
-            <h2 id="digital-framework-title">{c.frameworkTitle}</h2>
-            <p>{c.frameworkBody}</p>
-          </div>
-          <ol className="digital-framework-stages">
-            {c.frameworkStages.map((stage, i) => (
-              <li key={stage}>
-                <span>0{i + 1}</span>
-                <strong>{stage}</strong>
-                <ArrowRight size={20} aria-hidden="true" />
-              </li>
-            ))}
-          </ol>
-          <p className="digital-disclosure">{c.external}</p>
-          <div className="digital-framework-stats">
-            {c.frameworkStats.map((m) => (
-              <div key={m.value}>
-                <strong dir="ltr">{m.value}</strong>
-                <span>{m.body}</span>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-      <ExpertQuote locale={locale} index={0} />
+
       <section
         id="digital-services"
         className="digital-section digital-dark"
@@ -263,25 +161,7 @@ export async function DigitalTransformationService({
           </a>
         </Container>
       </section>
-      <section className="digital-section" aria-labelledby="digital-report-title">
-        <Container className="digital-report">
-          <Image src={assets.report} alt={c.reportTitle} width={480} height={600} unoptimized />
-          <div>
-            <p className="digital-eyebrow">MARKET REPORT</p>
-            <h2 id="digital-report-title">{c.reportTitle}</h2>
-            <p>{c.reportBody}</p>
-            <a
-              className="digital-button"
-              href={`${assets.source}#updatedPdfForm`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {c.reportCta}
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-          </div>
-        </Container>
-      </section>
+
       <section
         id="digital-challenges"
         className="digital-section digital-tint"
@@ -347,87 +227,18 @@ export async function DigitalTransformationService({
         <Container>
           <div className="digital-heading">
             <h2 id="digital-partners-title">{c.partnersTitle}</h2>
-            <p className="digital-disclosure">{c.external}</p>
           </div>
           <ul className="digital-logos digital-partner-logos">
             {assets.partners.map((a) => (
-              <li key={a.src}>
-                <Image src={a.src} alt={a.name} width={210} height={130} unoptimized />
+              <li key={a.name}>
+                <Cpu size={24} strokeWidth={1.4} aria-hidden="true" />
+                <span>{a.name}</span>
               </li>
             ))}
           </ul>
-          <SourceLink locale={locale} />
         </Container>
       </section>
-      <section
-        id="digital-recognition"
-        className="digital-section digital-tint"
-        aria-labelledby="digital-recognition-title"
-      >
-        <Container>
-          <div className="digital-heading">
-            <p className="digital-eyebrow">07 / RECOGNITION & COMPLIANCE</p>
-            <h2 id="digital-recognition-title">{c.awardsTitle}</h2>
-            <p className="digital-disclosure">{c.awardsNotice}</p>
-          </div>
-          <div className="digital-awards">
-            {assets.awards.map((a, i) => (
-              <article key={a.source}>
-                <a href={a.source} target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={a.image}
-                    alt={c.awards[i]!.title}
-                    width={230}
-                    height={130}
-                    unoptimized
-                  />
-                  <h3>{c.awards[i]!.title}</h3>
-                  <p>{c.awards[i]!.body}</p>
-                  <span className="digital-source">
-                    {c.source}
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </span>
-                </a>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-      <ExpertQuote locale={locale} index={1} />
-      <section className="digital-section digital-profile" aria-labelledby="digital-profile-title">
-        <Container>
-          <div className="digital-heading">
-            <h2 id="digital-profile-title">{c.profileTitle}</h2>
-            <p className="digital-disclosure">{c.external}</p>
-          </div>
-          <div>
-            {c.profile.map((p) => (
-              <article key={p.value}>
-                <strong dir="ltr">{p.value}</strong>
-                <p>{p.body}</p>
-              </article>
-            ))}
-          </div>
-          <SourceLink locale={locale} />
-        </Container>
-      </section>
-      <section className="digital-section" aria-labelledby="digital-leaders-title">
-        <Container>
-          <div className="digital-heading">
-            <h2 id="digital-leaders-title">{c.leadersTitle}</h2>
-            <p className="digital-disclosure">{c.external}</p>
-          </div>
-          <div className="digital-leaders">
-            {assets.leaders.map((leader, i) => (
-              <article key={leader.name}>
-                <Image src={leader.image} alt={leader.name} width={270} height={270} unoptimized />
-                <h3>{leader.name}</h3>
-                <p>{c.leaderRoles[i]}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+
       <section
         id="digital-faq"
         className="digital-section digital-tint"
@@ -457,17 +268,16 @@ export async function DigitalTransformationService({
             <h2 id="digital-links-title">{c.linksTitle}</h2>
           </div>
           <ul className="digital-related-links">
-            {links.map((link) => (
-              <li key={link.source}>
-                <a
-                  href={link.slug ? `/${locale}/services/${link.slug}` : link.source}
-                  {...(!link.slug ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                >
-                  {link.titles[locale]}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
-              </li>
-            ))}
+            {links
+              .filter((link) => link.slug)
+              .map((link) => (
+                <li key={link.titles.en}>
+                  <a href={`/${locale}/services/${link.slug}`}>
+                    {link.titles[locale]}
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
           </ul>
         </Container>
       </section>

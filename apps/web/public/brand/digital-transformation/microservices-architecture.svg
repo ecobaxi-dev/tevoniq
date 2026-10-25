@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#edf4ff"/><stop offset="1" stop-color="#fafcff"/></linearGradient><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0l9 5-9 5" fill="none" stroke="#245bff" stroke-width="1.5"/></marker></defs>
+<rect width="960" height="500" rx="24" fill="url(#bg)"/>
+<g font-family="Arial,sans-serif" fill="#0c2146"><text x="48" y="52" font-size="14" letter-spacing="2">PLATFORM MODERNIZATION</text><text x="48" y="455" font-size="15" fill="#526985">Independent services · Clear responsibilities · Flexible delivery</text></g>
+<rect x="70" y="110" width="280" height="280" rx="20" fill="#dce8fa" stroke="#a9c0e2"/>
+<g fill="white" stroke="#9db9df"><rect x="100" y="150" width="220" height="55" rx="9"/><rect x="100" y="220" width="220" height="55" rx="9"/><rect x="100" y="290" width="220" height="55" rx="9"/></g>
+<path d="M380 250h135" stroke="#245bff" stroke-width="4" marker-end="url(#arrow)"/>
+<g fill="#fff" stroke="#9db9df"><rect x="580" y="105" width="280" height="75" rx="14"/><rect x="580" y="210" width="280" height="75" rx="14"/><rect x="580" y="315" width="280" height="75" rx="14"/></g>
+<g fill="#245bff"><circle cx="610" cy="142" r="7"/><circle cx="610" cy="247" r="7"/><circle cx="610" cy="352" r="7"/></g>
+<g font-family="Arial,sans-serif" fill="#0c2146" text-anchor="middle"><text x="210" y="95" font-size="20">Monolithic platform</text><text x="720" y="85" font-size="20">Independent services</text><text x="210" y="184" font-size="17">Identity</text><text x="210" y="254" font-size="17">Subscriptions</text><text x="210" y="324" font-size="17">Products &amp; promotions</text><text x="735" y="148" font-size="18">Identity service</text><text x="735" y="253" font-size="18">Subscription services</text><text x="735" y="358" font-size="18">Product APIs</text></g></svg>
