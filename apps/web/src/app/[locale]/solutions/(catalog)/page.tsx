@@ -17,6 +17,7 @@ import {
   PanelsTopLeft,
 } from 'lucide-react';
 import { SolutionFinder } from '@/components/solution-finder';
+import { SolutionJourney } from '@/components/solution-journey';
 import { conceptArt } from '@/config/concept-art';
 import { solutionExperience, solutionTrack, catalogHref } from '@/content/solution-experience';
 import { getSolutions } from '@/lib/solutions';
@@ -261,21 +262,18 @@ async function PublicPage({ params, searchParams }: Props) {
           )}
         </Container>
       </Section>
-      <Section className="solutions-approach" spacing="compact">
+      <Section
+        id="solution-approach"
+        className="solutions-approach"
+        spacing="compact"
+        aria-labelledby="solution-approach-title"
+      >
         <Container>
           <p className="tv-eyebrow">{copy.approachEyebrow}</p>
-          <Heading as="h2" className="tv-h2">
+          <Heading as="h2" id="solution-approach-title" className="tv-h2">
             {copy.approachTitle}
           </Heading>
-          <ol>
-            {copy.steps.map((step, index) => (
-              <li key={step.title}>
-                <span aria-hidden="true">0{index + 1}</span>
-                <Heading as="h3">{step.title}</Heading>
-                <p>{step.body}</p>
-              </li>
-            ))}
-          </ol>
+          <SolutionJourney locale={locale.data} />
         </Container>
       </Section>
       <Section className="solutions-consultation" spacing="compact">

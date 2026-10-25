@@ -118,7 +118,7 @@ export const solutionExperience = {
     all: 'All solutions',
     featured: 'Featured',
     approachEyebrow: 'A CLEAR NEXT STEP',
-    approachTitle: 'From a business need to connected delivery',
+    approachTitle: 'From need to connected delivery',
     steps: [
       {
         title: 'Understand your context',
