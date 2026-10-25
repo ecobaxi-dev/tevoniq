@@ -7,7 +7,7 @@ test('homepage contains approved capabilities, hides empty CMS sections, and lin
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Premium Technologyfor a Smarter Tomorrow',
   );
-  await expect(page.locator('.home-solutions .tv-card')).toHaveCount(6);
+  await expect(page.locator('.sme-service-card')).toHaveCount(4);
   await expect(page.locator('.technology-ecosystem__choices button')).toHaveCount(9);
   await expect(page.locator('.why-tevoniq__value')).toHaveCount(6);
   for (const id of ['industries', 'projects', 'partners', 'insights'])
@@ -47,9 +47,47 @@ test('homepage remains readable without JavaScript', async ({ browser }) => {
   await page.goto('http://127.0.0.1:3100/en');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(
-    page
-      .locator('#solutions')
-      .getByRole('heading', { name: 'Artificial Intelligence', exact: true }),
+    page.locator('#solutions').getByRole('heading', { name: 'Business websites', exact: true }),
   ).toBeVisible();
+  const details = page.locator('.sme-service-details').first();
+  await details.locator('summary').click();
+  await expect(details).toHaveAttribute('open', '');
+  await expect(details.locator('li')).toHaveCount(3);
   await context.close();
+});
+
+test('Arabic service cards follow the hero and expose examples, delivery scope and working contact links', async ({
+  page,
+}) => {
+  await page.goto('/ar');
+  const section = page.locator('.sme-home-services');
+  await expect(page.locator('.artwork-hero + .sme-home-services')).toHaveCount(1);
+  await expect(page.locator('#solutions')).toHaveCount(1);
+  const cards = section.locator('article');
+  await expect(cards.locator('h3')).toHaveText([
+    'مواقع الأعمال',
+    'أنظمة إدارة العمل',
+    'الأتمتة والربط',
+    'لوحات المعلومات',
+  ]);
+  await expect(cards.locator('.sme-service-example > span')).toHaveText(
+    Array(4).fill('مثال توضيحي'),
+  );
+  for (const card of await cards.all()) {
+    const details = card.locator('details');
+    await card.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    await expect(details).toHaveAttribute('open', '');
+    await expect(details.locator('li')).toHaveCount(3);
+    await expect(card.getByRole('link', { name: /ناقش احتياجك/ })).toHaveAttribute(
+      'href',
+      '/ar/contact?intent=quote',
+    );
+  }
+  await cards
+    .first()
+    .getByRole('link', { name: /ناقش احتياجك/ })
+    .click();
+  await expect(page).toHaveURL('/ar/contact?intent=quote');
+  await expect(page.locator('main h1')).toBeVisible();
 });

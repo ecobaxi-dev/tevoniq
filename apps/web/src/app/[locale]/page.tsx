@@ -25,6 +25,7 @@ import { TechnologyEcosystem } from '@/components/technology-ecosystem';
 import { WhyTevoniq } from '@/components/why-tevoniq';
 import { AdvocasShowcase } from '@/components/advocas-showcase';
 import { DeliveryApproach } from '@/components/delivery-approach';
+import { HomeServices } from '@/components/home-services';
 
 import { getHomeContent } from '@/lib/home';
 import { localizedHref } from '@/config/navigation';
@@ -52,31 +53,39 @@ async function PublicPage({ params }: PageProps) {
     <div className="home-page" data-theme="light">
       <main id="main-content">
         <ReferenceHero locale={locale} copy={hero} />
+        {locale !== 'tr' && <HomeServices locale={locale} />}
         <PestoHomeEntry locale={locale} />
         <HomeEntrances>
-          <Section id="solutions" tone="muted" spacing="compact" className="home-solutions-section">
-            <Container className="home-solutions-layout">
-              <div data-entrance className="home-solutions-intro">
-                <SectionHeader eyebrow={copy.solutionsLabel} title={copy.solutionsTitle} />
-                <p className="tv-description">{copy.introduction}</p>
-                <a className="home-section-link" href={href('/solutions')}>
-                  {copy.explore}
-                  <ArrowRight size={18} aria-hidden="true" />
-                </a>
-                <SolutionsVisual />
-              </div>
-              <div className="home-solutions">
-                {copy.solutions.map((solution, index) => {
-                  const Icon = solutionIcons[index] ?? Cpu;
-                  return (
-                    <div data-entrance key={solution.title}>
-                      <ServiceCard {...solution} icon={<Icon size={26} />} />
-                    </div>
-                  );
-                })}
-              </div>
-            </Container>
-          </Section>
+          {locale === 'tr' && (
+            <Section
+              id="solutions"
+              tone="muted"
+              spacing="compact"
+              className="home-solutions-section"
+            >
+              <Container className="home-solutions-layout">
+                <div data-entrance className="home-solutions-intro">
+                  <SectionHeader eyebrow={copy.solutionsLabel} title={copy.solutionsTitle} />
+                  <p className="tv-description">{copy.introduction}</p>
+                  <a className="home-section-link" href={href('/solutions')}>
+                    {copy.explore}
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </a>
+                  <SolutionsVisual />
+                </div>
+                <div className="home-solutions">
+                  {copy.solutions.map((solution, index) => {
+                    const Icon = solutionIcons[index] ?? Cpu;
+                    return (
+                      <div data-entrance key={solution.title}>
+                        <ServiceCard {...solution} icon={<Icon size={26} />} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </Container>
+            </Section>
+          )}
           <DeliveryApproach locale={locale} />
           <TechnologyEcosystem locale={locale} copy={copy} />
           <WhyTevoniq locale={locale} copy={copy} />
