@@ -65,6 +65,20 @@ and deletion policy before public enrollment. Email consent is registration-only
 
 ## Validation
 
+Verification messages include a table-based, inline-styled HTML version in Arabic
+(RTL), English and Turkish, alongside the unchanged plain-text fallback. The
+eight-digit code stays contiguous and LTR, including leading zeros. The template
+uses text branding and system fonts, so remote images are not required. Links are
+fixed to the localized Pesto page and the support email; no tracking is included.
+The message explains that expiry runs from request creation and that email
+verification alone does not start a trial or activate a license.
+
+Run `node --test tests/pesto-verification-email.test.mjs` after building the API
+for localization, escaping, code and markup checks. Local HTML previews use a
+synthetic code and request reference only. Real Gmail/Outlook delivery and
+client-specific rendering have not been tested by sending messages; check those
+clients during release validation.
+
 Run npm test, then node tests/pesto-registration.integration.mjs. The integration
 check uses an isolated in-memory PostgreSQL-compatible database, fake email
 transport, and a local HTTP server; it never contacts the production database or
