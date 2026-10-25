@@ -26,6 +26,14 @@ must never issue a license.
 
 ## SEO and validation
 
+The separate [customer registration API foundation](pesto-registration.md) is
+disabled by default. It requires an additive database migration when deployed and
+does not enable this page's downloads, trials or activation controls.
+The [trial signing service](pesto-trials.md) is separately disabled and requires
+trusted Windows public-key configuration and host enrollment before public use.
+The [public enrollment proxy](pesto-public-proxy.md) is prepared and independently
+disabled; its deployment does not activate this page's download/trial controls.
+
 The page supplies localized metadata and hreflang links for enabled languages.
 Sitemap entries are deduplicated and defer to any explicit CMS route policy.
 The test API fixture supplies an empty SEO catalogue so code-owned sitemap entries
