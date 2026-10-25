@@ -2,11 +2,13 @@ import {
   Body,
   Controller,
   ForbiddenException,
+  Get,
   Header,
   HttpCode,
   Inject,
   Param,
   Post,
+  Query,
   Req,
 } from '@nestjs/common';
 import type { CmsRequest } from '../cms/cms.guard.js';
@@ -42,6 +44,12 @@ export class CmsPestoPurchaseController {
     if (!['SUPER_ADMIN', 'ADMIN'].includes(req.cmsUser?.role))
       throw new ForbiddenException('Company administrator required.');
     return req.cmsUser.id;
+  }
+  @Get()
+  @Header('Cache-Control', 'no-store')
+  list(@Query() query: Record<string, unknown>, @Req() req: CmsRequest) {
+    this.companyAdmin(req);
+    return this.service.list(query);
   }
   @Post()
   @HttpCode(200)

@@ -21,6 +21,7 @@ import {
 import { enforceEndpoint } from '../apps/api/dist/cms/permissions.js';
 import { forwardPesto } from '../apps/web/src/lib/pesto-proxy-core.ts';
 import { CmsGuard } from '../apps/api/dist/cms/cms.guard.js';
+import { digest } from '../apps/api/dist/cms/password.js';
 import { LeadBotProtection } from '../apps/api/dist/leads/bot-protection.js';
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -122,6 +123,9 @@ try {
       false,
     );
   const admin = new CmsPestoPurchaseController(purchases);
+  assert.throws(() => admin.list({}, { cmsUser: { id: 'fake', role: 'EDITOR' } }), {
+    status: 403,
+  });
   const request = {
     cmsUser: { id: randomUUID(), role: 'SUPER_ADMIN' },
     method: 'POST',
@@ -172,6 +176,30 @@ try {
   assert.equal(storedPurchase.keyHash, hash(issued.purchaseKey));
   assert.equal(JSON.stringify(storedPurchase).includes(issued.purchaseKey), false);
   assert.equal(storedPurchase.createdById, request.cmsUser.id);
+  enforceEndpoint('CmsPestoPurchaseController', 'list', { ...request, method: 'GET' });
+  const firstCatalog = await admin.list({}, request);
+  assert.equal(firstCatalog.enabled, true);
+  assert.equal(firstCatalog.total, 1);
+  assert.equal(firstCatalog.items[0].status, 'unused');
+  assert.equal(firstCatalog.items[0].email, original.email);
+  assert.equal(firstCatalog.items[0].delivery, null);
+  for (const filters of [
+    { page: '0' },
+    { page: '1.5' },
+    { page: '100001' },
+    { page: ['1'] },
+    { status: 'unknown' },
+    { search: ['nested'] },
+    { search: 'a'.repeat(121) },
+    { includeSecrets: 'true' },
+  ])
+    await assert.rejects(purchases.list(filters), { status: 400 });
+  for (const field of ['keyHash', 'keyNonce', 'envelope', 'deviceHash', 'installationId'])
+    assert.equal(JSON.stringify(firstCatalog).includes(field), false, field);
+  assert.equal(JSON.stringify(firstCatalog).includes(issued.purchaseKey), false);
+  assert.equal((await purchases.list({ search: 'no-such-customer' })).total, 0);
+  assert.equal((await purchases.list({ search: 'OWNER@EXAMPLE.TEST' })).total, 1);
+  assert.deepEqual((await purchases.list({ page: '2' })).items, []);
   const nextProof = await enroll(
     profile({ installationId: original.installationId, deviceHash: original.deviceHash }),
   );
@@ -345,6 +373,26 @@ try {
   });
   settings.PESTO_PURCHASE_ENABLED = 'false';
   await assert.rejects(purchases.activate(activationInput), { status: 503 });
+  const disabledCatalog = await purchases.list({ status: 'activated' });
+  assert.equal(disabledCatalog.enabled, false);
+  const activatedRow = disabledCatalog.items.find((row) => row.purchaseId === issued.purchaseId);
+  assert.equal(activatedRow.activationId, activated.activationId);
+  assert.equal(activatedRow.delivery.status, 'SENT');
+  assert.equal(activatedRow.delivery.attempts, 1);
+  assert.equal(
+    (await purchases.list({ status: 'revoked' })).items[0].purchaseId,
+    otherKey.purchaseId,
+  );
+  assert.equal(
+    (await purchases.list({ status: 'activated', search: failKey.email })).items.some(
+      (row) => row.delivery?.status === 'FAILED',
+    ),
+    true,
+  );
+  await assert.rejects(admin.issue({ ...issueInput, requestId: randomUUID() }, request), {
+    status: 503,
+  });
+  await assert.rejects(admin.revoke(randomUUID(), request), { status: 503 });
   await worker.process();
   assert.equal(sent.length, 1);
   settings.PESTO_PURCHASE_ENABLED = 'true';
@@ -361,9 +409,7 @@ try {
   app = await NestFactory.create(PurchaseTestModule, { logger: false });
   app.useGlobalGuards(
     new CmsGuard(db, {
-      read: async () => {
-        throw new Error('Unexpected CMS auth');
-      },
+      read: async () => ({ settings: { security: { sessionIdleMinutes: 30 } } }),
     }),
   );
   app.setGlobalPrefix('api/v1');
@@ -376,6 +422,38 @@ try {
       body: JSON.stringify(body),
     });
   assert.equal((await post('/api/v1/cms/pesto/purchases', issueInput)).status, 401);
+  assert.equal((await fetch(origin + '/api/v1/cms/pesto/purchases')).status, 401);
+  for (const role of ['ADMIN', 'EDITOR', 'CONTENT_MANAGER']) {
+    const token = randomBytes(32).toString('hex');
+    const user = await db.cmsUser.create({
+      data: {
+        email: `${role.toLowerCase()}@example.test`,
+        passwordHash: 'synthetic-no-login',
+        role,
+      },
+    });
+    await db.cmsSession.create({
+      data: {
+        tokenHash: digest(token),
+        userId: user.id,
+        expiresAt: new Date(Date.now() + 60000),
+      },
+    });
+    const reply = await fetch(origin + '/api/v1/cms/pesto/purchases?status=activated', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    assert.equal(reply.status, role === 'ADMIN' ? 200 : 403);
+    if (reply.ok) {
+      assert.equal(reply.headers.get('cache-control'), 'no-store');
+      const catalog = await reply.json();
+      assert.equal(
+        catalog.items.some((item) => item.purchaseId === issued.purchaseId),
+        true,
+      );
+      for (const field of ['keyHash', 'keyNonce', 'envelope', 'deviceHash', 'installationId'])
+        assert.equal(JSON.stringify(catalog).includes(field), false);
+    }
+  }
   assert.equal(
     (
       await post('/api/v1/pesto/registrations/activate', activationInput, {
