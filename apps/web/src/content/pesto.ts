@@ -24,6 +24,8 @@ export const pestoCopy = {
     homeBody:
       'A local point of sale, connected waiters and a clearer working day. Discover our restaurant software and release plans.',
     homeLink: 'Discover Pesto',
+    homeDownload: 'Download free now',
+    homeTrial: '15-day free trial',
     preview: 'Illustrative interface · not a live terminal',
     terminal: 'Pesto / Lite',
     connected: 'LOCAL RESTAURANT NETWORK',
@@ -128,6 +130,8 @@ export const pestoCopy = {
     homeBody:
       'نقطة بيع محلية، وطلبات متصلة من النُدُل، ويوم عمل أوضح. تعرّف على برنامجنا للمطاعم وخطة إصداره.',
     homeLink: 'اكتشف بيستو',
+    homeDownload: 'حمّله مجانًا الآن',
+    homeTrial: 'تجربة مجانية لمدة 15 يومًا',
     preview: 'تصميم توضيحي للواجهة · ليس نظام بيع مباشرًا',
     terminal: 'Pesto / Lite',
     connected: 'شبكة المطعم المحلية',
@@ -232,6 +236,8 @@ export const pestoCopy = {
     homeBody:
       'Yerel satış noktası, bağlantılı garsonlar ve daha düzenli bir iş günü. Restoran yazılımımızı ve sürüm planını keşfedin.',
     homeLink: 'Pesto’yu keşfedin',
+    homeDownload: 'Şimdi ücretsiz indir',
+    homeTrial: '15 günlük ücretsiz deneme',
     preview: 'Örnek arayüz · canlı satış terminali değildir',
     terminal: 'Pesto / Lite',
     connected: 'YEREL RESTORAN AĞI',
