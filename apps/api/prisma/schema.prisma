@@ -773,6 +773,8 @@ model PestoCustomer {
  createdAt DateTime @default(now())
  registrations PestoRegistration[]
  trials PestoTrial[]
+ purchases PestoPurchaseKey[]
+ licenses PestoPerpetualLicense[]
 }
 model PestoRegistration {
  id String @id
@@ -810,6 +812,61 @@ model PestoRegistration {
  @@index([expiresAt])
  @@index([customerId])
  trialGrant PestoTrialGrant?
+ activationGrant PestoActivationGrant?
+}
+
+model PestoPurchaseKey {
+ id String @id
+ customerId String
+ customer PestoCustomer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+ keyHash String @unique
+ keyNonce String
+ reference String
+ createdById String
+ createdAt DateTime @default(now())
+ revokedAt DateTime?
+ revokedById String?
+ consumedAt DateTime?
+ license PestoPerpetualLicense?
+ @@index([customerId, createdAt])
+}
+
+model PestoPerpetualLicense {
+ id String @id
+ purchaseId String @unique
+ purchase PestoPurchaseKey @relation(fields: [purchaseId], references: [id], onDelete: Restrict)
+ customerId String
+ customer PestoCustomer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+ registrationId String
+ installationId String @unique
+ deviceHash String @unique
+ issuedAt DateTime
+ envelope String
+ grants PestoActivationGrant[]
+ delivery PestoLicenseDelivery?
+ @@index([customerId])
+}
+
+model PestoActivationGrant {
+ registrationId String @id
+ registration PestoRegistration @relation(fields: [registrationId], references: [id], onDelete: Restrict)
+ licenseId String
+ license PestoPerpetualLicense @relation(fields: [licenseId], references: [id], onDelete: Restrict)
+ retryUntil DateTime
+ @@index([licenseId])
+}
+
+model PestoLicenseDelivery {
+ licenseId String @id
+ license PestoPerpetualLicense @relation(fields: [licenseId], references: [id], onDelete: Restrict)
+ status String @default("PENDING")
+ attempts Int @default(0)
+ availableAt DateTime @default(now())
+ claimedAt DateTime?
+ leaseId String?
+ sentAt DateTime?
+ lastError String?
+ @@index([status, availableAt])
 }
 
 model PestoTrial {

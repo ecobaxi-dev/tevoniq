@@ -5,9 +5,10 @@ import {
   registrationInputSchema,
   verificationInputSchema,
   trialInputSchema,
+  purchaseActivationInputSchema,
 } from '@tevoniq/validation';
 
-export type PestoOperation = 'register' | 'verify' | 'trial';
+export type PestoOperation = 'register' | 'verify' | 'trial' | 'activate';
 export type PestoProxyConfig = {
   enabled: boolean;
   siteUrl: string;
@@ -17,11 +18,17 @@ export type PestoProxyConfig = {
   timeoutMs?: number;
   fetch?: typeof fetch;
 };
-const suffixes = { register: '', verify: '/verify', trial: '/trial' } as const;
+const suffixes = {
+  register: '',
+  verify: '/verify',
+  trial: '/trial',
+  activate: '/activate',
+} as const;
 const requests = {
   register: registrationInputSchema,
   verify: verificationInputSchema,
   trial: trialInputSchema,
+  activate: purchaseActivationInputSchema,
 };
 const envelope = z.strictObject({
   keyId: z.string().min(1).max(80),
@@ -33,6 +40,7 @@ const envelope = z.strictObject({
   signature: z.string().regex(/^[A-Za-z0-9+/]{86}==$/),
 });
 const replies = {
+  activate: z.object({ activationId: z.uuid(), status: z.literal('email-queued') }),
   register: z.object({
     requestId: z.uuid(),
     status: z.literal('pending'),
@@ -185,7 +193,7 @@ export async function forwardPesto(
     if (response.status !== expectedStatus) {
       void response.body?.cancel().catch(() => {});
       const errors: Record<number, string> = {
-        400: 'verification_expired_or_invalid',
+        400: operation === 'activate' ? 'activation_invalid' : 'verification_expired_or_invalid',
         403: 'verification_required',
         409: 'enrollment_conflict',
         429: 'rate_limited',
