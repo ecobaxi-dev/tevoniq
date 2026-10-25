@@ -78,9 +78,12 @@ async function PublicPage({ params }: Props) {
         }}
       />
       <ServiceBlocks service={service} locale={locale} />
-      {!['ui-ux-design', 'mobile-application-development', 'ai-augmented-development'].includes(
-        slug,
-      ) && <VisualDiscovery locale={locale} serviceSlug={slug} />}
+      {![
+        'ui-ux-design',
+        'mobile-application-development',
+        'ai-augmented-development',
+        'digital-transformation',
+      ].includes(slug) && <VisualDiscovery locale={locale} serviceSlug={slug} />}
     </main>
   );
 }

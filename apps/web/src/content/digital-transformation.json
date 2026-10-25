@@ -1,0 +1,1211 @@
+{
+  "en": {
+    "eyebrow": "DIGITAL TRANSFORMATION / TEVONIQ",
+    "title": "Digital transformation services",
+    "subtitle": "AI-enabled change you can measure",
+    "intro": "Modernize systems, connect business processes and embed AI where it creates measurable value. We connect assessment, strategy, discovery and implementation so each investment has a clear purpose and a practical path to delivery.",
+    "cta": "Transform my business",
+    "nav": [
+      "Services",
+      "Case studies",
+      "Benefits",
+      "Challenges",
+      "Roadmap",
+      "Expertise",
+      "Recognition",
+      "FAQ"
+    ],
+    "clientsTitle": "Transformation stories from the source portfolio",
+    "external": "External reference material. Clients, partnerships, recognitions, people and reported results in these reference sections belong to the source organization; they are not TEVONIQ credentials or project results.",
+    "source": "View original source",
+    "overview": "Where practical AI meets digital acceleration",
+    "overviewBody": "Digital transformation is more than adopting new technologies: it prepares systems, workflows and teams for what comes next. Assess the current state, choose valuable use cases, agree on evidence of success and validate the impact before expanding investment.",
+    "marketTitle": "Market signals reported in the source",
+    "market": [
+      {
+        "value": "25%",
+        "body": "US business leaders reporting a transformative effect from AI, compared with 12% a year earlier.",
+        "source": "Deloitte — as cited by the source"
+      },
+      {
+        "value": "20%",
+        "body": "Higher transformation success likelihood when using a structured framework to assess new technology.",
+        "source": "Deloitte — as cited by the source"
+      },
+      {
+        "value": "17%",
+        "body": "Share of digital transformation expenditure allocated to AI.",
+        "source": "IDC — as cited by the source"
+      }
+    ],
+    "frameworkTitle": "From assessment to enterprise scale",
+    "frameworkBody": "The source’s APEX framework (Assess, Pilot, Expand, eXcel) links AI maturity assessment to practical delivery workflows. Each phase uses measurable evidence gates so initiatives advance when results justify the next investment.",
+    "frameworkStages": ["Assess", "Pilot", "Expand", "eXcel"],
+    "frameworkStats": [
+      {
+        "value": "2,400+",
+        "body": "Experts using AI workflows"
+      },
+      {
+        "value": "7",
+        "body": "Client programs delivered"
+      },
+      {
+        "value": "85–96%",
+        "body": "Time saved on piloted tasks"
+      }
+    ],
+    "servicesTitle": "Services that connect strategy and execution",
+    "services": [
+      {
+        "title": "Business consulting",
+        "body": "Create an effective strategy and a comprehensive roadmap with our business transformation readiness assessment."
+      },
+      {
+        "title": "Tech consulting",
+        "body": "Modernize your existing solutions, introduce new technologies, accelerate AI adoption with a structured and measurable approach, initiate R&D for a new project, or benefit from our tech advisory."
+      },
+      {
+        "title": "Discovery Phase",
+        "body": "Define and refine the scope of work with our requirements gathering and analysis, business process mapping, prototyping, and Proof of Concept development."
+      },
+      {
+        "title": "AI consulting and implementation",
+        "body": "Move beyond AI strategy into structured implementation. We assess where your organization stands on the AI adoption curve, identify the right use cases, and implement AI solutions that are measured before scaling."
+      },
+      {
+        "title": "AI-augmented custom solution development",
+        "body": "Benefit from our expert, AI-augmented, end-to-end development services and get a custom solution tailored to your specific business needs."
+      }
+    ],
+    "casesTitle": "Helping businesses transform: case studies",
+    "casesNotice": "External engagements reproduced for reference. Results belong to the featured projects and are not TEVONIQ delivery claims.",
+    "benefitsTitle": "Turn digital investment into business value",
+    "benefits": [
+      {
+        "title": "Digitize operations",
+        "body": "Adopt the digital-first approach, digitize operations, and improve efficiency and productivity, as well as boost both speed and accuracy of all processes. "
+      },
+      {
+        "title": "Make better decisions",
+        "body": "Transform the vast amounts of data into actionable insights, enable advanced data analytics, and much more with a trusted digital transformation solutions provider by your side. Our data expertise allows you to take advantage of the whole spectrum of data: from ML & Artificial Intelligence to Data Science and Big Data, to Business Intelligence and effective data visualization."
+      },
+      {
+        "title": "Scale with ease",
+        "body": "Scale your operations and reach new customers quickly and easily with the help of advanced technologies. Our Cloud and DevOps experts can help migrate your systems to the cloud and scale them easily, while also ensuring effective and uninterrupted performance of your systems."
+      },
+      {
+        "title": "Find new revenue streams",
+        "body": "Launch new digital products and services, enhance customer experiences, and create new revenue streams with technical consulting. Our services are meant to help you achieve sustainable business results, boost customer retention, and find new ways to improve revenue generation."
+      }
+    ],
+    "reportTitle": "Close the gap between faster coding and delivery",
+    "reportBody": "Explore the source’s adoption framework and market report. Its original report request and delivery process remains available on the publisher’s page.",
+    "reportCta": "Explore the source report",
+    "challengesTitle": "A practical response to digital challenges",
+    "challenges": [
+      {
+        "title": "AI visibility gap?",
+        "body": "Our Pragmatic AI approach gives you a clear baseline across every AI initiative — so you know what's delivering ROI, what isn't, and what's worth scaling."
+      },
+      {
+        "title": "Legacy product?",
+        "body": "Our experts will conduct a detailed assessment, offer a software modernization plan, and execute it for you."
+      },
+      {
+        "title": "Old, unscalable infrastructure?",
+        "body": "Assess the infrastructure, plan a cloud migration and scale systems with Cloud and DevOps practices that fit the operating environment."
+      },
+      {
+        "title": "Lack of visibility?",
+        "body": "Data analytics services allow you to take advantage of the whole spectrum of data: from Data Science to Big Data, ML&AI, and BI."
+      },
+      {
+        "title": "Lots of human errors and non-optimized workflows?",
+        "body": "Our AI specialists rely on numbers while delivering custom gen AI and ML strategies and solutions to automate repetitive workflows, significantly reduce operating costs, and provide valuable insights for informed decision-making."
+      },
+      {
+        "title": "Technical debt?",
+        "body": "Let us help you eliminate architecture, infrastructure, code, and testing tech debt faster with AI-augmented engineering that maximizes efficiency and minimizes the resources required."
+      },
+      {
+        "title": "Need to launch a new product?",
+        "body": "Product Discovery allows you to test the idea, refine requirements, and conduct a feasibility study with our experts."
+      },
+      {
+        "title": "Inconsistent and not user-friendly interfaces?",
+        "body": "Create a cohesive omnichannel user experience, address UX debt, and create seamless UX across all platforms and solutions."
+      },
+      {
+        "title": "Security concerns?",
+        "body": "Establish an effective and secure SDLC with a security-first focus to prevent data leaks or data loss, comply with standards and regulations, mitigate any risks, and ensure the infrastructure driving your AI transformation remains secure."
+      }
+    ],
+    "roadmapTitle": "Your digital transformation, step by step",
+    "steps": [
+      {
+        "title": "Business transformation readiness assessment",
+        "body": "Together with key stakeholders, we thoroughly analyze the maturity level of your organization, audit where your organization stands on AI adoption today, and create the business case, as well as define the goals for the target business vision."
+      },
+      {
+        "title": "Strategic deep dive",
+        "body": "Next, we create a definitive roadmap, define clear KPIs, and set the measurement criteria that will guide every step of your AI-enabled transformation."
+      },
+      {
+        "title": "Technology consulting",
+        "body": "Once we have a full picture of the desired state and key objectives, we define the best solution to help you reach your goals and determine the necessary tech stack."
+      },
+      {
+        "title": "Discovery Phase",
+        "body": "During the Discovery Phase, we’ll finalize the scope of your solution. This process is based on a business readiness assessment, coordination of business stakeholders, the user journey map, market research, and other key aspects. It provides all the deliverables needed to start implementation efficiently."
+      },
+      {
+        "title": "Implementation",
+        "body": "We develop the needed solutions and implement operational changes needed to get you to the desired state. Our team takes control over the implementation process, taking care of software engineering, project management, and quality assurance through regular assessment, while tracking the success of the process."
+      },
+      {
+        "title": "Scaling and quality assurance",
+        "body": "After the successful completion of the previous stage, our experts conduct rigorous testing and employ top-quality assurance protocols to ensure that the final solution is up to the best standards. We also help you scale the transformation throughout your entire organization, ensuring every AI initiative is validated by real metrics before it spreads further."
+      },
+      {
+        "title": "Handover and knowledge transfer",
+        "body": "When the solution is ready, or the transformation is over, we conduct a thorough knowledge transfer, handing over available technical documentation: architecture overview, release notes, presentations, and others. As a reliable digital transformation services company, we also conduct webinars and video conferences for key stakeholders when needed."
+      }
+    ],
+    "expertiseTitle": "Expertise across every layer of transformation",
+    "expertise": [
+      {
+        "title": "AI consulting & implementation",
+        "items": [
+          "AI strategy",
+          "Data strategy and architecture",
+          "AI implementation roadmap",
+          "AI solution feasibility assessment",
+          "AI solution design and development",
+          "Agentic AI consulting",
+          "Generative AI consulting"
+        ]
+      },
+      {
+        "title": "Software engineering",
+        "items": [
+          "Requirements analysis, concept validation, prototyping and/or Proof of Concept",
+          "Project starter with a core team",
+          "End-to-end AI-driven software development tailored to your needs",
+          "Custom development for regulations/certification compliances",
+          "Finding, hiring, and growing AI-augmented tech talent"
+        ]
+      },
+      {
+        "title": "QA automation",
+        "items": [
+          "QA automation consulting",
+          "API and web services automation",
+          "End-to-end test automation",
+          "Performance testing automation",
+          "Functional and regression testing automation",
+          "Cross-browser and cross-platform testing automation",
+          "CI/CD integration services",
+          "UI/UX automated testing services",
+          "Testing optimization"
+        ]
+      },
+      {
+        "title": "Experience & product design",
+        "items": [
+          "Design research and discovery",
+          "Requirements hunting",
+          "Ideation and scenarios",
+          "Prototyping",
+          "UI and interaction design",
+          "User and usability testing"
+        ]
+      },
+      {
+        "title": "Cloud transformation & advisory",
+        "items": [
+          "Cloud strategy and readiness assessment",
+          "Cloud adoption and migration",
+          "Application transformation",
+          "On-premises support and automation",
+          "DevOps & SRE services",
+          "CI/CD automation and optimization"
+        ]
+      },
+      {
+        "title": "Data & analytics",
+        "items": [
+          "Data and analytics strategy and data transformation",
+          "Data governance",
+          "Cloud data migration and cloud native services",
+          "Data platform development",
+          "DataOps",
+          "Business Intelligence solutions"
+        ]
+      },
+      {
+        "title": "Machine Learning, AI & Data Science",
+        "items": [
+          "Agentic AI",
+          "Generative AI",
+          "Data Science and advanced analytics",
+          "AI and Machine Learning engineering",
+          "AI/ML solutions maintenance",
+          "MLOps-powered Machine Learning systems",
+          "Computer Vision and Natural Language Processing"
+        ]
+      },
+      {
+        "title": "Embedded Software & IoT",
+        "items": [
+          "Full-stack embedded and IoT development",
+          "Embedded development for manufacturing",
+          "Connectivity solutions for embedded systems",
+          "Mobile communication solutions",
+          "Solutions for all connectivity ranges",
+          "Cloud support for embedded/IoT projects"
+        ]
+      },
+      {
+        "title": "R&D",
+        "items": [
+          "Robotics",
+          "Rapid prototyping and advanced prototyping",
+          "Digital Twins",
+          "Industry 4.0",
+          "Open innovation"
+        ]
+      }
+    ],
+    "partnersTitle": "Technology ecosystem from the source portfolio",
+    "awardsTitle": "Recognition and compliances",
+    "awardsNotice": "The following published recognitions and compliance statements concern the external source organization. They do not certify or endorse TEVONIQ. Follow each publication for its original scope and date.",
+    "awards": [
+      {
+        "title": "PCI DSS 4.0.1",
+        "body": "The source organization successfully renewed its PCI DSS Certification in 2026, reaffirming compliance with PCI DSS version 4.0.1."
+      },
+      {
+        "title": "ISO 9001",
+        "body": "ISO 9001 Certification proves that The source organization is adopting efficient Quality Management Systems that save time and cost, improve efficiency and ultimately improve customer relationships."
+      },
+      {
+        "title": "ISO 27001:2022",
+        "body": "The certification demonstrates The source organization’s ongoing commitment to maintaining robust information security standards."
+      },
+      {
+        "title": "ISG Public Cloud",
+        "body": "The source organization has been named a Rising Star in the 2021 edition of ISG Provider Lens™ Public Cloud Services and Solutions for the UK market."
+      },
+      {
+        "title": "FSQS",
+        "body": "The accreditation assures that The source organization complies with the financial sector regulations and is a trusted and secure vendor for financial institutions."
+      },
+      {
+        "title": "CyberGRX",
+        "body": "The source organization has successfully completed CyberGRX Risk Assessment."
+      },
+      {
+        "title": "ISO/IEC 27701:2019",
+        "body": "The source organization has successfully obtained the ISO/IEC 27701:2019 certification, an extension to ISO 27001 for privacy information management systems."
+      },
+      {
+        "title": "GDPR assessment",
+        "body": "The source organization has successfully completed its independent General Data Protection Regulation (GDPR) assessment for 2026."
+      },
+      {
+        "title": "SOC 2 Type 2",
+        "body": "The source organization has successfully completed its annual Service Organization Control (SOC 2) Type 2 audit for 2026, covering controls related to Security, Availability, Confidentiality, and Privacy for its Software Development Services."
+      },
+      {
+        "title": "Global Outsourcing 100",
+        "body": "The source organization has been recognized by the International Association of Outsourcing Professionals (IAOP) in its 2024 Global Outsourcing 100 list for the eighth consecutive year."
+      },
+      {
+        "title": "Forrester",
+        "body": "The source organization has been acknowledged among Modern Application Development Services providers by Forrester, a global research and advisory company, in their recently published report “The Modern Application Development Services Landscape, Q3 2024”."
+      },
+      {
+        "title": "CRN Solution Provider 500",
+        "body": "With this list, CRN acknowledges the top 500 solution providers each year, ranking the leading IT channel partner organizations across North America."
+      }
+    ],
+    "quoteLabel": "Expert perspective — adapted from the source",
+    "quotes": [
+      "We tried the “deploy AI tools and run workshops” approach first. It didn't work—zero measurable change. So we changed how we do things. Now we embed with engineers, change real workflows hands-on, and measure everything before and after. If we can't prove it with numbers, we don't claim it.",
+      "Digital transformation isn’t just about new tech—it’s about keeping today’s systems future-ready. In our practice, we help businesses modernize, innovate, and lead in a world where change is constant."
+    ],
+    "profileTitle": "Published profile of the source organization",
+    "profile": [
+      {
+        "value": "2,400+",
+        "body": "Technology experts"
+      },
+      {
+        "value": "24",
+        "body": "Years of experience"
+      },
+      {
+        "value": "25",
+        "body": "Countries in Europe and the Americas"
+      },
+      {
+        "value": "160+",
+        "body": "Active clients"
+      },
+      {
+        "value": "90+",
+        "body": "Enterprise clients, including Fortune 500"
+      },
+      {
+        "value": "CRN",
+        "body": "Solution Provider 500 recognition"
+      }
+    ],
+    "leadersTitle": "Technology leaders featured in the source",
+    "leaderRoles": [
+      "Chief Technology Officer",
+      "Director, Head of AI Consulting",
+      "Experience Design Lead",
+      "Director, Head of GenAI Productivity Practice on APEX Framework"
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      {
+        "question": "How is AI used in digital transformation?",
+        "answer": "Assess the current state, choose meaningful AI use cases and measure their impact at each stage before scaling investment. Tools should earn their place in workflows through evidence."
+      },
+      {
+        "question": "How do you measure the success of a digital transformation?",
+        "answer": "Define KPIs and success criteria at the strategy stage, track them through delivery and compare before-and-after measures for each AI initiative."
+      },
+      {
+        "question": "What is the difference between digitization and digital transformation services and solutions?",
+        "answer": "Digitization means converting existing processes or documents into a digital format, while digital transformation is a broader, strategic shift in how a business operates and creates value using technology. Transformation changes not just the tools but the workflows, decisions, and culture around them."
+      },
+      {
+        "question": "How long does a digital transformation take?",
+        "answer": "The timeline depends on the scope, complexity, and readiness of your organization, but most enterprise transformations unfold in phases over 12 to 36 months. We use a structured, step-by-step approach with measurable evidence gates at every stage to keep the process on track."
+      },
+      {
+        "question": "What is a digital transformation readiness assessment?",
+        "answer": "A part of our team digital transformation services and solutions, it is a structured evaluation of your organization's current technology, processes, and capabilities against the desired future state. In our approach, it also includes an audit of your AI adoption maturity to ensure transformation is grounded in where you actually are today."
+      }
+    ],
+    "linksTitle": "Explore related consulting and engineering services",
+    "contactTitle": "Shape your next stage of transformation",
+    "contactBody": "Tell us about your systems, priorities and desired outcomes. We can define a practical next step together.",
+    "contactPoints": [
+      "Business goals and current challenges",
+      "Existing systems and integration needs",
+      "Data, security and delivery requirements"
+    ],
+    "allServices": "Explore all services"
+  },
+  "ar": {
+    "eyebrow": "التحول الرقمي / TEVONIQ",
+    "title": "خدمات التحول الرقمي",
+    "subtitle": "تغيير مدعوم بالذكاء الاصطناعي، وأثر قابل للقياس",
+    "intro": "حدّث أنظمتك، واربط عمليات أعمالك، ووظّف الذكاء الاصطناعي حيث يقدّم قيمة واضحة. نربط التقييم والاستراتيجية والاكتشاف بالتنفيذ، ليكون لكل استثمار هدف محدد ومسار عملي نحو التسليم.",
+    "cta": "ابدأ تحول أعمالك",
+    "nav": [
+      "الخدمات",
+      "دراسات الحالة",
+      "الفوائد",
+      "التحديات",
+      "مراحل العمل",
+      "الخبرات",
+      "الاعتمادات",
+      "الأسئلة الشائعة"
+    ],
+    "clientsTitle": "قصص التحول من محفظة الجهة المصدر",
+    "external": "محتوى خارجي من الصفحة الأصلية. تخص أسماء العملاء والشراكات والاعتمادات والأشخاص والنتائج في هذه الأقسام الجهة المصدر، ولا تمثل اعتمادات أو مشاريع TEVONIQ.",
+    "source": "استعرض المصدر الأصلي",
+    "overview": "حيث يلتقي الذكاء الاصطناعي العملي بالتسارع الرقمي",
+    "overviewBody": "التحول الرقمي أوسع من اعتماد تقنية جديدة؛ إنه إعداد الأنظمة ومسارات العمل والفرق للمستقبل. نقيّم الواقع، ونختار حالات استخدام ذات قيمة، ونتفق على معايير النجاح، ثم نتحقق من الأثر قبل توسيع الاستثمار.",
+    "marketTitle": "مؤشرات السوق الواردة في المصدر",
+    "market": [
+      {
+        "value": "25%",
+        "body": "من قادة الأعمال في الولايات المتحدة يذكرون أثرًا تحويليًا للذكاء الاصطناعي، مقابل 12% قبل عام.",
+        "source": "Deloitte — وفق الصفحة المصدر"
+      },
+      {
+        "value": "20%",
+        "body": "زيادة في احتمال نجاح التحول عند استخدام إطار منظم لتقييم قيمة التقنيات الجديدة.",
+        "source": "Deloitte — وفق الصفحة المصدر"
+      },
+      {
+        "value": "17%",
+        "body": "من الإنفاق على التحول الرقمي مخصّص للذكاء الاصطناعي.",
+        "source": "IDC — وفق الصفحة المصدر"
+      }
+    ],
+    "frameworkTitle": "من التقييم إلى التبنّي على مستوى المؤسسة",
+    "frameworkBody": "يربط إطار APEX لدى الجهة المصدر بين تقييم النضج وتطبيق الذكاء الاصطناعي في مسارات التسليم. مراحله: التقييم، والتجربة، والتوسّع، والتحسين المتقدم. لكل مرحلة بوابة تحقق قابلة للقياس، فلا يتوسع الاستثمار إلا عندما تدعم النتائج ذلك.",
+    "frameworkStages": ["التقييم", "التجربة", "التوسّع", "التحسين"],
+    "frameworkStats": [
+      {
+        "value": "2,400+",
+        "body": "خبير يستخدم مسارات عمل معزّزة بالذكاء الاصطناعي"
+      },
+      {
+        "value": "7",
+        "body": "برامج عملاء منفّذة"
+      },
+      {
+        "value": "85–96%",
+        "body": "وقت موفّر في المهام التي خضعت للتجربة"
+      }
+    ],
+    "servicesTitle": "خدمات تربط الاستراتيجية بالتنفيذ",
+    "services": [
+      {
+        "title": "استشارات الأعمال",
+        "body": "تقييم جاهزية أعمالك للتحول، وصياغة استراتيجية فعالة وخارطة طريق شاملة."
+      },
+      {
+        "title": "الاستشارات التقنية",
+        "body": "تحديث الحلول الحالية، وإدخال تقنيات جديدة، وتسريع تبنّي الذكاء الاصطناعي بمنهج قابل للقياس، وبدء البحث والتطوير لمشروع جديد."
+      },
+      {
+        "title": "مرحلة الاكتشاف",
+        "body": "جمع المتطلبات وتحليلها، ورسم عمليات الأعمال، وبناء نماذج أولية وإثبات المفهوم لتحديد نطاق واضح."
+      },
+      {
+        "title": "استشارات الذكاء الاصطناعي وتنفيذه",
+        "body": "تقييم نضج التبنّي، وتحديد حالات الاستخدام، وتنفيذ حلول تقاس نتائجها قبل التوسّع."
+      },
+      {
+        "title": "تطوير حلول مخصّصة معزّز بالذكاء الاصطناعي",
+        "body": "تطوير متكامل لحل مخصّص يتوافق مع احتياجات أعمالك، من الفكرة إلى التسليم."
+      }
+    ],
+    "casesTitle": "مساعدة الأعمال على التحول: دراسات حالة",
+    "casesNotice": "دراسات خارجية معاد نشرها للاطلاع. تخص النتائج المشاريع المعروضة، ولا تمثل نتائج تنفيذ TEVONIQ.",
+    "benefitsTitle": "حوّل الاستثمار الرقمي إلى قيمة للأعمال",
+    "benefits": [
+      {
+        "title": "رقمنة العمليات",
+        "body": "اعتماد العمل الرقمي لتحسين الكفاءة والإنتاجية وسرعة العمليات ودقتها."
+      },
+      {
+        "title": "قرارات أفضل",
+        "body": "تحويل البيانات إلى رؤى قابلة للتطبيق باستخدام التحليلات المتقدمة وتعلم الآلة والذكاء الاصطناعي وعلوم البيانات والبيانات الضخمة وذكاء الأعمال والتصور البصري."
+      },
+      {
+        "title": "توسّع أسهل",
+        "body": "الوصول إلى عملاء جدد وتوسيع العمليات، ونقل الأنظمة إلى السحابة بمساعدة Cloud وDevOps مع الحفاظ على الأداء والاستمرارية."
+      },
+      {
+        "title": "مصادر دخل جديدة",
+        "body": "إطلاق منتجات وخدمات رقمية، وتحسين تجربة العملاء والاحتفاظ بهم، واستكشاف فرص دخل تدعم نموًا مستدامًا."
+      }
+    ],
+    "reportTitle": "اربط سرعة التطوير بسرعة التسليم",
+    "reportBody": "استعرض إطار التبنّي وتقرير السوق لدى المصدر. يتوفر طلب التقرير وتسليمه عبر الصفحة الأصلية للناشر.",
+    "reportCta": "استعرض تقرير المصدر",
+    "challengesTitle": "معالجة عملية للتحديات الرقمية",
+    "challenges": [
+      {
+        "title": "غموض عائد الذكاء الاصطناعي؟",
+        "body": "تحديد خط أساس لكل مبادرة لتمييز ما يحقق قيمة وما يحتاج تعديلًا وما يستحق التوسّع."
+      },
+      {
+        "title": "منتج قديم؟",
+        "body": "تقييم تفصيلي للمنتج، وخطة لتحديث البرمجيات ثم تنفيذها."
+      },
+      {
+        "title": "بنية تحتية لا تتوسّع؟",
+        "body": "تقييم السحابة وDevOps، وترحيل الأنظمة وتوسيعها تدريجيًا."
+      },
+      {
+        "title": "ضعف الرؤية على البيانات؟",
+        "body": "الاستفادة من علوم البيانات والبيانات الضخمة وتعلم الآلة والذكاء الاصطناعي وذكاء الأعمال."
+      },
+      {
+        "title": "أخطاء يدوية ومسارات غير محسّنة؟",
+        "body": "استراتيجيات وحلول للذكاء الاصطناعي التوليدي وتعلم الآلة لأتمتة العمل المتكرر وتقليل التكاليف ودعم القرار."
+      },
+      {
+        "title": "ديون تقنية؟",
+        "body": "معالجة ديون المعمارية والبنية التحتية والكود والاختبارات باستخدام تطوير معزّز بالذكاء الاصطناعي."
+      },
+      {
+        "title": "منتج جديد؟",
+        "body": "اختبار الفكرة وتدقيق المتطلبات ودراسة الجدوى من خلال اكتشاف المنتج."
+      },
+      {
+        "title": "واجهات غير متناسقة؟",
+        "body": "بناء تجربة موحدة عبر القنوات والمنصات، ومعالجة ديون تجربة المستخدم."
+      },
+      {
+        "title": "مخاوف أمنية؟",
+        "body": "إدماج الأمن في دورة التطوير لحماية البيانات ومراعاة المتطلبات والمعايير وتقليل المخاطر."
+      }
+    ],
+    "roadmapTitle": "تحولك الرقمي خطوة بخطوة",
+    "steps": [
+      {
+        "title": "تقييم جاهزية التحول",
+        "body": "تحليل نضج المؤسسة مع أصحاب المصلحة، وتقييم تبنّي الذكاء الاصطناعي، وبناء حالة الأعمال وتحديد الرؤية المستهدفة."
+      },
+      {
+        "title": "التعمّق الاستراتيجي",
+        "body": "إعداد خارطة طريق واضحة ومؤشرات أداء ومعايير قياس توجّه مراحل التحول."
+      },
+      {
+        "title": "الاستشارات التقنية",
+        "body": "اختيار الحل والبيئة التقنية الأنسب بعد تحديد الوضع المستهدف والأهداف الأساسية."
+      },
+      {
+        "title": "مرحلة الاكتشاف",
+        "body": "اعتماد نطاق الحل بناءً على الجاهزية وتنسيق أصحاب المصلحة ورحلة المستخدم وبحث السوق، وتجهيز مخرجات التنفيذ."
+      },
+      {
+        "title": "التنفيذ",
+        "body": "تطوير الحلول وإجراء التغييرات التشغيلية المطلوبة، مع إدارة المشروع وضمان الجودة والتقييم الدوري وتتبع النجاح."
+      },
+      {
+        "title": "التوسّع وضمان الجودة",
+        "body": "اختبارات دقيقة وفحوص جودة قبل التعميم، والتحقق من مؤشرات كل مبادرة قبل نقلها إلى بقية المؤسسة."
+      },
+      {
+        "title": "التسليم ونقل المعرفة",
+        "body": "تسليم توثيق المعمارية وملاحظات الإصدار والعروض، وتنظيم جلسات معرفة واجتماعات لأصحاب المصلحة عند الحاجة."
+      }
+    ],
+    "expertiseTitle": "خبرات تشمل طبقات التحول كافة",
+    "expertise": [
+      {
+        "title": "استشارات الذكاء الاصطناعي وتنفيذه",
+        "items": [
+          "استراتيجية الذكاء الاصطناعي",
+          "استراتيجية البيانات ومعماريتها",
+          "خارطة تنفيذ الذكاء الاصطناعي",
+          "تقييم جدوى الحل",
+          "تصميم الحل وتطويره",
+          "استشارات الوكلاء الأذكياء",
+          "استشارات الذكاء الاصطناعي التوليدي"
+        ]
+      },
+      {
+        "title": "هندسة البرمجيات",
+        "items": [
+          "تحليل المتطلبات والتحقق من المفهوم والنماذج الأولية وإثبات المفهوم",
+          "بدء المشروع بفريق أساسي",
+          "تطوير مخصّص متكامل معزّز بالذكاء الاصطناعي",
+          "تطوير يراعي المتطلبات التنظيمية والاعتمادات",
+          "استقطاب الكفاءات التقنية وتوظيفها وتطويرها"
+        ]
+      },
+      {
+        "title": "أتمتة ضمان الجودة",
+        "items": [
+          "استشارات أتمتة الجودة",
+          "أتمتة واجهات API وخدمات الويب",
+          "أتمتة الاختبارات الشاملة",
+          "أتمتة اختبار الأداء",
+          "أتمتة الاختبارات الوظيفية والرجوع",
+          "اختبارات المتصفحات والمنصات",
+          "تكامل CI/CD",
+          "أتمتة اختبارات UI/UX",
+          "تحسين الاختبارات"
+        ]
+      },
+      {
+        "title": "تصميم التجربة والمنتج",
+        "items": [
+          "بحث التصميم والاكتشاف",
+          "استكشاف المتطلبات",
+          "الأفكار والسيناريوهات",
+          "النماذج الأولية",
+          "تصميم الواجهات والتفاعل",
+          "اختبارات المستخدم وقابلية الاستخدام"
+        ]
+      },
+      {
+        "title": "التحول السحابي والاستشارات",
+        "items": [
+          "استراتيجية السحابة وتقييم الجاهزية",
+          "التبنّي والترحيل إلى السحابة",
+          "تحويل التطبيقات",
+          "دعم وأتمتة الأنظمة المحلية",
+          "خدمات DevOps وSRE",
+          "أتمتة وتحسين CI/CD"
+        ]
+      },
+      {
+        "title": "البيانات والتحليلات",
+        "items": [
+          "استراتيجية البيانات والتحليلات وتحويل البيانات",
+          "حوكمة البيانات",
+          "ترحيل البيانات السحابي والخدمات الأصلية للسحابة",
+          "تطوير منصات البيانات",
+          "DataOps",
+          "حلول ذكاء الأعمال"
+        ]
+      },
+      {
+        "title": "تعلّم الآلة والذكاء الاصطناعي وعلوم البيانات",
+        "items": [
+          "الوكلاء الأذكياء",
+          "الذكاء الاصطناعي التوليدي",
+          "علوم البيانات والتحليلات المتقدمة",
+          "هندسة الذكاء الاصطناعي وتعلّم الآلة",
+          "صيانة حلول AI/ML",
+          "أنظمة تعلّم الآلة باستخدام MLOps",
+          "الرؤية الحاسوبية ومعالجة اللغة الطبيعية"
+        ]
+      },
+      {
+        "title": "البرمجيات المدمجة وإنترنت الأشياء",
+        "items": [
+          "تطوير متكامل للأنظمة المدمجة وإنترنت الأشياء",
+          "تطوير الأنظمة المدمجة للتصنيع",
+          "حلول الاتصال للأنظمة المدمجة",
+          "حلول الاتصالات المتنقلة",
+          "الاتصال لمختلف النطاقات",
+          "الدعم السحابي لمشاريع الأنظمة المدمجة وإنترنت الأشياء"
+        ]
+      },
+      {
+        "title": "البحث والتطوير",
+        "items": [
+          "الروبوتات",
+          "النمذجة الأولية السريعة والمتقدمة",
+          "التوائم الرقمية",
+          "الصناعة 4.0",
+          "الابتكار المفتوح"
+        ]
+      }
+    ],
+    "partnersTitle": "منظومة الشركاء التقنية الواردة لدى المصدر",
+    "awardsTitle": "التقدير والاعتمادات والامتثال",
+    "awardsNotice": "تخص هذه الاعتمادات وبيانات الامتثال المنشورة الجهة الخارجية المصدر، ولا تمنح اعتمادًا أو تزكية لـTEVONIQ. يوضح رابط كل منشور نطاقه وتاريخه الأصليين.",
+    "awards": [
+      {
+        "title": "PCI DSS 4.0.1",
+        "body": "تجديد اعتماد الجهة المصدر في 2026 وفق PCI DSS 4.0.1."
+      },
+      {
+        "title": "ISO 9001",
+        "body": "اعتماد نظم إدارة الجودة لزيادة الكفاءة وتحسين علاقات العملاء."
+      },
+      {
+        "title": "ISO 27001:2022",
+        "body": "تجديد اعتماد إدارة أمن المعلومات وفق ISO 27001:2022."
+      },
+      {
+        "title": "ISG Public Cloud",
+        "body": "اختيار الجهة المصدر Rising Star في تقرير ISG للسحابة العامة في المملكة المتحدة لعام 2021."
+      },
+      {
+        "title": "FSQS",
+        "body": "تجديد FSQS لإظهار استيفاء متطلبات القطاع المالي."
+      },
+      {
+        "title": "CyberGRX",
+        "body": "إتمام تقييم مخاطر CyberGRX."
+      },
+      {
+        "title": "ISO/IEC 27701:2019",
+        "body": "اعتماد إدارة معلومات الخصوصية ISO/IEC 27701:2019، امتدادًا لاعتماد ISO 27001."
+      },
+      {
+        "title": "GDPR assessment",
+        "body": "إتمام تقييم مستقل للائحة حماية البيانات GDPR لعام 2026."
+      },
+      {
+        "title": "SOC 2 Type 2",
+        "body": "إتمام تدقيق SOC 2 Type 2 لعام 2026 لخدمات تطوير البرمجيات، ضمن الأمن والتوافر والسرية والخصوصية."
+      },
+      {
+        "title": "Global Outsourcing 100",
+        "body": "الإدراج في Global Outsourcing 100 لعام 2024 للعام الثامن المتتالي."
+      },
+      {
+        "title": "Forrester",
+        "body": "الإدراج ضمن مزودي تطوير التطبيقات الحديثة في تقرير Forrester للربع الثالث من 2024."
+      },
+      {
+        "title": "CRN Solution Provider 500",
+        "body": "الإدراج في قائمة CRN Solution Provider 500 لعام 2024 في أمريكا الشمالية."
+      }
+    ],
+    "quoteLabel": "رؤية خبير — مكيّفة من المصدر",
+    "quotes": [
+      "جرّبنا أولًا توزيع أدوات الذكاء الاصطناعي وإقامة ورش العمل، دون تغير قابل للقياس. لذلك انتقلنا إلى العمل المباشر مع المهندسين وتعديل المسارات الفعلية وقياس النتائج قبل التغيير وبعده. لا ندّعي أثرًا لا يمكن إثباته بالأرقام.",
+      "لا يقتصر التحول الرقمي على تقنية جديدة، بل يحافظ على جاهزية الأنظمة للمستقبل. يساعد التحديث والابتكار المؤسسات على مواكبة عالم دائم التغير."
+    ],
+    "profileTitle": "الملف المنشور للجهة المصدر",
+    "profile": [
+      {
+        "value": "2,400+",
+        "body": "خبير تقني"
+      },
+      {
+        "value": "24",
+        "body": "عامًا من الخبرة"
+      },
+      {
+        "value": "25",
+        "body": "دولة في أوروبا والأمريكتين"
+      },
+      {
+        "value": "160+",
+        "body": "عميل نشط"
+      },
+      {
+        "value": "90+",
+        "body": "عميل مؤسسي، بما يشمل Fortune 500"
+      },
+      {
+        "value": "CRN",
+        "body": "تقدير ضمن Solution Provider 500"
+      }
+    ],
+    "leadersTitle": "خبراء التقنية الظاهرون في المصدر",
+    "leaderRoles": [
+      "الرئيس التنفيذي للتقنية",
+      "مدير ورئيس استشارات الذكاء الاصطناعي",
+      "قائدة تصميم التجربة",
+      "مدير ممارسة إنتاجية الذكاء الاصطناعي التوليدي"
+    ],
+    "faqTitle": "أسئلة شائعة",
+    "faq": [
+      {
+        "question": "كيف يدخل الذكاء الاصطناعي في التحول الرقمي؟",
+        "answer": "بتحديد المهام المناسبة وقياس أثر الأدوات في كل مرحلة قبل زيادة الاستثمار، ليقوم اعتمادها على أدلة من العمل الفعلي."
+      },
+      {
+        "question": "كيف نقيس نجاح التحول؟",
+        "answer": "بتحديد مؤشرات أداء ومعايير نجاح في مرحلة الاستراتيجية ومتابعتها، ومقارنة نتائج مبادرات الذكاء الاصطناعي قبل التنفيذ وبعده."
+      },
+      {
+        "question": "ما الفرق بين الرقمنة والتحول الرقمي؟",
+        "answer": "الرقمنة تحول الوثائق والعمليات إلى شكل رقمي، بينما التحول تغيير استراتيجي في طريقة عمل المؤسسة وصنع القيمة، ويشمل المسارات والقرارات والثقافة."
+      },
+      {
+        "question": "كم يستغرق التحول الرقمي؟",
+        "answer": "تعتمد المدة على النطاق والتعقيد والجاهزية. تذكر الصفحة المصدر نطاقًا إرشاديًا من 12 إلى 36 شهرًا للمؤسسات الكبيرة؛ يتحدد جدول مشروعك بعد التقييم."
+      },
+      {
+        "question": "ما تقييم جاهزية التحول؟",
+        "answer": "مراجعة منظمة للتقنية والعمليات والقدرات الحالية مقارنة بالوضع المستهدف، بما يشمل نضج تبنّي الذكاء الاصطناعي."
+      }
+    ],
+    "linksTitle": "خدمات استشارية وهندسية مرتبطة",
+    "contactTitle": "لنخطط لمرحلتك التالية من التحول",
+    "contactBody": "أخبرنا عن أنظمتك وأولوياتك والنتائج التي تتطلع إليها، لنحدد خطوة عملية تالية.",
+    "contactPoints": [
+      "أهداف الأعمال والتحديات الحالية",
+      "الأنظمة القائمة ومتطلبات التكامل",
+      "متطلبات البيانات والأمن والتسليم"
+    ],
+    "allServices": "استكشف جميع الخدمات"
+  },
+  "tr": {
+    "eyebrow": "DİJİTAL DÖNÜŞÜM / TEVONIQ",
+    "title": "Dijital dönüşüm hizmetleri",
+    "subtitle": "Yapay zekâ destekli, ölçülebilir değişim",
+    "intro": "Sistemleri modernize edin, iş süreçlerini bağlayın ve yapay zekâyı ölçülebilir değer sunduğu alanlara taşıyın. Değerlendirme, strateji, keşif ve uygulamayı açık hedeflerle birleştiririz.",
+    "cta": "Dönüşümü başlatalım",
+    "nav": [
+      "Hizmetler",
+      "Vaka çalışmaları",
+      "Faydalar",
+      "Zorluklar",
+      "Yol haritası",
+      "Uzmanlık",
+      "Tanınırlık",
+      "SSS"
+    ],
+    "clientsTitle": "Kaynak portföyünden dönüşüm örnekleri",
+    "external": "Dış kaynak içeriğidir. Bu referans bölümlerindeki müşteriler, ortaklıklar, tanınırlık, kişiler ve sonuçlar kaynak kuruluşa aittir; TEVONIQ referansları veya proje sonuçları değildir.",
+    "source": "Orijinal kaynağı inceleyin",
+    "overview": "Pratik yapay zekâ ile dijital ivme",
+    "overviewBody": "Dönüşüm, yeni teknolojiden fazlasıdır: sistemleri, iş akışlarını ve ekipleri geleceğe hazırlar. Mevcut durumu değerlendirir, değerli senaryoları seçer, başarı ölçütlerini belirler ve yatırımı büyütmeden önce etkiyi doğrularız.",
+    "marketTitle": "Kaynakta aktarılan pazar göstergeleri",
+    "market": [
+      {
+        "value": "25%",
+        "body": "ABD iş liderlerinin yapay zekâyı dönüştürücü bulma oranı; önceki yıl %12.",
+        "source": "Deloitte — kaynak yayından"
+      },
+      {
+        "value": "20%",
+        "body": "Yeni teknolojiyi yapılandırılmış bir çerçeveyle değerlendirmede dönüşüm başarısı olasılığındaki artış.",
+        "source": "Deloitte — kaynak yayından"
+      },
+      {
+        "value": "17%",
+        "body": "Dijital dönüşüm harcamalarının yapay zekâya ayrılan payı.",
+        "source": "IDC — kaynak yayından"
+      }
+    ],
+    "frameworkTitle": "Değerlendirmeden kurum ölçeğine",
+    "frameworkBody": "Kaynak kuruluştaki APEX çerçevesi; değerlendirme, pilot, yaygınlaştırma ve ileri iyileştirme aşamalarıyla olgunluğu teslimat iş akışlarına bağlar. Her aşama, yatırımın sonuçlarla gerekçelendirilmesini sağlayan ölçülebilir geçiş kriterleri içerir.",
+    "frameworkStages": ["Değerlendir", "Dene", "Yaygınlaştır", "İyileştir"],
+    "frameworkStats": [
+      {
+        "value": "2,400+",
+        "body": "Yapay zekâ iş akışlarını kullanan uzman"
+      },
+      {
+        "value": "7",
+        "body": "Teslim edilen müşteri programı"
+      },
+      {
+        "value": "85–96%",
+        "body": "Pilot görevlerde zaman tasarrufu"
+      }
+    ],
+    "servicesTitle": "Stratejiyi uygulamaya bağlayan hizmetler",
+    "services": [
+      {
+        "title": "İş danışmanlığı",
+        "body": "Dönüşüme hazırlık değerlendirmesiyle etkili bir strateji ve kapsamlı yol haritası oluşturmak."
+      },
+      {
+        "title": "Teknoloji danışmanlığı",
+        "body": "Çözümleri modernize etmek, yeni teknolojiler getirmek, ölçülebilir yapay zekâ benimsemesini hızlandırmak ve Ar-Ge başlatmak."
+      },
+      {
+        "title": "Keşif aşaması",
+        "body": "Gereksinim analizi, süreç haritalama, prototip ve kavram kanıtıyla kapsamı netleştirmek."
+      },
+      {
+        "title": "Yapay zekâ danışmanlığı ve uygulama",
+        "body": "Olgunluğu değerlendirmek, uygun senaryoları seçmek ve ölçeklemeden önce ölçülen çözümler uygulamak."
+      },
+      {
+        "title": "Yapay zekâ destekli özel geliştirme",
+        "body": "İş ihtiyaçlarınıza uygun çözümleri fikirden teslimata uçtan uca geliştirmek."
+      }
+    ],
+    "casesTitle": "İşletmelerin dönüşümü: vaka çalışmaları",
+    "casesNotice": "Dış projelerden yeniden yayımlanan referans çalışmalarıdır. Sonuçlar ilgili projelere aittir; TEVONIQ teslimat iddiası değildir.",
+    "benefitsTitle": "Dijital yatırımı iş değerine dönüştürün",
+    "benefits": [
+      {
+        "title": "Operasyonları dijitalleştirin",
+        "body": "Dijital öncelikli süreçlerle verimliliği, üretkenliği, hızı ve doğruluğu artırın."
+      },
+      {
+        "title": "Daha iyi kararlar alın",
+        "body": "Yapay zekâ, makine öğrenmesi, veri bilimi, büyük veri, iş zekâsı ve görselleştirmeyle veriyi uygulanabilir içgörülere dönüştürün."
+      },
+      {
+        "title": "Kolay ölçekleyin",
+        "body": "Bulut ve DevOps desteğiyle performans ve sürekliliği koruyarak sistemleri taşıyın, operasyonları ve müşteri erişimini büyütün."
+      },
+      {
+        "title": "Yeni gelir kaynakları bulun",
+        "body": "Dijital ürün ve hizmetler sunun; deneyimi, müşteri bağlılığını ve sürdürülebilir gelir fırsatlarını geliştirin."
+      }
+    ],
+    "reportTitle": "Geliştirme hızıyla teslimat arasındaki farkı kapatın",
+    "reportBody": "Kaynağın benimseme çerçevesini ve pazar raporunu inceleyin. Orijinal talep ve rapor teslim süreci yayıncının sayfasında mevcuttur.",
+    "reportCta": "Kaynak raporu inceleyin",
+    "challengesTitle": "Dijital zorluklara uygulanabilir yanıtlar",
+    "challenges": [
+      {
+        "title": "Yapay zekâ değeri belirsiz mi?",
+        "body": "Her girişim için başlangıç ölçümüyle değer üreten, iyileştirme isteyen ve ölçeklenebilir alanları belirlemek."
+      },
+      {
+        "title": "Eski ürünler mi?",
+        "body": "Ayrıntılı değerlendirme, yazılım modernizasyon planı ve uygulama."
+      },
+      {
+        "title": "Ölçeklenmeyen altyapı mı?",
+        "body": "Bulut ve DevOps değerlendirmesiyle sistemleri aşamalı taşımak ve ölçeklemek."
+      },
+      {
+        "title": "Veri görünürlüğü yetersiz mi?",
+        "body": "Veri bilimi, büyük veri, makine öğrenmesi, yapay zekâ ve iş zekâsından yararlanmak."
+      },
+      {
+        "title": "Manuel hatalar ve verimsiz akışlar mı?",
+        "body": "Tekrarlayan görevleri otomatikleştiren, maliyeti azaltan ve kararları destekleyen üretken yapay zekâ ve ML çözümleri."
+      },
+      {
+        "title": "Teknik borç mu?",
+        "body": "Mimari, altyapı, kod ve test borcunu yapay zekâ destekli mühendislikle ele almak."
+      },
+      {
+        "title": "Yeni ürün mü?",
+        "body": "Ürün keşfiyle fikri sınamak, gereksinimleri netleştirmek ve yapılabilirliği incelemek."
+      },
+      {
+        "title": "Tutarsız arayüzler mi?",
+        "body": "Kanallar ve platformlar arasında tutarlı deneyim kurmak, UX borcunu azaltmak."
+      },
+      {
+        "title": "Güvenlik endişeleri mi?",
+        "body": "Veri kaybını ve sızıntıyı önlemek, gereksinimleri karşılamak ve riski azaltmak için güvenliği yaşam döngüsüne dahil etmek."
+      }
+    ],
+    "roadmapTitle": "Adım adım dijital dönüşüm",
+    "steps": [
+      {
+        "title": "Hazırlık değerlendirmesi",
+        "body": "Paydaşlarla olgunluğu ve yapay zekâ kullanımını incelemek, iş gerekçesini ve hedef vizyonu belirlemek."
+      },
+      {
+        "title": "Stratejik inceleme",
+        "body": "Yol haritasını, KPI’ları ve dönüşüme yön verecek ölçüm kriterlerini oluşturmak."
+      },
+      {
+        "title": "Teknoloji danışmanlığı",
+        "body": "Hedef durum ve amaçlara uygun çözümü ve teknoloji yığınını seçmek."
+      },
+      {
+        "title": "Keşif aşaması",
+        "body": "Hazırlık, paydaş koordinasyonu, kullanıcı yolculuğu ve pazar araştırmasıyla kapsamı ve uygulama çıktılarını netleştirmek."
+      },
+      {
+        "title": "Uygulama",
+        "body": "Çözümleri geliştirmek ve operasyonel değişiklikleri; proje yönetimi, kalite ve düzenli ölçümle hayata geçirmek."
+      },
+      {
+        "title": "Ölçekleme ve kalite",
+        "body": "Yaygınlaştırmadan önce kapsamlı testler uygulamak ve her girişimi gerçek ölçümlerle doğrulamak."
+      },
+      {
+        "title": "Teslim ve bilgi aktarımı",
+        "body": "Mimari, sürüm notları ve sunumları devretmek; gerektiğinde paydaş eğitimleri ve çevrimiçi oturumlar düzenlemek."
+      }
+    ],
+    "expertiseTitle": "Dönüşümün her katmanında uzmanlık",
+    "expertise": [
+      {
+        "title": "Yapay zekâ danışmanlığı ve uygulama",
+        "items": [
+          "Yapay zekâ stratejisi",
+          "Veri stratejisi ve mimarisi",
+          "Uygulama yol haritası",
+          "Çözüm yapılabilirliği",
+          "Çözüm tasarımı ve geliştirme",
+          "Ajan tabanlı yapay zekâ danışmanlığı",
+          "Üretken yapay zekâ danışmanlığı"
+        ]
+      },
+      {
+        "title": "Yazılım mühendisliği",
+        "items": [
+          "Gereksinim analizi, kavram doğrulama, prototip ve PoC",
+          "Çekirdek ekiple proje başlangıcı",
+          "Uçtan uca yapay zekâ destekli özel geliştirme",
+          "Mevzuat ve sertifikasyon için özel geliştirme",
+          "Yapay zekâ destekli yetenek bulma, işe alma ve geliştirme"
+        ]
+      },
+      {
+        "title": "Kalite otomasyonu",
+        "items": [
+          "QA otomasyon danışmanlığı",
+          "API ve web hizmetleri otomasyonu",
+          "Uçtan uca test otomasyonu",
+          "Performans testi otomasyonu",
+          "İşlevsel ve regresyon testi otomasyonu",
+          "Tarayıcı ve platformlar arası testler",
+          "CI/CD entegrasyonu",
+          "UI/UX test otomasyonu",
+          "Test optimizasyonu"
+        ]
+      },
+      {
+        "title": "Deneyim ve ürün tasarımı",
+        "items": [
+          "Tasarım araştırması ve keşif",
+          "Gereksinim araştırması",
+          "Fikir ve senaryolar",
+          "Prototipleme",
+          "Arayüz ve etkileşim tasarımı",
+          "Kullanıcı ve kullanılabilirlik testleri"
+        ]
+      },
+      {
+        "title": "Bulut dönüşümü ve danışmanlık",
+        "items": [
+          "Bulut stratejisi ve hazırlık",
+          "Bulut benimseme ve taşıma",
+          "Uygulama dönüşümü",
+          "Yerel sistem desteği ve otomasyon",
+          "DevOps ve SRE",
+          "CI/CD otomasyonu ve optimizasyonu"
+        ]
+      },
+      {
+        "title": "Veri ve analitik",
+        "items": [
+          "Veri ve analitik stratejisi, veri dönüşümü",
+          "Veri yönetişimi",
+          "Bulut veri taşıma ve yerel bulut hizmetleri",
+          "Veri platformu geliştirme",
+          "DataOps",
+          "İş zekâsı çözümleri"
+        ]
+      },
+      {
+        "title": "Makine öğrenmesi, yapay zekâ ve veri bilimi",
+        "items": [
+          "Ajan tabanlı yapay zekâ",
+          "Üretken yapay zekâ",
+          "Veri bilimi ve ileri analitik",
+          "AI ve ML mühendisliği",
+          "AI/ML çözüm bakımı",
+          "MLOps destekli sistemler",
+          "Bilgisayarlı görü ve doğal dil işleme"
+        ]
+      },
+      {
+        "title": "Gömülü yazılım ve IoT",
+        "items": [
+          "Uçtan uca gömülü ve IoT geliştirme",
+          "Üretim için gömülü geliştirme",
+          "Gömülü bağlantı çözümleri",
+          "Mobil iletişim",
+          "Tüm bağlantı aralıkları için çözümler",
+          "Gömülü ve IoT için bulut desteği"
+        ]
+      },
+      {
+        "title": "Ar-Ge",
+        "items": [
+          "Robotik",
+          "Hızlı ve ileri prototipleme",
+          "Dijital ikizler",
+          "Endüstri 4.0",
+          "Açık inovasyon"
+        ]
+      }
+    ],
+    "partnersTitle": "Kaynak portföyündeki teknoloji ekosistemi",
+    "awardsTitle": "Tanınırlık ve uyumluluk",
+    "awardsNotice": "Bu yayımlanmış tanınırlık ve uyumluluk beyanları dış kaynak kuruluşa aittir. TEVONIQ için sertifika veya onay oluşturmaz. Kapsam ve tarih için orijinal yayını inceleyin.",
+    "awards": [
+      {
+        "title": "PCI DSS 4.0.1",
+        "body": "2026’da PCI DSS 4.0.1 uyumluluğunun yenilenmesi."
+      },
+      {
+        "title": "ISO 9001",
+        "body": "Verimlilik ve müşteri ilişkileri için ISO 9001 kalite yönetim sistemi."
+      },
+      {
+        "title": "ISO 27001:2022",
+        "body": "ISO 27001:2022 bilgi güvenliği sertifikasının yenilenmesi."
+      },
+      {
+        "title": "ISG Public Cloud",
+        "body": "ISG 2021 Birleşik Krallık kamu bulutu raporunda Rising Star tanınırlığı."
+      },
+      {
+        "title": "FSQS",
+        "body": "Finans sektörü gereksinimleri için FSQS yenilemesi."
+      },
+      {
+        "title": "CyberGRX",
+        "body": "CyberGRX risk değerlendirmesinin tamamlanması."
+      },
+      {
+        "title": "ISO/IEC 27701:2019",
+        "body": "ISO 27001’e uzantı olan ISO/IEC 27701:2019 gizlilik bilgi yönetimi sertifikası."
+      },
+      {
+        "title": "GDPR assessment",
+        "body": "2026 bağımsız GDPR değerlendirmesi."
+      },
+      {
+        "title": "SOC 2 Type 2",
+        "body": "Güvenlik, erişilebilirlik, gizlilik ve mahremiyet kapsamlı 2026 SOC 2 Type 2 denetimi."
+      },
+      {
+        "title": "Global Outsourcing 100",
+        "body": "2024 Global Outsourcing 100 listesinde sekizinci yıl tanınırlığı."
+      },
+      {
+        "title": "Forrester",
+        "body": "Forrester 2024 üçüncü çeyrek modern uygulama geliştirme sağlayıcıları raporunda yer alma."
+      },
+      {
+        "title": "CRN Solution Provider 500",
+        "body": "2024 Kuzey Amerika CRN Solution Provider 500 listesinde yer alma."
+      }
+    ],
+    "quoteLabel": "Uzman görüşü — kaynaktan uyarlanmıştır",
+    "quotes": [
+      "İlk olarak araç dağıtmayı ve atölyeler düzenlemeyi denedik; ölçülebilir değişim olmadı. Ardından mühendislerle çalışıp gerçek iş akışlarını değiştirdik ve öncesini-sonrasını ölçtük. Sayılarla gösteremediğimiz etkiyi iddia etmiyoruz.",
+      "Dijital dönüşüm yalnızca yeni teknoloji değildir; bugünkü sistemleri geleceğe hazır tutmaktır. Modernizasyon ve yenilik, sürekli değişen dünyada işletmelerin ilerlemesini sağlar."
+    ],
+    "profileTitle": "Kaynak kuruluşun yayımlanan profili",
+    "profile": [
+      {
+        "value": "2,400+",
+        "body": "Teknoloji uzmanı"
+      },
+      {
+        "value": "24",
+        "body": "Yıllık deneyim"
+      },
+      {
+        "value": "25",
+        "body": "Avrupa ve Amerika ülkesi"
+      },
+      {
+        "value": "160+",
+        "body": "Aktif müşteri"
+      },
+      {
+        "value": "90+",
+        "body": "Fortune 500 dahil kurumsal müşteri"
+      },
+      {
+        "value": "CRN",
+        "body": "Solution Provider 500 tanınırlığı"
+      }
+    ],
+    "leadersTitle": "Kaynakta yer alan teknoloji liderleri",
+    "leaderRoles": [
+      "Teknolojiden Sorumlu Yönetici",
+      "Yapay Zekâ Danışmanlığı Direktörü",
+      "Deneyim Tasarımı Lideri",
+      "Üretken Yapay Zekâ Verimliliği Direktörü"
+    ],
+    "faqTitle": "Sık sorulan sorular",
+    "faq": [
+      {
+        "question": "Dönüşümde yapay zekâ nasıl kullanılır?",
+        "answer": "Uygun görevler belirlenir ve araçların etkisi yatırım artırılmadan önce ölçülür. Benimseme, varsayımdan ziyade gerçek iş kanıtlarına dayanır."
+      },
+      {
+        "question": "Başarı nasıl ölçülür?",
+        "answer": "Strateji aşamasında KPI ve başarı kriterleri belirlenir, süreç boyunca izlenir ve girişimlerin öncesi-sonrası karşılaştırılır."
+      },
+      {
+        "question": "Dijitalleştirme ile dönüşümün farkı nedir?",
+        "answer": "Dijitalleştirme mevcut süreç ve belgelerin dijital biçime taşınmasıdır. Dönüşüm ise iş akışlarını, kararları ve kültürü kapsayan stratejik bir değişimdir."
+      },
+      {
+        "question": "Ne kadar sürer?",
+        "answer": "Süre kapsam, karmaşıklık ve hazırlığa bağlıdır. Kaynak, büyük kurumlar için 12–36 ay aralığı bildirir; projenizin takvimi değerlendirmeyle belirlenir."
+      },
+      {
+        "question": "Hazırlık değerlendirmesi nedir?",
+        "answer": "Teknoloji, süreç ve yetkinliklerin hedef durumla karşılaştırılması; yapay zekâ benimseme olgunluğunun incelenmesidir."
+      }
+    ],
+    "linksTitle": "İlgili danışmanlık ve mühendislik hizmetleri",
+    "contactTitle": "Dönüşümün sonraki aşamasını planlayalım",
+    "contactBody": "Sistemlerinizi, önceliklerinizi ve hedeflerinizi anlatın; uygulanabilir sonraki adımı belirleyelim.",
+    "contactPoints": [
+      "İş hedefleri ve mevcut zorluklar",
+      "Sistemler ve entegrasyon ihtiyaçları",
+      "Veri, güvenlik ve teslimat gereksinimleri"
+    ],
+    "allServices": "Tüm hizmetleri keşfedin"
+  }
+}

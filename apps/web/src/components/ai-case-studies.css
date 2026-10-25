@@ -389,3 +389,15 @@
 .ai-case-page[dir='rtl'] .ai-case-results strong {
   text-align: right;
 }
+
+.ai-case-results li {
+  min-width: 0;
+}
+.ai-case-results strong[data-textual='true'] {
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  overflow-wrap: anywhere;
+}
+
+.ai-case-results li > span {
+  overflow-wrap: anywhere;
+}

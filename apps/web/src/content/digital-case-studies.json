@@ -1,0 +1,992 @@
+[
+  {
+    "slug": "telecom-customer-service-genai",
+    "source": "https://www.n-ix.com/case-study/satellite-connectivity-customer-service-generative-ai/",
+    "cover": "/brand/digital-transformation/case-1-cover.webp",
+    "diagram": "/brand/digital-transformation/case-1-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-1-image-1.webp",
+        "width": 2250,
+        "height": 1644
+      }
+    ],
+    "imageSection": 2,
+    "translations": {
+      "en": {
+        "title": "40% faster customer complaint handling in telecom with GenAI",
+        "sector": "Telecom",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client manages a highly sophisticated satellite network and connectivity infrastructure, ensuring seamless coverage for customers worldwide.",
+              "Published client profile: Industry: Telecom. Partnership period: January 2021 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client sought to streamline the processing of multilingual customer support logs to improve issue identification, assess support quality, and accelerate problem resolution. By leveraging generative AI and Large Language Models (LLM), the company aimed to automate various processes, eliminate manual tasks, and reduce troubleshooting time and costs, ultimately enhancing service quality and boosting customer satisfaction."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client develop a solution that utilizes two fine-tuned LLMs to generate summaries from multilingual customer support chat logs, displayed through an intuitive dashboard.",
+              "The first model provides a comprehensive summary of the customer conversation, highlighting the main issue and potential resolution. The second model filters out irrelevant requests to ensure only relevant data appears in the dashboard. Both models support multiple languages (e.g., Spanish, Portuguese) and provide English translations.",
+              "Additionally, the models automatically classify chat logs into predefined topics and a set hierarchy. Paired with the dashboard, the solution allows the client to efficiently search, filter, and analyze customer feedback for specific services, significantly reducing manual effort and enabling the team to focus on higher-priority business tasks.",
+              "The new genAI solution comprises the following architecture components:",
+              "Apache Airflow serves as a job orchestration tool.",
+              "Amazon EMR runs queries against the source table and stores the results in Amazon S3.",
+              "Amazon SNS is automatically triggered when a file lands in S3, then invokes a Lambda function.",
+              "The Lambda function triggers batch transform jobs, powered by Amazon SageMaker.",
+              "Amazon SageMaker provides model hosting, deployment, and inference.",
+              "The output data is stored in Amazon S3.",
+              "The Tableau report is generated based on the output data.",
+              "A Docker image is created for the Sagemaker transform job processing and hosted on Amazon ECR.",
+              "All Sagemaker logs are stored in AWS CloudWatch."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "The AI solution enables the client to identify and mitigate issues faster. By leveraging generative AI to summarize customer support requests automatically, the client has accelerated troubleshooting by up to 40%.",
+              "The solution also offers advanced data analytics capabilities, allowing the client to process vast amounts of data within minutes and make effective, timely decisions.",
+              "Moreover, the AI solution automatically translates support logs from Spanish and Portuguese into English, making it easier for the client to provide top service to customers worldwide.",
+              "Expertise delivered:\nGenerative AI development services\nTechnologies:\nApache Airflow, Amazon EMR, Amazon S3, Amazon SNS, Amazon SageMaker, Tableau, Amazon ECR, AWS CloudWatch, Docker\n40%\n\nfaster troubleshooting\n\nFaster\n\nprocessing of large amounts of data\n\nAutomatic\n\ninquiry translation into English"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "معالجة شكاوى عملاء الاتصالات أسرع 40% بالذكاء الاصطناعي التوليدي",
+        "sector": "الاتصالات",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "يدير العميل شبكة أقمار صناعية وبنية اتصال متقدمة توفر تغطية للعملاء حول العالم. وتشير الدراسة إلى بدء الشراكة في يناير 2021."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدف العميل تبسيط معالجة سجلات الدعم متعددة اللغات لتحديد المشكلات وتقييم جودة الدعم وتسريع الحل. وسعى باستخدام الذكاء الاصطناعي التوليدي والنماذج اللغوية الكبيرة إلى أتمتة المهام وتقليل العمل اليدوي ووقت التشخيص وتكاليفه، بما يحسن الخدمة ورضا العملاء."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "طوّر فريق التنفيذ حلًا يعتمد على نموذجين لغويين مضبوطين لتلخيص محادثات الدعم وعرضها في لوحة سهلة الاستخدام. يلخّص النموذج الأول المحادثة والمشكلة الرئيسية والحل المحتمل، ويستبعد الثاني الطلبات غير ذات الصلة. يدعم النموذجان لغات منها الإسبانية والبرتغالية ويقدمان ترجمة إنجليزية.",
+              "يصنّف الحل المحادثات تلقائيًا إلى موضوعات وبنية هرمية محددة، ويتيح البحث والتصفية وتحليل ملاحظات العملاء حسب الخدمة، لتقليل الجهد اليدوي والتركيز على الأولويات.",
+              "تتكون المعمارية من Apache Airflow لتنسيق المهام، وAmazon EMR للاستعلام عن البيانات وحفظها في S3. يؤدي وصول ملف إلى S3 إلى تشغيل SNS ثم Lambda التي تبدأ مهام التحويل الدفعي في SageMaker، المسؤول عن الاستضافة والنشر والاستدلال. تحفظ المخرجات في S3 وتُعرض في تقارير Tableau. تُجهّز صورة Docker للمعالجة وتُستضاف على ECR، وتُحفظ السجلات في CloudWatch."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "ساعد التلخيص الآلي في تحديد المشكلات ومعالجتها أسرع، مع تسريع التشخيص حتى 40%. وأتاح تحليل كميات كبيرة من البيانات خلال دقائق واتخاذ قرارات في الوقت المناسب.",
+              "تترجم السجلات تلقائيًا من الإسبانية والبرتغالية إلى الإنجليزية، لدعم خدمة العملاء عالميًا.",
+              "الخبرة: تطوير الذكاء الاصطناعي التوليدي. التقنيات: Airflow وEMR وS3 وSNS وSageMaker وTableau وECR وCloudWatch وDocker."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Telekomda üretken yapay zekâyla şikâyet işleme %40 hızlandı",
+        "sector": "Telekom",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, dünya çapında kesintisiz kapsama sağlayan gelişmiş bir uydu ağı ve bağlantı altyapısı işletir. Kaynak, ortaklığın Ocak 2021’de başladığını belirtir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Çok dilli destek günlüklerini işleyerek sorun tespitini, destek kalitesi değerlendirmesini ve çözümü hızlandırmak istiyordu. Üretken yapay zekâ ve LLM kullanımıyla manuel görevleri, teşhis süresini ve maliyeti azaltarak müşteri memnuniyetini artırmayı hedefledi."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "İki ince ayarlı dil modeli ve sezgisel bir pano geliştirildi. İlk model konuşmayı, ana sorunu ve olası çözümü özetler; ikincisi ilgisiz talepleri filtreler. İspanyolca ve Portekizce dahil çoklu dil desteği ve İngilizce çeviri sunulur.",
+              "Günlükler belirlenen konu ve hiyerarşiye göre otomatik sınıflandırılır. Pano, hizmet bazında arama, filtreleme ve geri bildirim analizini kolaylaştırarak manuel işi azaltır.",
+              "Mimaride Airflow iş düzenleyicidir. EMR kaynak tabloyu sorgular ve S3’e kaydeder. Dosyanın gelişi SNS ve Lambda’yı tetikler; Lambda, barındırma, dağıtım ve çıkarım sağlayan SageMaker toplu dönüştürme işlerini başlatır. Çıktı S3’e yazılır ve Tableau raporuna aktarılır. Docker işleme imajı ECR’de, günlükler CloudWatch’ta tutulur."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Otomatik özetleme sorunların tespitini ve giderilmesini hızlandırdı; teşhis süresi %40’a kadar iyileşti. Büyük veri miktarları dakikalar içinde analiz edilerek zamanında kararlar desteklendi.",
+              "Günlükler İspanyolca ve Portekizceden İngilizceye çevrilerek küresel hizmet kolaylaştı.",
+              "Uzmanlık: Üretken yapay zekâ. Teknolojiler: Airflow, EMR, S3, SNS, SageMaker, Tableau, ECR, CloudWatch ve Docker."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "40%",
+        "labels": {
+          "en": "Faster troubleshooting",
+          "ar": "تشخيص أسرع للمشكلات",
+          "tr": "Daha hızlı teşhis"
+        }
+      },
+      {
+        "value": "LLM",
+        "labels": {
+          "en": "Two fine-tuned language models",
+          "ar": "نموذجان لغويان مضبوطـان",
+          "tr": "İki ince ayarlı dil modeli"
+        }
+      },
+      {
+        "value": "EN",
+        "labels": {
+          "en": "Automatic English translation",
+          "ar": "ترجمة إنجليزية آلية",
+          "tr": "Otomatik İngilizce çeviri"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 2250,
+        "height": 1644
+      }
+    }
+  },
+  {
+    "slug": "clinical-trial-modernization",
+    "source": "https://www.n-ix.com/case-study/modernizing-digital-solutions-clinical-trials/",
+    "cover": "/brand/digital-transformation/case-2-cover.webp",
+    "diagram": "/brand/digital-transformation/case-2-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-2-image-1.webp",
+        "width": 750,
+        "height": 500
+      },
+      {
+        "src": "/brand/digital-transformation/case-2-image-2.webp",
+        "width": 750,
+        "height": 500
+      }
+    ],
+    "imageSection": 3,
+    "translations": {
+      "en": {
+        "title": "115% revenue growth in healthcare with modernized digital solutions",
+        "sector": "Healthcare & life sciences",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client helps improve and facilitate clinical trials and studies by providing software solutions that help determine research data quality, accuracy, and integrity. The company has over 10 years of experience and a global clientele.",
+              "Published client profile: Industry: Healthcare and Life Sciences. Partnership period: December 2020 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client aimed to modernize their Big Data monitoring platform that analyzes clinical and operational data during trials and detects atypical data patterns (tempering, systemic errors, fraud, etc.). They wanted to re-architecture the solution to make it more scalable and flexible and enhance its functionality with new integrations and additional features. This would help improve the service quality of the client’s solution, help them attract new customers, and grow revenue."
+            ]
+          },
+          {
+            "title": "Delivery approach",
+            "paragraphs": [
+              "The delivery team assisted the client in designing a new, highly scalable infrastructure for the monitoring solution and all its additional features. We assessed the client’s existing architecture, which included comprehensive analyses of the monitoring solution, the administration platform, and the risk-based oversight application. During this assessment, the delivery team engineers:",
+              "Helped design the new architecture;",
+              "Analyzed data storage systems;",
+              "Identified challenges in the existing data architecture;",
+              "Determined business needs and requirements, such as migration to the cloud, data storage and management standardization, pre-production and production testing automation, and others.",
+              "Finally, our engineers helped the client conduct code refactoring and utilize a data-centric architecture approach while developing new microservices-based solutions."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client re-architecture the monitoring platform, making it more scalable and allowing it to process larger volumes of data quickly and efficiently. We implemented a microservices-based Data Storage service and set up a data pipeline that ingests, processes, and transports data in the following stages:",
+              "Conversion of csv files to the Parquet format, which resulted in faster data transfer and reduced storage costs.",
+              "Transformation of data written in Python and SAS into a Parquet file, which is easier to analyze.",
+              "Creation of dataset snapshots which store data in various formats for several applications.",
+              "Storage of datasets on Azure blob storage instead of MySQL, which resulted in high scalability of the solution in terms of the amount of data it can store and the rate at which data can be accessed.",
+              "Data from the Data Storage service is rendered in the new medical study and review platform that the delivery team engineers helped develop. This platform contains interactive dashboards and charts that display insights on each clinical study. It allows data analysts to filter trial details by various attributes, leave comments, and assign reviewers to conduct deeper data analysis.",
+              "Furthermore, we helped automate the process of creating data cubes, which represent and analyze data across different characteristics, such as patient ID, region, country, etc. As a result, this accelerated the data analysis setup from approximately 2 hours to just under 3 minutes per customer.",
+              "The delivery team also helped automate action item generation for cases when data anomalies are detected. Instead of manually inspecting data and creating action items for deviations, customers can simply set up and configure specific thresholds. If data crosses the set threshold, the system automatically generates notifications to the customer’s CRM and ERP systems. This accelerated data anomaly detection from several days to just minutes.",
+              "Next, the delivery team assisted the client with manual and AQA testing of third-party integrations and system UI, as well as the setting up of new tools. Our AQA engineers helped unify automation tests across the monitoring platform and optimize end-to-end automation test cases. This reduced the test automation lifecycle from 24 to 3 hours and achieved a 90% test automation pass rate.",
+              "Moreover, we helped design and implement a performance testing solution that can launch multiple tests with different scenarios on numerous environments at the same time. This included implementing a single test reporting tool for all QA teams, which provides analytics for all unit tests and aggregates and compares results on a daily, weekly, or quarterly basis.",
+              "Together with the client, we implemented automated regression testing for multiple solution environments. We set up testing for system migration to a separate environment, which allowed us to verify changes in the database and architecture components without disturbing other environments, manual testing, or the development process.",
+              "Finally, the delivery team helped the client build a new separate administration platform, which was originally part of the monitoring platform. We migrated all its features from the monitoring platform, such as user and study management. We also established effective synchronization between the two systems."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "The delivery team helped the client re-architecture the monitoring platform, which included providing a comprehensive architecture assessment, implementing and integrating new features and tools, and setting up automation tests. We also helped develop a separate medical study and review platform, and an administration platform. As a result of our cooperation, the client gained several substantial benefits:",
+              "Increased customer base and engaged a Fortune Global 500 company by enhancing their services with a new monitoring platform that offers a wide range of useful features;",
+              "Grew their revenue by 115% in 2023 alone as a result of the increase in customer base;",
+              "Improved platform performance by up to 14.5 times by utilizing cloud-native features for storing data and applying a data-centric approach that allows the platform to be scaled easily.",
+              "Expertise delivered:\nSoftware QA & Testing, Big Data, DevOps consulting\nTechnologies:\nPython, Angular, MS Azure, Flask, Pyramid, FastAPI, Celery, MySQL, MongoDB, SQLAlchemy, Cypress, Kubernetes\n115%\n\nincrease in revenue in 2023\n\nUp to 14.5x\n\nimprovement in platform performance\n\nSeveral days to a few minutes\n\nreduced data anomaly detection times\n\n90%\n\ntest automation pass rate"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "نمو إيرادات الرعاية الصحية 115% بتحديث الحلول الرقمية",
+        "sector": "الرعاية الصحية وعلوم الحياة",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "يسهّل العميل التجارب والدراسات السريرية عبر برمجيات تتحقق من جودة البيانات ودقتها وسلامتها. لديه أكثر من عشر سنوات خبرة وعملاء عالميون، وتذكر الدراسة بدء الشراكة في ديسمبر 2020."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدف تحديث منصة بيانات ضخمة تراقب البيانات السريرية والتشغيلية وتكشف الأنماط غير المعتادة، مثل التلاعب والأخطاء المنهجية والاحتيال. احتاج إلى معمارية أكثر مرونة وقابلية للتوسع مع تكاملات وميزات جديدة لتحسين الخدمة وجذب العملاء وزيادة الإيرادات."
+            ]
+          },
+          {
+            "title": "منهج التنفيذ",
+            "paragraphs": [
+              "قيّم فريق التنفيذ معمارية منصة المراقبة والإدارة وتطبيق الإشراف القائم على المخاطر. شمل ذلك تصميم معمارية جديدة، وتحليل التخزين ومشكلاته، وتحديد احتياجات الترحيل السحابي وتوحيد إدارة البيانات وأتمتة اختبارات ما قبل الإنتاج والإنتاج.",
+              "أعاد الفريق هيكلة الكود واعتمد معمارية تتمحور حول البيانات عند تطوير حلول الخدمات المصغرة."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "أُعيدت معمارية منصة المراقبة لمعالجة بيانات أكبر بكفاءة. نُفذت خدمة تخزين بيانات بخدمات مصغرة وخط معالجة يحوّل CSV إلى Parquet لتسريع النقل وتقليل التخزين، ويحوّل بيانات Python وSAS إلى Parquet، وينشئ لقطات بيانات بتنسيقات مختلفة، ويخزنها في Azure Blob بدل MySQL لقابلية توسع وسرعة وصول أعلى.",
+              "طُورت منصة منفصلة لمراجعة الدراسات الطبية تعرض لوحات ورسومًا تفاعلية. يستطيع المحللون تصفية تفاصيل التجربة والتعليق وإسناد مراجعين لتحليل أعمق.",
+              "أُتمت إنشاء مكعبات البيانات حسب المريض والمنطقة والدولة وغيرها، فانخفض إعداد التحليل من نحو ساعتين إلى أقل من ثلاث دقائق لكل عميل. وأُتمت توليد إجراءات العمل عند تجاوز البيانات عتبات محددة وإرسال إشعارات إلى CRM وERP، مما خفض اكتشاف الشذوذ من أيام إلى دقائق.",
+              "نُفذت اختبارات يدوية وآلية للتكاملات والواجهات وأدوات جديدة، ووُحدت الاختبارات وحُسنت الحالات الشاملة. انخفضت دورة الأتمتة من 24 إلى 3 ساعات، وبلغ معدل نجاحها 90%.",
+              "طُور اختبار أداء يشغّل سيناريوهات متعددة بالتوازي في بيئات مختلفة، مع أداة تقارير موحدة تجمع نتائج اختبارات الوحدات وتقارنها يوميًا وأسبوعيًا وربع سنويًا.",
+              "نُفذت اختبارات رجوع آلية لعدة بيئات، واختبار ترحيل في بيئة مستقلة للتحقق من تغييرات قاعدة البيانات والمعمارية دون تعطيل التطوير والاختبارات الأخرى.",
+              "بُنيت منصة إدارة منفصلة، ونُقلت إليها وظائف إدارة المستخدمين والدراسات مع مزامنة فعالة مع منصة المراقبة."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "شمل العمل تقييم المعمارية وإضافة ميزات وتكاملات وأدوات واختبارات آلية، إلى جانب منصتي الدراسة الطبية والإدارة المنفصلتين.",
+              "توسعت قاعدة العملاء واستُقطبت شركة ضمن Fortune Global 500. وارتفعت الإيرادات 115% في 2023 وحده، وتحسن الأداء حتى 14.5 مرة بفضل الإمكانات السحابية والمعمارية المتمحورة حول البيانات.",
+              "الخبرات: اختبار البرمجيات والبيانات الضخمة وDevOps. التقنيات: Python وAngular وAzure وFlask وPyramid وFastAPI وCelery وMySQL وMongoDB وSQLAlchemy وCypress وKubernetes."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Sağlıkta modern dijital çözümlerle %115 gelir artışı",
+        "sector": "Sağlık ve yaşam bilimleri",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, klinik araştırma verilerinin kalitesini, doğruluğunu ve bütünlüğünü değerlendiren yazılımlar sunar. On yılı aşkın deneyimi ve küresel müşteri kitlesi vardır; ortaklık Aralık 2020’de başlamıştır."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Klinik ve operasyonel verilerde oynama, sistematik hata ve dolandırıcılık gibi örüntüleri saptayan büyük veri izleme platformunu modernize etmek istiyordu. Daha esnek ve ölçeklenebilir mimari, yeni entegrasyonlar ve özelliklerle hizmeti ve geliri büyütmeyi amaçladı."
+            ]
+          },
+          {
+            "title": "Teslimat yaklaşımı",
+            "paragraphs": [
+              "İzleme çözümü, yönetim platformu ve risk temelli gözetim uygulaması değerlendirildi. Yeni mimari tasarımı, depolama analizi, mimari zorluklar ve buluta geçiş, veri standardizasyonu ile üretim öncesi/üretim testi otomasyonu gereksinimleri belirlendi.",
+              "Kod yeniden düzenlendi ve mikroservis çözümlerinde veri merkezli mimari benimsendi."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Platform yeniden tasarlandı; mikroservis tabanlı Veri Depolama hizmeti kuruldu. CSV, daha hızlı aktarım ve düşük maliyet için Parquet’e çevrildi; Python ve SAS verileri Parquet’e dönüştürüldü. Farklı uygulamalar için veri anlık görüntüleri üretildi ve MySQL yerine Azure Blob’da saklandı.",
+              "Yeni tıbbi çalışma ve inceleme platformu, etkileşimli panolar ve grafikler sunar. Analistler denemeleri filtreleyebilir, yorum ekleyebilir ve ayrıntılı inceleme atayabilir.",
+              "Hasta, bölge ve ülke gibi boyutlarda veri küpü oluşturma otomatikleştirilerek kurulum yaklaşık iki saatten üç dakikanın altına indi. Eşik aşımlarında CRM ve ERP’ye bildirim ve aksiyon üretimi otomatikleştirilerek anomali tespiti günlerden dakikalara düştü.",
+              "Entegrasyon ve arayüzlerin manuel/otomatik testleri yapıldı. Otomasyon birleştirilip uçtan uca senaryolar optimize edildi; yaşam döngüsü 24 saatten 3 saate, başarı oranı %90’a ulaştı.",
+              "Çoklu ortamda paralel senaryolar çalıştıran performans testi ve tüm QA ekipleri için ortak raporlama geliştirildi. Birim testi sonuçları günlük, haftalık ve çeyreklik karşılaştırılabildi.",
+              "Çoklu ortam için regresyon otomasyonu ve ayrı taşıma testi kuruldu; veritabanı ve mimari değişiklikleri geliştirme ile diğer testleri bozmadan doğrulanabildi.",
+              "Kullanıcı ve çalışma yönetimi ayrı bir yönetim platformuna taşındı ve izleme sistemiyle senkronize edildi."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Mimari değerlendirme, yeni özellik ve entegrasyonlar, otomasyon ile ayrı tıbbi inceleme ve yönetim platformları teslim edildi.",
+              "Müşteri tabanı büyüdü ve Fortune Global 500 şirketi kazanıldı. 2023 geliri %115, bulut özellikleri ve veri merkezli yaklaşım sayesinde performans 14,5 kata kadar arttı.",
+              "Uzmanlık: Yazılım testi, büyük veri ve DevOps. Teknolojiler: Python, Angular, Azure, Flask, Pyramid, FastAPI, Celery, MySQL, MongoDB, SQLAlchemy, Cypress ve Kubernetes."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "115%",
+        "labels": {
+          "en": "Revenue growth in 2023",
+          "ar": "نمو الإيرادات في 2023",
+          "tr": "2023 gelir artışı"
+        }
+      },
+      {
+        "value": "14.5×",
+        "labels": {
+          "en": "Platform performance improvement",
+          "ar": "تحسن أداء المنصة",
+          "tr": "Platform performans artışı"
+        }
+      },
+      {
+        "value": "90%",
+        "labels": {
+          "en": "Test automation pass rate",
+          "ar": "نجاح الاختبارات الآلية",
+          "tr": "Otomasyon test başarısı"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 750,
+        "height": 500
+      }
+    }
+  },
+  {
+    "slug": "brand-protection-security",
+    "source": "https://www.n-ix.com/case-study/security-assessment-brand-infringement-protection-service-provider/",
+    "cover": "/brand/digital-transformation/case-3-cover.webp",
+    "diagram": "/brand/digital-transformation/case-3-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-3-image-1.webp",
+        "width": 1125,
+        "height": 695
+      }
+    ],
+    "imageSection": 2,
+    "translations": {
+      "en": {
+        "title": "Comprehensive security assessment for a leading AI brand protection platform",
+        "sector": "Brand protection",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client helps businesses protect themselves from online threats with a wide range of brand protection services. In particular, they utilized cutting-edge technologies such as machine learning to safeguard against piracy, brand abuse, etc.",
+              "Published client profile: Location: Europe. Industry: Insurtech. Partnership period: February 2017 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client’s automated software applications analyze vast amounts of data to identify counterfeit products, unauthorized use of images, and other infringements online. They aimed to make these applications faster and more accurate while ensuring they could efficiently handle increasing amounts of data. Furthermore, the company needed to ensure that there were no security vulnerabilities in these applications that could be exploited to hinder their performance."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team performed a comprehensive security assessment of the client’s applications, analyzing their external interfaces and business logic implementation and focusing on security flaws, vulnerabilities, and misconfigurations. We provided actionable recommendations based on our analysis that helped the client strengthen their security posture. Our specialists conducted penetration testing using the OWASP Web Security Testing Guide checklist to ensure comprehensive coverage of all web security aspects.",
+              "In addition, the delivery team helped the client migrate their applications from Java to Python to ensure more efficient data scraping and processing. We also developed several new applications to cover more marketplaces and emulated human-like behavior to make their detection more difficult.",
+              "Finally, our engineers helped improve the efficiency of the client’s applications by utilizing several Python optimization techniques. This ensured they could process large amounts of data with minimal resource usage."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "The client partnered with the delivery team to perform comprehensive security assessments and optimizations of their automated brand infringement analysis applications. As a result, the client gained several substantial advantages:",
+              "Acquired a comprehensive security report of their applications with identified vulnerabilities and actionable recommendations on how to mitigate them;",
+              "Enhanced the speed and accuracy of their applications, allowing them to identify and remove counterfeit products and unauthorized content in real time;",
+              "Improved the ability of their applications to cover a wider range of online platforms, such as marketplaces, social media, websites, etc.",
+              "Expertise delivered:\nCybersecurity services, Penetration testing, Application security testing\nTechnologies:\nPython, Regular expressions, Docker, Playwright, MongoDB, AWS S3, Bamboo, OWASP Testing Guide, OWASP Top 10\n10+\n\nyears on the market\n\n300+\n\nemployees\n\n1,000+\n\nclients worldwide\n\nComprehensive analysis\n\nof business logic implementation\n\nOWASP Web Security Testing Guide\n\nused during penetration testing\n\nJava to Python\n\nmigration of applications"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "تقييم أمني شامل لمنصة حماية علامات تجارية بالذكاء الاصطناعي",
+        "sector": "حماية العلامات التجارية",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "يوفر العميل خدمات لحماية الأعمال من التهديدات الرقمية، ومنها القرصنة وإساءة استخدام العلامة التجارية، باستخدام تقنيات مثل تعلم الآلة. تذكر الدراسة مقرًا في أوروبا وبداية الشراكة في فبراير 2017، وأكثر من عشر سنوات في السوق و300 موظف وألف عميل عالميًا."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "تحلل التطبيقات الآلية بيانات ضخمة لكشف المنتجات المقلدة والاستخدام غير المصرح للصور والتعديات الأخرى. استهدف العميل زيادة السرعة والدقة واستيعاب بيانات متنامية والتحقق من عدم وجود ثغرات تعيق الأداء أو تستغل ضد التطبيقات."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "نفّذ الفريق تقييمًا شاملًا للواجهات الخارجية ومنطق الأعمال، مع التركيز على الثغرات والأخطاء في الإعدادات، وقدّم توصيات عملية. شمل اختبار الاختراق قائمة OWASP Web Security Testing Guide لتغطية جوانب أمن الويب.",
+              "رُحلت التطبيقات من Java إلى Python لتحسين جمع البيانات ومعالجتها. وطُورت تطبيقات لتغطية أسواق إضافية ومحاكاة سلوك بشري أثناء الجمع، كما استُخدمت تقنيات تحسين Python لمعالجة بيانات أكبر بموارد أقل."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "حصل العميل على تقرير أمني شامل يحدد الثغرات وإجراءات معالجتها. وتحسنت سرعة التطبيقات ودقتها لكشف المحتوى والمنتجات غير المصرح بها وإزالتها آنيًا، واتسعت تغطية الأسواق وشبكات التواصل والمواقع.",
+              "الخبرات: الأمن السيبراني واختبار الاختراق وأمن التطبيقات. التقنيات: Python والتعابير النمطية وDocker وPlaywright وMongoDB وAWS S3 وBamboo وOWASP Testing Guide وOWASP Top 10."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Yapay zekâ tabanlı marka koruma platformunda kapsamlı güvenlik değerlendirmesi",
+        "sector": "Marka koruma",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, makine öğrenmesi dahil teknolojilerle korsanlık ve marka kötüye kullanımına karşı koruma hizmetleri sunar. Kaynak Avrupa konumunu, Şubat 2017 ortaklık başlangıcını, on yılı aşkın faaliyeti, 300’den fazla çalışanı ve 1.000’den fazla müşteriyi bildirir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Uygulamalar sahte ürünleri, izinsiz görselleri ve ihlalleri bulmak için büyük verileri analiz eder. Hedef, doğruluğu ve hızı artırmak, büyüyen veriyi işlemek ve kullanılabilir güvenlik açıklarını gidermekti."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Dış arayüzler, iş mantığı, açıklar ve yanlış yapılandırmalar değerlendirildi; uygulanabilir öneriler sunuldu. OWASP Web Security Testing Guide kontrol listesiyle penetrasyon testi yapıldı.",
+              "Veri toplama ve işleme için Java’dan Python’a geçildi. Daha fazla pazarı kapsayan ve veri toplamada insan benzeri davranış kullanan uygulamalar geliştirildi; Python optimizasyonlarıyla kaynak tüketimi azaltıldı."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Müşteri, açıkları ve düzeltme adımlarını içeren kapsamlı rapor aldı. Sahte ürün ve izinsiz içeriklerin gerçek zamanlı saptanması ve kaldırılması hızlandı; pazar yerleri, sosyal medya ve siteler daha geniş kapsandı.",
+              "Uzmanlık: Siber güvenlik, penetrasyon ve uygulama güvenliği testi. Teknolojiler: Python, düzenli ifadeler, Docker, Playwright, MongoDB, AWS S3, Bamboo, OWASP Testing Guide ve OWASP Top 10."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "OWASP",
+        "labels": {
+          "en": "Web security testing guide",
+          "ar": "دليل اختبار أمن الويب",
+          "tr": "Web güvenliği test rehberi"
+        }
+      },
+      {
+        "value": "Java → Python",
+        "labels": {
+          "en": "Application migration",
+          "ar": "ترحيل التطبيقات",
+          "tr": "Uygulama taşıma"
+        }
+      },
+      {
+        "value": "Security",
+        "labels": {
+          "en": "Comprehensive assessment",
+          "ar": "تقييم شامل",
+          "tr": "Kapsamlı değerlendirme"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 1125,
+        "height": 695
+      }
+    }
+  },
+  {
+    "slug": "media-platform-microservices",
+    "source": "https://www.n-ix.com/case-study/platform-re-architecture-microservices-media-licensing/",
+    "cover": "/brand/digital-transformation/case-4-cover.webp",
+    "diagram": "/brand/digital-transformation/case-4-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-4-image-1.webp",
+        "width": 1125,
+        "height": 542
+      }
+    ],
+    "imageSection": 2,
+    "translations": {
+      "en": {
+        "title": "Platform re-architecture into microservices for a leading media licensing company",
+        "sector": "Media & entertainment",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is a global leader in licensing various types of media, such as video, music, images, and custom content tailored to brand needs.",
+              "Published client profile: Industry: Media & Entertainment. Partnership period: June 2019 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client aimed to facilitate the maintenance, customization, and addition of new features to their web and admin platform. To achieve this, they wanted to re-architecture the monolith-based backend of these platforms."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client re-architecture a massive monolithic architecture into microservices to make the web and admin platforms easier to maintain and customize. We utilized the serverless approach for the architecture, eliminating the need to maintain servers and enabling the client to use the pay-as-you-go model. After successfully developing a PoC of the Transition microservice using Nest.js, we applied its TypeScript-based framework for microservices related to user identity, subscription, and online sales.",
+              "Additionally, the delivery team engineers helped implement a Single Sign-On multi-factor authentication and a social login for the client’s products. We also helped improve subscription management by decoupling a massive legacy Subscription module into smaller and more flexible microservices, such as Rebilling, Adjustment, and Transition.",
+              "Finally, the delivery team helped the client develop Promotions and Product APIs to facilitate the management of promotional activities."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "By re-architecting the web and admin platforms with the delivery team, the client gained several substantial advantages:",
+              "Streamlined the development, testing, maintenance, and customization of the web and admin platforms with new microservices-based architecture;",
+              "Reduced maintenance costs by utilizing the serverless approach to architecture design.",
+              "Expertise delivered:\nSoftware Engineering, Back-end Development\nTechnologies:\nRuby, JavaScript, Node.js, Node.js, MySQL, TypeScript, Kafka, Redis, Nest.js, RabbitMQ, Aurora, AWS (Lambda, SQS, SNS, Cloud Formation, Secret Manager)\n20+\n\nyears on the market\n\n1,000+\n\nemployees\n\nMillions\n\nof contributors\n\nMonolithic re-architecture\n\ninto microservices\n\nServerless\n\napproach to architecture\n\nDecoupling\n\na massive Subscription model\n\nPoC development\n\nof a Transition microservice"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "إعادة معمارية منصة ترخيص وسائط إلى خدمات مصغرة",
+        "sector": "الإعلام والترفيه",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل مزود عالمي رائد لتراخيص الفيديو والموسيقى والصور والمحتوى المخصص للعلامات. تذكر الدراسة بداية الشراكة في يونيو 2019، وأكثر من 20 عامًا في السوق وألف موظف وملايين المساهمين."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "أراد العميل تسهيل صيانة منصتي الويب والإدارة وتخصيصهما وإضافة الميزات، من خلال إعادة معمارية الواجهة الخلفية الأحادية."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "حوّل الفريق المعمارية الأحادية الكبيرة إلى خدمات مصغرة أسهل للصيانة والتخصيص. استخدم نهجًا دون خوادم لتقليل إدارة البنية واعتماد الدفع حسب الاستخدام. وبعد نجاح إثبات مفهوم لخدمة Transition باستخدام Nest.js، استخدم إطار TypeScript لخدمات الهوية والاشتراكات والمبيعات.",
+              "أُضيف الدخول الموحد والمصادقة متعددة العوامل والدخول الاجتماعي. وفُصلت وحدة الاشتراكات القديمة إلى خدمات Rebilling وAdjustment وTransition أكثر مرونة. وطُورت واجهات Promotions وProduct لإدارة العروض الترويجية."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "أصبحت عمليات التطوير والاختبار والصيانة والتخصيص أبسط باستخدام الخدمات المصغرة، وانخفضت تكاليف الصيانة بالنهج دون خوادم.",
+              "الخبرات: هندسة البرمجيات وتطوير الواجهات الخلفية. التقنيات: Ruby وJavaScript وNode.js وMySQL وTypeScript وKafka وRedis وNest.js وRabbitMQ وAurora وخدمات AWS: Lambda وSQS وSNS وCloudFormation وSecrets Manager."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Medya lisanslama platformunun mikroservislere dönüştürülmesi",
+        "sector": "Medya ve eğlence",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri video, müzik, görsel ve markaya özel içerik lisanslamada küresel bir liderdir. Kaynak Haziran 2019 ortaklık başlangıcını, 20 yılı aşkın deneyimi, 1.000’den fazla çalışanı ve milyonlarca katkı sağlayanı belirtir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Web ve yönetim platformlarının bakımını, özelleştirilmesini ve yeni özellik geliştirmesini kolaylaştırmak için monolitik arka ucun yeniden tasarlanması hedeflendi."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Büyük monolit mikroservislere ayrıldı. Sunucu yönetimini azaltan ve kullandıkça ödeme sunan sunucusuz mimari seçildi. Nest.js ile Transition PoC’si sonrasında TypeScript çerçevesi kimlik, abonelik ve satış hizmetlerinde kullanıldı.",
+              "Tek oturum açma, çok faktörlü kimlik doğrulama ve sosyal giriş eklendi. Eski abonelik modülü Rebilling, Adjustment ve Transition hizmetlerine ayrıldı. Promotions ve Product API’ları kampanya yönetimini kolaylaştırdı."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Geliştirme, test, bakım ve özelleştirme yeni mikroservislerle kolaylaştı; sunucusuz yaklaşım bakım maliyetlerini azalttı.",
+              "Uzmanlık: Yazılım ve arka uç geliştirme. Teknolojiler: Ruby, JavaScript, Node.js, MySQL, TypeScript, Kafka, Redis, Nest.js, RabbitMQ, Aurora ve AWS Lambda, SQS, SNS, CloudFormation, Secrets Manager."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "Microservices",
+        "labels": {
+          "en": "Platform re-architecture",
+          "ar": "إعادة معمارية المنصة",
+          "tr": "Platformun yeniden tasarımı"
+        }
+      },
+      {
+        "value": "Serverless",
+        "labels": {
+          "en": "Architecture approach",
+          "ar": "معمارية دون خوادم",
+          "tr": "Sunucusuz mimari"
+        }
+      },
+      {
+        "value": "SSO + MFA",
+        "labels": {
+          "en": "Secure authentication",
+          "ar": "دخول آمن",
+          "tr": "Güvenli giriş"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 1125,
+        "height": 542
+      }
+    }
+  },
+  {
+    "slug": "retail-supply-chain",
+    "source": "https://www.n-ix.com/case-study/digital-acceleration-retail-supply-chain-management/",
+    "cover": "/brand/digital-transformation/case-5-cover.webp",
+    "diagram": "/brand/digital-transformation/case-5-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-5-image-1.webp",
+        "width": 1125,
+        "height": 488
+      }
+    ],
+    "imageSection": 2,
+    "translations": {
+      "en": {
+        "title": "Digital acceleration in retail with solutions for supply chain management",
+        "sector": "Retail & supply chain",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is a prominent global fashion retailer with tens of thousands of employees operating in thousands of stores across the globe.",
+              "Published client profile: Industry: Retail. Partnership period: October 2019 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client wanted to streamline their supply chain, logistics, and material management by unifying all processes in a single modern platform. They wanted to make it easily accessible from both the web and mobile. Furthermore, the company aimed to build the platform quickly with the ability to scale it to suppliers and customers."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client develop the supply chain visibility and raw material management modules for the client’s new management platform.",
+              "The supply chain visibility module allows tracking supplier information in the supply chain. It consists of a web and an iOS application that offer comprehensive and user-friendly visualization of various supplier data, including:",
+              "Single representation view for examining the entire list of suppliers and their details. It provides tables, charts, and historical dashboards that visualize tier levels, markets, social traceability rankings, etc. It also includes a convenient filtered search feature.",
+              "Production view for monitoring changes over time in ordered and supplied materials during specific seasons. It allows checking the number of produced units or the quantity of manufactured raw materials and elements supplied for specific client departments.",
+              "Related suppliers view for viewing dashboards with visualization of hierarchy tiers, supplier collaboration, and market distribution.",
+              "Ranking and performance view for monitoring social and environmental ranking for suppliers, such as energy consumption. It also enables creating supplier improvement plans and tracking of how these criteria change over time.",
+              "Corporate information view for keeping track of supplier contacts, locations, and tax information.",
+              "The client’s employees can use the iOS application to easily add new suppliers using a QR code on their devices. Also, our engineers helped set up the testing process for the supply chain visibility module from scratch, covering more than 90% of the code with unit tests, and more than 80% with integration tests.",
+              "Additionally, the delivery team helped the client develop an MVP version of the raw material management module. It allows the client’s buyers (employees responsible for ordering raw materials for production) to see a detailed overview of all their purchases, enabling effective raw material management. We helped implement a key feature—KPIs of raw materials that outline the number of ordered materials that can be used for production and the number of expected deliverables. It improves buyers’ decision-making and ensures timely material availability for production."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "By developing some of the key modules for the new supply chain management platform, the delivery team helped the client acquire several important advantages:",
+              "Streamlined supply chain management with a comprehensive and detailed view of all suppliers;",
+              "Improved operational efficiency by ensuring that the new platform has the required features and capabilities to handle thousands of users and suppliers;",
+              "Ensured effective raw material management and decision-making with a comprehensive overview and KPIs of all purchases.",
+              "Expertise delivered:\nMobile App Development, Software QA & Testing, Software Engineering, MVP Development\nTechnologies:\nJava, React, Spring Framework, TypeScript, Microsoft Azure, MongoDB, Swift, SwiftUI\n50+\n\nyears on the market\n\n5,000+\n\nstores worldwide\n\n100K+\n\nemployees\n\n$30B+\n\nannual revenue\n\nSupply chain visibility module\n\ndevelopment from scratch\n\nRaw material management module\n\ndevelopment from scratch\n\n90% of the code\n\ncovered with unit tests\n\n80% of the code\n\ncovered with integration tests"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "تسريع التحول في التجزئة بحلول إدارة سلسلة التوريد",
+        "sector": "التجزئة وسلسلة التوريد",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل شركة أزياء عالمية لديها عشرات آلاف الموظفين وآلاف المتاجر. تعرض الدراسة بياناته: أكثر من 50 عامًا في السوق و5,000 متجر و100 ألف موظف وإيرادات سنوية تتجاوز 30 مليار دولار، وبداية الشراكة في أكتوبر 2019."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدف توحيد سلسلة التوريد واللوجستيات وإدارة المواد في منصة حديثة متاحة عبر الويب والهاتف، مع تطوير سريع وقابلية توسع للموردين والعملاء."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "طوّر الفريق وحدتي رؤية سلسلة التوريد وإدارة المواد الخام. تتيح الأولى تتبع الموردين عبر تطبيق ويب وiOS بواجهات مفصلة.",
+              "العرض الموحد يجمع الموردين وتفاصيلهم في جداول ورسوم ولوحات تاريخية تظهر المستويات والأسواق وتصنيفات التتبع الاجتماعي مع بحث مفلتر. عرض الإنتاج يتتبع تغير المواد المطلوبة والموردة حسب الموسم والوحدات المنتجة والمواد المخصصة للأقسام. عرض الموردين المرتبطين يوضح المستويات والتعاون والتوزيع الجغرافي.",
+              "عرض الأداء يتابع التصنيف الاجتماعي والبيئي مثل استهلاك الطاقة، مع خطط تحسين ومراقبة تغير المعايير. وعرض معلومات الشركات يجمع الاتصالات والمواقع والبيانات الضريبية.",
+              "يضيف الموظفون الموردين عبر رمز QR في تطبيق iOS. أُنشئت عملية الاختبار من الصفر، بتغطية تتجاوز 90% لاختبارات الوحدات و80% للتكامل.",
+              "طُورت نسخة MVP لإدارة المواد الخام تمنح المشترين نظرة شاملة إلى المشتريات. تعرض مؤشرات المواد المطلوبة والقابلة للإنتاج والتسليمات المتوقعة لدعم القرار وتوافر المواد في وقتها."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "تحسنت إدارة التوريد برؤية شاملة للموردين، وأصبحت المنصة قادرة على خدمة آلاف المستخدمين والموردين. وتحسنت إدارة المواد والقرارات بفضل النظرة الشاملة للمشتريات ومؤشراتها.",
+              "الخبرات: تطبيقات الهاتف واختبار البرمجيات والهندسة وتطوير MVP. التقنيات: Java وReact وSpring وTypeScript وAzure وMongoDB وSwift وSwiftUI."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Tedarik zinciri çözümleriyle perakendede dijital ivme",
+        "sector": "Perakende ve tedarik zinciri",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, binlerce mağazası ve on binlerce çalışanı bulunan küresel moda perakendecisidir. Kaynak 50 yılı aşkın faaliyet, 5.000’den fazla mağaza, 100.000’den fazla çalışan ve 30 milyar dolar üzeri yıllık gelir ile Ekim 2019 ortaklık başlangıcını bildirir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Tedarik, lojistik ve hammadde yönetimini web ve mobilden erişilen modern tek platformda toplamak, hızlı geliştirmek ve tedarikçi/müşteri ölçeğine büyütmek istedi."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Tedarik zinciri görünürlüğü ve hammadde yönetimi modülleri geliştirildi. Web ve iOS uygulamaları tedarikçi verilerini kullanıcı dostu biçimde sunar.",
+              "Birleşik görünüm; tedarikçi listesi, tablolar, grafikler ve geçmiş panolarıyla katman, pazar ve sosyal izlenebilirliği gösterir; filtreli arama sunar. Üretim görünümü sezonluk sipariş ve teslim malzemesi değişimlerini ve bölüm bazında üretilen birimleri izler. İlişkili tedarikçiler görünümü hiyerarşi, iş birliği ve pazar dağılımını sunar.",
+              "Performans görünümü enerji tüketimi gibi sosyal/çevresel dereceleri, iyileştirme planlarını ve değişimleri takip eder. Kurumsal görünüm iletişim, konum ve vergi bilgilerini tutar.",
+              "iOS üzerinden QR kodla tedarikçi eklenebilir. Test süreci sıfırdan kuruldu; birim testleri kodun %90’ından, entegrasyon testleri %80’inden fazlasını kapsadı.",
+              "Hammadde MVP’si alıcılara tüm satın alımları gösterir. Sipariş edilmiş ve üretimde kullanılabilir malzemeler ile beklenen teslimat KPI’ları kararları ve zamanında tedariki destekler."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Tedarikçiler için kapsamlı görünürlük, binlerce kullanıcı ve tedarikçiyi destekleyen verimlilik ve satın alma KPI’larıyla daha iyi hammadde kararları sağlandı.",
+              "Uzmanlık: Mobil geliştirme, yazılım testi, mühendislik ve MVP. Teknolojiler: Java, React, Spring, TypeScript, Azure, MongoDB, Swift ve SwiftUI."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "90%+",
+        "labels": {
+          "en": "Unit test coverage",
+          "ar": "تغطية اختبارات الوحدات",
+          "tr": "Birim test kapsamı"
+        }
+      },
+      {
+        "value": "80%+",
+        "labels": {
+          "en": "Integration test coverage",
+          "ar": "تغطية اختبارات التكامل",
+          "tr": "Entegrasyon test kapsamı"
+        }
+      },
+      {
+        "value": "Web + iOS",
+        "labels": {
+          "en": "Supply chain visibility",
+          "ar": "رؤية سلسلة التوريد",
+          "tr": "Tedarik görünürlüğü"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 1125,
+        "height": 488
+      }
+    }
+  },
+  {
+    "slug": "retail-ai-prototyping",
+    "source": "https://www.n-ix.com/case-study/accelerating-product-lifecycle-retailer-ai-powered-prototyping/",
+    "cover": "/brand/digital-transformation/case-6-cover.webp",
+    "diagram": "/brand/digital-transformation/case-6-image-1.webp",
+    "gallery": [
+      {
+        "src": "/brand/digital-transformation/case-6-image-1.webp",
+        "width": 1125,
+        "height": 665
+      }
+    ],
+    "imageSection": 2,
+    "translations": {
+      "en": {
+        "title": "Faster product development lifecycle in retail with AI-powered prototyping",
+        "sector": "Retail & AI",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is a prominent company known for designing, manufacturing, and retailing stylish undergarments and sleepwear for both men and women. They operate across several European countries and holds a leading position in its regional market.",
+              "Published client profile: Location: Austria. Industry: Retail. Partnership period: February 2024 - present."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client aimed to improve the speed and efficiency of their product manufacturing lifecycle. The company wanted to leverage AI and 2D/3D-modeling to streamline the clothing testing (prototyping) process."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team engineers investigated several AI and ML-based models, defined their strengths and weaknesses, and helped the client choose the model best suited to their needs. We then prepared a comprehensive roadmap for building an AI-powered solution that generates photorealistic 2D and 3D models of clothing for both men and women.",
+              "The solution analyzes sketches of clothes prepared by a designer and the set body parameters required for testing. Based on this data, it generates a 2D or 3D model of how the product would fit on a person."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "Facilitated the development of the AI-powered solution by designing an effective implementation roadmap with cost estimates;",
+              "Accelerated the product development lifecycle by allowing the testing of clothing designs with 2D and 3D models.",
+              "Services:\nTechnology Consulting\nExpertise delivered:\nAI and Machine Learning\n100+\n\nyears on the market\n\n15+\n\ncountries served\n\n200+\n\nglobal locations\n\nAI-generated\n\n2D and 3D clothing models\n\nSolution implementation roadmap\n\ndesign\n\nComprehensive AI and ML-model\n\nanalysis"
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "تسريع دورة تطوير المنتجات بنمذجة أولية مدعومة بالذكاء الاصطناعي",
+        "sector": "التجزئة والذكاء الاصطناعي",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل شركة بارزة لتصميم وتصنيع وبيع الملابس الداخلية وملابس النوم للنساء والرجال، تعمل في دول أوروبية متعددة ولها مكانة إقليمية رائدة. تعرض الدراسة مقرًا في النمسا وبداية الشراكة في فبراير 2024، وأكثر من 100 عام في السوق و15 دولة و200 موقع عالمي."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدفت الشركة تسريع دورة تصنيع المنتجات وتحسين كفاءتها باستخدام الذكاء الاصطناعي والنمذجة الثنائية والثلاثية الأبعاد لتبسيط اختبار الملابس والنماذج الأولية."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "درس الفريق نماذج متعددة للذكاء الاصطناعي وتعلم الآلة وحدد مزاياها وقيودها، ثم ساعد في اختيار الأنسب. أُعدت خارطة تنفيذ وتكاليف لحل يولد نماذج ملابس واقعية ثنائية وثلاثية الأبعاد.",
+              "يحلل الحل رسومات المصمم ومعايير الجسم المطلوبة للاختبار، ثم ينشئ نموذجًا يوضح ملاءمة المنتج للشخص."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "سهّلت خارطة التنفيذ وتقديرات التكلفة تطوير الحل، وسرّعت النماذج الثنائية والثلاثية اختبار التصاميم ودورة تطوير المنتج.",
+              "الخدمة: الاستشارات التقنية. الخبرة: الذكاء الاصطناعي وتعلم الآلة."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Yapay zekâ prototiplemesiyle daha hızlı ürün geliştirme",
+        "sector": "Perakende ve yapay zekâ",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, kadın ve erkek iç giyim ve uyku giyimi tasarlayan, üreten ve satan, Avrupa’da bölgesel lider bir şirkettir. Kaynak Avusturya konumunu, Şubat 2024 ortaklık başlangıcını, 100 yılı aşkın faaliyeti, 15’ten fazla ülkeyi ve 200’den fazla konumu bildirir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Üretim yaşam döngüsünü hızlandırmak ve verimliliği artırmak için yapay zekâ ile 2D/3D modelleme kullanarak kıyafet testini ve prototiplemeyi iyileştirmek istedi."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Ekip, AI/ML modellerinin güçlü ve zayıf yönlerini inceleyip uygun modeli seçti. Kadın ve erkek kıyafetlerinin fotogerçekçi 2D/3D modellerini üreten çözüm için maliyet tahminli yol haritası hazırlandı.",
+              "Çözüm, tasarım eskizlerini ve test için vücut parametrelerini analiz ederek ürünün kişiye nasıl oturacağını gösteren modeller üretir."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Uygulama yol haritası ve maliyet tahminleri geliştirmeyi kolaylaştırdı. 2D/3D tasarım testi ürün geliştirme döngüsünü hızlandırdı.",
+              "Hizmet: Teknoloji danışmanlığı. Uzmanlık: Yapay zekâ ve makine öğrenmesi."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "2D / 3D",
+        "labels": {
+          "en": "Clothing model generation",
+          "ar": "توليد نماذج الملابس",
+          "tr": "Kıyafet modeli üretimi"
+        }
+      },
+      {
+        "value": "AI + ML",
+        "labels": {
+          "en": "Model assessment",
+          "ar": "تقييم النماذج",
+          "tr": "Model değerlendirmesi"
+        }
+      },
+      {
+        "value": "Roadmap",
+        "labels": {
+          "en": "Implementation and cost planning",
+          "ar": "خطة التنفيذ والتكلفة",
+          "tr": "Uygulama ve maliyet planı"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 1125,
+        "height": 665
+      }
+    }
+  }
+]

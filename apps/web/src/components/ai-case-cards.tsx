@@ -4,12 +4,20 @@ import type { Locale } from '@tevoniq/types';
 import { aiCaseStudies, aiCaseCopy, aiCaseStudyHref } from '@/content/ai-case-studies';
 import './ai-case-studies.css';
 
-export function AiCaseCards({ locale, exclude }: { locale: Locale; exclude?: string }) {
+export function AiCaseCards({
+  locale,
+  exclude,
+  serviceSlug = 'ai-augmented-development',
+}: {
+  locale: Locale;
+  exclude?: string;
+  serviceSlug?: string;
+}) {
   const c = aiCaseCopy[locale];
   return (
     <div className="ai-case-cards">
       {aiCaseStudies
-        .filter((s) => s.slug !== exclude)
+        .filter((s) => s.slug !== exclude && s.serviceSlug === serviceSlug)
         .map((study) => {
           const t = study.translations[locale];
           return (

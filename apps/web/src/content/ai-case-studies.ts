@@ -1,6 +1,15 @@
 import type { Locale } from '@tevoniq/types';
 import studies from './ai-case-studies.json';
-export const aiCaseStudies = studies;
+import digitalStudies from './digital-case-studies.json';
+export const aiCaseStudies = [
+  ...studies.map((study) => ({
+    ...study,
+    serviceSlug: 'ai-augmented-development',
+    imageSection: 2,
+    gallery: [{ src: study.diagram, ...study.images.diagram }],
+  })),
+  ...digitalStudies.map((study) => ({ ...study, serviceSlug: 'digital-transformation' })),
+];
 export function aiCaseStudyHref(locale: Locale, slug: string) {
   return `/${locale}/insights/case-studies/${slug}`;
 }
@@ -10,7 +19,7 @@ export const aiCaseCopy = {
     label: 'Case study',
     nav: 'Case studies',
     read: 'Explore the study',
-    back: 'Back to AI development',
+    back: 'Back to the service',
     notice:
       'External case studies. Reported results belong to the featured engagements and are not TEVONIQ project results.',
     source: 'Original publication',
@@ -26,7 +35,7 @@ export const aiCaseCopy = {
     label: 'دراسة حالة',
     nav: 'دراسات الحالة',
     read: 'استكشف الدراسة',
-    back: 'العودة إلى خدمة التطوير',
+    back: 'العودة إلى الخدمة',
     notice:
       'دراسات حالة خارجية. تخص النتائج المشاريع المعروضة، وليست نتائج مشاريع نفّذتها TEVONIQ.',
     source: 'المنشور الأصلي',
@@ -42,7 +51,7 @@ export const aiCaseCopy = {
     label: 'Vaka çalışması',
     nav: 'Vaka çalışmaları',
     read: 'Çalışmayı keşfedin',
-    back: 'Geliştirme hizmetine dön',
+    back: 'Hizmete dön',
     notice:
       'Dış vaka çalışmalarıdır. Bildirilen sonuçlar ilgili projelere aittir; TEVONIQ proje sonuçları değildir.',
     source: 'Orijinal yayın',

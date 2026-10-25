@@ -1,0 +1,386 @@
+{
+  "source": "https://www.n-ix.com/digital-transformation/",
+  "captured": "2026-10-25",
+  "rightsBasis": "User confirmed rights of use in the same session.",
+  "videos": "No embedded video, source, iframe or direct video URL was found in the service or six case-study pages.",
+  "assets": [
+    {
+      "source": "https://src.n-ix.com/uploads/2025/08/12/40339309-edd3-46e6-a123-b3eacfe60160.webp",
+      "path": "apps/web/public/brand/digital-transformation/hero.webp",
+      "bytes": 57694,
+      "sha256": "3bab48042e55af243b19bd4329f14d3c63affc3d251a60426d7da94c35bd8e0c"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/06/19/1c4197e4-e50b-47ad-aded-d8d9ddd0dc2c.webp",
+      "path": "apps/web/public/brand/digital-transformation/report.webp",
+      "bytes": 179990,
+      "sha256": "4a6bdc6737045b3cc98bea250b342b0f24b30a12e93e4aaaa12bc00e2835371a"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/d6e4c7c7-14e0-4c7a-88a7-b92df4c2c809.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-1.webp",
+      "bytes": 4956,
+      "sha256": "508e68f1c95cdf28a73bdad174a0645dae9ab2436292bf5248e346ed01fec73d"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/b1300c00-30b3-4557-8935-bcad14303080.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-2.webp",
+      "bytes": 3654,
+      "sha256": "8136589698debbcca23ddf00e772e2c98aa5ef3ad295835dd142dd9f20fb4c0f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/71011222-2664-4203-98cd-6d34eb0ff847.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-3.webp",
+      "bytes": 3844,
+      "sha256": "76178d34043975203c5fcb4d4ec942c104fde474d5596ccb0bc8ebd82e4bdd2e"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/03ebebbf-e253-4f40-b3df-a9eb3cbaebbe.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-4.webp",
+      "bytes": 1466,
+      "sha256": "4c6dbee24126e89cb3294c7044129779ddb79c61b4ff705d9366e97dfe768efc"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/20/a0c9736e-34c4-4ea7-8793-287c3776082c.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-5.webp",
+      "bytes": 32208,
+      "sha256": "85edecacbef540c130d3a680603a31787ad0f4f5eb3d150d5d68a88e8c6c6706"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/4b91b6ea-b103-43ac-a658-99780871186f.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-6.webp",
+      "bytes": 3972,
+      "sha256": "ca272bbaff08e2b1aebac683817830bdc2206ea6c393712afc16dc95b3f1e343"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/165f6cf7-df4d-42e7-b5a6-a9268faba371.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-7.webp",
+      "bytes": 4842,
+      "sha256": "8dd9998bd1a91c8b5d85dd77d5a034790b3b17aa64cdf8db1a739f7711ed2768"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/d3a29520-46bf-4c91-ac1a-3f7acf0d3293.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-8.webp",
+      "bytes": 3112,
+      "sha256": "b7e3ef39d20d025e9c05ef1c27cef9780fd2848d1da01a0aa40cdb8d320fe320"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/837f574b-7180-4fa5-baca-81463dd0378f.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-9.webp",
+      "bytes": 4602,
+      "sha256": "beb197e737abacf9c4aac72a5269c15ec05bffd351200aa117d6d187fe756eb3"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/cdc90abc-f7d4-4825-82cf-c113de292707.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-10.webp",
+      "bytes": 3032,
+      "sha256": "f0c3695a5c6f84710d6ee9d650ada4eddb4be30395164e7fc7f826fbeb416fc7"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/8535eec8-ee92-4733-a92c-ca1e9e51b946.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-11.webp",
+      "bytes": 4010,
+      "sha256": "1f7e1b6d6c15cb52bdb2c04aa2017b275a6b072cbcada665c1554e39277132fd"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/06/02/201a9859-f2ef-4f62-9d94-542b9bf19ae9.webp",
+      "path": "apps/web/public/brand/digital-transformation/client-12.webp",
+      "bytes": 2528,
+      "sha256": "b5d828d3acdfeaae7c60f749373ca7b43036af867307d15f54209f77bec8eaaf"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/509a7570-03d0-40cf-ba24-7d29db58da30.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-1.webp",
+      "bytes": 3838,
+      "sha256": "ea9e802f659645437658ae60b9d155422a98ed6495e8eafffb9b73ec12076f75"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/885366ef-50cb-4117-ae2c-3adcbc736b5e.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-2.webp",
+      "bytes": 10374,
+      "sha256": "f6324bb56f96fb84b54c162e730b75fc11c2668c4985e088cc50066a31c6a1de"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/86991ce2-1d57-4fc0-8b38-541a3d52c282.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-3.webp",
+      "bytes": 6916,
+      "sha256": "02038b4bce68bee93b38ebfff939b94e6f063fade7837b85eac2a99abc2a1238"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/8fef0c1e-03fa-48ea-ac5a-e8c0d12b785e.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-4.webp",
+      "bytes": 2108,
+      "sha256": "6eaba3b8c9b248e0c1f5341b7d60e6d21bab3ad319ed22c876304b23615d012f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/de840fbb-8d9e-4477-8a56-1a7c7b200821.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-5.webp",
+      "bytes": 6128,
+      "sha256": "0d9977b67e777778fd38117331bf0b2c5df4d97cdb566807115339a0cfa0b98d"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/fcadac96-7bdf-42b3-ad7b-1537db076fa3.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-6.webp",
+      "bytes": 4276,
+      "sha256": "0177c6a374f3b64b0cc9a1de8535410ed277bec1d45ae64ac08572edfe703805"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/a7af00d1-15d2-4b9f-b73a-105780059747.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-7.webp",
+      "bytes": 5426,
+      "sha256": "99f973caa6b16d4f116ffcaa93ba479f33dc82400e34d15cf5ae1fad82e951e3"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/ad981366-9aa5-458b-b1dd-391a06eb7d97.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-8.webp",
+      "bytes": 2266,
+      "sha256": "9efb6533d7627bfbba5b5bdd8a4ba50b3bdfa3f2848941fb8b0e03cecac30c83"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/b795d640-08bd-4d1d-a47a-bcfae5292331.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-9.webp",
+      "bytes": 3006,
+      "sha256": "e7edbc9ed0269bbb8da8056b0100a93ba9e2e4256be7a909531897cd5169093a"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/3bea4a9b-cebd-481d-8df6-b798ed3ece9f.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-10.webp",
+      "bytes": 6206,
+      "sha256": "2101d0e5228d658f3b02e14d1c066c43b4035c1d5653181dc32a60f27aa59064"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/4da600a7-01a0-4878-ac10-bd690dad3a0a.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-11.webp",
+      "bytes": 3850,
+      "sha256": "913531c9c0f872760951fb3eb002403a02b35d3e11b8317b07f16236dc3dd5d5"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/2be1d756-ce1e-44ec-8185-4215cc8064da.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-12.webp",
+      "bytes": 2538,
+      "sha256": "70112979930403ace28548bdb87676057afed01264ae3f07ac70c902bb823c9f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/6a9dfcdb-68c5-4bb5-9e7d-5f03edecb688.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-13.webp",
+      "bytes": 4480,
+      "sha256": "d6a49a17b1c74a887709a5a4faf3b3e8ee702026e38bc4da0b22baa5777c72af"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/d1fcc9cf-b5d6-4179-bf0e-f918aedb7218.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-14.webp",
+      "bytes": 5560,
+      "sha256": "e0a0c29f64676b916924a649c06faead6535204f72faa4c72034229fc3d22ff1"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/f15784b3-7afb-4a84-910c-30a6e1365cf2.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-15.webp",
+      "bytes": 6962,
+      "sha256": "057edba64dff3a1ec61ddbf9a654f832a05b444c4a8acfc1a5ac05b9cfa32fb2"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/7b3a3ede-a895-4264-8a93-97532dd16e61.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-16.webp",
+      "bytes": 4846,
+      "sha256": "079ce88ec2485db073d1968e90c7cbc024ef63cfaa02cac514bef9618a6de295"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/b8aef468-c1e9-49c4-86cb-404ec6b87e5f.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-17.webp",
+      "bytes": 4462,
+      "sha256": "2de1de5f292d5f41384eb94e4fa78d787497913464126278c07bc3d6cb93af91"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/02/06/f91648c8-5351-4b5b-baba-16aa8e0ba459.webp",
+      "path": "apps/web/public/brand/digital-transformation/partner-18.webp",
+      "bytes": 5510,
+      "sha256": "6b68b1ddcb5c8c6011f7ecb7fa06c33253c2b56a5bce737afed1bd3a7ad1d213"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/be7d5237-9991-4909-b07e-d15db6a44c4c.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-1.webp",
+      "bytes": 61102,
+      "sha256": "f571afbd328a037fc0f2f0385384c19336b3af97617d0e54f28325905cdefbc0"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/23e88ae6-32dd-4fcd-80c9-8e20fb75b905.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-2.webp",
+      "bytes": 14916,
+      "sha256": "f3df4ad8af805e224b9fbd38101a19807e02178d3f57df5a59ca9e8b1cf372b5"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/48fc043c-62d6-4bc8-8dec-c33c186732d5.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-3.webp",
+      "bytes": 15360,
+      "sha256": "64820fd91e277e0f7d904a6ffb4615ddb2f93c4b66762b21571d358e57405aba"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/1055ecce-bdeb-41a4-bf20-dfe4ac962764.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-4.webp",
+      "bytes": 10086,
+      "sha256": "f328c8c81b5a18a23610457fd6c8b042d18d4388ce7f55ceb175c26862a8f075"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/07a527c1-63d6-4e60-aa5b-6778264f0862.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-5.webp",
+      "bytes": 6474,
+      "sha256": "f379c08e406ca1d415e628a004b8a8c417295d167aaee30e4162581d4bb1a0a3"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/d0ae9e64-6a73-4e80-9adc-552b8ad8d88f.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-6.webp",
+      "bytes": 25908,
+      "sha256": "3b2a5677458255ba73c9736a1847c57b65f7861be60598efb8d7382a56ac6a1f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/3ba32679-ff0e-46bf-9517-138dd29dbdbb.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-7.webp",
+      "bytes": 23466,
+      "sha256": "2b318275502ce6a9b01ee8c480f6c2460230c9b1e698785caa9f4c3f7af2d496"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/83a410ea-ef85-4aee-b770-e9e294b3993d.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-8.webp",
+      "bytes": 9840,
+      "sha256": "392e845361b6d1a6a376eacc6d0c754ee58cf7102ede6701baf31fe0d437d450"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/41efc5e8-ed89-4cb9-9f58-783cc05e7332.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-9.webp",
+      "bytes": 8070,
+      "sha256": "5518bd6f8388cd796fc389716bf8610753e7cebd356438407484a2dbbe34ba10"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/20acf917-2fde-4d16-8246-c8d8dfc2af08.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-10.webp",
+      "bytes": 47902,
+      "sha256": "e2b83909e7d13ef64d67e5a97d7997476a7c06c8da99552e0836e871ff3d14a9"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/12/16/0502dc81-767f-4da5-8cfb-09866eb7c631.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-11.webp",
+      "bytes": 10656,
+      "sha256": "264e82924486f994359bd6a14a2469fc7ee1db63c92840123a870ac5bf433a6e"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/09/29/16e67657-7bf7-42dd-a000-5a4d7d5efc94.webp",
+      "path": "apps/web/public/brand/digital-transformation/award-12.webp",
+      "bytes": 18682,
+      "sha256": "7953ba9dcec273fd31fdf5d2235ca55d8f12559038bda853641f3ffeaae77e33"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/08/05/0dad5faa-ee56-42c4-af46-eacc99a4c98f.webp",
+      "path": "apps/web/public/brand/digital-transformation/leader-1.webp",
+      "bytes": 29352,
+      "sha256": "5694564f38ff309e5a6bb8cc2e3995346b96f3b1bd6cd51af75544148f1c5221"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/05/25/2e1bfb16-7588-4ef0-831f-ca694660fd3b.webp",
+      "path": "apps/web/public/brand/digital-transformation/leader-2.webp",
+      "bytes": 28506,
+      "sha256": "a3d1ba1b93bf204f290547ef56e400b778aa8e97a8d6e3e02f3309d8dd32c640"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/05/19/5b001704-21a8-443a-8161-dd099e59e0f9.webp",
+      "path": "apps/web/public/brand/digital-transformation/leader-3.webp",
+      "bytes": 22318,
+      "sha256": "8fb30200fb5118b5b87e42fc46d5ff14e933d724f903e8b9aae7858259de3c6c"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/05/25/6bf48faf-951a-447d-9572-7ca6dd508fbc.webp",
+      "path": "apps/web/public/brand/digital-transformation/leader-4.webp",
+      "bytes": 23930,
+      "sha256": "1d3b3eca361eb364c8e3e1ff646e6bf79dad1be6a3b895eb2f8435174e546c4f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2026/05/25/6bf48faf-951a-447d-9572-7ca6dd508fbc.webp",
+      "path": "apps/web/public/brand/digital-transformation/quote-1.webp",
+      "bytes": 23930,
+      "sha256": "1d3b3eca361eb364c8e3e1ff646e6bf79dad1be6a3b895eb2f8435174e546c4f"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/05/19/be478b85-4847-4fcf-929d-1281984654cc.webp",
+      "path": "apps/web/public/brand/digital-transformation/quote-2.webp",
+      "bytes": 33658,
+      "sha256": "16063c1a2ef62d880d17e5e62f13545affb7293d9c7a5766780b5c10729f99a1"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/11/25/fdd6c137-a155-4722-9067-683185826dac.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-1-cover.webp",
+      "bytes": 54788,
+      "sha256": "95af9d49c90e685f55a661d58e3c8fbb1befa112a7b8e57d65436c7094f04eb0"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/11/25/7ea0737b-f7f7-4a4e-bf50-6c541fd7734e.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-1-image-1.webp",
+      "bytes": 189548,
+      "sha256": "92db519d88cd34c4b49c8e1cbf68868d832960c86b3bc933fa798126bd37f94c"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/10/10/6f8256d4-c84c-4a4e-a0c0-be08f4a9681f.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-2-cover.webp",
+      "bytes": 86790,
+      "sha256": "76572ed72a94cc810ca0caeccad84e5917a076519a2d3ac219b9a808f1ac429a"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/10/10/8e36a346-cde3-46a3-9220-cae3372a2280.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-2-image-1.webp",
+      "bytes": 27462,
+      "sha256": "29f6152af0adca880fd1c64a63f24ef4762ab07b867a28c29615e2a44598d3d5"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/10/10/45d2c4dc-d910-4c5b-bf3a-5c61952de98a.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-2-image-2.webp",
+      "bytes": 60196,
+      "sha256": "4383938f396106f59afb363a9444f4298e867ff270035350a78a151c941235e5"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/02/11/edba4a18-7675-4da5-9472-7bf517c0361a.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-3-cover.webp",
+      "bytes": 90360,
+      "sha256": "9622ed17f35649a5cd143d68256d4812f0ce75b39473af6529601f1fb68e4595"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2025/02/11/f7eb0911-eb7b-4bdc-b684-f79fb9a7f5f0.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-3-image-1.webp",
+      "bytes": 267696,
+      "sha256": "3599971a30bffe0888ee137a4a578365cbcb3a4621614a8b8a9f622e08abef15"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/11/04/c0c0825b-b534-4e7c-ac5d-8f8a3f7d77dc.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-4-cover.webp",
+      "bytes": 85024,
+      "sha256": "8103bd279c631dbef65d12af61a2a2998cf85832cb1779c0c407086d0497915e"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/11/05/31acb729-28a8-4123-a37c-c5c93bd3e45a.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-4-image-1.webp",
+      "bytes": 88758,
+      "sha256": "20dc87b5b2c77d8299fec4ddb44952fa254f384304e139aeef6d1d486d6b8028"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/10/03/3e3f8c0e-8b78-4e81-bc2e-496971b365d7.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-5-cover.webp",
+      "bytes": 115476,
+      "sha256": "1b81714ba73eb253c447a440df433a5ef63715819e50abcd64f7579b13863a4b"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/10/03/86f810b6-53f8-4230-963a-c2d139cb89fe.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-5-image-1.webp",
+      "bytes": 18522,
+      "sha256": "3765ec27ba8220f3fa260ca91a9b888ead00ab9f17c033f522612289be64948a"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/09/09/daea3df4-6383-41ff-9782-84e915e20a71.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-6-cover.webp",
+      "bytes": 20576,
+      "sha256": "95fad898bce5175aa54485e63a90689ded38d5f4520d4e06acae95e3059b65e7"
+    },
+    {
+      "source": "https://src.n-ix.com/uploads/2024/09/09/0218eec6-67f7-4a9b-9af3-27661e53dd73.webp",
+      "path": "apps/web/public/brand/digital-transformation/case-6-image-1.webp",
+      "bytes": 43224,
+      "sha256": "38dc96a0b9da4450f4a425ce134536d18bc5650e3c803672f8ae79234429f650"
+    }
+  ]
+}

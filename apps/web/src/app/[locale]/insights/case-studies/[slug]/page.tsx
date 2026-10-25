@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
           <Container>
             <a
               className="ai-case-back"
-              href={`/${locale}/services/ai-augmented-development#ai-case-studies`}
+              href={`/${locale}/services/${study.serviceSlug}#${study.serviceSlug === 'digital-transformation' ? 'digital-cases' : 'ai-case-studies'}`}
             >
               <ArrowLeft size={17} aria-hidden="true" />
               {c.back}
@@ -90,7 +90,9 @@ export default async function Page({ params }: Props) {
             <ul>
               {study.metrics.map((m) => (
                 <li key={m.value}>
-                  <strong dir="ltr">{m.value}</strong>
+                  <strong dir="ltr" data-textual={m.value.length > 4 && /[a-z]/i.test(m.value)}>
+                    {m.value}
+                  </strong>
                   <span>{m.labels[locale]}</span>
                 </li>
               ))}
@@ -106,18 +108,19 @@ export default async function Page({ params }: Props) {
                 {s.paragraphs.map((p, j) => (
                   <p key={j}>{p}</p>
                 ))}
-                {i === 2 && (
-                  <figure>
-                    <Image
-                      src={study.diagram}
-                      alt={`${c.image}: ${t.sector}`}
-                      width={study.images.diagram.width}
-                      height={study.images.diagram.height}
-                      unoptimized
-                      sizes="(max-width: 767px) 100vw, 70vw"
-                    />
-                  </figure>
-                )}
+                {i === study.imageSection &&
+                  study.gallery.map((image) => (
+                    <figure key={image.src}>
+                      <Image
+                        src={image.src}
+                        alt={`${c.image}: ${t.sector}`}
+                        width={image.width}
+                        height={image.height}
+                        unoptimized
+                        sizes="(max-width: 767px) 100vw, 70vw"
+                      />
+                    </figure>
+                  ))}
               </section>
             ))}
           </article>
@@ -145,10 +148,10 @@ export default async function Page({ params }: Props) {
         <section className="ai-case-more">
           <Container>
             <h2>{c.related}</h2>
-            <AiCaseCards locale={locale} exclude={study.slug} />
+            <AiCaseCards locale={locale} exclude={study.slug} serviceSlug={study.serviceSlug} />
             <a
               className="ai-case-contact"
-              href={`/${locale}/services/ai-augmented-development#ai-contact`}
+              href={`/${locale}/services/${study.serviceSlug}#${study.serviceSlug === 'digital-transformation' ? 'digital-contact' : 'ai-contact'}`}
             >
               {c.contact}
               <ArrowUpRight size={20} aria-hidden="true" />

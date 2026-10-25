@@ -1,0 +1,239 @@
+{
+  "source": "https://www.n-ix.com/digital-transformation/",
+  "hero": "/brand/digital-transformation/hero.webp",
+  "report": "/brand/digital-transformation/report.webp",
+  "clients": [
+    {
+      "src": "/brand/digital-transformation/client-1.webp",
+      "name": "Bosch"
+    },
+    {
+      "src": "/brand/digital-transformation/client-2.webp",
+      "name": "Siemens"
+    },
+    {
+      "src": "/brand/digital-transformation/client-3.webp",
+      "name": "ebay"
+    },
+    {
+      "src": "/brand/digital-transformation/client-4.webp",
+      "name": "Inditex"
+    },
+    {
+      "src": "/brand/digital-transformation/client-5.webp",
+      "name": "AutoScout24"
+    },
+    {
+      "src": "/brand/digital-transformation/client-6.webp",
+      "name": "Credit Agricole"
+    },
+    {
+      "src": "/brand/digital-transformation/client-7.webp",
+      "name": "TotalEnergies"
+    },
+    {
+      "src": "/brand/digital-transformation/client-8.webp",
+      "name": "AVL"
+    },
+    {
+      "src": "/brand/digital-transformation/client-9.webp",
+      "name": "Innovation Group"
+    },
+    {
+      "src": "/brand/digital-transformation/client-10.webp",
+      "name": "Questrade"
+    },
+    {
+      "src": "/brand/digital-transformation/client-11.webp",
+      "name": "First Student"
+    },
+    {
+      "src": "/brand/digital-transformation/client-12.webp",
+      "name": "ZIM"
+    }
+  ],
+  "partners": [
+    {
+      "src": "/brand/digital-transformation/partner-1.webp",
+      "name": "AWS Premier Tier Services Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-2.webp",
+      "name": "Microsoft Solutions Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-3.webp",
+      "name": "Google Cloud Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-4.webp",
+      "name": "Palantir"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-5.webp",
+      "name": "Snowflake Select Services Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-6.webp",
+      "name": "SAP Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-7.webp",
+      "name": "OpenText"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-8.webp",
+      "name": "Mendix"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-9.webp",
+      "name": "Salesforce Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-10.webp",
+      "name": "Wirepas"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-11.webp",
+      "name": "Nordic Semiconductor Design Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-12.webp",
+      "name": "Sisense"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-13.webp",
+      "name": "Automation Anywhere"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-14.webp",
+      "name": "Databricks"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-15.webp",
+      "name": "Datadog"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-16.webp",
+      "name": "Couchbase"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-17.webp",
+      "name": "UiPath Authorized Partner"
+    },
+    {
+      "src": "/brand/digital-transformation/partner-18.webp",
+      "name": "Raspberry Pi Design Partner"
+    }
+  ],
+  "awards": [
+    {
+      "title": "N-iX is compliant with PCI DSS version 4.0.1.",
+      "body": "N-iX successfully renewed its PCI DSS Certification in 2026, reaffirming compliance with PCI DSS version 4.0.1.",
+      "image": "/brand/digital-transformation/award-1.webp",
+      "source": "https://www.n-ix.com/news/n-ix-renews-pci-dss-certification-2026/"
+    },
+    {
+      "title": "N-iX Quality Management Systems are certified to meet ISO 9001 standards",
+      "body": "ISO 9001 Certification proves that N-iX is adopting efficient Quality Management Systems that save time and cost, improve efficiency and ultimately improve customer relationships.",
+      "image": "/brand/digital-transformation/award-2.webp",
+      "source": "https://www.n-ix.com/news/n-ix-maintains-iso-9001-certification-2026/"
+    },
+    {
+      "title": "N-iX Information Security Management System certified to meet ISO 27001:2022",
+      "body": "The certification demonstrates N-iX’s ongoing commitment to maintaining robust information security standards.",
+      "image": "/brand/digital-transformation/award-3.webp",
+      "source": "https://www.n-ix.com/news/n-ix-renews-iso-27001-certification-for-2026/"
+    },
+    {
+      "title": "ISG recognizes N-iX for excellence in public cloud services",
+      "body": "N-iX has been named a Rising Star in the 2021 edition of ISG Provider Lens™ Public Cloud Services and Solutions for the UK market.",
+      "image": "/brand/digital-transformation/award-4.webp",
+      "source": "https://www.n-ix.com/news/isg-recognizes-n-ix-excellence-in-cloud-services/"
+    },
+    {
+      "title": "N-iX successfully renews FSQS certification",
+      "body": "The accreditation assures that N-iX complies with the financial sector regulations and is a trusted and secure vendor for financial institutions.",
+      "image": "/brand/digital-transformation/award-5.webp",
+      "source": "https://www.n-ix.com/news/n-ix-renews-hellios-fsqs-certification-2026/"
+    },
+    {
+      "title": "N-iX successfully passes CyberGRX Risk Assessment",
+      "body": "N-iX has successfully completed CyberGRX Risk Assessment.",
+      "image": "/brand/digital-transformation/award-6.webp",
+      "source": "https://www.n-ix.com/news/n-ix-completes-cybergrx-risk-assessment/"
+    },
+    {
+      "title": "N-iX achieves ISO/IEC 27701:2019 certification",
+      "body": "N-iX has successfully obtained the ISO/IEC 27701:2019 certification, an extension to ISO 27001 for privacy information management systems.",
+      "image": "/brand/digital-transformation/award-7.webp",
+      "source": "https://www.n-ix.com/news/n-ix-achieves-iso-27701-2019-certification/"
+    },
+    {
+      "title": "N-iX successfully completes GDPR Assessment",
+      "body": "N-iX has successfully completed its independent General Data Protection Regulation (GDPR) assessment for 2026.",
+      "image": "/brand/digital-transformation/award-8.webp",
+      "source": "https://www.n-ix.com/news/n-ix-completes-2026-gdpr-assessment/"
+    },
+    {
+      "title": "N-iX successfully completes SOC 2 Type 2 Certification",
+      "body": "N-iX has successfully completed its annual Service Organization Control (SOC 2) Type 2 audit for 2026, covering controls related to Security, Availability, Confidentiality, and Privacy for its Software Development Services.",
+      "image": "/brand/digital-transformation/award-9.webp",
+      "source": "https://www.n-ix.com/news/n-ix-completes-soc-2-type-2-certification-2026/"
+    },
+    {
+      "title": "N-iX Awarded on the 2024 Global Outsourcing 100: eight years of recognition",
+      "body": "N-iX has been recognized by the International Association of Outsourcing Professionals (IAOP) in its 2024 Global Outsourcing 100 list for the eighth consecutive year.",
+      "image": "/brand/digital-transformation/award-10.webp",
+      "source": "https://www.n-ix.com/news/n-ix-awarded-2024-global-outsourcing-100/"
+    },
+    {
+      "title": "Modern Application Development Services Providers by Forrester",
+      "body": "N-iX has been acknowledged among Modern Application Development Services providers by Forrester, a global research and advisory company, in their recently published report “The Modern Application Development Services Landscape, Q3 2024”.",
+      "image": "/brand/digital-transformation/award-11.webp",
+      "source": "https://www.n-ix.com/news/n-ix-recognized-modern-application-development-services-providers/"
+    },
+    {
+      "title": "N-iX named to CRN’s 2024 Solution Provider 500 List",
+      "body": "With this list, CRN acknowledges the top 500 solution providers each year, ranking the leading IT channel partner organizations across North America.",
+      "image": "/brand/digital-transformation/award-12.webp",
+      "source": "https://www.n-ix.com/news/n-ix-named-crn-2024-solution-provider-500-list/"
+    }
+  ],
+  "leaders": [
+    {
+      "name": "Valentyn Kropov",
+      "role": "Chief Technology Officer",
+      "image": "/brand/digital-transformation/leader-1.webp"
+    },
+    {
+      "name": "Pawel Bulowski",
+      "role": "Director, Head of AI Consulting",
+      "image": "/brand/digital-transformation/leader-2.webp"
+    },
+    {
+      "name": "Mariya Miroshyna",
+      "role": "Experience Design Lead",
+      "image": "/brand/digital-transformation/leader-3.webp"
+    },
+    {
+      "name": "Yaroslav Kisylychka",
+      "role": "Director, Head of GenAI Productivity Practice on APEX Framework",
+      "image": "/brand/digital-transformation/leader-4.webp"
+    }
+  ],
+  "quotes": [
+    {
+      "text": "We tried the “deploy AI tools and run workshops” approach first. It didn't work—zero measurable change. So we changed how we do things. Now we embed with engineers, change real workflows hands-on, and measure everything before and after. If we can't prove it with numbers, we don't claim it.",
+      "name": "Yaroslav Kisylychka",
+      "role": "Director, Head of GenAI Productivity Practice on APEX Framework",
+      "image": "/brand/digital-transformation/quote-1.webp"
+    },
+    {
+      "text": "Digital transformation isn’t just about new tech—it’s about keeping today’s systems future-ready. At N-iX, we help businesses modernize, innovate, and lead in a world where change is constant.",
+      "name": "Sergii Netesanyi",
+      "role": "Head of Solution Group",
+      "image": "/brand/digital-transformation/quote-2.webp"
+    }
+  ]
+}
