@@ -1,4 +1,5 @@
 import type { Locale } from '@tevoniq/types';
+import { solutionScenes, illustrationCopy, type SolutionScene } from './solution-illustrations';
 
 const artwork = {
   workflow: {
@@ -26,7 +27,7 @@ const artwork = {
     },
   },
 } satisfies Record<string, { src: string; alt: Record<Locale, string> }>;
-export type ConceptArt = (typeof artwork)[keyof typeof artwork];
+export type ConceptArt = { src: string; alt: Record<Locale, string>; scene?: SolutionScene };
 const subjects: Record<string, keyof typeof artwork> = {
   'custom-software-development': 'workflow',
   'api-integration': 'workflow',
@@ -45,7 +46,19 @@ const subjects: Record<string, keyof typeof artwork> = {
 };
 export function conceptArt(slug: string): ConceptArt | undefined {
   const key = subjects[slug];
-  return key ? artwork[key] : undefined;
+  if (!key) return undefined;
+  const scene = solutionScenes[slug];
+  return scene
+    ? {
+        ...artwork[key],
+        scene,
+        alt: {
+          en: illustrationCopy.en[scene].title,
+          ar: illustrationCopy.ar[scene].title,
+          tr: illustrationCopy.tr[scene].title,
+        },
+      }
+    : artwork[key];
 }
 export const visualLabels = {
   en: {

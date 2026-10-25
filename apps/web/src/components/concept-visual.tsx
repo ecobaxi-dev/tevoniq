@@ -2,16 +2,23 @@ import Image from 'next/image';
 import type { Locale } from '@tevoniq/types';
 import { conceptArt, visualLabels, type ConceptArt } from '@/config/concept-art';
 import './concept-visuals.css';
+import { SolutionIllustration } from './solution-illustration';
 
 export function ConceptVisual({
   art,
   locale,
   hero = false,
+  animated = true,
 }: {
   art: ConceptArt;
   locale: Locale;
   hero?: boolean;
+  animated?: boolean;
 }) {
+  if (art.scene)
+    return (
+      <SolutionIllustration scene={art.scene} locale={locale} hero={hero} animated={animated} />
+    );
   return (
     <figure className={`concept-visual${hero ? ' concept-visual--hero' : ''}`}>
       <Image
@@ -30,7 +37,15 @@ export function ConceptVisual({
     </figure>
   );
 }
-export function CatalogVisual({ slug, locale }: { slug: string; locale: Locale }) {
+export function CatalogVisual({
+  slug,
+  locale,
+  animated = true,
+}: {
+  slug: string;
+  locale: Locale;
+  animated?: boolean;
+}) {
   const art = conceptArt(slug);
-  return art ? <ConceptVisual art={art} locale={locale} /> : null;
+  return art ? <ConceptVisual art={art} locale={locale} animated={animated} /> : null;
 }

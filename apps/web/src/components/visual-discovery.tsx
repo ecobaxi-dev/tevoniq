@@ -62,7 +62,7 @@ export async function VisualDiscovery({
                 key={`${item.kind}-${item.id}`}
                 href={`/${locale}/${item.kind}/${item.slug}`}
               >
-                <CatalogVisual slug={item.slug} locale={locale} />
+                <CatalogVisual slug={item.slug} locale={locale} animated={false} />
                 <Heading as="h3" className="tv-h3">
                   {item.title}
                 </Heading>

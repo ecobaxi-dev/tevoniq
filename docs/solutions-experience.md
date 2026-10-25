@@ -19,3 +19,7 @@ Local HTTP checks verified the default catalog, featured results, matching searc
 The production web build succeeded, and all 170 repository tests passed.
 
 Deploy the updated source normally. No new environment variables are required.
+
+## Dedicated solution illustrations
+
+Each of the six solution titles now has its own pausable SVG animation in the catalog and detail hero. See [solution illustrations](solution-illustrations.md) for scene descriptions, source files and reduced-motion behavior. The illustrations are rendered in the document and do not require the image optimization endpoint.
