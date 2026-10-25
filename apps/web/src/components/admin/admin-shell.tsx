@@ -29,6 +29,7 @@ export const adminNavigation = [
   ['Translations', 'translations'],
   ['SEO', 'seo'],
   ['Users', 'users'],
+  ['Pesto licenses', 'pesto-purchases'],
   ['Roles', 'roles'],
   ['Audit Logs', 'audit-logs'],
   ['Site Settings', 'site-settings'],
@@ -81,16 +82,18 @@ function Shell({ children }: { children: ReactNode }) {
         <nav aria-label="Admin sections">
           {adminNavigation
             .filter(([, slug]) =>
-              can(
-                session.user,
-                slug === 'security'
-                  ? 'account.manage'
-                  : slug === 'audit-logs'
-                    ? 'audit.read'
-                    : !slug || slug === 'roles'
-                      ? 'workspace.read'
-                      : `${moduleResource(slug)}.read`,
-              ),
+              slug === 'pesto-purchases'
+                ? ['ADMIN', 'SUPER_ADMIN'].includes(session.user!.role)
+                : can(
+                    session.user,
+                    slug === 'security'
+                      ? 'account.manage'
+                      : slug === 'audit-logs'
+                        ? 'audit.read'
+                        : !slug || slug === 'roles'
+                          ? 'workspace.read'
+                          : `${moduleResource(slug)}.read`,
+                  ),
             )
             .map(([label, slug]) => (
               <Link

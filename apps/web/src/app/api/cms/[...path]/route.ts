@@ -37,6 +37,8 @@ async function handle(request: Request, { params }: { params: Promise<{ path: st
   const route = path.join('/');
   const method = request.method;
   const allowed =
+    ((method === 'GET' || method === 'POST') && route === 'pesto/purchases') ||
+    (method === 'POST' && /^pesto\/purchases\/[a-f0-9-]{36}\/revoke$/.test(route)) ||
     ((method === 'GET' || method === 'PUT') && route === 'site-settings') ||
     (method === 'GET' && /^newsletter(?:\/export)?$/.test(route)) ||
     (method === 'PUT' && /^newsletter\/[a-f0-9-]{36}$/.test(route)) ||
@@ -153,7 +155,7 @@ async function handle(request: Request, { params }: { params: Promise<{ path: st
     // This BFF route is the editor's write path. A publish or unpublish must
     // be visible on the next public request, so do a blocking expiration
     // rather than serving stale-while-revalidate content after a write.
-    if (method !== 'GET' && result.ok && !route.startsWith('auth/'))
+    if (method !== 'GET' && result.ok && !route.startsWith('auth/') && !route.startsWith('pesto/'))
       revalidateTag(PUBLIC_CONTENT_CACHE_TAG, { expire: 0 });
     if (route === 'auth/login' && result.ok) {
       if (typeof payload.token !== 'string' || !/^[a-f0-9]{64}$/.test(payload.token))

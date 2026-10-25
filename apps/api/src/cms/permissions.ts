@@ -21,7 +21,11 @@ const stateAction = (req: CmsRequest) =>
       ? 'publish'
       : 'update';
 export const endpointPermissions: Record<string, Record<string, Policy>> = {
-  CmsPestoPurchaseController: { issue: ['settings.update'], revoke: ['settings.update'] },
+  CmsPestoPurchaseController: {
+    list: ['settings.read'],
+    issue: ['settings.update'],
+    revoke: ['settings.update'],
+  },
   CmsHomeController: {
     get: ['pages.read'],
     save: (req) => ['pages.update', ...(req.body?.action === 'save' ? [] : ['pages.publish'])],
