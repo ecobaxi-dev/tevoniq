@@ -3,6 +3,7 @@ import { cache } from 'react';
 import { notFound } from 'next/navigation';
 import type { Locale } from '@tevoniq/types';
 import { publicHomeSchema } from '@tevoniq/validation';
+import { presentHomeContent } from '@/content/home-presentation';
 import { selectHomeCollections } from '@/content/home-records';
 import { getIndustries } from './industries';
 import { getProjects } from './projects';
@@ -24,9 +25,10 @@ export const getHomeContent = cache(async (locale: Locale) => {
   ]);
   // An explicitly unpublished homepage must never fall back to bootstrap copy.
   if (!home.content) notFound();
+  const content = presentHomeContent(locale, home.content);
   return {
-    copy: home.content.copy,
-    hero: home.content.hero,
+    copy: content.copy,
+    hero: content.hero,
     collections: selectHomeCollections({
       industries: (industries?.items ?? []).map((item) => ({
         id: item.id,

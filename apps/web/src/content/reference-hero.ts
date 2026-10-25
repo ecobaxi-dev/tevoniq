@@ -1,3 +1,4 @@
+import { approvedArabicHero, approvedArabicValues } from './home-presentation.ts';
 import type { Locale } from '@tevoniq/types';
 export const referenceHeroCopy: Record<
   Locale,
@@ -47,19 +48,12 @@ export const referenceHeroCopy: Record<
     ],
   },
   ar: {
-    eyebrow: 'تقنية من أجل غد أكثر إشراقاً',
-    title: 'تقنية متقدمة',
-    accent: 'لغد أكثر ذكاءً',
-    body: 'تقدم TEVONIQ حلولاً تقنية مبتكرة تربط الناس والأعمال بمستقبل أكثر إشراقاً. من أجل عالم أكثر ذكاءً وأماناً واستدامة.',
+    ...approvedArabicHero,
     start: 'ابدأ الآن',
     watch: 'شاهد الفيديو',
     unavailable: 'لم يتم توفير الفيديو التعريفي لشركة TEVONIQ بعد.',
     close: 'إغلاق',
     contact: 'تواصل معنا',
-    values: [
-      { title: 'الناس', body: 'معاً أقوى' },
-      { title: 'التقنية', body: 'تقود التقدم' },
-      { title: 'غد أفضل', body: 'لعالم أكثر إشراقاً' },
-    ],
+    values: approvedArabicValues,
   },
 };

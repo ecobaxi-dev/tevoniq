@@ -25,3 +25,7 @@ node scripts/import-homepage.mjs --apply
 Empty or unavailable optional collections are hidden. Records are never fabricated to fill a section. Public data is cached with the shared CMS content tag and expires immediately after a successful CMS proxy write; direct database imports require cache invalidation or a web restart in production.
 
 Verification: `tests/home.test.mjs`, `tests/home-cms.test.mjs`, `tests/home.live.mjs` and the homepage Playwright suite. The live test creates isolated temporary records, verifies all four collection types appear/disappear as publication changes, and deletes its records in `finally`.
+
+## Approved Arabic SME hero — October 2026
+
+The owner approved the headline “حلول رقمية تنظّم أعمالك”, a smaller separate tagline “تقنيات متقدمة لغد أكثر ذكاءً”, and company-voice SME copy. The three value labels now describe direct communication, practical solutions and clear delivery steps. The approved copy is centralized in `home-presentation.ts`; Arabic bootstrap content uses it, and exact old bootstrap fields from existing CMS records are upgraded for presentation in both the public page and home editor. Custom CMS text, media settings and non-Arabic content remain preserved. No database write or re-import is required. Unpublished home content still stays unpublished. The other homepage redesign sections remain proposals.

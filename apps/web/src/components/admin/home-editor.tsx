@@ -1,4 +1,5 @@
 'use client';
+import { presentHomeContent } from '@/content/home-presentation';
 import { useEffect, useState } from 'react';
 import { homeContentSchema, type HomeContent } from '@tevoniq/validation';
 import { homeCopy } from '@/content/home';
@@ -83,10 +84,15 @@ export function HomeEditor() {
       .then((result) => {
         if (!active) return;
         setRecord({
-          draft: homeContentSchema.parse(
-            result.draft ?? { copy: homeCopy[locale], hero: referenceHeroCopy[locale] },
+          draft: presentHomeContent(
+            locale,
+            homeContentSchema.parse(
+              result.draft ?? { copy: homeCopy[locale], hero: referenceHeroCopy[locale] },
+            ),
           ),
-          published: result.published ? homeContentSchema.parse(result.published) : null,
+          published: result.published
+            ? presentHomeContent(locale, homeContentSchema.parse(result.published))
+            : null,
           version: result.version as number,
         });
         setDirty(false);
@@ -117,8 +123,10 @@ export function HomeEditor() {
         action,
       });
       setRecord({
-        draft: homeContentSchema.parse(result.draft),
-        published: result.published ? homeContentSchema.parse(result.published) : null,
+        draft: presentHomeContent(locale, homeContentSchema.parse(result.draft)),
+        published: result.published
+          ? presentHomeContent(locale, homeContentSchema.parse(result.published))
+          : null,
         version: result.version as number,
       });
       setDirty(false);

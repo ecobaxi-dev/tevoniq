@@ -1,11 +1,12 @@
 'use client';
 import Image from 'next/image';
 import { brandAssets } from '@/config/assets';
-import { ArrowRight, Play, UsersRound, Cpu, Leaf } from 'lucide-react';
+import { ArrowRight, Play, UsersRound, Cpu, Leaf, ClipboardCheck } from 'lucide-react';
 import type { Locale } from '@tevoniq/types';
 import { Modal, UIProvider, ButtonLink } from '@tevoniq/ui';
 import type { referenceHeroCopy } from '@/content/reference-hero';
 const icons = [UsersRound, Cpu, Leaf];
+const arabicIcons = [UsersRound, Cpu, ClipboardCheck];
 export function ReferenceHero({
   locale,
   copy,
@@ -30,8 +31,9 @@ export function ReferenceHero({
           <p className="reference-eyebrow">{copy.eyebrow}</p>
           <h1 id="home-title">
             {copy.title}
-            <span>{copy.accent}</span>
+            {locale !== 'ar' && <span>{copy.accent}</span>}
           </h1>
+          {locale === 'ar' && <p className="reference-tagline">{copy.accent}</p>}
           <p className="reference-description">{copy.body}</p>
         </div>
         <div className="artwork-hero-actions">
@@ -65,7 +67,7 @@ export function ReferenceHero({
         </div>
         <ul className="artwork-hero-values">
           {copy.values.map((value, index) => {
-            const Icon = icons[index] ?? Cpu;
+            const Icon = (locale === 'ar' ? arabicIcons : icons)[index] ?? Cpu;
             return (
               <li key={value.title}>
                 <Icon aria-hidden="true" />

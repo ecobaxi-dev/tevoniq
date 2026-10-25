@@ -1,3 +1,4 @@
+import { approvedArabicHero } from './home-presentation.ts';
 import type { Locale } from '@tevoniq/types';
 
 export type HomeCopy = {
@@ -188,10 +189,9 @@ export const homeCopy: Record<Locale, HomeCopy> = {
   },
   ar: {
     eyebrow: 'PREMIUM TECHNOLOGY',
-    headline: 'تقنية متقدمة',
-    accent: 'لغد أكثر ذكاءً',
-    introduction:
-      'تقدم TEVONIQ حلولاً تقنية متقدمة مصممة لربط الأعمال الحديثة وتأمينها وأتمتتها وتطويرها.',
+    headline: approvedArabicHero.title,
+    accent: approvedArabicHero.accent,
+    introduction: approvedArabicHero.body,
     explore: 'استكشف الحلول',
     contact: 'تواصل معنا',
     capabilityLabel: 'رؤية مترابطة',
