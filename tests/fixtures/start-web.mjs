@@ -10,6 +10,9 @@ await cp(
   resolve('apps/web/.next/standalone/apps/web/.next/static'),
   { recursive: true },
 );
+await cp(resolve('apps/web/public'), resolve('apps/web/.next/standalone/apps/web/public'), {
+  recursive: true,
+});
 
 const child = spawn(process.execPath, [resolve('apps/web/.next/standalone/apps/web/server.js')], {
   cwd: resolve('apps/web/.next/standalone'),

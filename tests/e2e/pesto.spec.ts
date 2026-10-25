@@ -51,6 +51,81 @@ for (const locale of ['en', 'ar', 'tr']) {
         `http://127.0.0.1:3100/${language}/pesto`,
       );
     await page.goto(`/${locale}`);
+    const entry = page.locator('.pesto-home-entry');
+    const logo = entry.getByRole('img', { name: 'Pesto — Restaurant System' });
+    await entry.scrollIntoViewIfNeeded();
+    await expect(logo).toBeVisible();
+    await expect
+      .poll(() => logo.evaluate((image: HTMLImageElement) => image.naturalWidth))
+      .toBeGreaterThan(0);
+    await expect(entry.locator('.pesto-kicker')).toHaveCount(0);
+    const entryLink = entry.getByRole('link');
+    for (const state of ['default', 'hover', 'focus']) {
+      if (state === 'hover') await entryLink.hover();
+      if (state === 'focus') {
+        await entryLink.focus();
+        await page.keyboard.press('Shift+Tab');
+        await page.keyboard.press('Tab');
+        await expect(entryLink).toBeFocused();
+        expect(
+          await entryLink.evaluate((link) => {
+            const style = getComputedStyle(link);
+            return style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) >= 2;
+          }),
+        ).toBeTruthy();
+      }
+      await expect
+        .poll(
+          () =>
+            entryLink.evaluate((link) => {
+              const style = getComputedStyle(link);
+              const channels = (value: string) => value.match(/[\d.]+/g)?.map(Number) ?? [];
+              const foreground = channels(style.color);
+              const background = channels(style.backgroundColor);
+              if (foreground.length < 3 || background.length < 3 || (background[3] ?? 1) < 1)
+                return 0;
+              const luminance = (rgb: number[]) =>
+                rgb.slice(0, 3).reduce((sum, channel, index) => {
+                  const value = channel / 255;
+                  const linear =
+                    value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+                  return sum + linear * [0.2126, 0.7152, 0.0722][index];
+                }, 0);
+              const light = Math.max(luminance(foreground), luminance(background));
+              const dark = Math.min(luminance(foreground), luminance(background));
+              return (light + 0.05) / (dark + 0.05);
+            }),
+          `CTA readable in ${state} state`,
+        )
+        .toBeGreaterThanOrEqual(4.5);
+    }
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(logo).toBeVisible();
+      expect(
+        await entry.evaluate((element) => {
+          const bounds = element.getBoundingClientRect();
+          return [...element.querySelectorAll('img, h2, p, a')].every((child) => {
+            const rect = child.getBoundingClientRect();
+            return rect.left >= bounds.left && rect.right <= bounds.right;
+          });
+        }),
+      ).toBeTruthy();
+    }
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const pseudo of ['::before', '::after']) {
+      expect(
+        await entry.evaluate(
+          (element, pseudo) => getComputedStyle(element, pseudo).animationName,
+          pseudo,
+        ),
+      ).toBe('none');
+    }
+    const entryScan = await new AxeBuilder({ page })
+      .include('.pesto-home-entry')
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(entryScan.violations).toEqual([]);
     await page.locator(`.pesto-home-entry a[href="/${locale}/pesto"]`).click();
     await expect(page).toHaveURL(`/${locale}/pesto`);
   });

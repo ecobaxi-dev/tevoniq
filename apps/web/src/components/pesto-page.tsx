@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   ArrowUpRight,
   Monitor,
@@ -22,17 +23,22 @@ export function PestoHomeEntry({ locale }: { locale: Locale }) {
     <section className="pesto-home-entry" aria-labelledby="pesto-entry-title">
       <Container>
         <div className="pesto-entry-layout">
-          <span className="pesto-wordmark" lang="en">
-            Pesto<span>by TEVONIQ</span>
-          </span>
-          <div>
-            <p className="pesto-kicker">{c.status}</p>
+          <div className="pesto-entry-logo">
+            <Image
+              src="/brand/pesto-logo.png"
+              width={2172}
+              height={724}
+              sizes="(max-width: 640px) 160px, 200px"
+              alt="Pesto — Restaurant System"
+            />
+          </div>
+          <div className="pesto-entry-copy">
             <Heading as="h2" id="pesto-entry-title">
               {c.homeTitle}
             </Heading>
             <p>{c.homeBody}</p>
           </div>
-          <ButtonLink href={`/${locale}/pesto`} variant="outline">
+          <ButtonLink href={`/${locale}/pesto`} variant="gold-accent" className="pesto-entry-cta">
             {c.homeLink}
             <ArrowUpRight size={18} aria-hidden="true" />
           </ButtonLink>
