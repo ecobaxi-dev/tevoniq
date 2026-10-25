@@ -37,6 +37,8 @@ async function handle(request: Request, { params }: { params: Promise<{ path: st
   const route = path.join('/');
   const method = request.method;
   const allowed =
+    (method === 'GET' &&
+      /^pesto\/customers(?:\/(?:verified|pending)\/[a-f0-9-]{36})?$/.test(route)) ||
     ((method === 'GET' || method === 'POST') && route === 'pesto/purchases') ||
     (method === 'POST' && /^pesto\/purchases\/[a-f0-9-]{36}\/revoke$/.test(route)) ||
     ((method === 'GET' || method === 'PUT') && route === 'site-settings') ||

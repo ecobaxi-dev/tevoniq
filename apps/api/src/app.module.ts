@@ -60,6 +60,8 @@ import {
   PublicPestoPurchaseController,
 } from './pesto/purchase.controller.js';
 import { PestoLicenseDeliveryWorker } from './pesto/license-delivery.worker.js';
+import { CmsPestoCustomerReportsController } from './pesto/customer-reports.controller.js';
+import { PestoCustomerReportsService } from './pesto/customer-reports.service.js';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, validate: validateEnvironment }),
@@ -77,6 +79,7 @@ import { PestoLicenseDeliveryWorker } from './pesto/license-delivery.worker.js';
     }),
   ],
   controllers: [
+    CmsPestoCustomerReportsController,
     CmsPestoPurchaseController,
     PublicPestoPurchaseController,
     PestoRegistrationController,
@@ -114,6 +117,7 @@ import { PestoLicenseDeliveryWorker } from './pesto/license-delivery.worker.js';
     CmsAuthController,
   ],
   providers: [
+    PestoCustomerReportsService,
     PestoPurchaseService,
     PestoLicenseDeliveryWorker,
     PestoTrialService,
