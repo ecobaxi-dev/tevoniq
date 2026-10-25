@@ -54,6 +54,36 @@ export function signTrial(
     expiresAt: Date;
   },
 ) {
+  return signPermit(key, keyId, claims, 'trial');
+}
+
+export function signPerpetual(
+  key: KeyObject,
+  keyId: string,
+  claims: {
+    licenseId: string;
+    registrationId: string;
+    installationId: string;
+    deviceHash: string;
+    issuedAt: Date;
+  },
+) {
+  return signPermit(key, keyId, { ...claims, expiresAt: null }, 'perpetual');
+}
+
+function signPermit(
+  key: KeyObject,
+  keyId: string,
+  claims: {
+    licenseId: string;
+    registrationId: string;
+    installationId: string;
+    deviceHash: string;
+    issuedAt: Date;
+    expiresAt: Date | null;
+  },
+  kind: 'trial' | 'perpetual',
+) {
   const payload = Buffer.from(
     JSON.stringify({
       version: 1,
@@ -64,9 +94,9 @@ export function signTrial(
       registrationId: claims.registrationId,
       installationId: claims.installationId,
       deviceHash: claims.deviceHash,
-      kind: 'trial',
+      kind,
       issuedAtUtc: claims.issuedAt.toISOString(),
-      expiresAtUtc: claims.expiresAt.toISOString(),
+      expiresAtUtc: claims.expiresAt?.toISOString() ?? null,
       emailVerified: true,
       maxUsers: 2,
       maxConcurrentDevices: 2,

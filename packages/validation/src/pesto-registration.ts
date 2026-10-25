@@ -45,3 +45,15 @@ export const trialInputSchema = z.strictObject({
   installationId: z.uuid().transform((v) => v.toLowerCase()),
   deviceHash: z.string().regex(/^[A-F0-9]{64}$/),
 });
+export const purchaseIssueInputSchema = z.strictObject({
+  requestId: identifier,
+  email: z.string().trim().toLowerCase().max(254).pipe(z.email()),
+  reference: plainText(120),
+});
+export const purchaseActivationInputSchema = trialInputSchema.extend({
+  purchaseKey: z
+    .string()
+    .trim()
+    .toUpperCase()
+    .regex(/^PSTO-[A-F0-9]{64}$/),
+});
