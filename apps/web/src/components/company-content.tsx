@@ -5,10 +5,12 @@ export function CompanyContentView({
   content,
   locale,
   partners = [],
+  team = [],
 }: {
   content: CompanyContent;
   locale: string;
   partners?: { id: string; title: string; description: string }[];
+  team?: { id: string; title: string; role: string; bio: string }[];
 }) {
   const href = /^\/(en|tr|ar)(\/|$)/.test(content.cta.href)
     ? content.cta.href
@@ -53,6 +55,23 @@ export function CompanyContentView({
         </Container>
       </Section>
       <Section className="company-cta">
+        {team.length > 0 && (
+          <Container>
+            <div className="company-sections">
+              {team.map((person) => (
+                <article className="company-section" key={person.id}>
+                  <Heading as="h2" className="tv-h3">
+                    {person.title}
+                  </Heading>
+                  <p>
+                    <strong>{person.role}</strong>
+                  </p>
+                  <p>{person.bio}</p>
+                </article>
+              ))}
+            </div>
+          </Container>
+        )}
         {partners.length > 0 && (
           <Container>
             <div className="company-sections">

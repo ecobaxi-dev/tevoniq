@@ -3,6 +3,8 @@ import { accountEmailSchema } from './rbac.js';
 export const employmentTypes = ['FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP'] as const;
 export const workModes = ['ONSITE', 'REMOTE', 'HYBRID'] as const;
 export const jobStatuses = ['DRAFT', 'PUBLISHED', 'CLOSED', 'ARCHIVED'] as const;
+/** The demo catalog reserves this prefix for non-recruiting layout examples. */
+export const isDemoJob = (slug: string) => slug.startsWith('demo-');
 export const applicationStatuses = [
   'NEW',
   'REVIEWING',

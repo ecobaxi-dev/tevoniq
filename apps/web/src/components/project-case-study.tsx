@@ -15,6 +15,9 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
         new Date(p.projectDate),
       )
     : null;
+  const referenceUrl = p.slug.startsWith('demo-')
+    ? p.implementation.match(/https:\/\/www\.n-ix\.com\/case-study\/[a-z0-9-]+\//)?.[0]
+    : undefined;
   return (
     <article className="case-study">
       <header className={`case-hero ${p.heroImage ? 'has-image' : ''}`}>
@@ -29,6 +32,20 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
               <p className="tv-eyebrow">{p.featured ? l.featured : l.caseStudy}</p>
               <Heading as="h1">{p.title}</Heading>
               <p className="case-summary">{p.summary}</p>
+              {referenceUrl && (
+                <p>
+                  <a href={referenceUrl} target="_blank" rel="noopener noreferrer">
+                    {
+                      {
+                        en: 'Original case study — delivered by N-iX',
+                        tr: 'Orijinal vaka çalışması — N-iX tarafından gerçekleştirildi',
+                        ar: 'دراسة الحالة الأصلية — تنفيذ N-iX',
+                      }[p.locale]
+                    }{' '}
+                    ↗
+                  </a>
+                </p>
+              )}
               <dl className="case-facts">
                 {p.clientLabel && (
                   <div>

@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { companySlugSchema, localeSchema } from '@tevoniq/validation';
 import { Container, Section } from '@tevoniq/ui';
-import { getCompany, getPublishedPartners } from '@/lib/company';
+import { getCompany, getPublishedPartners, getPublishedTeam } from '@/lib/company';
 import { CompanyContentView } from '@/components/company-content';
 import '../company.css';
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -31,10 +31,11 @@ async function PublicPage({ params }: Props) {
     content = await getCompany(locale, slug);
   if (content === null) notFound();
   const partners = slug === 'partners' ? await getPublishedPartners(locale).catch(() => []) : [];
+  const team = slug === 'team' ? await getPublishedTeam(locale).catch(() => []) : [];
   return (
     <main id="main-content" className="company-page">
       {content ? (
-        <CompanyContentView content={content} locale={locale} partners={partners} />
+        <CompanyContentView content={content} locale={locale} partners={partners} team={team} />
       ) : (
         <Section>
           <Container>

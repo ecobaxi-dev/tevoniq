@@ -20,6 +20,27 @@ import { parse, localeQuerySchema } from '../cms/content-policy.js';
 @Controller('company')
 export class CompanyController {
   constructor(@Inject(DatabaseService) private readonly db: DatabaseService) {}
+  @Get('team/profiles')
+  async team(@Query() query: unknown) {
+    const { locale } = parse(localeQuerySchema, query);
+    const rows = await this.db.adminRecord.findMany({
+      where: { module: 'team', language: locale, status: 'published', deletedAt: null },
+      select: { id: true, title: true, data: true },
+      orderBy: [{ title: 'asc' }, { id: 'asc' }],
+      take: 100,
+    });
+    return {
+      items: rows.map((row) => {
+        const data = row.data as Record<string, unknown>;
+        return {
+          id: row.id,
+          title: row.title,
+          role: typeof data.role === 'string' ? data.role : '',
+          bio: typeof data.bio === 'string' ? data.bio : '',
+        };
+      }),
+    };
+  }
   @Get(':slug')
   async get(@Param('slug') raw: string, @Query() query: unknown) {
     const slug = parse(companySlugSchema, raw),
@@ -78,7 +99,12 @@ export class CmsCompanyController {
         if (!created.count) throw new ConflictException('Page changed. Reload before saving.');
       } else {
         const updated = await tx.companyPage.updateMany({
-          where: { slug, locale, version: data.version, ...(!hasPermission(req.cmsUser.role, 'pages.publish') ? { published: false } : {}) },
+          where: {
+            slug,
+            locale,
+            version: data.version,
+            ...(!hasPermission(req.cmsUser.role, 'pages.publish') ? { published: false } : {}),
+          },
           data: {
             content: data.content,
             published: data.published,

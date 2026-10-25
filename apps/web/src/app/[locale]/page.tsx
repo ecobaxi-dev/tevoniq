@@ -24,6 +24,7 @@ import { SolutionsVisual } from '@/components/solutions-visual';
 import { TechnologyEcosystem } from '@/components/technology-ecosystem';
 import { WhyTevoniq } from '@/components/why-tevoniq';
 import { AdvocasShowcase } from '@/components/advocas-showcase';
+import { DeliveryApproach } from '@/components/delivery-approach';
 
 import { getHomeContent } from '@/lib/home';
 import { localizedHref } from '@/config/navigation';
@@ -76,6 +77,7 @@ async function PublicPage({ params }: PageProps) {
               </div>
             </Container>
           </Section>
+          <DeliveryApproach locale={locale} />
           <TechnologyEcosystem locale={locale} copy={copy} />
           <WhyTevoniq locale={locale} copy={copy} />
           <ConnectedThinking locale={locale} copy={copy} />
@@ -86,7 +88,20 @@ async function PublicPage({ params }: PageProps) {
                 <Section key={key} id={key} spacing="generous">
                   <Container>
                     <div data-entrance>
-                      <SectionHeader title={copy[key]} />
+                      <div className="home-collection-heading">
+                        <SectionHeader title={copy[key]} />
+                        <a
+                          className="home-section-link"
+                          href={href(key === 'partners' ? '/company/partners' : `/${key}`)}
+                        >
+                          {locale === 'ar'
+                            ? 'عرض الكل'
+                            : locale === 'tr'
+                              ? 'Tümünü gör'
+                              : 'View all'}
+                          <ArrowRight size={18} aria-hidden="true" />
+                        </a>
+                      </div>
                       <div className="home-records">
                         {collections[key].map((record) => (
                           <Card key={record.id}>

@@ -23,21 +23,31 @@ export async function bootstrapPreview(env) {
     const count = await db.adminRecord.count({ where: { module: 'homepage' } });
     if (count) {
       console.log('Existing preview content and administrator preserved.');
-      return;
+    } else {
+      // The importer refuses nonempty editorial tables and never imports accounts.
+      const result = spawnSync(
+        process.execPath,
+        [
+          'scripts/editorial-transfer.mjs',
+          'import',
+          'content/render-preview.json',
+          '--apply',
+          `--actor=${admin.id}`,
+        ],
+        { env, stdio: 'inherit' },
+      );
+      if (result.status !== 0) throw new Error('Preview content import failed');
     }
-    // The importer refuses nonempty editorial tables and never imports accounts.
-    const result = spawnSync(
-      process.execPath,
-      [
-        'scripts/editorial-transfer.mjs',
-        'import',
-        'content/render-preview.json',
-        '--apply',
-        `--actor=${admin.id}`,
-      ],
-      { env, stdio: 'inherit' },
-    );
-    if (result.status !== 0) throw new Error('Preview content import failed');
+    // This release is explicit in the Blueprint and marked atomically by the
+    // importer. Restarts never restore examples over later CMS edits.
+    if (env.PREVIEW_DEMO_CONTENT_RELEASE === '2026-10-25') {
+      const result = spawnSync(
+        process.execPath,
+        ['scripts/import-demo-content.mjs', '--apply-preview'],
+        { env, stdio: 'inherit' },
+      );
+      if (result.status !== 0) throw new Error('Demo preview content import failed');
+    }
   } finally {
     await db.$disconnect();
   }

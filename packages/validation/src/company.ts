@@ -41,6 +41,19 @@ export const companyWriteSchema = z
 export type CompanyContent = z.infer<typeof companyContentSchema>;
 export type CompanyWrite = z.infer<typeof companyWriteSchema>;
 
+export const publicTeamProfilesSchema = z.object({
+  items: z.array(
+    z
+      .object({
+        id: z.string().uuid(),
+        title: z.string(),
+        role: z.string(),
+        bio: z.string(),
+      })
+      .strict(),
+  ),
+});
+
 const about = [
   [
     'Who We Are',

@@ -53,7 +53,7 @@ export const getHomeContent = cache(async (locale: Locale) => {
         id: item.id,
         title: item.title,
         description: item.excerpt,
-        href: `/insights/${item.slug}`,
+        href: `/insights/blog/${item.slug}`,
         published: true,
         publishedAt: item.publicationDate,
       })),

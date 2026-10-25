@@ -33,6 +33,8 @@
     "tokens:check": "node scripts/generate-tokens.mjs --check",
     "test:e2e": "playwright test",
     "cms:admin": "npm run cms:admin -w @tevoniq/api",
+    "content:demo": "node scripts/import-demo-content.mjs",
+    "content:demo:check": "node scripts/import-demo-content.mjs --check",
     "dev:neon": "node scripts/neon/run.mjs npm run dev",
     "db:deploy:neon": "node scripts/neon/run.mjs npm run db:deploy"
   },

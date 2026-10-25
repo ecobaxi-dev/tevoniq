@@ -6,7 +6,7 @@ import { env } from '@/lib/env';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
-import { localeSchema, jobSlugSchema } from '@tevoniq/validation';
+import { localeSchema, jobSlugSchema, isDemoJob } from '@tevoniq/validation';
 import { getCareerJob } from '@/lib/careers';
 import { careersCopy, careerLabel } from '@/content/careers';
 import { ApplicationForm } from '@/components/careers/application-form';
@@ -21,7 +21,7 @@ async function baseMetadata({ params }: Props) {
         title: `${job.title} | TEVONIQ Careers`,
         description: job.description.slice(0, 160),
         alternates: { canonical: `/${locale}/careers/${slug}` },
-        robots: { index: true, follow: true },
+        robots: { index: !isDemoJob(slug), follow: true },
       }
     : { robots: { index: false } };
 }
@@ -33,11 +33,16 @@ async function PublicPage({ params }: Props) {
   const job = await getCareerJob(slug.data);
   if (!job) notFound();
   const copy = careersCopy[locale.data];
+  const demo = isDemoJob(job.slug);
   const organization = await getOrganization().catch(() => null);
   return (
     <main id="main-content" className="careers-page">
       <StructuredData
-        data={organization ? jobPostingData(job, organization, env.SITE_URL, locale.data) : null}
+        data={
+          !demo && organization
+            ? jobPostingData(job, organization, env.SITE_URL, locale.data)
+            : null
+        }
       />
       <header className="careers-hero">
         <div className="careers-container">
@@ -47,9 +52,11 @@ async function PublicPage({ params }: Props) {
           <p>
             {job.location} · {careerLabel(job.employmentType)} · {careerLabel(job.workMode)}
           </p>
-          <a className="career-apply-link" href="#apply">
-            {copy.apply}
-          </a>
+          {!demo && (
+            <a className="career-apply-link" href="#apply">
+              {copy.apply}
+            </a>
+          )}
         </div>
       </header>
       <div className="careers-container careers-body">
@@ -79,7 +86,19 @@ async function PublicPage({ params }: Props) {
             </p>
           )}
         </article>
-        <ApplicationForm slug={job.slug} locale={locale.data} siteKey={job.turnstileSiteKey} />
+        {demo ? (
+          <p role="note">
+            {
+              {
+                en: 'Demonstration role only. This example does not accept applications.',
+                tr: 'Yalnızca örnek bir roldür. Bu örnek başvuru kabul etmez.',
+                ar: 'دور وظيفي تجريبي فقط. هذا النموذج لا يستقبل طلبات توظيف.',
+              }[locale.data]
+            }
+          </p>
+        ) : (
+          <ApplicationForm slug={job.slug} locale={locale.data} siteKey={job.turnstileSiteKey} />
+        )}
       </div>
     </main>
   );

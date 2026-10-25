@@ -12,6 +12,7 @@ import type { CmsRequest } from '../cms/cms.guard.js';
 import type { Prisma } from '../generated/prisma/client.js';
 import { LeadSubmissionGuard, LeadBotProtection, submissionIp } from '../leads/bot-protection.js';
 import { CvSecurity } from './cv-security.js';
+import { isDemoJob } from '@tevoniq/validation';
 
 export const publicJobWhere = (now = new Date()): Prisma.CareerJobWhereInput => ({ status: 'PUBLISHED', publishedAt: { lte: now }, OR: [{ closingDate: null }, { closingDate: { gt: now } }] });
 export const publicJobSelect = { id: true, title: true, slug: true, department: true, location: true, employmentType: true, workMode: true, description: true, responsibilities: true, requirements: true, preferredQualifications: true, publishedAt: true, closingDate: true, updatedAt: true } as const;
@@ -59,6 +60,7 @@ export class CareersController {
     try { payload = JSON.parse(wrapper.payload); } catch { throw new BadRequestException('Invalid application'); }
     const value = parse(applicationSubmitSchema, payload);
     const { submissionId, jobSlug, website, turnstileToken, consent, ...fields } = value;
+    if (isDemoJob(jobSlug)) throw new BadRequestException('Demonstration roles do not accept applications');
     if (website) throw new BadRequestException('Invalid application');
     // Validate availability before scanning and recheck under the submission transaction.
     if (!await this.db.careerJob.count({ where: { ...publicJobWhere(), slug: jobSlug } })) throw new NotFoundException('This opening is unavailable');

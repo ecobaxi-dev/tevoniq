@@ -25,6 +25,8 @@ npm run dev
 
 `env:setup` creates local `.env` files from the committed examples without overwriting an existing file. `db:seed` is development-only and refuses to run in production.
 
+For the owner-requested populated demonstration catalog, see [demo content](docs/demo-content.md). This is a separate, opt-in importer; the standard seed remains private. Demo projects, roles and partner profiles are labelled examples and can be replaced through the CMS.
+
 Local endpoints:
 
 - Public web: `http://localhost:3000` (redirects to `/en`)

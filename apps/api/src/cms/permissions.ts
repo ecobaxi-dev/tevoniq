@@ -127,7 +127,7 @@ export const publicEndpoints: Record<string, readonly string[]> = {
   IndustriesController: ['list', 'detail'],
   ProjectsController: ['list', 'detail', 'filters'],
   InsightsController: ['list', 'detail', 'taxonomies'],
-  CompanyController: ['get'],
+  CompanyController: ['get', 'team'],
   PublicMediaController: ['file'],
   PublicPagesController: ['resolve', 'sitemap', 'newsletter'],
   LeadsController: ['options', 'submit'],

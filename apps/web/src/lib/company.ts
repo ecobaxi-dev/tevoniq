@@ -4,6 +4,7 @@ import {
   companyContentSchema,
   defaultCompanyContent,
   publicHomeSchema,
+  publicTeamProfilesSchema,
   type companySlugSchema,
 } from '@tevoniq/validation';
 import type { z } from 'zod';
@@ -24,6 +25,16 @@ export const getCompany = cache(async (locale: Locale, slug: z.infer<typeof comp
   }
 });
 export { defaultCompanyContent };
+export const getPublishedTeam = cache(async (locale: Locale) => {
+  const response = await fetchPublicContent(
+    `${env.API_URL}/company/team/profiles?locale=${locale}`,
+    {
+      signal: AbortSignal.timeout(5000),
+    },
+  );
+  if (!response.ok) throw new Error('Team profiles unavailable');
+  return publicTeamProfilesSchema.parse(await response.json()).items;
+});
 export const getPublishedPartners = cache(async (locale: Locale) => {
   const response = await fetchPublicContent(`${env.API_URL}/home/${locale}`, {
     signal: AbortSignal.timeout(5000),
