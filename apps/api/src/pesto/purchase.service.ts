@@ -33,6 +33,87 @@ export class PestoPurchaseService {
     @Inject(ConfigService) private readonly config: ConfigService,
     @Inject(EmailTransport) private readonly email: EmailTransport,
   ) {}
+  async list(raw: Record<string, unknown>) {
+    const keys = Object.keys(raw);
+    const page = raw.page === undefined ? 1 : Number(raw.page);
+    const search = typeof raw.search === 'string' ? raw.search.trim() : '';
+    const status = raw.status === undefined ? 'all' : raw.status;
+    if (
+      keys.some((key) => !['page', 'search', 'status'].includes(key)) ||
+      !Number.isInteger(page) ||
+      page < 1 ||
+      page > 100000 ||
+      (raw.page !== undefined &&
+        (typeof raw.page !== 'string' || !/^[1-9][0-9]*$/.test(raw.page))) ||
+      (raw.search !== undefined && typeof raw.search !== 'string') ||
+      search.length > 120 ||
+      !['all', 'unused', 'activated', 'revoked'].includes(status as string)
+    )
+      throw new BadRequestException('Invalid purchase filters.');
+    const pageSize = 20;
+    const where = {
+      ...(status === 'unused' ? { revokedAt: null, consumedAt: null, license: { is: null } } : {}),
+      ...(status === 'activated' ? { consumedAt: { not: null } } : {}),
+      ...(status === 'revoked' ? { revokedAt: { not: null } } : {}),
+      ...(search
+        ? {
+            OR: [
+              { reference: { contains: search, mode: 'insensitive' as const } },
+              { customer: { email: { contains: search, mode: 'insensitive' as const } } },
+              { customer: { businessName: { contains: search, mode: 'insensitive' as const } } },
+            ],
+          }
+        : {}),
+    };
+    const [total, rows] = await this.db.$transaction([
+      this.db.pestoPurchaseKey.count({ where }),
+      this.db.pestoPurchaseKey.findMany({
+        where,
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+        select: {
+          id: true,
+          reference: true,
+          createdAt: true,
+          revokedAt: true,
+          consumedAt: true,
+          customer: { select: { email: true, businessName: true } },
+          license: {
+            select: {
+              id: true,
+              issuedAt: true,
+              delivery: {
+                select: { status: true, attempts: true, sentAt: true },
+              },
+            },
+          },
+        },
+      }),
+    ]);
+    return {
+      enabled:
+        this.config.get('PESTO_PURCHASE_ENABLED') === 'true' &&
+        this.config.get('PESTO_REGISTRATION_ENABLED') === 'true' &&
+        this.email.enabled,
+      page,
+      pageSize,
+      total,
+      items: rows.map((row) => ({
+        purchaseId: row.id,
+        reference: row.reference,
+        email: row.customer.email,
+        businessName: row.customer.businessName,
+        createdAt: row.createdAt,
+        status: row.revokedAt ? 'revoked' : row.consumedAt ? 'activated' : 'unused',
+        revokedAt: row.revokedAt,
+        consumedAt: row.consumedAt,
+        activationId: row.license?.id ?? null,
+        issuedAt: row.license?.issuedAt ?? null,
+        delivery: row.license?.delivery ?? null,
+      })),
+    };
+  }
   ensureEnabled() {
     if (
       this.config.get('PESTO_PURCHASE_ENABLED') !== 'true' ||
