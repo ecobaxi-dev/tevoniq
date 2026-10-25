@@ -30,6 +30,7 @@ export const adminNavigation = [
   ['SEO', 'seo'],
   ['Users', 'users'],
   ['Pesto licenses', 'pesto-purchases'],
+  ['Pesto customers', 'pesto-customers'],
   ['Roles', 'roles'],
   ['Audit Logs', 'audit-logs'],
   ['Site Settings', 'site-settings'],
@@ -82,7 +83,7 @@ function Shell({ children }: { children: ReactNode }) {
         <nav aria-label="Admin sections">
           {adminNavigation
             .filter(([, slug]) =>
-              slug === 'pesto-purchases'
+              slug === 'pesto-purchases' || slug === 'pesto-customers'
                 ? ['ADMIN', 'SUPER_ADMIN'].includes(session.user!.role)
                 : can(
                     session.user,
