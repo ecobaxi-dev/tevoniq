@@ -1,13 +1,27 @@
 import { Heading } from '@tevoniq/ui';
 import Image from 'next/image';
 import type { ArticleBlock } from '@tevoniq/validation';
-export function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
+export function ArticleContent({
+  blocks,
+  compactLastParagraph = false,
+}: {
+  blocks: ArticleBlock[];
+  compactLastParagraph?: boolean;
+}) {
   return (
     <div className="insight-prose">
       {blocks.map((block, index) => {
         switch (block.type) {
           case 'paragraph':
-            return <p key={index}>{block.text}</p>;
+            return (
+              <p key={index}>
+                {compactLastParagraph && index === blocks.length - 1 ? (
+                  <small>{block.text}</small>
+                ) : (
+                  block.text
+                )}
+              </p>
+            );
           case 'heading':
             return block.level === 2 ? (
               <Heading as="h2" key={index}>

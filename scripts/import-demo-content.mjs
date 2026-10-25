@@ -5,6 +5,7 @@ import { config } from 'dotenv';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../apps/api/dist/generated/prisma/client.js';
 import { solutionTranslationSchema } from '@tevoniq/validation';
+import { refreshDemoPresentation } from './lib/demo-presentation.mjs';
 import {
   buildDemoContent,
   actorId,
@@ -382,6 +383,7 @@ if (args.includes('--check')) {
         );
       } else if (apply) console.log('No changes required. Existing content preserved.');
     }
+    await refreshDemoPresentation(db, content, { apply, preview });
   } finally {
     await db.$disconnect();
   }

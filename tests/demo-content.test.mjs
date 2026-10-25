@@ -44,12 +44,13 @@ test('demo catalog covers all industries and localized content without empty pag
       );
 });
 
-test('reference examples remain attributed in cards, details and articles', () => {
+test('project titles are clean and public project/article content has no external references', () => {
   for (const row of content.projects)
     for (const t of row.value.translations) {
       const l = demoLabels[t.locale];
-      assert.ok(t.title.startsWith(l.demo));
-      assert.ok(t.challenge.includes(l.notice));
+      assert.ok(!t.title.startsWith(l.demo));
+      assert.equal(t.heroImage.caption, l.demo);
+      assert.doesNotMatch(JSON.stringify(t), /n[\s-]?ix/i);
       assert.equal(t.testimonial, '');
       assert.equal(t.testimonialAuthor, '');
       assert.ok(
@@ -57,17 +58,17 @@ test('reference examples remain attributed in cards, details and articles', () =
         'No invented numeric results',
       );
       assert.equal(row.value.clientVisibility, 'PRIVATE');
-      if (/N-iX/.test(t.summary)) {
-        assert.ok(t.summary.includes(l.reference));
-        assert.match(t.implementation, /https:\/\/www\.n-ix\.com\/case-study\//);
-      }
     }
   assert.equal(
     content.articles.filter((r) =>
       r.value.content.some((b) => b.type === 'link' && b.url.startsWith('https://www.n-ix.com/')),
     ).length,
-    9,
+    0,
   );
+  for (const { value } of content.articles) {
+    assert.doesNotMatch(JSON.stringify(value), /n[\s-]?ix/i);
+    assert.equal(value.content.at(-1).text, demoLabels[value.language].articleNote);
+  }
 });
 
 test('company additions and solution sections are idempotent and preserve editorial content', () => {

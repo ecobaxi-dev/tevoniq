@@ -123,29 +123,26 @@ export function buildDemoContent(siteUrl = 'http://localhost:3000') {
       solutionIds: [],
       translations: locales.map((locale, i) => {
         const l = demoLabels[locale],
-          title = `${l.demo}: ${p.titles[i]}`;
+          title = p.titles[i];
         return {
           locale,
           title,
-          summary: `${p.source ? l.reference : l.notice} ${p.summaries[i]}`,
+          summary: p.summaries[i],
           published: true,
           heroImage: {
             url: `/brand/generated/${p.image}`,
-            alt: `${l.demo}: ${p.titles[i]}`,
-            caption: l.notice,
+            alt: p.titles[i],
+            caption: l.demo,
           },
           gallery: [{ url: '/brand/generated/workflow.png', alt: l.proposed, caption: l.notice }],
-          challenge: `${l.notice} ${p.challenges[i]}`,
+          challenge: p.challenges[i],
           approach: `${l.proposed}: ${l.roadmapBody}`,
-          solution: `${p.source ? l.reference : l.notice} ${p.summaries[i]}`,
-          implementation: `${l.proposed}: ${l.architectureBody}${p.source ? `\n\n${l.referenceLink}: ${p.source}` : ''}`,
+          solution: p.summaries[i],
+          implementation: `${l.proposed}: ${l.architectureBody}`,
           technologies: p.technologies,
-          results: [
-            { value: l.planned, label: l.acceptance },
-            { value: l.demo, label: l.benefits },
-          ],
+          results: [{ value: l.planned, label: l.acceptance }],
           seoTitle: `${title} | TEVONIQ`,
-          seoDescription: `${l.demo}: ${p.summaries[i]}`,
+          seoDescription: p.summaries[i],
         };
       }),
     }),
@@ -169,14 +166,14 @@ export function buildDemoContent(siteUrl = 'http://localhost:3000') {
   const articles = locales.flatMap((locale, i) => {
     const l = demoLabels[locale];
     const complete = (topic, content, image) => {
-      const title = `${l.demo}: ${topic.titles[i]}`;
+      const title = topic.titles[i];
       const value = articleWriteSchema.parse({
         title,
         slug: topic.slug,
-        excerpt: `${l.articleNote} ${topic.intros[i]}`,
-        content,
+        excerpt: topic.intros[i],
+        content: [...content, { type: 'paragraph', text: l.articleNote }],
         coverImage: `${siteUrl}/brand/generated/${image}`,
-        coverImageAlt: `${l.demo}: ${topic.titles[i]}`,
+        coverImageAlt: topic.titles[i],
         author: l.author,
         categoryId: contentId(`category:${topic.category}:${locale}`),
         tagIds: [contentId(`tag:demo:${locale}`)],
@@ -187,7 +184,7 @@ export function buildDemoContent(siteUrl = 'http://localhost:3000') {
         language: locale,
         kind: topic.kind,
         seoTitle: `${title} | TEVONIQ`,
-        seoDescription: `${l.demo}: ${topic.intros[i]}`,
+        seoDescription: topic.intros[i],
         ogImage: `${siteUrl}/brand/generated/${image}`,
         canonicalUrl: '',
         version: 0,
@@ -199,7 +196,6 @@ export function buildDemoContent(siteUrl = 'http://localhost:3000') {
         complete(
           topic,
           [
-            { type: 'paragraph', text: l.articleNote },
             { type: 'heading', text: topic.titles[i], level: 2 },
             { type: 'paragraph', text: topic.intros[i] },
             { type: 'heading', text: l.roadmap, level: 2 },
@@ -223,15 +219,12 @@ export function buildDemoContent(siteUrl = 'http://localhost:3000') {
             intros: p.summaries,
           },
           [
-            { type: 'paragraph', text: p.source ? l.reference : l.notice },
             { type: 'heading', text: l.challenges, level: 2 },
             { type: 'paragraph', text: p.challenges[i] },
-            { type: 'heading', text: p.source ? l.referenceSummary : l.scope, level: 2 },
+            { type: 'heading', text: l.scope, level: 2 },
             { type: 'paragraph', text: p.summaries[i] },
             { type: 'heading', text: l.proposed, level: 2 },
             { type: 'paragraph', text: l.roadmapBody },
-            { type: 'paragraph', text: l.notice },
-            ...(p.source ? [{ type: 'link', text: l.referenceLink, url: p.source }] : []),
             { type: 'link', text: l.projects, url: `${siteUrl}/${locale}/projects/${p.slug}` },
           ],
           p.image,

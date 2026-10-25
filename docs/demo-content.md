@@ -1,5 +1,11 @@
 # Populated demonstration catalog
 
+## Presentation revision v2
+
+At the owner's request, project and article titles now omit the demo prefix. Project images retain a small demo caption, and articles end with a small disclosure. Public descriptions use original project concepts and no longer include external-provider names, reference statements or outbound source links. The reference URLs below remain internal research documentation only.
+
+`scripts/lib/demo-presentation.mjs` updates the already-installed examples as well as fresh imports. It preserves custom titles and unrelated paragraphs, records a backup and audit entries, and uses optimistic version checks. Render runs this separately marked revision once through the existing `PREVIEW_DEMO_CONTENT_RELEASE=2026-10-25` setting; changing that variable is not required. The project and article pages were checked with REA at mobile width, all 168 tests passed, and the web TypeScript check passed.
+
 Implemented locally on 2026-10-25 at the owner's request. No production deployment was performed.
 
 ## Coverage

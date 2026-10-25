@@ -118,7 +118,10 @@ async function PublicPage({ params }: Props) {
                 />
               )}
             </header>
-            <ArticleContent blocks={article.content} />
+            <ArticleContent
+              blocks={article.content}
+              compactLastParagraph={article.slug.startsWith('demo-')}
+            />
             <div className="insight-tags">
               {article.tags.map((t) => (
                 <Link key={t.id} href={`/${locale}/insights?tag=${t.slug}`}>
