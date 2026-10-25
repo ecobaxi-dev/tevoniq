@@ -11,6 +11,7 @@ import {
   Mail,
   MessageCircle,
   Clock3,
+  Download,
 } from 'lucide-react';
 import { Container, ButtonLink, Heading } from '@tevoniq/ui';
 import type { Locale } from '@tevoniq/types';
@@ -38,10 +39,28 @@ export function PestoHomeEntry({ locale }: { locale: Locale }) {
             </Heading>
             <p>{c.homeBody}</p>
           </div>
-          <ButtonLink href={`/${locale}/pesto`} variant="gold-accent" className="pesto-entry-cta">
-            {c.homeLink}
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </ButtonLink>
+          <div className="pesto-entry-actions">
+            <ButtonLink
+              href={`/${locale}/pesto#downloads`}
+              variant="gold-accent"
+              className="pesto-entry-cta pesto-entry-download"
+              aria-describedby="pesto-entry-trial"
+            >
+              <Download size={18} aria-hidden="true" />
+              {c.homeDownload}
+            </ButtonLink>
+            <ButtonLink
+              href={`/${locale}/pesto`}
+              variant="outline"
+              className="pesto-entry-cta pesto-entry-discover"
+            >
+              {c.homeLink}
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </ButtonLink>
+            <p id="pesto-entry-trial" className="pesto-entry-trial">
+              {c.homeTrial}
+            </p>
+          </div>
         </div>
       </Container>
     </section>
