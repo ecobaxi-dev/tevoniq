@@ -1,7 +1,7 @@
 .ai-development {
   --ai-navy: #0c2146;
   --ai-blue: #245bff;
-  --ai-muted: #60718c;
+  --ai-muted: #566984;
   --ai-line: #dbe5f2;
   color: var(--ai-navy);
 }
@@ -356,7 +356,7 @@
   color: #3d5779;
 }
 .ai-dev-comparison-row small {
-  color: #95a6bf;
+  color: #60718c;
   padding-top: 0.15rem;
 }
 .ai-dev-comparison-row svg {
@@ -388,7 +388,7 @@
 }
 .ai-dev-card-top small {
   font-size: 0.65rem;
-  color: #8b9ab1;
+  color: #60718c;
 }
 .ai-dev-card p,
 .ai-dev-example p,
@@ -525,7 +525,7 @@
 }
 .ai-dev-stage-output span {
   display: block;
-  color: #8091ac;
+  color: #60718c;
   font-size: 0.7rem;
   margin-bottom: 0.4rem;
 }
@@ -811,5 +811,92 @@
 @media (prefers-reduced-motion: reduce) {
   .ai-development * {
     transition: none !important;
+  }
+}
+
+/* Scoped editorial treatment overrides the shared public heading scale. */
+@font-face {
+  font-family: 'Tevoniq AI Display';
+  src: url('/fonts/Geologica-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+#ai-dev-title {
+  max-width: none;
+  font-size: clamp(2rem, 3.2vw, 3rem) !important;
+  line-height: 1.22;
+  text-wrap: initial;
+}
+.ai-dev-title-accent {
+  display: block;
+  font-family: 'Tevoniq AI Display', var(--font-heading);
+  color: #245bff;
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  letter-spacing: -0.045em;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+.ai-dev-title-rest {
+  display: block;
+  max-width: 19ch;
+}
+[dir='rtl'] .ai-dev-title-accent {
+  font-family: 'Cairo Variable', sans-serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.9rem);
+  letter-spacing: normal;
+}
+.ai-development .ai-dev-section-heading {
+  max-width: none;
+}
+#main-content
+  .ai-development
+  :is(.ai-dev-section-heading, .ai-dev-assurance, .ai-dev-faq-layout > div:first-child)
+  h2 {
+  max-width: none !important;
+  font-size: clamp(1.5rem, 2.3vw, 2rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.035em;
+  line-height: 1.5;
+}
+.ai-development:lang(en)
+  :is(.ai-dev-section-heading, .ai-dev-assurance, .ai-dev-faq-layout > div:first-child)
+  h2 {
+  font-family: 'Tevoniq AI Display', var(--font-heading);
+}
+@media (width >= 64rem) {
+  #main-content
+    .ai-development
+    :is(.ai-dev-section-heading, .ai-dev-assurance, .ai-dev-faq-layout > div:first-child)
+    h2 {
+    text-wrap: nowrap !important;
+  }
+}
+@media (width < 48rem) {
+  #ai-dev-title {
+    font-size: clamp(1.9rem, 6.8vw, 2.7rem) !important;
+  }
+  .ai-dev-title-accent {
+    font-size: clamp(1.2rem, 5.4vw, 1.9rem);
+  }
+  [dir='rtl'] .ai-dev-title-accent {
+    font-size: clamp(0.95rem, 4.55vw, 1.55rem);
+  }
+}
+
+.ai-dev-faq-layout {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+#main-content .ai-dev-contact h2 {
+  max-width: none;
+  font-size: clamp(1.4rem, 1.8vw, 1.65rem) !important;
+  line-height: 1.5;
+  font-weight: 600 !important;
+}
+@media (width >= 64rem) {
+  #main-content .ai-dev-contact h2 {
+    text-wrap: nowrap;
   }
 }

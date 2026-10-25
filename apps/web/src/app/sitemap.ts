@@ -2,6 +2,7 @@ import { getSiteSettings } from '@/lib/site-settings';
 import type { MetadataRoute } from 'next';
 import { getAllSeoRoutes } from '@/lib/seo';
 import { absoluteUrl, localizedPath, indexableRoute, routeLanguages } from '@/lib/seo-core';
+import { aiCaseStudies } from '@/content/ai-case-studies';
 import { env } from '@/lib/env';
 export const dynamic = 'force-dynamic';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -16,9 +17,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     }));
   const existing = new Set(entries.map((entry) => entry.url));
-  for (const path of ['/pesto', '/advocas']) {
+  for (const path of [
+    '/pesto',
+    '/advocas',
+    ...aiCaseStudies.map((study) => `/insights/case-studies/${study.slug}`),
+  ]) {
     const locales = settings.localization.enabledLanguages.filter(
-      (locale) => path === '/pesto' || locale === 'en' || locale === 'ar',
+      (locale) => path !== '/advocas' || locale === 'en' || locale === 'ar',
     );
     const languages: Record<string, string> = {};
     for (const locale of locales)

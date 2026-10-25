@@ -1,0 +1,55 @@
+{
+  "rightsBasis": "User explicitly confirmed rights of use in this conversation on 2026-10-25. No independent licensing verification was performed.",
+  "captureDate": "2026-10-25",
+  "assets": [
+    {
+      "case": 0,
+      "kind": "cover",
+      "source": "https://src.n-ix.com/uploads/2026/05/12/dd7e83ca-2215-447d-90e0-1394dbbf11e9.webp",
+      "path": "apps/web/public/brand/ai-case-studies/1-cover.webp",
+      "sha256": "de4e124ae665d358f478d3935ce51459694a5c1388ec131010deeaf751d1b016",
+      "bytes": 42818
+    },
+    {
+      "case": 0,
+      "kind": "diagram",
+      "source": "https://src.n-ix.com/uploads/2026/05/12/f19312a4-c774-4769-ad35-753a40cdf276.webp",
+      "path": "apps/web/public/brand/ai-case-studies/1-diagram.webp",
+      "sha256": "8df941acae7eb2811f9d5c763362a785c813a16e6f908392f4ee6e30f685fd6a",
+      "bytes": 197768
+    },
+    {
+      "case": 1,
+      "kind": "cover",
+      "source": "https://src.n-ix.com/uploads/2026/05/15/2df35e8d-9f09-4ad3-bba4-e754c8670b2b.webp",
+      "path": "apps/web/public/brand/ai-case-studies/2-cover.webp",
+      "sha256": "3407b8758760358a4d6d1b95784cfb21499ef41ab657f5fd79d1d0b87bf70176",
+      "bytes": 84326
+    },
+    {
+      "case": 1,
+      "kind": "diagram",
+      "source": "https://src.n-ix.com/uploads/2026/05/15/35b7c796-d37a-4899-8606-c005650e567c.webp",
+      "path": "apps/web/public/brand/ai-case-studies/2-diagram.webp",
+      "sha256": "1914a5f00ae67494b26bd59fb4915889c6b96610949fdbaed45d93e0ad05f9d1",
+      "bytes": 144530
+    },
+    {
+      "case": 2,
+      "kind": "cover",
+      "source": "https://src.n-ix.com/uploads/2026/05/15/1c0894c3-c33e-4a24-9d09-c6e83f81569d.webp",
+      "path": "apps/web/public/brand/ai-case-studies/3-cover.webp",
+      "sha256": "fc098e633fe5928bfac4ffa140861cd3aae2668fcf3bafd85368087f5bacb0bd",
+      "bytes": 60686
+    },
+    {
+      "case": 2,
+      "kind": "diagram",
+      "source": "https://src.n-ix.com/uploads/2026/05/15/f2167e48-af0a-48b2-a97a-2c15096a6305.webp",
+      "path": "apps/web/public/brand/ai-case-studies/3-diagram.webp",
+      "sha256": "e737a5f7918a3d822fa161348794f4af38a38125069aae1e63e62d2844e2a8a0",
+      "bytes": 169866
+    }
+  ],
+  "videoInventory": "No video, source or iframe elements were observed in the three case study pages; no video assets were copied."
+}

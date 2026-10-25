@@ -1,0 +1,481 @@
+[
+  {
+    "slug": "enterprise-knowledge-search",
+    "source": "https://www.n-ix.com/case-study/ai-powered-knowledge-search-enterprise-software-leader/",
+    "cover": "/brand/ai-case-studies/1-cover.webp",
+    "diagram": "/brand/ai-case-studies/1-diagram.webp",
+    "translations": {
+      "en": {
+        "title": "Enterprise software leader makes knowledge base search 120x faster with AI",
+        "sector": "Enterprise software",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is an independent software vendor and a leading global provider of enterprise software solutions for analyzing business processing, managing application portfolios, and more.",
+              "Published client profile: United Kingdom; partnership began in July 2014. More than 20 years on the market, 600 clients worldwide and 200 employees."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "One of the client's customers was looking to enhance the productivity of their development teams across several areas. They wanted to improve documentation coverage for their Enterprise Architecture tool components and company-wide processes, and sought greater visibility into application data, including usage and cost management insights. At the same time, the customer aimed to make it easier for their teams to navigate and retrieve relevant information from an extensive knowledge base, enabling faster and more effective day-to-day workflows."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client develop several applications using Azure AI Foundry to streamline operations and analytics within the client's comprehensive Enterprise Architecture tool. These applications automated the generation of descriptions for back-end applications and services, as well as for company-wide processes, significantly enriching documentation coverage across the platform. The applications also enabled automatic detection of which applications are used in which company processes and could generate data-driven charts on demand in response to user requests, providing teams with immediate visibility into application data.",
+              "In parallel, the delivery team developed an AI assistant following the Retrieval-Augmented Generation (RAG) approach, built on Azure AI Foundry and AI Search. The assistant was designed to help the development team efficiently locate relevant details in the extensive knowledge base, putting the right information at their fingertips without time-consuming manual searches."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "Accelerated data visualization: Reduced the time required to generate data-driven charts from hours of development effort to a matter of seconds.",
+              "Improved accessibility: Enabled users without a technical background to quickly find and interact with the data they need.",
+              "Faster document search: Accelerated knowledge base search by approximately 120 times, dramatically reducing the time teams spend locating relevant information.",
+              "Expertise: Azure consulting and AI development. Technologies: .NET, Python, Azure, AI Foundry, Azure AI Search and Azure SQL Database."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "شركة برمجيات مؤسسية تسرّع البحث في المعرفة 120 مرة",
+        "sector": "البرمجيات المؤسسية",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل مزود برمجيات مستقل ورائد عالمي في حلول تحليل عمليات الأعمال وإدارة محافظ التطبيقات وغيرها. يقع في المملكة المتحدة، وتذكر الدراسة أن الشراكة بدأت في يوليو 2014. وتشير بيانات العميل المنشورة إلى أكثر من 20 عامًا في السوق، وأكثر من 600 عميل عالميًا، وأكثر من 200 موظف."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "أراد أحد عملاء الشركة تحسين إنتاجية فرق التطوير في مجالات متعددة. شمل ذلك توسيع توثيق مكونات أداة معمارية المؤسسة وعمليات الشركة، وتحسين رؤية بيانات التطبيقات، بما فيها الاستخدام والتكاليف. كما استهدف تسهيل الوصول إلى المعلومات ذات الصلة داخل قاعدة معرفة كبيرة لتحسين العمل اليومي."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "طوّر فريق التنفيذ عدة تطبيقات باستخدام Azure AI Foundry لتبسيط العمليات والتحليلات داخل أداة معمارية المؤسسة. أتمتت التطبيقات إنشاء أوصاف التطبيقات والخدمات الخلفية وعمليات الشركة، مما وسّع تغطية التوثيق. كما أتاحت تحديد التطبيقات المستخدمة في كل عملية وإنشاء رسوم بيانية قائمة على البيانات عند طلب المستخدم.",
+              "بالتوازي، طوّر الفريق مساعدًا ذكيًا وفق نهج التوليد المعزّز بالاسترجاع RAG باستخدام Azure AI Foundry وAzure AI Search. صُمّم المساعد لتمكين فريق التطوير من العثور على التفاصيل المناسبة داخل قاعدة المعرفة دون بحث يدوي طويل."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "تسريع عرض البيانات: انخفض إعداد الرسوم البيانية من ساعات من التطوير إلى ثوانٍ.",
+              "تحسين الوصول: أصبح بإمكان المستخدمين غير التقنيين العثور على البيانات والتفاعل معها بسهولة.",
+              "تسريع البحث في الوثائق: أصبح البحث في قاعدة المعرفة أسرع بنحو 120 مرة، بما يقلل وقت العثور على المعلومات.",
+              "الخبرات: استشارات Azure وتطوير الذكاء الاصطناعي. التقنيات: ‎.NET وPython وAzure وAI Foundry وAzure AI Search وAzure SQL Database."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Kurumsal yazılım şirketinde bilgi araması 120 kat hızlandı",
+        "sector": "Kurumsal yazılım",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, iş süreçlerinin analizi ve uygulama portföylerinin yönetimi için kurumsal yazılımlar sağlayan bağımsız, küresel bir yazılım üreticisidir. Birleşik Krallık merkezlidir; yayımlanan çalışma ortaklığın Temmuz 2014’te başladığını belirtir. Müşteri bilgileri 20 yılı aşkın faaliyet, dünya çapında 600’den fazla müşteri ve 200’den fazla çalışanı kapsar."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Şirketin bir müşterisi, geliştirme ekiplerinin verimliliğini artırmak istiyordu. Hedefler; kurumsal mimari aracındaki bileşenlerin ve şirket süreçlerinin daha kapsamlı belgelenmesi, kullanım ve maliyet dahil uygulama verilerinin görünür olmasıydı. Ayrıca ekiplerin geniş bilgi tabanındaki ilgili bilgilere daha kolay erişmesi amaçlanıyordu."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Teslimat ekibi, kurumsal mimari aracı içindeki operasyonları ve analitiği kolaylaştırmak için Azure AI Foundry ile uygulamalar geliştirdi. Arka uç uygulamaları, hizmetler ve şirket süreçleri için açıklama üretimi otomatikleştirildi. Hangi uygulamanın hangi süreçte kullanıldığı belirlenebiliyor ve kullanıcı isteğiyle veriye dayalı grafikler oluşturulabiliyordu.",
+              "Aynı zamanda Azure AI Foundry ve Azure AI Search üzerinde RAG yaklaşımını kullanan bir asistan geliştirildi. Asistan, geliştirme ekibinin büyük bilgi tabanında ilgili ayrıntıları uzun manuel aramalar yapmadan bulmasını sağladı."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Veri görselleştirme: Grafik oluşturma süresi saatler süren geliştirmeden saniyelere indi.",
+              "Erişilebilirlik: Teknik geçmişi olmayan kullanıcılar ihtiyaç duydukları verileri bulup kullanabilir hale geldi.",
+              "Belge arama: Bilgi tabanında arama yaklaşık 120 kat hızlandı.",
+              "Uzmanlık: Azure danışmanlığı ve yapay zekâ geliştirme. Teknolojiler: .NET, Python, Azure, AI Foundry, Azure AI Search ve Azure SQL Database."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "120×",
+        "labels": {
+          "en": "Faster knowledge search",
+          "ar": "بحث أسرع في المعرفة",
+          "tr": "Daha hızlı bilgi arama"
+        }
+      },
+      {
+        "value": "RAG",
+        "labels": {
+          "en": "Retrieval-augmented generation",
+          "ar": "توليد معزّز بالاسترجاع",
+          "tr": "Getirmeyle desteklenen üretim"
+        }
+      },
+      {
+        "value": "AI",
+        "labels": {
+          "en": "Assistant development",
+          "ar": "تطوير مساعد ذكي",
+          "tr": "Asistan geliştirme"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 1500,
+        "height": 637
+      }
+    }
+  },
+  {
+    "slug": "transportation-ai-adoption",
+    "source": "https://www.n-ix.com/case-study/transportation-leader-adopts-ai-lifts-engineering-velocity/",
+    "cover": "/brand/ai-case-studies/2-cover.webp",
+    "diagram": "/brand/ai-case-studies/2-diagram.webp",
+    "translations": {
+      "en": {
+        "title": "Transportation leader takes AI adoption to 91% and lifts engineering velocity 27% with structured gen AI rollout",
+        "sector": "Transportation",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is a private equity-backed transportation company undergoing a large-scale digital modernization of the core ERP system and several mission-critical specialized applications."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client aimed to accelerate development velocity, strengthen delivery timelines, and improve QA coverage across a multi-stream engineering program, all while managing unplanned scope increases and evolving requirements. At the start of the engagement, AI tools were active on fewer than one in seven engineers' desks, with no shared workflows, no adoption governance, and no measurement baseline in place. The organization sought to introduce AI tooling into its workflows to enhance the productivity of the 140+ engineering team without adding overhead. Achieving meaningful GenAI adoption at scale, alongside a step-change in test-driven development maturity, were the client's main goals."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "The delivery team helped the client design and execute a structured AI adoption program across the client’s six engineering work streams. The initiative was built to embed GenAI productivity directly into the software development lifecycle, rather than treating it as a standalone effort.",
+              "To achieve this, the delivery team helped the client with the following areas:",
+              "GenAI tool rollout at scale. The delivery team identified and deployed the most appropriate GenAI tools for each engineering role and use case, reaching all 140+ engineers across Java development, front-end, QA, data, and BI disciplines.",
+              "Use-case acceleration. The delivery team mapped and accelerated 39 distinct engineering use cases, achieving time improvements ranging from 1.01x to 144x depending on the task type.",
+              "SDLC integration. AI productivity was embedded primarily within coding and QA workflows, reducing manual coding effort, accelerating test creation, and cutting debugging and code review time.",
+              "Legacy codebase handling. The delivery team applied GenAI to reverse-engineering tasks on legacy business logic, reducing turnaround time from two weeks to two days, and to automated documentation generation, cutting it from approximately one day to around ten minutes. These were among the highest-impact single-use cases in the engagement and directly addressed the delivery risk posed by undocumented legacy systems.",
+              "Agile process integration. GenAI tooling was incorporated into existing Scrum and SAFe routines to ensure adoption was sustainable within the team's delivery cadence and did not create additional overhead.",
+              "Onboarding acceleration. The delivery team helped restructure new-engineer onboarding to leverage AI-assisted workflows, reducing ramp-up time from two weeks to three days.",
+              "Throughout the engagement, the delivery team addressed key adoption barriers, such as developer skepticism, implementing security guardrails in an enterprise environment, and creating an effective AI context for a complex legacy codebase."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "GenAI tool adoption rose from 13% to 91% (a 78-point increase), being the largest adoption gap closed in a single engagement. This demonstrates that structured rollout and change management are as critical as the tooling itself;",
+              "Average team velocity grew from 85 to 108.3 story points (+27%), while delivery stability improved: milestone slippage, scope creep, and chronic overtime were all brought under control;",
+              "Test coverage increased from 55% to 81%, driven by a dramatic acceleration in test creation speed;",
+              "Code review time was halved from 8–12 hours to 4–6 hours, hotfix deployment time dropped from 4–6 hours to 1–2 hours (-70%), and survey data indicated a 30% reduction in manual coding time and a 50% reduction in debugging time;",
+              "Legacy reverse engineering was reduced from 2 weeks to 2 days (-85%), and documentation generation fell from approximately 1 day to around 10 minutes.",
+              "Expertise: Generative AI development and AI development services."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "شركة نقل ترفع تبنّي الذكاء الاصطناعي إلى 91% وسرعة الفريق 27%",
+        "sector": "النقل",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل شركة نقل مدعومة باستثمار خاص، تنفّذ تحديثًا رقميًا واسعًا لنظام ERP الأساسي وعدة تطبيقات تخصصية حيوية."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدفت الشركة تسريع التطوير وتحسين مواعيد التسليم وتغطية الاختبارات عبر برنامج هندسي متعدد المسارات، مع التعامل مع زيادة النطاق وتغير المتطلبات. في البداية كانت أدوات الذكاء الاصطناعي مستخدمة لدى أقل من مهندس من كل سبعة، دون مسارات مشتركة أو حوكمة أو خط أساس للقياس. وكان الهدف تمكين فريق يضم أكثر من 140 مهندسًا من التبنّي على نطاق واسع وتحسين نضج التطوير الموجّه بالاختبارات دون أعباء تشغيلية إضافية."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "صمّم فريق التنفيذ برنامج تبنٍّ منظمًا عبر ستة مسارات هندسية، لدمج الذكاء الاصطناعي التوليدي داخل دورة التطوير بدل عزله كمبادرة مستقلة.",
+              "تعميم الأدوات: اختيار ونشر أدوات مناسبة لكل دور وحالة استخدام لدى أكثر من 140 مهندسًا في Java والواجهات وضمان الجودة والبيانات وذكاء الأعمال.",
+              "تسريع حالات الاستخدام: تحديد 39 حالة استخدام هندسية وتحسين أوقاتها بمعدلات تراوحت بين 1.01 و144 مرة حسب المهمة.",
+              "دمج دورة التطوير: التركيز على البرمجة وضمان الجودة لتقليل العمل اليدوي وتسريع الاختبارات والتصحيح ومراجعة الكود.",
+              "الأنظمة القديمة: خفض تحليل منطق الأعمال غير الموثّق من أسبوعين إلى يومين، وخفض إنشاء الوثائق من يوم تقريبًا إلى نحو عشر دقائق، مما عالج مخاطر التسليم المرتبطة بالأنظمة القديمة.",
+              "التكامل مع Agile: تضمين الأدوات في ممارسات Scrum وSAFe الحالية للحفاظ على الاستدامة دون أعباء إضافية.",
+              "تأهيل المهندسين: إعادة تنظيم الانضمام بمساعدة الذكاء الاصطناعي، وخفض زمن التأهيل من أسبوعين إلى ثلاثة أيام.",
+              "عالج الفريق تشكك المطورين، ووضع ضوابط أمنية للمؤسسة، وأنشأ سياقًا مناسبًا للأدوات لفهم قاعدة كود قديمة ومعقدة."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "ارتفع التبنّي من 13% إلى 91%، بزيادة 78 نقطة مئوية. وتؤكد النتائج المنشورة أهمية التعميم المنظم وإدارة التغيير إلى جانب الأدوات.",
+              "ارتفع متوسط سرعة الفريق من 85 إلى 108.3 نقطة قصة، بزيادة 27%، مع تحسين استقرار التسليم وضبط تأخر المراحل وزيادة النطاق والعمل الإضافي المستمر.",
+              "زادت تغطية الاختبارات من 55% إلى 81% بفعل تسريع إنشاء الاختبارات.",
+              "انخفض زمن مراجعة الكود من 8–12 ساعة إلى 4–6 ساعات، ونشر الإصلاحات العاجلة من 4–6 ساعات إلى 1–2 ساعة، بانخفاض معلن 70%. وأظهرت الاستبيانات انخفاض البرمجة اليدوية 30% والتصحيح 50%.",
+              "انخفض تحليل الأنظمة القديمة من أسبوعين إلى يومين، بانخفاض معلن 85%، وإعداد الوثائق من يوم تقريبًا إلى عشر دقائق.",
+              "الخبرات: تطوير الذكاء الاصطناعي التوليدي وتطوير تطبيقات الذكاء الاصطناعي."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Taşımacılık şirketinde yapay zekâ kullanımı %91’e, ekip hızı %27 artışa ulaştı",
+        "sector": "Taşımacılık",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, temel ERP sistemini ve iş açısından kritik uzmanlaşmış uygulamalarını geniş kapsamlı biçimde modernize eden, özel sermaye destekli bir taşımacılık şirketidir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Müşteri, değişen gereksinimler ve plansız kapsam artışları sırasında geliştirme hızını, teslimat takvimini ve test kapsamını iyileştirmek istiyordu. Başlangıçta araçlar yedi mühendisten birinden daha azında kullanılıyordu; ortak iş akışı, benimseme yönetişimi veya başlangıç ölçümü yoktu. Amaç 140’tan fazla mühendisin üretkenliğini ek yük olmadan artırmak ve test odaklı geliştirmeyi olgunlaştırmaktı."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Teslimat ekibi, üretken yapay zekâyı ayrı bir girişim olarak değil yaşam döngüsünün parçası olarak uygulayan, altı mühendislik akışını kapsayan yapılandırılmış bir benimseme programı tasarladı.",
+              "Araçların yaygınlaştırılması: Java, ön yüz, kalite, veri ve iş zekâsı rollerindeki 140’tan fazla mühendis için uygun araçlar seçilip kuruldu.",
+              "Kullanım senaryoları: 39 mühendislik senaryosu belirlendi; göreve göre 1,01 ile 144 kat arasında zaman iyileşmeleri elde edildi.",
+              "Yaşam döngüsü entegrasyonu: Kodlama ve kalite süreçlerine odaklanılarak manuel kodlama, test hazırlama, hata ayıklama ve kod inceleme süreleri azaltıldı.",
+              "Eski kod: Belgelenmemiş iş mantığının tersine mühendislik analizi iki haftadan iki güne, belge oluşturma yaklaşık bir günden on dakikaya indirildi. Bu çalışmalar eski sistemlerin teslimat riskini azalttı.",
+              "Çevik süreçler: Araçlar ek yük oluşturmadan mevcut Scrum ve SAFe uygulamalarına dahil edildi.",
+              "İşe uyum: Yapay zekâ destekli iş akışlarıyla yeni mühendislerin hazırlanması iki haftadan üç güne indirildi.",
+              "Ekip; geliştirici şüpheciliği, kurumsal güvenlik kontrolleri ve karmaşık eski kod için doğru bağlam oluşturma konularını ele aldı."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Kullanım %13’ten %91’e yükseldi; artış 78 yüzde puanı oldu. Çalışma, yapılandırılmış yaygınlaştırma ve değişim yönetiminin önemini gösteriyor.",
+              "Ortalama ekip hızı 85’ten 108,3 hikâye puanına çıktı (%27 artış). Kilometre taşı gecikmeleri, kapsam kayması ve sürekli fazla mesai kontrol altına alındı.",
+              "Test kapsamı, test üretiminin hızlanmasıyla %55’ten %81’e yükseldi.",
+              "Kod incelemesi 8–12 saatten 4–6 saate, acil düzeltme yayını 4–6 saatten 1–2 saate indi; kaynak %70 azalma bildiriyor. Anketlerde manuel kodlama %30, hata ayıklama %50 azaldı.",
+              "Eski sistem analizi iki haftadan iki güne indi; kaynak %85 azalma bildiriyor. Belge üretimi yaklaşık bir günden on dakikaya düştü.",
+              "Uzmanlık: Üretken yapay zekâ ve yapay zekâ uygulama geliştirme."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "91%",
+        "labels": {
+          "en": "AI adoption, from 13%",
+          "ar": "تبنّي الذكاء الاصطناعي، من 13%",
+          "tr": "Yapay zekâ kullanımı, %13’ten"
+        }
+      },
+      {
+        "value": "+27%",
+        "labels": {
+          "en": "Team velocity",
+          "ar": "زيادة سرعة الفريق",
+          "tr": "Ekip hızında artış"
+        }
+      },
+      {
+        "value": "81%",
+        "labels": {
+          "en": "Test coverage, from 55%",
+          "ar": "تغطية الاختبارات، من 55%",
+          "tr": "Test kapsamı, %55’ten"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 750,
+        "height": 500
+      }
+    }
+  },
+  {
+    "slug": "housing-qa-modernization",
+    "source": "https://www.n-ix.com/case-study/housing-management-leader-ai-driven-qa-modernization/",
+    "cover": "/brand/ai-case-studies/3-cover.webp",
+    "diagram": "/brand/ai-case-studies/3-diagram.webp",
+    "translations": {
+      "en": {
+        "title": "Housing management leader cuts bugs reaching production 60% through AI-driven QA modernization",
+        "sector": "Housing technology",
+        "sections": [
+          {
+            "title": "Client background",
+            "paragraphs": [
+              "The client is a global leader in housing management technology, serving thousands of clients worldwide through a proprietary property management system. With 150+ engineers across five delivery streams, the organization operates at significant scale and maintains a complex, high-availability software environment with continuous release pressure."
+            ]
+          },
+          {
+            "title": "Business challenge",
+            "paragraphs": [
+              "The client aimed to modernize its QA processes, accelerate testing workflows, and raise test coverage across a large and growing codebase while sustaining delivery momentum under product and incident pressure. With no shared measurement framework in place, there was no agreed baseline against which to assess the current QA state or demonstrate improvement over time. AI tooling adoption was in its early stages across the engineering teams. The client sought a structured approach to embedding AI-assisted quality practices into its software testing lifecycle at scale, without disrupting existing delivery commitments."
+            ]
+          },
+          {
+            "title": "Implementation",
+            "paragraphs": [
+              "Together with the client, the delivery team conducted QA AI modernization across the engineering teams, using a staged adoption framework, with a focus on eliminating bottlenecks and building a resilient software testing lifecycle. In particular, the delivery team assisted the client with the following:",
+              "Workflow acceleration. The delivery team identified and accelerated 15 workflows across the engineering teams, directly reducing manual effort in regression testing, test case generation, and incident investigation.",
+              "SDLC productivity integration. AI-assisted practices were embedded in the client's software development lifecycle, stabilizing the team over time and creating a sustainable delivery pace across all five work streams.",
+              "Quality gate implementation. The delivery team introduced new quality gates into the client's software testing lifecycle, replacing ad hoc manual review checkpoints with automated checks embedded directly in the delivery pipeline, raising the bar for confidence in code releases and enabling daily releases without compromising quality.",
+              "Test coverage expansion. The delivery team helped drive a significant increase in test coverage across more than 300 repositories, supported by a reduction in test case generation time.",
+              "Throughout the engagement, the delivery team addressed key adoption barriers, such as developer skepticism, implementing security guardrails in an enterprise environment, and creating an effective AI context for a complex legacy codebase."
+            ]
+          },
+          {
+            "title": "Value delivered",
+            "paragraphs": [
+              "Test coverage improved from 55% to 89% across more than 300 repositories (+34%), directly contributing to a 60% reduction in escaped bugs; the clearest measure of release confidence the team had ever had;",
+              "Team velocity nearly doubled, from 1.8 to 3.5 pull requests per developer per week (+94%), and incident investigation time fell from four hours to 30 minutes (−87.5%);",
+              "Average tool effectiveness rose from 3% to 75% (a 72-point increase), while adoption reached 64% at its peak, up from 15%, confirming that structured enablement drove the results;",
+              "Regression testing time reduced from 3 days to 4 hours (-94%), and test case generation time dropped from 3 hours to 15 minutes (-92%).",
+              "Expertise: AI development services."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "title": "شركة تقنيات إدارة الإسكان تخفّض الأخطاء في الإنتاج 60%",
+        "sector": "تقنيات إدارة الإسكان",
+        "sections": [
+          {
+            "title": "خلفية العميل",
+            "paragraphs": [
+              "العميل شركة عالمية رائدة في تقنيات إدارة الإسكان، تخدم آلاف العملاء من خلال نظام خاص لإدارة العقارات. تضم أكثر من 150 مهندسًا عبر خمسة مسارات تسليم، وتدير بيئة برمجية معقدة وعالية التوافر تحت ضغط الإصدارات المستمرة."
+            ]
+          },
+          {
+            "title": "تحدّي الأعمال",
+            "paragraphs": [
+              "استهدفت الشركة تحديث ضمان الجودة وتسريع الاختبارات وزيادة التغطية في قاعدة كود متنامية، مع الحفاظ على التسليم أثناء ضغط المنتجات والحوادث. لم يكن لديها إطار قياس مشترك أو خط أساس متفق عليه لإظهار التحسن، وكان تبنّي الأدوات في بدايته. لذلك احتاجت مسارًا منظمًا لدمج الاختبارات المعزّزة بالذكاء الاصطناعي دون تعطيل الالتزامات القائمة."
+            ]
+          },
+          {
+            "title": "التنفيذ",
+            "paragraphs": [
+              "نفّذ الفريق بالتعاون مع العميل تحديثًا لضمان الجودة وفق إطار تبنٍّ مرحلي، مع التركيز على إزالة الاختناقات وبناء دورة اختبارات مرنة.",
+              "تسريع العمل: تحديد وتسريع 15 مسار عمل، وخفض العمل اليدوي في اختبارات الرجوع وإنشاء حالات الاختبار والتحقيق في الحوادث.",
+              "دمج الإنتاجية: تضمين ممارسات مدعومة بالذكاء الاصطناعي في دورة التطوير، لاستقرار الفريق ووتيرة تسليم مستدامة عبر المسارات الخمسة.",
+              "بوابات الجودة: استبدال نقاط المراجعة اليدوية غير المنظمة بفحوصات آلية داخل خط التسليم، لزيادة الثقة في الإصدارات وتمكين النشر اليومي مع الحفاظ على الجودة.",
+              "توسيع التغطية: رفع تغطية الاختبارات في أكثر من 300 مستودع مع خفض زمن إنشاء الحالات.",
+              "عالج الفريق تشكك المطورين، ووضع ضوابط أمنية للمؤسسة، وقدّم سياقًا فعالًا للأدوات لفهم قاعدة كود قديمة ومعقدة."
+            ]
+          },
+          {
+            "title": "القيمة المتحققة",
+            "paragraphs": [
+              "ارتفعت تغطية الاختبارات من 55% إلى 89% في أكثر من 300 مستودع، بزيادة 34 نقطة مئوية، وأسهم ذلك في خفض الأخطاء المتسربة إلى الإنتاج 60%.",
+              "ارتفعت سرعة الفريق من 1.8 إلى 3.5 طلب دمج لكل مطور أسبوعيًا، بزيادة 94%. وانخفض التحقيق في الحوادث من أربع ساعات إلى 30 دقيقة، بنسبة 87.5%.",
+              "ارتفع متوسط فعالية الأدوات من 3% إلى 75%، بزيادة 72 نقطة مئوية. وبلغ التبنّي 64% في ذروته مقارنة بـ15% عند البداية.",
+              "انخفض اختبار الرجوع من ثلاثة أيام إلى أربع ساعات، بانخفاض معلن 94%، وإنشاء حالات الاختبار من ثلاث ساعات إلى 15 دقيقة، بانخفاض معلن 92%.",
+              "الخبرات: تطوير تطبيقات الذكاء الاصطناعي."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "title": "Konut yönetimi teknolojisi şirketinde üretime ulaşan hatalar %60 azaldı",
+        "sector": "Konut yönetimi teknolojisi",
+        "sections": [
+          {
+            "title": "Müşteri hakkında",
+            "paragraphs": [
+              "Müşteri, özel mülk yönetim sistemiyle dünya çapında binlerce müşteriye hizmet veren bir konut yönetimi teknolojisi lideridir. Beş teslimat akışında 150’den fazla mühendisle, sürekli yayın baskısı altındaki karmaşık ve yüksek erişilebilirlikli bir yazılım ortamını yönetir."
+            ]
+          },
+          {
+            "title": "İş zorluğu",
+            "paragraphs": [
+              "Amaç, ürün ve olay baskısı sürerken kalite süreçlerini modernize etmek, testleri hızlandırmak ve büyüyen kod tabanında kapsamı artırmaktı. Ortak bir ölçüm çerçevesi veya üzerinde anlaşılmış başlangıç ölçümü bulunmuyordu; araç kullanımı erken aşamadaydı. Mevcut teslimat taahhütlerini bozmadan yapay zekâ destekli testleri ölçeklendirmek gerekiyordu."
+            ]
+          },
+          {
+            "title": "Uygulama",
+            "paragraphs": [
+              "Ekip, müşteriyle birlikte aşamalı bir benimseme çerçevesiyle kalite modernizasyonu yürüttü; darboğazları gidermeye ve dayanıklı bir test döngüsüne odaklandı.",
+              "İş akışları: Regresyon, test senaryosu üretimi ve olay araştırmasındaki manuel çabayı azaltan 15 akış hızlandırıldı.",
+              "Üretkenlik entegrasyonu: Yapay zekâ destekli uygulamalar, beş akışta sürdürülebilir teslimat için geliştirme döngüsüne dahil edildi.",
+              "Kalite kapıları: Dağınık manuel incelemelerin yerine teslimat hattına otomatik kontroller eklendi. Böylece kalite korunarak günlük yayın yapılabildi.",
+              "Test kapsamı: Test üretim süresi azaltılarak 300’den fazla depoda kapsam artırıldı.",
+              "Geliştirici şüpheciliği, kurumsal güvenlik kontrolleri ve karmaşık eski kod için etkin bağlam sağlama konuları ele alındı."
+            ]
+          },
+          {
+            "title": "Sağlanan değer",
+            "paragraphs": [
+              "Test kapsamı 300’den fazla depoda %55’ten %89’a çıktı; artış 34 yüzde puanıydı. Üretime kaçan hatalar %60 azaldı.",
+              "Ekip hızı geliştirici başına haftada 1,8’den 3,5 birleştirme isteğine yükseldi (%94). Olay araştırması dört saatten 30 dakikaya indi (%87,5 azalma).",
+              "Ortalama araç etkinliği %3’ten %75’e çıktı (72 yüzde puanı). Kullanım başlangıçtaki %15’e karşı en yüksek %64’e ulaştı.",
+              "Regresyon testi üç günden dört saate indi; kaynak %94 azalma bildiriyor. Test senaryosu oluşturma üç saatten 15 dakikaya indi; kaynak %92 azalma bildiriyor.",
+              "Uzmanlık: Yapay zekâ uygulama geliştirme."
+            ]
+          }
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "value": "−60%",
+        "labels": {
+          "en": "Bugs reaching production",
+          "ar": "أخطاء تصل إلى الإنتاج",
+          "tr": "Üretime ulaşan hatalar"
+        }
+      },
+      {
+        "value": "+94%",
+        "labels": {
+          "en": "Team velocity",
+          "ar": "زيادة سرعة الفريق",
+          "tr": "Ekip hızında artış"
+        }
+      },
+      {
+        "value": "89%",
+        "labels": {
+          "en": "Test coverage, from 55%",
+          "ar": "تغطية الاختبارات، من 55%",
+          "tr": "Test kapsamı, %55’ten"
+        }
+      }
+    ],
+    "images": {
+      "cover": {
+        "width": 1920,
+        "height": 703
+      },
+      "diagram": {
+        "width": 2250,
+        "height": 1497
+      }
+    }
+  }
+]

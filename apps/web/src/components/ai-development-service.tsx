@@ -22,6 +22,8 @@ import {
   BookOpen,
   ChevronDown,
 } from 'lucide-react';
+import { AiCaseCards } from './ai-case-cards';
+import { aiCaseCopy } from '@/content/ai-case-studies';
 import { aiDevelopmentCopy } from '@/content/ai-development';
 import { getLeadOptions } from '@/lib/lead-options';
 import { faqData } from '@/lib/seo-core';
@@ -55,7 +57,22 @@ export async function AiDevelopmentService({
         <Container className="ai-dev-hero-grid">
           <div>
             <p className="ai-dev-eyebrow">{c.eyebrow}</p>
-            <h1 id="ai-dev-title">{c.title}</h1>
+            <h1 id="ai-dev-title">
+              <span className="ai-dev-title-accent">
+                {locale === 'en'
+                  ? 'Build smarter software.'
+                  : locale === 'ar'
+                    ? 'من كتابة الكود إلى تطوير أذكى'
+                    : 'Daha akıllı geliştirme.'}
+              </span>
+              <span className="ai-dev-title-rest">
+                {locale === 'en'
+                  ? 'Keep engineering in control.'
+                  : locale === 'ar'
+                    ? 'بمنهج واضح'
+                    : 'Kontrol ekibinizde.'}
+              </span>
+            </h1>
             <p className="ai-dev-intro">{c.intro}</p>
             <div className="ai-dev-actions">
               <a className="ai-dev-button" href="#ai-contact">
@@ -122,6 +139,7 @@ export async function AiDevelopmentService({
       </div>
       <nav className="ai-dev-nav" aria-label={service.title}>
         <Container>
+          <a href="#ai-case-studies">{aiCaseCopy[locale].nav}</a>
           {c.nav.map((label, i) => (
             <a key={label} href={`#${sectionIds[i]}`}>
               {label}
@@ -205,6 +223,20 @@ export async function AiDevelopmentService({
               );
             })}
           </div>
+        </Container>
+      </section>
+      <section
+        id="ai-case-studies"
+        className="ai-dev-section"
+        aria-labelledby="ai-case-studies-title"
+      >
+        <Container>
+          <div className="ai-dev-section-heading">
+            <p className="ai-dev-eyebrow">CASE STUDIES</p>
+            <h2 id="ai-case-studies-title">{aiCaseCopy[locale].title}</h2>
+          </div>
+          <AiCaseCards locale={locale} />
+          <p className="ai-case-disclosure">{aiCaseCopy[locale].notice}</p>
         </Container>
       </section>
       <section id="ai-applications" className="ai-dev-section" aria-labelledby="ai-examples-title">
