@@ -1,5 +1,6 @@
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import type { RegistrationInput } from '@tevoniq/validation';
+import { verificationEmailHtml } from './verification-email.js';
 export {
   registrationInputSchema,
   verificationInputSchema,
@@ -46,7 +47,7 @@ export function inputDigest(input: RegistrationInput) {
   );
 }
 export function verificationMessage(language: 'en' | 'ar' | 'tr', code: string, requestId: string) {
-  return {
+  const plain = {
     en: {
       subject: 'Verify your email for Pesto — TEVONIQ',
       text: `Your Pesto email verification code is: ${code}\n\nIt expires 20 minutes after the registration request was created. Enter it only in the Pesto registration you started. This verifies your email; it does not start a trial or activate a license.\n\nRequest: ${requestId}\n\nIf you did not request this, ignore this email. Do not share this code.\n\nTEVONIQ — https://tevoniq.com/pesto`,
@@ -60,4 +61,5 @@ export function verificationMessage(language: 'en' | 'ar' | 'tr', code: string, 
       text: `Pesto e-posta doğrulama kodunuz: ${code}\n\nKayıt isteğinin oluşturulmasından itibaren 20 dakika geçerlidir. Kodu yalnızca başlattığınız Pesto kaydına girin. Bu işlem e-postanızı doğrular; deneme başlatmaz veya lisans etkinleştirmez.\n\nİstek: ${requestId}\n\nBu isteği siz yapmadıysanız e-postayı yok sayın. Kodu paylaşmayın.\n\nTEVONIQ — https://tevoniq.com/pesto`,
     },
   }[language];
+  return { ...plain, html: verificationEmailHtml(language, code, requestId) };
 }
