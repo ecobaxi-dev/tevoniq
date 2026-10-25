@@ -127,7 +127,7 @@ test('grouped settings and category consent work in the production app', async (
   await admin.getByRole('alert').filter({ hasText: 'another session' }).waitFor();
   assert.notEqual(settings.seo.defaultTitle, 'Conflicting value');
   const root = await fetch(base, { redirect: 'manual' });
-  assert.equal(root.headers.get('location'), '/tr');
+  assert.equal(root.headers.get('location'), '/ar');
   const html = await (await fetch(base + '/en')).text();
   assert.doesNotMatch(html, /private-routing@example.com/);
   assert.match(html, /<title>Verified default title<\/title>/);

@@ -4,7 +4,7 @@ Use `/admin/site-settings` for General, Brand, Contact, Social, Localization, SE
 
 Settings use a singleton in the existing AdminRecord table. Existing published organization data and notification recipients are migrated on first save. No new database migration is needed for this singleton. Public settings use an explicit allowlist: email delivery settings, notification recipients, security and media administration values are excluded. SMTP credentials, signing keys and other secrets remain deployment environment variables; the editor accepts no secrets or raw scripts.
 
-Enter verified company details and social URLs. Blank social URLs hide their icons. Brand assets support media selection. Enabled languages control public locale access, language selectors, feeds and search alternates. The default language controls the root redirect; a visitor's consented language preference can override it.
+Enter verified company details and social URLs. Blank social URLs hide their icons. Brand assets support media selection. Enabled languages control public locale access, language selectors, feeds and search alternates. The public root now prioritizes Arabic when Arabic is enabled, regardless of an older saved default. A visitor's explicitly consented language preference still wins. If Arabic is disabled, the configured default is used. This entry policy does not rewrite CMS settings or remove existing translations.
 
 Analytics accepts only validated provider IDs. Empty IDs produce no scripts. Consent defaults to required for analytics and marketing; see cookies.md. Email identity and recipients are consumed server-side. Security idle timeout and media upload/SVG restrictions are enforced by the API, with deployment limits remaining the upper bound.
 

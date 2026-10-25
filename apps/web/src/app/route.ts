@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
+import { entryLanguage } from '@/content/entry-language';
 import { getSiteSettings } from '@/lib/site-settings';
 import { CONSENT_COOKIE, readConsent, consentFingerprint } from '@/lib/cookie-consent';
 export async function GET() {
@@ -16,8 +17,10 @@ export async function GET() {
   } catch {
     /* Ignore malformed preference cookies. */
   }
-  const language =
-    settings.localization.enabledLanguages.find((l) => l === preferred) ||
-    settings.localization.defaultLanguage;
+  const language = entryLanguage(
+    settings.localization.enabledLanguages,
+    settings.localization.defaultLanguage,
+    preferred,
+  );
   redirect('/' + language);
 }
