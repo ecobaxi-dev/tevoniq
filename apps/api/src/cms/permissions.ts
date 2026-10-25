@@ -21,6 +21,7 @@ const stateAction = (req: CmsRequest) =>
       ? 'publish'
       : 'update';
 export const endpointPermissions: Record<string, Record<string, Policy>> = {
+  CmsPestoPurchaseController: { issue: ['settings.update'], revoke: ['settings.update'] },
   CmsHomeController: {
     get: ['pages.read'],
     save: (req) => ['pages.update', ...(req.body?.action === 'save' ? [] : ['pages.publish'])],
@@ -114,6 +115,7 @@ export const endpointPermissions: Record<string, Record<string, Policy>> = {
 };
 export const publicEndpoints: Record<string, readonly string[]> = {
   PestoRegistrationController: ['register', 'verify', 'issueTrial'],
+  PublicPestoPurchaseController: ['activate'],
   HomeController: ['get'],
   PublicNavigationController: ['get'],
   SeoController: ['organization', 'routes'],
