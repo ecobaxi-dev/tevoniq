@@ -33,7 +33,7 @@ export const homeServices = {
         id: 'website',
         title: 'مواقع الأعمال',
         kicker: 'حضور يفتح باب التواصل',
-        cta: 'دعنا نتحدث عن موقعك',
+        cta: 'استكشف تصاميم المواقع',
         steps: ['زيارة الموقع', 'إرسال الاستفسار', 'بدء التواصل'],
         description:
           'نطوّر موقعًا يعرّف بخدماتك ويجعل الوصول إليك وإرسال الاستفسارات أسهل، بتجربة واضحة على الهاتف والكمبيوتر.',
@@ -120,7 +120,7 @@ export const homeServices = {
         id: 'website',
         title: 'Business websites',
         kicker: 'A clear route to your business',
-        cta: 'Let’s talk about your website',
+        cta: 'Explore website designs',
         steps: ['Visit the website', 'Send an enquiry', 'Start a conversation'],
         description:
           'We build websites that explain your services and make enquiries easy, with a clear experience on mobile and desktop.',

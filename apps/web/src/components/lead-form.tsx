@@ -11,10 +11,12 @@ export function LeadForm({
   type,
   locale,
   options,
+  initialMessage,
 }: {
   type: 'contact' | 'quote';
   locale: 'en' | 'tr' | 'ar';
   options: LeadOptions;
+  initialMessage?: string | undefined;
 }) {
   const copy = leadCopy[locale],
     quote = type === 'quote';
@@ -208,7 +210,14 @@ export function LeadForm({
         ) : (
           <>
             <Input label={copy.subject} name="subject" required maxLength={200} />
-            <Textarea label={copy.message} name="message" rows={7} required maxLength={10000} />
+            <Textarea
+              label={copy.message}
+              name="message"
+              rows={7}
+              required
+              maxLength={10000}
+              defaultValue={initialMessage}
+            />
             <Select
               name="preferredContactMethod"
               label={copy.preferredContactMethod}

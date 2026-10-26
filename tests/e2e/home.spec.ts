@@ -83,11 +83,13 @@ test('Arabic service cards follow the product entries and expose examples, deliv
     await expect(details.locator('li')).toHaveCount(3);
     await expect(card.locator('.sme-service-contact')).toHaveAttribute(
       'href',
-      '/ar/contact?intent=quote',
+      (await card.getAttribute('class'))?.includes('sme-service-card--website')
+        ? '/ar/website-designs'
+        : '/ar/contact?intent=quote',
     );
   }
   await cards.first().locator('.sme-service-contact').click();
-  await expect(page).toHaveURL('/ar/contact?intent=quote');
+  await expect(page).toHaveURL('/ar/website-designs');
   await expect(page.locator('main h1')).toBeVisible();
 });
 

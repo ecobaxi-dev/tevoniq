@@ -10,9 +10,11 @@ import './lead-form.css';
 export async function ContactPage({
   locale: raw,
   type,
+  initialMessage,
 }: {
   locale: string;
   type: 'contact' | 'quote';
+  initialMessage?: string | undefined;
 }) {
   const parsed = localeSchema.safeParse(raw);
   if (!parsed.success) notFound();
@@ -70,7 +72,12 @@ export async function ContactPage({
         </aside>
         <section className="lead-card" aria-label={quote ? copy.sendQuote : copy.send}>
           {options ? (
-            <LeadForm type={type} locale={locale} options={options} />
+            <LeadForm
+              type={type}
+              locale={locale}
+              options={options}
+              initialMessage={initialMessage}
+            />
           ) : (
             <p role="alert">{copy.unavailable}</p>
           )}

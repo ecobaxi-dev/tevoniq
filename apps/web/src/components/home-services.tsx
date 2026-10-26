@@ -282,7 +282,11 @@ export function HomeServices({ locale }: { locale: 'ar' | 'en' }) {
                 </details>
                 <Link
                   className="sme-service-contact"
-                  href={`/${locale}/contact?intent=quote`}
+                  href={
+                    service.id === 'website'
+                      ? `/${locale}/website-designs`
+                      : `/${locale}/contact?intent=quote`
+                  }
                   aria-label={`${service.cta}: ${service.title}`}
                 >
                   {service.cta}

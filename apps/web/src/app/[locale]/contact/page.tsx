@@ -1,5 +1,6 @@
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
+import { findWebsiteDesign } from '@/content/website-designs';
 import { ContactPage } from '@/components/contact-page';
 import { leadCopy } from '@/content/leads';
 import { localeSchema } from '@tevoniq/validation';
@@ -12,8 +13,23 @@ async function baseMetadata({ params }: { params: Promise<{ locale: string }> })
     alternates: { canonical: `/${locale}/contact` },
   };
 }
-async function PublicPage({ params }: { params: Promise<{ locale: string }> }) {
-  return <ContactPage locale={(await params).locale} type="contact" />;
+async function PublicPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const { locale } = await params;
+  const query = searchParams ? await searchParams : {};
+  const design = typeof query.design === 'string' ? findWebsiteDesign(query.design) : undefined;
+  const initialMessage =
+    design && (locale === 'ar' || locale === 'en')
+      ? locale === 'ar'
+        ? `أرغب في مناقشة موقع لنشاطي بالاستناد إلى تصميم: ${design.ar.name}.\nتفاصيل نشاطي ومتطلباتي: `
+        : `I would like to discuss a website based on: ${design.en.name}.\nMy business and requirements: `
+      : undefined;
+  return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
 
 export async function generateMetadata(props: {
