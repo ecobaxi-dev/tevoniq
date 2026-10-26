@@ -23,7 +23,7 @@ import { ConnectedThinking } from '@/components/connected-thinking';
 import { SolutionsVisual } from '@/components/solutions-visual';
 import { TechnologyEcosystem } from '@/components/technology-ecosystem';
 import { WhyTevoniq } from '@/components/why-tevoniq';
-import { AdvocasShowcase } from '@/components/advocas-showcase';
+import { AdvocasHomeEntry } from '@/components/advocas-home-entry';
 import { DeliveryApproach } from '@/components/delivery-approach';
 import { HomeServices } from '@/components/home-services';
 
@@ -53,8 +53,13 @@ async function PublicPage({ params }: PageProps) {
     <div className="home-page" data-theme="light">
       <main id="main-content">
         <ReferenceHero locale={locale} copy={hero} />
-        {locale !== 'tr' && <HomeServices locale={locale} />}
         <PestoHomeEntry locale={locale} />
+        {locale !== 'tr' && (
+          <>
+            <AdvocasHomeEntry locale={locale} />
+            <HomeServices locale={locale} />
+          </>
+        )}
         <HomeEntrances>
           {locale === 'tr' && (
             <Section
@@ -90,7 +95,6 @@ async function PublicPage({ params }: PageProps) {
           <TechnologyEcosystem locale={locale} copy={copy} />
           <WhyTevoniq locale={locale} copy={copy} />
           <ConnectedThinking locale={locale} copy={copy} />
-          {locale === 'en' && <AdvocasShowcase locale="en" />}
           {(['industries', 'projects', 'partners', 'insights'] as const).map(
             (key) =>
               collections[key].length > 0 && (

@@ -1,0 +1,127 @@
+.advocas-home-entry {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 2.6rem;
+  border-block: 1px solid #347580;
+  background: radial-gradient(ellipse at 8% 0%, #125a65 0%, transparent 55%), #092a3b;
+  color: #fff;
+}
+.advocas-home-entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-block: 2px solid #69d7cf66;
+  box-shadow:
+    inset 0 8px 28px -18px #69d7cf,
+    inset 0 -8px 28px -18px #69d7cf;
+}
+.advocas-entry-layout {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr) 230px;
+  gap: 2rem;
+  align-items: center;
+}
+.advocas-entry-logo {
+  width: 232px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #d5e8e9;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px #0003;
+}
+.advocas-entry-logo img {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+.advocas-entry-copy {
+  min-width: 0;
+}
+.advocas-entry-copy h2 {
+  color: #fff;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+.advocas-entry-copy p {
+  color: #cfdee8;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 45rem;
+  margin-top: 0.5rem;
+}
+[dir='rtl'] .advocas-entry-copy h2 {
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.advocas-entry-actions {
+  display: grid;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.advocas-entry-actions .tv-button {
+  width: 100%;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.advocas-entry-actions .advocas-entry-discover {
+  color: #073b42;
+  background: #b9f3ec;
+  border-color: #b9f3ec;
+  box-shadow: 0 4px 20px #69d7cf1a;
+}
+.advocas-entry-actions .advocas-entry-discover:hover {
+  color: #073b42;
+  background: #d9faf6;
+  border-color: #d9faf6;
+  box-shadow: 0 4px 24px #69d7cf33;
+}
+.advocas-entry-actions .advocas-entry-contact {
+  color: #fff;
+  border-color: #82aeb8;
+  background: #103b4a;
+}
+.advocas-entry-actions .advocas-entry-contact:hover {
+  color: #fff;
+  border-color: #b4e0e2;
+  background: #185060;
+}
+.advocas-entry-actions a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
+}
+@media (width < 64rem) {
+  .advocas-entry-layout {
+    grid-template-columns: 232px minmax(0, 1fr);
+  }
+  .advocas-entry-actions {
+    grid-column: 2;
+    width: min(100%, 280px);
+  }
+}
+@media (width < 40rem) {
+  .advocas-entry-layout {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .advocas-entry-logo {
+    width: 192px;
+  }
+  .advocas-entry-logo img {
+    width: 160px;
+  }
+  .advocas-entry-actions {
+    grid-column: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .advocas-entry-actions .tv-button {
+    transition: none;
+  }
+}

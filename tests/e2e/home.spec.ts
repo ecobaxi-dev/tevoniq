@@ -56,12 +56,14 @@ test('homepage remains readable without JavaScript', async ({ browser }) => {
   await context.close();
 });
 
-test('Arabic service cards follow the hero and expose examples, delivery scope and working contact links', async ({
+test('Arabic service cards follow the product entries and expose examples, delivery scope and working contact links', async ({
   page,
 }) => {
   await page.goto('/ar');
   const section = page.locator('.sme-home-services');
-  await expect(page.locator('.artwork-hero + .sme-home-services')).toHaveCount(1);
+  await expect(
+    page.locator('.artwork-hero + .pesto-home-entry + .advocas-home-entry + .sme-home-services'),
+  ).toHaveCount(1);
   await expect(page.locator('#solutions')).toHaveCount(1);
   const cards = section.locator('article');
   await expect(cards.locator('h3')).toHaveText([
@@ -90,4 +92,34 @@ test('Arabic service cards follow the hero and expose examples, delivery scope a
     .click();
   await expect(page).toHaveURL('/ar/contact?intent=quote');
   await expect(page.locator('main h1')).toBeVisible();
+});
+
+test('product entries appear once in the requested order with the supplied Advocas logo and local links', async ({
+  page,
+}) => {
+  for (const locale of ['ar', 'en']) {
+    await page.goto(`/${locale}`);
+    await expect(
+      page.locator('.artwork-hero + .pesto-home-entry + .advocas-home-entry + .sme-home-services'),
+    ).toHaveCount(1);
+    const entry = page.locator('.advocas-home-entry');
+    await expect(entry).toHaveCount(1);
+    await expect(page.locator('.advocas-showcase')).toHaveCount(0);
+    const logo = entry.locator('img');
+    await expect(logo).toHaveAttribute(
+      'alt',
+      locale === 'ar' ? 'شعار المحامون' : 'Al Muhamoon — Advocas logo',
+    );
+    await expect
+      .poll(() => logo.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0))
+      .toBe(true);
+    await expect(entry.locator('a').first()).toHaveAttribute('href', `/${locale}/advocas`);
+    await expect(entry.locator('a').last()).toHaveAttribute(
+      'href',
+      `/${locale}/contact?intent=quote`,
+    );
+    await entry.locator('a').first().click();
+    await expect(page).toHaveURL(`/${locale}/advocas`);
+    await expect(page.locator('main h1')).toBeVisible();
+  }
 });

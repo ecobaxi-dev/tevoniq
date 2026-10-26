@@ -2,6 +2,10 @@ export const ADVOCAS_URL = 'https://www.advocas.online/select-country';
 
 export const advocasCopy = {
   en: {
+    entryTitle: 'Advocas — a legal services platform',
+    entryBody:
+      'Explore lawyers and legal-service options by country. Discover the platform and how to start your journey.',
+    entryContact: 'Discuss your platform idea',
     portfolio: 'TEVONIQ platforms',
     category: 'LEGAL SERVICES PLATFORM',
     title: 'A starting point for your legal journey',
@@ -37,6 +41,10 @@ export const advocasCopy = {
       'Discover Advocas, a platform for exploring lawyers and legal-service options by country.',
   },
   ar: {
+    entryTitle: 'المحامون — منصة للخدمات القانونية',
+    entryBody:
+      'منصة رقمية لتصفح المحامين وخيارات الخدمات القانونية بحسب الدولة. تعرّف على المنصة وطريقة بدء رحلتك فيها.',
+    entryContact: 'ناقش منصة لأعمالك',
     portfolio: 'منصات TEVONIQ',
     category: 'منصة للخدمات القانونية',
     title: 'بداية أوضح لرحلتك القانونية',
