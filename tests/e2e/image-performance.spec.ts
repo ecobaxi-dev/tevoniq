@@ -3,7 +3,13 @@ import { test, expect } from '@playwright/test';
 test('gallery thumbnails and system screenshots load directly without runtime image processing', async ({
   page,
 }) => {
-  for (const path of ['/ar/work-systems', '/en/website-designs', '/ar/work-systems/maintenance']) {
+  for (const path of [
+    '/ar/work-systems',
+    '/en/website-designs',
+    '/ar/work-systems/maintenance',
+    '/ar/automation-demos',
+    '/en/automation-demos/order-sync',
+  ]) {
     const processed: string[] = [];
     const listener = (request: import('@playwright/test').Request) => {
       if (new URL(request.url()).pathname === '/_next/image') processed.push(request.url());
@@ -19,7 +25,7 @@ test('gallery thumbnails and system screenshots load directly without runtime im
         .toBe(true);
       expect(
         await image.evaluate((el: HTMLImageElement) => new URL(el.currentSrc).pathname),
-      ).toMatch(/^\/brand\/(work-systems|website-designs)\//);
+      ).toMatch(/^\/brand\/(work-systems|website-designs|automation-demos)\//);
     }
     expect(processed).toEqual([]);
     page.off('request', listener);

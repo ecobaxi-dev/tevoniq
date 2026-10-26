@@ -63,7 +63,7 @@ export const homeServices = {
         id: 'automation',
         title: 'الأتمتة والربط',
         kicker: 'خطوات أقل، وترابط أفضل',
-        cta: 'لنختصر خطوات عملك',
+        cta: 'استكشف مسارات الأتمتة',
         steps: ['استقبال البيانات', 'تنفيذ الإجراء', 'إرسال الإشعار'],
         description:
           'نربط أدواتك ونؤتمت الخطوات المتكررة لتقليل نقل البيانات يدويًا، وتنظيم الإشعارات والمتابعة.',
@@ -150,7 +150,7 @@ export const homeServices = {
         id: 'automation',
         title: 'Automation and integrations',
         kicker: 'Fewer steps, better connections',
-        cta: 'Simplify your workflow with us',
+        cta: 'Explore automation flows',
         steps: ['Receive data', 'Run an action', 'Send a notification'],
         description:
           'We connect your tools and automate repeatable steps to reduce manual data entry and organise notifications and follow-up.',

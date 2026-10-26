@@ -1,5 +1,6 @@
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
+import { findAutomationCase } from '@/content/automation-cases';
 import { findWorkSystem } from '@/content/work-systems';
 import { findWebsiteDesign } from '@/content/website-designs';
 import { ContactPage } from '@/components/contact-page';
@@ -25,6 +26,8 @@ async function PublicPage({
   const query = searchParams ? await searchParams : {};
   const design = typeof query.design === 'string' ? findWebsiteDesign(query.design) : undefined;
   const system = typeof query.system === 'string' ? findWorkSystem(query.system) : undefined;
+  const automation =
+    typeof query.automation === 'string' ? findAutomationCase(query.automation) : undefined;
   const initialMessage =
     design && (locale === 'ar' || locale === 'en')
       ? locale === 'ar'
@@ -34,7 +37,11 @@ async function PublicPage({
         ? locale === 'ar'
           ? `أرغب في مناقشة نظام لإدارة العمل بالاستناد إلى نموذج: ${system.ar.name}.\nطريقة عملي ومتطلباتي: `
           : `I would like to discuss a work management system based on: ${system.en.name}.\nMy workflow and requirements: `
-        : undefined;
+        : automation && (locale === 'ar' || locale === 'en')
+          ? locale === 'ar'
+            ? `أرغب في مناقشة ربط وأتمتة بالاستناد إلى نموذج: ${automation.ar.name}.\nالبرامج والخطوات التي أريد ربطها: `
+            : `I would like to discuss an integration based on: ${automation.en.name}.\nApplications and steps I want to connect: `
+          : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
 

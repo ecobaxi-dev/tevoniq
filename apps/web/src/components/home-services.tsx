@@ -287,7 +287,9 @@ export function HomeServices({ locale }: { locale: 'ar' | 'en' }) {
                       ? `/${locale}/website-designs`
                       : service.id === 'workflow'
                         ? `/${locale}/work-systems`
-                        : `/${locale}/contact?intent=quote`
+                        : service.id === 'automation'
+                          ? `/${locale}/automation-demos`
+                          : `/${locale}/contact?intent=quote`
                   }
                   aria-label={`${service.cta}: ${service.title}`}
                 >

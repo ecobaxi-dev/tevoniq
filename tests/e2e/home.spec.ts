@@ -87,7 +87,9 @@ test('Arabic service cards follow the product entries and expose examples, deliv
         ? '/ar/website-designs'
         : (await card.getAttribute('class'))?.includes('sme-service-card--workflow')
           ? '/ar/work-systems'
-          : '/ar/contact?intent=quote',
+          : (await card.getAttribute('class'))?.includes('sme-service-card--automation')
+            ? '/ar/automation-demos'
+            : '/ar/contact?intent=quote',
     );
   }
   await cards.first().locator('.sme-service-contact').click();
