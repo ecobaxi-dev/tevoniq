@@ -81,17 +81,66 @@ test('Arabic service cards follow the product entries and expose examples, deliv
     await page.keyboard.press('Enter');
     await expect(details).toHaveAttribute('open', '');
     await expect(details.locator('li')).toHaveCount(3);
-    await expect(card.getByRole('link', { name: /ناقش احتياجك/ })).toHaveAttribute(
+    await expect(card.locator('.sme-service-contact')).toHaveAttribute(
       'href',
       '/ar/contact?intent=quote',
     );
   }
-  await cards
-    .first()
-    .getByRole('link', { name: /ناقش احتياجك/ })
-    .click();
+  await cards.first().locator('.sme-service-contact').click();
   await expect(page).toHaveURL('/ar/contact?intent=quote');
   await expect(page.locator('main h1')).toBeVisible();
+});
+
+test('service cards have individual actions, warm identities and single-line headings that fit', async ({
+  page,
+}) => {
+  for (const locale of ['ar', 'en']) {
+    await page.goto(`/${locale}`);
+    await page.evaluate(() => document.fonts.ready);
+    const cards = page.locator('.sme-service-card');
+    const labels = await cards.locator('.sme-service-contact').allTextContents();
+    expect(new Set(labels).size).toBe(4);
+    const accents = await cards.evaluateAll((els) =>
+      els.map((el) => getComputedStyle(el).getPropertyValue('--service-accent').trim()),
+    );
+    expect(new Set(accents).size).toBe(4);
+    for (const width of [1440, 1024, 768, 390, 320]) {
+      await page.setViewportSize({ width, height: 1000 });
+      const headings = await cards.locator('h3').evaluateAll((els) =>
+        els.map((el) => {
+          const range = document.createRange();
+          range.selectNodeContents(el);
+          return {
+            lines: new Set(Array.from(range.getClientRects(), (rect) => Math.round(rect.top))).size,
+            fits: el.scrollWidth <= el.clientWidth,
+          };
+        }),
+      );
+      expect(headings.every((heading) => heading.lines === 1 && heading.fits)).toBe(true);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+    }
+  }
+});
+
+test('service illustrations replay one short sequence and respect reduced motion', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/ar');
+  const card = page.locator('.sme-service-card').first();
+  await card.scrollIntoViewIfNeeded();
+  await card.getByRole('button', { name: 'شاهد الفكرة' }).click();
+  const motion = card.locator('.sme-demo-motion');
+  await expect(motion).toHaveAttribute('data-playing', 'true');
+  const pointer = card.locator('.scene-web-pointer');
+  await expect(pointer).toHaveCSS('animation-name', 'service-web-pointer');
+  await expect(pointer).toHaveCSS('animation-iteration-count', '1');
+  await expect(pointer).toHaveCSS('animation-duration', '4.8s');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(pointer).toHaveCSS('animation-name', 'none');
+  await expect(card.getByRole('button', { name: 'شاهد الفكرة' })).toBeHidden();
 });
 
 test('product entries appear once in the requested order with the supplied Advocas logo and local links', async ({
