@@ -35,6 +35,7 @@ export function WebsiteGallery({ locale }: { locale: DesignLocale }) {
               <article key={d.slug} className={`design-card design-card--${d.sector}`}>
                 <Link href={`/${locale}/website-designs/${d.slug}`} className="design-card-image">
                   <Image
+                    unoptimized
                     src={designImage(`preview-${locale}-${d.slug}`)}
                     alt={c.name}
                     width={1400}

@@ -47,6 +47,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
         <Image
+          unoptimized
           src={`/brand/work-systems/${locale}-${slug}.webp`}
           alt={c.name}
           width={1440}

@@ -38,6 +38,7 @@ export function WorkSystemGallery({ locale }: { locale: SystemLocale }) {
                   href={`/previews/${locale}/systems/${system.slug}`}
                 >
                   <Image
+                    unoptimized
                     src={`/brand/work-systems/${locale}-${system.slug}.webp`}
                     width={1440}
                     height={960}

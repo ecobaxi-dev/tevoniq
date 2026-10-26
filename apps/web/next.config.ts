@@ -8,7 +8,8 @@ const config: NextConfig = {
     // Match the design breakpoints so image candidates are not wider than their slot.
     deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
     imageSizes: [64, 96, 128, 256, 384],
-    formats: ['image/avif', 'image/webp'],
+    // Avoid expensive cold AVIF encodes on the shared preview runtime.
+    formats: ['image/webp'],
   },
   transpilePackages: ['@tevoniq/ui', '@tevoniq/types', '@tevoniq/validation'],
   async headers() {
