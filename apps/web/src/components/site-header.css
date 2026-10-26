@@ -591,44 +591,56 @@
   max-width: none;
   padding-inline-end: 1.75rem;
 }
+/* CSS Scan button 92 by AqFox, adapted to the header's cyan colour and size.
+   Reference: https://getcssscan.com/css-buttons-examples */
 :lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote) {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: #21d4ff;
-  border-color: #21d4ff;
-  color: #082442;
-  box-shadow: 0 5px 20px #21d4ff35;
+  --quick-access-text: #082442;
+  --quick-access-side: -1;
+  --quick-access-light: 100%;
+  background:
+    linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--quick-access-light) / 300% no-repeat,
+    #21d4ff;
+  border: 0;
+  border-radius: 0.3rem;
+  color: transparent;
+  transform: perspective(500px) rotateY(calc(20deg * var(--quick-access-side)));
+  text-shadow:
+    calc(var(--quick-access-side) * 0.08em) -0.01em 0 var(--quick-access-text),
+    calc(var(--quick-access-side) * -0.08em) 0.01em 2px #0004;
+  box-shadow: none;
+  outline-offset: 0.2em;
+  transition:
+    background-position 0.3s ease,
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
 }
-:lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote)::before {
-  content: '';
-  position: absolute;
-  inset: -50% -70%;
-  pointer-events: none;
-  background: linear-gradient(110deg, transparent 40%, #ffffff65 50%, transparent 60%);
-  transform: translateX(-70%);
-  animation: header-quick-access-shine 5s ease-in-out infinite;
+:lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote) svg {
+  color: var(--quick-access-text);
 }
 :lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote):is(:hover, :focus-visible) {
-  background: #64e1ff;
-  border-color: #64e1ff;
-  color: #082442;
-  box-shadow: 0 8px 24px #21d4ff55;
+  --quick-access-light: 0%;
+  --quick-access-side: 1;
+  background-color: #21d4ff;
+  color: transparent;
+  box-shadow: none;
+  transform: perspective(500px) rotateY(calc(20deg * var(--quick-access-side)));
 }
-@keyframes header-quick-access-shine {
-  0%,
-  65% {
-    transform: translateX(-70%);
-  }
-  90%,
-  100% {
-    transform: translateX(70%);
-  }
+:lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote):active {
+  text-shadow: none;
+  color: var(--quick-access-text);
+  box-shadow: inset 0 0 100vmax #0002;
+  transition: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  :lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote)::before {
-    animation: none;
-    background: none;
+  :lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote) {
+    transform: none;
+    text-shadow: none;
+    color: var(--quick-access-text);
+    transition: none;
+  }
+  :lang(ar) [data-design='clean'] :is(.site-quote, .site-mobile-quote):is(:hover, :focus-visible) {
+    transform: none;
+    color: var(--quick-access-text);
   }
 }
 
