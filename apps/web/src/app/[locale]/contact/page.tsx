@@ -1,5 +1,6 @@
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
+import { findDashboardModel } from '@/content/dashboard-models';
 import { findAutomationCase } from '@/content/automation-cases';
 import { findWorkSystem } from '@/content/work-systems';
 import { findWebsiteDesign } from '@/content/website-designs';
@@ -28,6 +29,8 @@ async function PublicPage({
   const system = typeof query.system === 'string' ? findWorkSystem(query.system) : undefined;
   const automation =
     typeof query.automation === 'string' ? findAutomationCase(query.automation) : undefined;
+  const dashboard =
+    typeof query.dashboard === 'string' ? findDashboardModel(query.dashboard) : undefined;
   const initialMessage =
     design && (locale === 'ar' || locale === 'en')
       ? locale === 'ar'
@@ -41,7 +44,11 @@ async function PublicPage({
           ? locale === 'ar'
             ? `أرغب في مناقشة ربط وأتمتة بالاستناد إلى نموذج: ${automation.ar.name}.\nالبرامج والخطوات التي أريد ربطها: `
             : `I would like to discuss an integration based on: ${automation.en.name}.\nApplications and steps I want to connect: `
-          : undefined;
+          : dashboard && (locale === 'ar' || locale === 'en')
+            ? locale === 'ar'
+              ? `أرغب في مناقشة لوحة معلومات بالاستناد إلى نموذج: ${dashboard.ar.name}.\nما أريد متابعته ومصادر بياناتي: `
+              : `I would like to discuss a dashboard based on: ${dashboard.en.name}.\nWhat I want to monitor and my data sources: `
+            : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
 

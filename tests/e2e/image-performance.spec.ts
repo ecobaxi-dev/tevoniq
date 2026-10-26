@@ -8,6 +8,8 @@ test('gallery thumbnails and system screenshots load directly without runtime im
     '/en/website-designs',
     '/ar/work-systems/maintenance',
     '/ar/automation-demos',
+    '/ar/dashboard-demos',
+    '/en/dashboard-demos/sales',
     '/en/automation-demos/order-sync',
   ]) {
     const processed: string[] = [];
@@ -25,7 +27,7 @@ test('gallery thumbnails and system screenshots load directly without runtime im
         .toBe(true);
       expect(
         await image.evaluate((el: HTMLImageElement) => new URL(el.currentSrc).pathname),
-      ).toMatch(/^\/brand\/(work-systems|website-designs|automation-demos)\//);
+      ).toMatch(/^\/brand\/(work-systems|website-designs|automation-demos|dashboard-demos)\//);
     }
     expect(processed).toEqual([]);
     page.off('request', listener);

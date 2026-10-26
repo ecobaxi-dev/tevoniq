@@ -78,7 +78,7 @@ export const homeServices = {
         id: 'dashboard',
         title: 'لوحات المعلومات',
         kicker: 'افهم أرقامك بوضوح',
-        cta: 'أخبرنا عن بياناتك',
+        cta: 'استكشف لوحات المعلومات',
         steps: ['جمع البيانات', 'تنظيم المؤشرات', 'متابعة القرار'],
         description:
           'نحوّل بياناتك إلى مؤشرات وتقارير مفهومة تساعدك على متابعة المبيعات والطلبات وما يحتاج إلى قرار.',
@@ -165,7 +165,7 @@ export const homeServices = {
         id: 'dashboard',
         title: 'Dashboards and reports',
         kicker: 'Make sense of your numbers',
-        cta: 'Tell us about your data',
+        cta: 'Explore dashboard demos',
         steps: ['Connect data', 'Organise indicators', 'Inform decisions'],
         description:
           'We turn your data into readable indicators and reports to help you follow sales, requests and decisions that need attention.',

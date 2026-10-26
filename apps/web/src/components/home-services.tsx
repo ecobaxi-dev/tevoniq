@@ -289,7 +289,7 @@ export function HomeServices({ locale }: { locale: 'ar' | 'en' }) {
                         ? `/${locale}/work-systems`
                         : service.id === 'automation'
                           ? `/${locale}/automation-demos`
-                          : `/${locale}/contact?intent=quote`
+                          : `/${locale}/dashboard-demos`
                   }
                   aria-label={`${service.cta}: ${service.title}`}
                 >

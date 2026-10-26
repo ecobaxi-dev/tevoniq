@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 import { getAllSeoRoutes } from '@/lib/seo';
 import { absoluteUrl, localizedPath, indexableRoute, routeLanguages } from '@/lib/seo-core';
 import { aiCaseStudies } from '@/content/ai-case-studies';
+import { dashboardModels } from '@/content/dashboard-models';
 import { automationCases } from '@/content/automation-cases';
 import { workSystems } from '@/content/work-systems';
 import { websiteDesigns } from '@/content/website-designs';
@@ -26,6 +27,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/website-designs',
     '/work-systems',
     '/automation-demos',
+    '/dashboard-demos',
+    ...dashboardModels.map((model) => `/dashboard-demos/${model.slug}`),
     ...automationCases.map((item) => `/automation-demos/${item.slug}`),
     ...workSystems.map((system) => `/work-systems/${system.slug}`),
     ...websiteDesigns.map((design) => `/website-designs/${design.slug}`),
@@ -36,7 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         (path !== '/advocas' &&
           !path.startsWith('/website-designs') &&
           !path.startsWith('/work-systems') &&
-          !path.startsWith('/automation-demos')) ||
+          !path.startsWith('/automation-demos') &&
+          !path.startsWith('/dashboard-demos')) ||
         locale === 'en' ||
         locale === 'ar',
     );
