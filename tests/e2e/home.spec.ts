@@ -123,3 +123,75 @@ test('product entries appear once in the requested order with the supplied Advoc
     await expect(page.locator('main h1')).toBeVisible();
   }
 });
+
+test('Advocas title fits one line, matches Pesto lighting, and keeps readable hover colors', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/ar');
+  await page.evaluate(() => document.fonts.ready);
+  const entry = page.locator('.advocas-home-entry');
+  for (const width of [1440, 1024, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 1000 });
+    const title = await entry.locator('h2').evaluate((el) => {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      return {
+        lines: new Set(Array.from(range.getClientRects(), (rect) => Math.round(rect.top))).size,
+        fits: el.scrollWidth <= el.clientWidth,
+      };
+    });
+    expect(title.lines).toBe(1);
+    expect(title.fits).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+  }
+  const surfaces = await page.evaluate(() => {
+    const pesto = document.querySelector('.pesto-home-entry')!;
+    const advocas = document.querySelector('.advocas-home-entry')!;
+    const read = (el: Element) => {
+      const base = getComputedStyle(el),
+        before = getComputedStyle(el, '::before'),
+        after = getComputedStyle(el, '::after');
+      return [
+        base.backgroundColor,
+        base.backgroundImage,
+        before.boxShadow,
+        before.animationName,
+        before.animationDuration,
+        after.backgroundImage,
+        after.animationName,
+        after.animationDuration,
+      ];
+    };
+    return {
+      pesto: read(pesto),
+      advocas: read(advocas),
+      gap: advocas.getBoundingClientRect().top - pesto.getBoundingClientRect().bottom,
+    };
+  });
+  expect(surfaces.advocas).toEqual(surfaces.pesto);
+  expect(surfaces.gap).toBeCloseTo(12, 1);
+  expect(surfaces.advocas).toContain('pesto-entry-glow');
+  expect(surfaces.advocas).toContain('pesto-entry-sheen');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const buttons = entry.locator('.advocas-entry-actions a');
+  const backgrounds = ['rgb(143, 221, 211)', 'rgb(217, 250, 246)'];
+  for (let index = 0; index < 2; index++) {
+    await buttons.nth(index).hover();
+    await expect(buttons.nth(index)).toHaveCSS('background-color', backgrounds[index]!);
+    await expect(buttons.nth(index)).toHaveCSS('color', 'rgb(7, 59, 66)');
+    const scan = await new AxeBuilder({ page })
+      .include('.advocas-entry-actions')
+      .withTags(['wcag2aa'])
+      .analyze();
+    expect(scan.violations).toEqual([]);
+  }
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const pseudo of ['::before', '::after']) {
+    expect(
+      await entry.evaluate((el, pseudo) => getComputedStyle(el, pseudo).animationName, pseudo),
+    ).toBe('none');
+  }
+});

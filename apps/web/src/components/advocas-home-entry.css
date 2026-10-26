@@ -7,17 +7,34 @@
   background: radial-gradient(ellipse at 8% 0%, #194b7d 0%, transparent 55%), #0a1f44;
   color: #fff;
 }
-.advocas-home-entry::before {
+.pesto-home-entry + .advocas-home-entry {
+  margin-block-start: 0.75rem;
+}
+.advocas-home-entry::before,
+.advocas-home-entry::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+}
+.advocas-home-entry::before {
   border-block: 2px solid #71bdff;
   box-shadow:
     inset 0 8px 28px -18px #77c9ff,
     inset 0 -8px 28px -18px #f7cd70;
   opacity: 0.5;
+}
+.advocas-home-entry::after {
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    #a2d5ff16 47%,
+    #ffe5a62b 50%,
+    transparent 65%
+  );
+  background-size: 250% 100%;
+  background-position: 100% 0;
 }
 .advocas-entry-layout {
   display: grid;
@@ -40,13 +57,19 @@
 }
 .advocas-entry-copy {
   min-width: 0;
+  container-type: inline-size;
 }
-.advocas-entry-copy h2 {
+.advocas-home-entry #advocas-entry-title {
+  /* The public heading scale uses this variable in its !important font rule. */
+  --public-section-title: clamp(0.9rem, 5.4cqi, 1.85rem);
   color: #fff;
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-size: var(--public-section-title);
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.025em;
+  max-width: none;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 .advocas-entry-copy p {
   color: #cfdee8;
@@ -64,10 +87,9 @@
   gap: 0.65rem;
   min-width: 0;
 }
-.advocas-entry-actions .tv-button {
+.advocas-home-entry .advocas-entry-actions .tv-button {
   width: 100%;
   transition:
-    background 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
 }
@@ -77,10 +99,12 @@
   border-color: #b9f3ec;
   box-shadow: 0 4px 20px #69d7cf1a;
 }
-.advocas-entry-actions .advocas-entry-discover:hover {
+.advocas-home-entry
+  .advocas-entry-actions
+  .tv-button.advocas-entry-discover:is(:hover, :focus-visible) {
   color: #073b42;
-  background: #d9faf6;
-  border-color: #d9faf6;
+  background: #8fddd3;
+  border-color: #8fddd3;
   box-shadow: 0 4px 24px #69d7cf33;
 }
 .advocas-entry-actions .advocas-entry-contact {
@@ -88,10 +112,22 @@
   border-color: #82aeb8;
   background: #103b4a;
 }
-.advocas-entry-actions .advocas-entry-contact:hover {
-  color: #fff;
-  border-color: #b4e0e2;
-  background: #185060;
+.advocas-home-entry
+  .advocas-entry-actions
+  .tv-button.advocas-entry-contact:is(:hover, :focus-visible) {
+  color: #073b42;
+  border-color: #b9f3ec;
+  background: #d9faf6;
+  box-shadow: 0 4px 24px #69d7cf33;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Reuse the exact keyframes supplied by the preceding Pesto entry. */
+  .advocas-home-entry::before {
+    animation: pesto-entry-glow 5s ease-in-out infinite;
+  }
+  .advocas-home-entry::after {
+    animation: pesto-entry-sheen 5s ease-in-out infinite;
+  }
 }
 .advocas-entry-actions a:focus-visible {
   outline: 3px solid #fff;
@@ -122,7 +158,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .advocas-entry-actions .tv-button {
+  .advocas-home-entry .advocas-entry-actions .tv-button {
     transition: none;
   }
 }
