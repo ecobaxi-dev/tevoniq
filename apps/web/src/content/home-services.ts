@@ -48,7 +48,7 @@ export const homeServices = {
         id: 'workflow',
         title: 'أنظمة إدارة العمل',
         kicker: 'من الطلب إلى الإنجاز',
-        cta: 'أرسل متطلبات نظامك',
+        cta: 'جرّب أنظمة إدارة العمل',
         steps: ['استلام الطلب', 'تحديث الحالة', 'إغلاق ومراجعة'],
         description:
           'نبني نظامًا يجمع الطلبات والحالات والملاحظات في مكان واحد، لتعرف ما وصل، وما أُنجز، وما يحتاج إلى متابعة.',
@@ -135,7 +135,7 @@ export const homeServices = {
         id: 'workflow',
         title: 'Work management systems',
         kicker: 'From request to completion',
-        cta: 'Send your system requirements',
+        cta: 'Explore system demos',
         steps: ['Receive a request', 'Update its status', 'Complete and review'],
         description:
           'We bring requests, statuses and notes into one system so you can see what arrived, what is done and what needs attention.',

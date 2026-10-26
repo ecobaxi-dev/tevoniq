@@ -1,5 +1,6 @@
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
+import { findWorkSystem } from '@/content/work-systems';
 import { findWebsiteDesign } from '@/content/website-designs';
 import { ContactPage } from '@/components/contact-page';
 import { leadCopy } from '@/content/leads';
@@ -23,12 +24,17 @@ async function PublicPage({
   const { locale } = await params;
   const query = searchParams ? await searchParams : {};
   const design = typeof query.design === 'string' ? findWebsiteDesign(query.design) : undefined;
+  const system = typeof query.system === 'string' ? findWorkSystem(query.system) : undefined;
   const initialMessage =
     design && (locale === 'ar' || locale === 'en')
       ? locale === 'ar'
         ? `أرغب في مناقشة موقع لنشاطي بالاستناد إلى تصميم: ${design.ar.name}.\nتفاصيل نشاطي ومتطلباتي: `
         : `I would like to discuss a website based on: ${design.en.name}.\nMy business and requirements: `
-      : undefined;
+      : system && (locale === 'ar' || locale === 'en')
+        ? locale === 'ar'
+          ? `أرغب في مناقشة نظام لإدارة العمل بالاستناد إلى نموذج: ${system.ar.name}.\nطريقة عملي ومتطلباتي: `
+          : `I would like to discuss a work management system based on: ${system.en.name}.\nMy workflow and requirements: `
+        : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
 

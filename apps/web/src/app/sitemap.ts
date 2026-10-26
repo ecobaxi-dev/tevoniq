@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 import { getAllSeoRoutes } from '@/lib/seo';
 import { absoluteUrl, localizedPath, indexableRoute, routeLanguages } from '@/lib/seo-core';
 import { aiCaseStudies } from '@/content/ai-case-studies';
+import { workSystems } from '@/content/work-systems';
 import { websiteDesigns } from '@/content/website-designs';
 import { env } from '@/lib/env';
 export const dynamic = 'force-dynamic';
@@ -22,12 +23,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/pesto',
     '/advocas',
     '/website-designs',
+    '/work-systems',
+    ...workSystems.map((system) => `/work-systems/${system.slug}`),
     ...websiteDesigns.map((design) => `/website-designs/${design.slug}`),
     ...aiCaseStudies.map((study) => `/insights/case-studies/${study.slug}`),
   ]) {
     const locales = settings.localization.enabledLanguages.filter(
       (locale) =>
-        (path !== '/advocas' && !path.startsWith('/website-designs')) ||
+        (path !== '/advocas' &&
+          !path.startsWith('/website-designs') &&
+          !path.startsWith('/work-systems')) ||
         locale === 'en' ||
         locale === 'ar',
     );
