@@ -41,7 +41,7 @@ export const advocasCopy = {
       'Discover Advocas, a platform for exploring lawyers and legal-service options by country.',
   },
   ar: {
-    entryTitle: 'المحامون — منصة للخدمات القانونية',
+    entryTitle: 'المنصة الاقوى للخدمات القانونية',
     entryBody:
       'منصة رقمية لتصفح المحامين وخيارات الخدمات القانونية بحسب الدولة. تعرّف على المنصة وطريقة بدء رحلتك فيها.',
     entryContact: 'ناقش منصة لأعمالك',

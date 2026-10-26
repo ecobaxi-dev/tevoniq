@@ -3,8 +3,8 @@
   isolation: isolate;
   overflow: hidden;
   padding-block: 2.6rem;
-  border-block: 1px solid #347580;
-  background: radial-gradient(ellipse at 8% 0%, #125a65 0%, transparent 55%), #092a3b;
+  border-block: 1px solid #416797;
+  background: radial-gradient(ellipse at 8% 0%, #194b7d 0%, transparent 55%), #0a1f44;
   color: #fff;
 }
 .advocas-home-entry::before {
@@ -13,10 +13,11 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  border-block: 2px solid #69d7cf66;
+  border-block: 2px solid #71bdff;
   box-shadow:
-    inset 0 8px 28px -18px #69d7cf,
-    inset 0 -8px 28px -18px #69d7cf;
+    inset 0 8px 28px -18px #77c9ff,
+    inset 0 -8px 28px -18px #f7cd70;
+  opacity: 0.5;
 }
 .advocas-entry-layout {
   display: grid;
