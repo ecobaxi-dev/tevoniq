@@ -440,105 +440,6 @@
     }
   },
   {
-    "slug": "cloud-solutions",
-    "sources": ["https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/overview"],
-    "translations": {
-      "en": {
-        "title": "Cloud Architecture & Modernization",
-        "summary": "Proposed service: plan cloud environments and workload transitions around business priorities, operational needs and recovery requirements.",
-        "overview": "A cloud decision should explain what changes, why it is needed and how the environment will be operated. The proposed scope evaluates selected workloads and develops a staged architecture or migration plan without assuming that every system belongs in the cloud.",
-        "capabilities": [
-          [
-            "Workload assessment",
-            "Map dependencies, access requirements, data location and operating constraints."
-          ],
-          [
-            "Environment design",
-            "Define identity, network boundaries, deployment structure and monitoring needs."
-          ],
-          [
-            "Migration planning",
-            "Sequence pilot workloads, validation steps and rollback decisions."
-          ]
-        ],
-        "deliverables": [
-          [
-            "Workload assessment",
-            "An inventory with priorities, dependencies and migration considerations."
-          ],
-          [
-            "Architecture pack",
-            "Environment diagrams, configuration principles and responsibility boundaries."
-          ],
-          ["Transition runbook", "Pilot plan, acceptance checks and operating handover."]
-        ],
-        "useCases": [
-          "Modernizing selected applications",
-          "Establishing a new cloud environment",
-          "Connecting local and cloud systems"
-        ],
-        "process": "1. Assess the starting environment.\n2. Agree the target design.\n3. Pilot a bounded workload.\n4. Validate and plan the next transition.",
-        "acceptance": "Validate access, connectivity, deployment and recovery procedures against agreed scenarios. Estimates must state consumption assumptions; cloud cost reductions are not guaranteed.",
-        "question": "Must all workloads move to the cloud?",
-        "answer": "No. Local, cloud and hybrid options should be assessed against the needs of each workload, including integration, data, licensing and operating constraints."
-      },
-      "tr": {
-        "title": "Bulut Mimarisi ve Modernizasyon",
-        "summary": "Önerilen hizmet: bulut ortamlarını ve iş yükü geçişlerini iş öncelikleri, işletim ihtiyaçları ve kurtarma gereksinimlerine göre planlayın.",
-        "overview": "Bulut kararı neyin, neden değişeceğini ve ortamın nasıl işletileceğini açıklamalıdır. Önerilen kapsam seçilen iş yüklerini değerlendirir; her sistemin buluta taşınması gerektiğini varsaymadan aşamalı mimari veya geçiş planı oluşturur.",
-        "capabilities": [
-          [
-            "İş yükü değerlendirmesi",
-            "Bağımlılıklar, erişim, veri konumu ve işletim kısıtları haritalanır."
-          ],
-          [
-            "Ortam tasarımı",
-            "Kimlik, ağ sınırları, dağıtım yapısı ve izleme ihtiyaçları belirlenir."
-          ],
-          ["Geçiş planı", "Pilot iş yükleri, doğrulama adımları ve geri alma kararları sıralanır."]
-        ],
-        "deliverables": [
-          ["İş yükü raporu", "Öncelikler, bağımlılıklar ve geçiş hususlarıyla envanter."],
-          ["Mimari paketi", "Ortam şemaları, yapılandırma ilkeleri ve sorumluluk sınırları."],
-          ["Geçiş kılavuzu", "Pilot planı, kabul kontrolleri ve işletime devir."]
-        ],
-        "useCases": [
-          "Seçilen uygulamaları modernleştirme",
-          "Yeni bulut ortamı oluşturma",
-          "Yerel ve bulut sistemlerini bağlama"
-        ],
-        "process": "1. Başlangıç ortamı değerlendirilir.\n2. Hedef tasarım belirlenir.\n3. Sınırlı bir iş yükü denenir.\n4. Doğrulama ve sonraki geçiş planlanır.",
-        "acceptance": "Erişim, bağlantı, dağıtım ve kurtarma adımları belirlenen senaryolarla kontrol edilir. Maliyet tahminleri tüketim varsayımlarını belirtmelidir; maliyet düşüşü garanti edilmez.",
-        "question": "Tüm iş yükleri buluta taşınmalı mı?",
-        "answer": "Hayır. Yerel, bulut ve hibrit seçenekler her iş yükünün entegrasyon, veri, lisans ve işletim koşullarına göre değerlendirilmelidir."
-      },
-      "ar": {
-        "title": "هندسة الحلول السحابية وتحديث الأنظمة",
-        "summary": "نطاق خدمة مقترح: تخطيط البيئات السحابية وانتقال الأنظمة وفق أولويات الأعمال واحتياجات التشغيل والتعافي.",
-        "overview": "يجب أن يوضح قرار السحابة ما الذي سيتغير ولماذا وكيف ستُدار البيئة. يقيّم النطاق المقترح أنظمة مختارة ويضع خطة بنية أو انتقال مرحلية، دون افتراض أن كل نظام ينبغي نقله إلى السحابة.",
-        "capabilities": [
-          ["تقييم الأنظمة", "رسم الاعتماديات ومتطلبات الوصول وموقع البيانات وقيود التشغيل."],
-          ["تصميم البيئة", "تحديد الهوية وحدود الشبكة وبنية النشر واحتياجات المراقبة."],
-          ["تخطيط الانتقال", "ترتيب التجارب وخطوات التحقق وقرارات التراجع."]
-        ],
-        "deliverables": [
-          ["تقرير تقييم", "جرد بالأولويات والاعتماديات واعتبارات الانتقال."],
-          ["حزمة التصميم", "مخططات البيئة ومبادئ الإعداد وحدود المسؤوليات."],
-          ["دليل الانتقال", "خطة التجربة وفحوص القبول والتسليم التشغيلي."]
-        ],
-        "useCases": [
-          "تحديث تطبيقات مختارة",
-          "تأسيس بيئة سحابية جديدة",
-          "ربط الأنظمة المحلية والسحابية"
-        ],
-        "process": "1. تقييم البيئة الحالية.\n2. الاتفاق على التصميم المستهدف.\n3. تجربة نظام محدود النطاق.\n4. التحقق وتخطيط الانتقال التالي.",
-        "acceptance": "تُفحص الصلاحيات والاتصال والنشر وإجراءات التعافي وفق سيناريوهات محددة. توضح تقديرات التكلفة افتراضات الاستهلاك، ولا يُضمن انخفاض المصروفات تلقائيًا.",
-        "question": "هل يجب نقل جميع الأنظمة إلى السحابة؟",
-        "answer": "لا. تُقارن الخيارات المحلية والسحابية والهجينة وفق احتياجات كل نظام، بما فيها التكامل والبيانات والتراخيص وقيود التشغيل."
-      }
-    }
-  },
-  {
     "slug": "cybersecurity",
     "sources": ["https://www.nist.gov/publications/zero-trust-architecture"],
     "translations": {
@@ -577,7 +478,7 @@
           "Checking access and configuration practices"
         ],
         "process": "1. Agree written scope and authorization.\n2. Review selected controls.\n3. Prioritise findings with system owners.\n4. Implement agreed changes and recheck.",
-        "acceptance": "Acceptance confirms the agreed assessment coverage and evidence for completed actions. Penetration testing, round-the-clock monitoring and incident response require their own explicit scope.",
+        "acceptance": "Acceptance confirms the agreed assessment coverage and evidence for completed actions. Round-the-clock monitoring and incident response require their own explicit scope.",
         "question": "Will the review certify the organisation?",
         "answer": "No. An assessment can inform improvements, but formal certification depends on the relevant scheme and an authorised assessment body. No certification is implied."
       },
@@ -607,7 +508,7 @@
           "Erişim ve yapılandırma uygulamalarını kontrol etme"
         ],
         "process": "1. Yazılı kapsam ve yetkilendirme.\n2. Seçilen kontrollerin incelemesi.\n3. Sistem sahipleriyle önceliklendirme.\n4. Onaylanan değişiklikler ve yeniden kontrol.",
-        "acceptance": "Kabul, belirlenen değerlendirme kapsamını ve tamamlanan işler için kanıtları doğrular. Sızma testi, sürekli izleme ve olay müdahalesi ayrı ve açık kapsam gerektirir.",
+        "acceptance": "Kabul, belirlenen değerlendirme kapsamını ve tamamlanan işler için kanıtları doğrular. Sürekli izleme ve olay müdahalesi ayrı ve açık kapsam gerektirir.",
         "question": "İnceleme kuruma sertifika kazandırır mı?",
         "answer": "Hayır. Değerlendirme iyileştirmeleri destekleyebilir; resmî sertifika ilgili programa ve yetkili değerlendirme kuruluşuna bağlıdır. Sertifika taahhüdü yoktur."
       },
@@ -634,7 +535,7 @@
           "فحص الصلاحيات والإعدادات التشغيلية"
         ],
         "process": "1. الاتفاق الكتابي على النطاق والتفويض.\n2. مراجعة الضوابط المختارة.\n3. ترتيب المعالجات مع مالكي الأنظمة.\n4. تنفيذ التغييرات المعتمدة وإعادة الفحص.",
-        "acceptance": "يتحقق القبول من تغطية التقييم والأدلة الخاصة بالإجراءات المنجزة. تحتاج اختبارات الاختراق والمراقبة المستمرة والاستجابة للحوادث إلى نطاق مستقل وصريح.",
+        "acceptance": "يتحقق القبول من تغطية التقييم والأدلة الخاصة بالإجراءات المنجزة. تحتاج المراقبة المستمرة والاستجابة للحوادث إلى نطاق مستقل وصريح.",
         "question": "هل تمنح المراجعة شهادة اعتماد للمؤسسة؟",
         "answer": "لا. يمكن للتقييم توجيه التحسينات، أما الشهادة الرسمية فتتبع البرنامج المعني والجهة المخولة بالتقييم. لا يتضمن هذا النطاق ادعاءً بالحصول على اعتماد."
       }

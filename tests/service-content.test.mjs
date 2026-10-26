@@ -7,10 +7,10 @@ import {
   seedTitles,
 } from '../scripts/lib/service-content.mjs';
 
-test('service content provides eight distinct, complete three-language CMS entries', async () => {
+test('service content provides seven distinct, complete three-language CMS entries', async () => {
   const content = await loadServiceContent();
-  assert.equal(content.length, 8);
-  assert.equal(new Set(content.map((c) => c.slug)).size, 8);
+  assert.equal(content.length, 7);
+  assert.equal(new Set(content.map((c) => c.slug)).size, 7);
   const blockIds = new Set();
   for (const [order, entry] of content.entries()) {
     const value = serviceContentPayload(entry, order);

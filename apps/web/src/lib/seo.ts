@@ -6,6 +6,8 @@ import { organizationSettingsSchema, seoRoutesResponseSchema } from '@tevoniq/va
 import { env } from './env';
 import { fetchPublicContent } from './public-content-cache';
 import { buildSeoMetadata } from './seo-core';
+import { isRetiredPublicPath } from '@tevoniq/types';
+import { notFound } from 'next/navigation';
 async function request(path: string) {
   const response = await fetchPublicContent(env.API_URL + '/seo/' + path, {
     signal: AbortSignal.timeout(5000),
@@ -53,6 +55,7 @@ export async function routeMetadata(
 ) {
   const { locale, slug } = await props.params;
   const path = pattern.replace('[slug]', Array.isArray(slug) ? slug.join('/') : slug || '');
+  if (isRetiredPublicPath(path)) notFound();
   const query = props.searchParams ? await props.searchParams : {};
   const meaningfulQuery = Object.entries(query).some(
     ([key, value]) =>

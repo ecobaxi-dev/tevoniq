@@ -6,7 +6,6 @@ export const solutionScenes: Record<string, SolutionScene> = {
   'intelligent-document-workflow': 'documents',
   'connected-retail-operations': 'retail',
   'smart-workplace-experience': 'workplace',
-  'resilient-hybrid-cloud': 'cloud',
   'secure-digital-access': 'access',
   'business-operations-hub': 'operations',
 };

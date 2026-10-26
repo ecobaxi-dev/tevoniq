@@ -40,14 +40,6 @@
         "body": "Adopt the digital-first approach, digitize operations, and improve efficiency and productivity, as well as boost both speed and accuracy of all processes. "
       },
       {
-        "title": "Make better decisions",
-        "body": "Transform the vast amounts of data into actionable insights, enable advanced data analytics, and much more with a trusted digital transformation solutions provider by your side. Our data expertise allows you to take advantage of the whole spectrum of data: from ML & Artificial Intelligence to Data Science and Big Data, to Business Intelligence and effective data visualization."
-      },
-      {
-        "title": "Scale with ease",
-        "body": "Scale your operations and reach new customers quickly and easily with the help of advanced technologies. Our Cloud and DevOps experts can help migrate your systems to the cloud and scale them easily, while also ensuring effective and uninterrupted performance of your systems."
-      },
-      {
         "title": "Find new revenue streams",
         "body": "Launch new digital products and services, enhance customer experiences, and create new revenue streams with technical consulting. Our services are meant to help you achieve sustainable business results, boost customer retention, and find new ways to improve revenue generation."
       }
@@ -61,14 +53,6 @@
       {
         "title": "Legacy product?",
         "body": "Our experts will conduct a detailed assessment, offer a software modernization plan, and execute it for you."
-      },
-      {
-        "title": "Old, unscalable infrastructure?",
-        "body": "Assess the infrastructure, plan a cloud migration and scale systems with Cloud and DevOps practices that fit the operating environment."
-      },
-      {
-        "title": "Lack of visibility?",
-        "body": "Data analytics services allow you to take advantage of the whole spectrum of data: from Data Science to Big Data, ML&AI, and BI."
       },
       {
         "title": "Lots of human errors and non-optimized workflows?",
@@ -128,7 +112,6 @@
         "title": "AI consulting & implementation",
         "items": [
           "AI strategy",
-          "Data strategy and architecture",
           "AI implementation roadmap",
           "AI solution feasibility assessment",
           "AI solution design and development",
@@ -142,8 +125,7 @@
           "Requirements analysis, concept validation, prototyping and/or Proof of Concept",
           "Project starter with a core team",
           "End-to-end AI-driven software development tailored to your needs",
-          "Custom development for regulations/certification compliances",
-          "Finding, hiring, and growing AI-augmented tech talent"
+          "Custom development for regulations/certification compliances"
         ]
       },
       {
@@ -172,48 +154,13 @@
         ]
       },
       {
-        "title": "Cloud transformation & advisory",
-        "items": [
-          "Cloud strategy and readiness assessment",
-          "Cloud adoption and migration",
-          "Application transformation",
-          "On-premises support and automation",
-          "DevOps & SRE services",
-          "CI/CD automation and optimization"
-        ]
-      },
-      {
-        "title": "Data & analytics",
-        "items": [
-          "Data and analytics strategy and data transformation",
-          "Data governance",
-          "Cloud data migration and cloud native services",
-          "Data platform development",
-          "DataOps",
-          "Business Intelligence solutions"
-        ]
-      },
-      {
-        "title": "Machine Learning, AI & Data Science",
-        "items": [
-          "Agentic AI",
-          "Generative AI",
-          "Data Science and advanced analytics",
-          "AI and Machine Learning engineering",
-          "AI/ML solutions maintenance",
-          "MLOps-powered Machine Learning systems",
-          "Computer Vision and Natural Language Processing"
-        ]
-      },
-      {
         "title": "Embedded Software & IoT",
         "items": [
           "Full-stack embedded and IoT development",
           "Embedded development for manufacturing",
           "Connectivity solutions for embedded systems",
           "Mobile communication solutions",
-          "Solutions for all connectivity ranges",
-          "Cloud support for embedded/IoT projects"
+          "Solutions for all connectivity ranges"
         ]
       },
       {
@@ -310,14 +257,6 @@
         "body": "اعتماد العمل الرقمي لتحسين الكفاءة والإنتاجية وسرعة العمليات ودقتها."
       },
       {
-        "title": "قرارات أفضل",
-        "body": "تحويل البيانات إلى رؤى قابلة للتطبيق باستخدام التحليلات المتقدمة وتعلم الآلة والذكاء الاصطناعي وعلوم البيانات والبيانات الضخمة وذكاء الأعمال والتصور البصري."
-      },
-      {
-        "title": "توسّع أسهل",
-        "body": "الوصول إلى عملاء جدد وتوسيع العمليات، ونقل الأنظمة إلى السحابة بمساعدة Cloud وDevOps مع الحفاظ على الأداء والاستمرارية."
-      },
-      {
         "title": "مصادر دخل جديدة",
         "body": "إطلاق منتجات وخدمات رقمية، وتحسين تجربة العملاء والاحتفاظ بهم، واستكشاف فرص دخل تدعم نموًا مستدامًا."
       }
@@ -331,14 +270,6 @@
       {
         "title": "منتج قديم؟",
         "body": "تقييم تفصيلي للمنتج، وخطة لتحديث البرمجيات ثم تنفيذها."
-      },
-      {
-        "title": "بنية تحتية لا تتوسّع؟",
-        "body": "تقييم السحابة وDevOps، وترحيل الأنظمة وتوسيعها تدريجيًا."
-      },
-      {
-        "title": "ضعف الرؤية على البيانات؟",
-        "body": "الاستفادة من علوم البيانات والبيانات الضخمة وتعلم الآلة والذكاء الاصطناعي وذكاء الأعمال."
       },
       {
         "title": "أخطاء يدوية ومسارات غير محسّنة؟",
@@ -398,7 +329,6 @@
         "title": "استشارات الذكاء الاصطناعي وتنفيذه",
         "items": [
           "استراتيجية الذكاء الاصطناعي",
-          "استراتيجية البيانات ومعماريتها",
           "خارطة تنفيذ الذكاء الاصطناعي",
           "تقييم جدوى الحل",
           "تصميم الحل وتطويره",
@@ -412,8 +342,7 @@
           "تحليل المتطلبات والتحقق من المفهوم والنماذج الأولية وإثبات المفهوم",
           "بدء المشروع بفريق أساسي",
           "تطوير مخصّص متكامل معزّز بالذكاء الاصطناعي",
-          "تطوير يراعي المتطلبات التنظيمية والاعتمادات",
-          "استقطاب الكفاءات التقنية وتوظيفها وتطويرها"
+          "تطوير يراعي المتطلبات التنظيمية والاعتمادات"
         ]
       },
       {
@@ -442,48 +371,13 @@
         ]
       },
       {
-        "title": "التحول السحابي والاستشارات",
-        "items": [
-          "استراتيجية السحابة وتقييم الجاهزية",
-          "التبنّي والترحيل إلى السحابة",
-          "تحويل التطبيقات",
-          "دعم وأتمتة الأنظمة المحلية",
-          "خدمات DevOps وSRE",
-          "أتمتة وتحسين CI/CD"
-        ]
-      },
-      {
-        "title": "البيانات والتحليلات",
-        "items": [
-          "استراتيجية البيانات والتحليلات وتحويل البيانات",
-          "حوكمة البيانات",
-          "ترحيل البيانات السحابي والخدمات الأصلية للسحابة",
-          "تطوير منصات البيانات",
-          "DataOps",
-          "حلول ذكاء الأعمال"
-        ]
-      },
-      {
-        "title": "تعلّم الآلة والذكاء الاصطناعي وعلوم البيانات",
-        "items": [
-          "الوكلاء الأذكياء",
-          "الذكاء الاصطناعي التوليدي",
-          "علوم البيانات والتحليلات المتقدمة",
-          "هندسة الذكاء الاصطناعي وتعلّم الآلة",
-          "صيانة حلول AI/ML",
-          "أنظمة تعلّم الآلة باستخدام MLOps",
-          "الرؤية الحاسوبية ومعالجة اللغة الطبيعية"
-        ]
-      },
-      {
         "title": "البرمجيات المدمجة وإنترنت الأشياء",
         "items": [
           "تطوير متكامل للأنظمة المدمجة وإنترنت الأشياء",
           "تطوير الأنظمة المدمجة للتصنيع",
           "حلول الاتصال للأنظمة المدمجة",
           "حلول الاتصالات المتنقلة",
-          "الاتصال لمختلف النطاقات",
-          "الدعم السحابي لمشاريع الأنظمة المدمجة وإنترنت الأشياء"
+          "الاتصال لمختلف النطاقات"
         ]
       },
       {
@@ -580,14 +474,6 @@
         "body": "Dijital öncelikli süreçlerle verimliliği, üretkenliği, hızı ve doğruluğu artırın."
       },
       {
-        "title": "Daha iyi kararlar alın",
-        "body": "Yapay zekâ, makine öğrenmesi, veri bilimi, büyük veri, iş zekâsı ve görselleştirmeyle veriyi uygulanabilir içgörülere dönüştürün."
-      },
-      {
-        "title": "Kolay ölçekleyin",
-        "body": "Bulut ve DevOps desteğiyle performans ve sürekliliği koruyarak sistemleri taşıyın, operasyonları ve müşteri erişimini büyütün."
-      },
-      {
         "title": "Yeni gelir kaynakları bulun",
         "body": "Dijital ürün ve hizmetler sunun; deneyimi, müşteri bağlılığını ve sürdürülebilir gelir fırsatlarını geliştirin."
       }
@@ -601,14 +487,6 @@
       {
         "title": "Eski ürünler mi?",
         "body": "Ayrıntılı değerlendirme, yazılım modernizasyon planı ve uygulama."
-      },
-      {
-        "title": "Ölçeklenmeyen altyapı mı?",
-        "body": "Bulut ve DevOps değerlendirmesiyle sistemleri aşamalı taşımak ve ölçeklemek."
-      },
-      {
-        "title": "Veri görünürlüğü yetersiz mi?",
-        "body": "Veri bilimi, büyük veri, makine öğrenmesi, yapay zekâ ve iş zekâsından yararlanmak."
       },
       {
         "title": "Manuel hatalar ve verimsiz akışlar mı?",
@@ -668,7 +546,6 @@
         "title": "Yapay zekâ danışmanlığı ve uygulama",
         "items": [
           "Yapay zekâ stratejisi",
-          "Veri stratejisi ve mimarisi",
           "Uygulama yol haritası",
           "Çözüm yapılabilirliği",
           "Çözüm tasarımı ve geliştirme",
@@ -682,8 +559,7 @@
           "Gereksinim analizi, kavram doğrulama, prototip ve PoC",
           "Çekirdek ekiple proje başlangıcı",
           "Uçtan uca yapay zekâ destekli özel geliştirme",
-          "Mevzuat ve sertifikasyon için özel geliştirme",
-          "Yapay zekâ destekli yetenek bulma, işe alma ve geliştirme"
+          "Mevzuat ve sertifikasyon için özel geliştirme"
         ]
       },
       {
@@ -712,48 +588,13 @@
         ]
       },
       {
-        "title": "Bulut dönüşümü ve danışmanlık",
-        "items": [
-          "Bulut stratejisi ve hazırlık",
-          "Bulut benimseme ve taşıma",
-          "Uygulama dönüşümü",
-          "Yerel sistem desteği ve otomasyon",
-          "DevOps ve SRE",
-          "CI/CD otomasyonu ve optimizasyonu"
-        ]
-      },
-      {
-        "title": "Veri ve analitik",
-        "items": [
-          "Veri ve analitik stratejisi, veri dönüşümü",
-          "Veri yönetişimi",
-          "Bulut veri taşıma ve yerel bulut hizmetleri",
-          "Veri platformu geliştirme",
-          "DataOps",
-          "İş zekâsı çözümleri"
-        ]
-      },
-      {
-        "title": "Makine öğrenmesi, yapay zekâ ve veri bilimi",
-        "items": [
-          "Ajan tabanlı yapay zekâ",
-          "Üretken yapay zekâ",
-          "Veri bilimi ve ileri analitik",
-          "AI ve ML mühendisliği",
-          "AI/ML çözüm bakımı",
-          "MLOps destekli sistemler",
-          "Bilgisayarlı görü ve doğal dil işleme"
-        ]
-      },
-      {
         "title": "Gömülü yazılım ve IoT",
         "items": [
           "Uçtan uca gömülü ve IoT geliştirme",
           "Üretim için gömülü geliştirme",
           "Gömülü bağlantı çözümleri",
           "Mobil iletişim",
-          "Tüm bağlantı aralıkları için çözümler",
-          "Gömülü ve IoT için bulut desteği"
+          "Tüm bağlantı aralıkları için çözümler"
         ]
       },
       {

@@ -8,6 +8,7 @@ import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module.js';
+import { RetiredCatalogInterceptor } from './cms/retired-catalog.interceptor.js';
 const app = await NestFactory.create<NestExpressApplication>(AppModule, {
   bufferLogs: true,
   bodyParser: false,
@@ -15,6 +16,7 @@ const app = await NestFactory.create<NestExpressApplication>(AppModule, {
 app.useLogger(app.get(Logger));
 app.use(helmet());
 app.useGlobalFilters(new SafeExceptionFilter());
+app.useGlobalInterceptors(new RetiredCatalogInterceptor());
 app.use('/api/v1/cms', (_req: Request, res: Response, next: NextFunction) => {
   res.setHeader('Cache-Control', 'private, no-store');
   next();

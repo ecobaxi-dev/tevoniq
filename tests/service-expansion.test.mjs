@@ -9,7 +9,7 @@ import {
 test('expanded service menu has unique slugs and valid localized CMS content', async () => {
   const catalog = await loadExpansion();
   const entries = catalog.groups.flatMap((group) => group.services);
-  assert.ok(entries.length >= 40);
+  assert.equal(entries.length, 23);
   const ids = new Set();
   for (const group of catalog.groups)
     for (const entry of group.services) {

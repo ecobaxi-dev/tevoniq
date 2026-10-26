@@ -109,6 +109,7 @@ test('Application schema rejects status injection, unsafe URLs, missing consent 
 test('Public job selection enforces publication, schedule and closing dates without applicant relations', async () => {
   const now = new Date();
   assert.deepEqual(publicJobWhere(now), {
+    slug: { notIn: ['demo-cloud-engineer'] },
     status: 'PUBLISHED',
     publishedAt: { lte: now },
     OR: [{ closingDate: null }, { closingDate: { gt: now } }],

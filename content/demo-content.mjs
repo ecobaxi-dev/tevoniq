@@ -1,5 +1,6 @@
 // Editable, original demonstration content. Reference examples are attributed;
 // they are not TEVONIQ client engagements or evidence of delivered results.
+import { pruneRetiredCatalog } from '@tevoniq/types';
 export const locales = ['en', 'tr', 'ar'];
 export const publicationDate = '2026-10-25T09:00:00.000Z';
 export const demoLabels = {
@@ -736,3 +737,10 @@ export const jobs = [
     preferredQualifications: ['Familiarity with iterative software delivery.'],
   },
 ];
+
+// Owner-requested public catalog retirement also applies to future demo imports.
+for (const rows of [industries, projects, topics, jobs]) {
+  rows.splice(0, rows.length, ...pruneRetiredCatalog(rows));
+}
+delete categories.cloud;
+delete categories.data;

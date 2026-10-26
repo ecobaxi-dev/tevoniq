@@ -1,6 +1,7 @@
 import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import type { z } from 'zod';
 import type { publicNavigationSchema } from '@tevoniq/validation';
+import { pruneRetiredCatalog } from '@tevoniq/types';
 export function applyNavigationRecords(
   base: NavigationContent,
   records: z.infer<typeof publicNavigationSchema>,
@@ -34,5 +35,5 @@ export function applyNavigationRecords(
       }
     }
   }
-  return result;
+  return pruneRetiredCatalog(result) ?? { items: [], labels: result.labels };
 }

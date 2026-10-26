@@ -1,4 +1,5 @@
 import { archiveCatalog } from '../admin/catalog-archive.js';
+import { retiredSolutionSlugs } from '@tevoniq/types';
 import { safeProjectReferences } from '../projects/project-public.js';
 import {
   Controller,
@@ -40,6 +41,7 @@ import {
 import type { Prisma, Locale } from '../generated/prisma/client.js';
 
 export const publicSolutionWhere = (locale: Locale): Prisma.SolutionWhereInput => ({
+  slug: { notIn: [...retiredSolutionSlugs] },
   active: true,
   published: true,
   status: 'PUBLISHED',
@@ -110,6 +112,8 @@ export class SolutionsController {
   async detail(@Param('slug') raw: string, @Query() query: unknown) {
     const slug = serviceSlugSchema.safeParse(raw);
     if (!slug.success) throw new NotFoundException();
+    if ((retiredSolutionSlugs as readonly string[]).includes(slug.data))
+      throw new NotFoundException();
     const { locale } = parse(localeQuerySchema, query);
     const row = await this.db.solution.findFirst({
       where: { ...publicSolutionWhere(locale), slug: slug.data },

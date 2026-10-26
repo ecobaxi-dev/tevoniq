@@ -3,7 +3,9 @@ import { cache } from 'react';
 import { pageDocumentSchema, type BuilderCard } from '@tevoniq/validation';
 import { env } from './env';
 import { fetchPublicContent } from './public-content-cache';
+import { isRetiredPublicPath } from '@tevoniq/types';
 export const getBuiltPage = cache(async (path: string, locale: string) => {
+  if (isRetiredPublicPath(path)) return null;
   const response = await fetchPublicContent(
     `${env.API_URL}/pages/resolve?${new URLSearchParams({ path, locale })}`,
     { signal: AbortSignal.timeout(8000) },

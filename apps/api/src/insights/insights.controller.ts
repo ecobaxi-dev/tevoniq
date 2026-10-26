@@ -27,6 +27,7 @@ import { requirePermission } from '../cms/permissions.js';
 import { CmsGuard, CmsAdminGuard, type CmsRequest } from '../cms/cms.guard.js';
 import { parse, idSchema, localeQuerySchema } from '../cms/content-policy.js';
 import type { Locale, Prisma } from '../generated/prisma/client.js';
+import { retiredArticleSlugs } from '@tevoniq/types';
 
 export const articleInclude = { category: true, tags: { include: { tag: true } } } as const;
 type ArticleRow = Prisma.InsightArticleGetPayload<{ include: typeof articleInclude }>;
@@ -34,7 +35,12 @@ export function publicArticleWhere(
   language: Locale,
   now = new Date(),
 ): Prisma.InsightArticleWhereInput {
-  return { language, status: { in: ['published', 'scheduled'] }, publicationDate: { lte: now } };
+  return {
+    language,
+    slug: { notIn: retiredArticleSlugs },
+    status: { in: ['published', 'scheduled'] },
+    publicationDate: { lte: now },
+  };
 }
 export function publicArticle(row: ArticleRow) {
   return publicArticleSchema.parse({
@@ -107,6 +113,7 @@ export class InsightsController {
   async detail(@Param('slug') raw: string, @Query() query: unknown) {
     const slug = parse(insightSlugSchema, raw),
       { locale } = parse(localeQuerySchema, query);
+    if (retiredArticleSlugs.includes(slug)) throw new NotFoundException();
     const where = publicArticleWhere(locale);
     const article = await this.db.insightArticle.findFirst({
       where: { ...where, slug },
@@ -251,7 +258,13 @@ export class CmsInsightsController {
         let articleId = id;
         if (articleId) {
           const result = await tx.insightArticle.updateMany({
-            where: { id: articleId, version, ...(!hasPermission(req.cmsUser.role, 'blog.publish') ? { status: { notIn: ['published', 'scheduled'] } } : {}) },
+            where: {
+              id: articleId,
+              version,
+              ...(!hasPermission(req.cmsUser.role, 'blog.publish')
+                ? { status: { notIn: ['published', 'scheduled'] } }
+                : {}),
+            },
             data: { ...data, version: { increment: 1 } },
           });
           if (!result.count) throw new ConflictException('Article changed. Reload before saving.');

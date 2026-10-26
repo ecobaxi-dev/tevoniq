@@ -8,7 +8,7 @@ test('homepage contains approved capabilities, hides empty CMS sections, and lin
     'Premium Technologyfor a Smarter Tomorrow',
   );
   await expect(page.locator('.sme-service-card')).toHaveCount(4);
-  await expect(page.locator('.technology-ecosystem__choices button')).toHaveCount(9);
+  await expect(page.locator('.technology-ecosystem__choices button')).toHaveCount(8);
   await expect(page.locator('.why-tevoniq__value')).toHaveCount(6);
   for (const id of ['industries', 'projects', 'partners', 'insights'])
     await expect(page.locator(`main #${id}`)).toHaveCount(0);

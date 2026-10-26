@@ -65,7 +65,9 @@ export function DigitalExpertise({
             hidden={active !== i}
             key={group.title}
           >
-            <span className="digital-eyebrow">0{i + 1} / 09</span>
+            <span className="digital-eyebrow">
+              {String(i + 1).padStart(2, '0')} / {String(groups.length).padStart(2, '0')}
+            </span>
             <h3>{group.title}</h3>
             <ul>
               {group.items.map((item) => (

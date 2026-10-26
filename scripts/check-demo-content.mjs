@@ -32,21 +32,21 @@ assert.equal(home.partners.length, 3);
 const team = await json(`company/team/profiles?locale=${locale}`, publicTeamProfilesSchema);
 assert.equal(team.items.length, 4);
 const services = await json(`services?locale=${locale}&limit=48`, serviceListSchema);
-assert.ok(services.total >= 44);
+assert.ok(services.total >= 23);
 const industries = await json(`industries?locale=${locale}`, industryListSchema);
 const projects = await json(`projects?locale=${locale}`, projectListSchema);
 const solutions = await json(`solutions?locale=${locale}`, solutionListSchema);
 const articles = await json(`insights?locale=${locale}&limit=100`, articleListSchema);
 assert.equal(industries.total, 11);
-assert.equal(projects.total, 6);
-assert.ok(solutions.total >= 6);
-assert.equal(articles.items.filter((r) => r.kind === 'blog').length, 3);
-assert.equal(articles.items.filter((r) => r.kind === 'resource').length, 3);
-assert.equal(articles.items.filter((r) => r.kind === 'case-study').length, 6);
+assert.equal(projects.total, 4);
+assert.ok(solutions.total >= 5);
+assert.equal(articles.items.filter((r) => r.kind === 'blog').length, 2);
+assert.equal(articles.items.filter((r) => r.kind === 'resource').length, 1);
+assert.equal(articles.items.filter((r) => r.kind === 'case-study').length, 4);
 for (const row of industries.items) {
   const d = await json(`industries/${row.slug}?locale=${locale}`, publicIndustrySchema);
   assert.equal(d.blocks.length, 9);
-  assert.ok(d.services.length && d.solutions.length && d.projects.length, row.slug);
+  assert.ok(d.services.length, row.slug);
 }
 for (const row of projects.items) {
   const d = await json(`projects/${row.slug}?locale=${locale}`, publicProjectSchema);
@@ -78,10 +78,7 @@ const paths = [
   '/insights/resources',
   '/insights/case-studies',
   '/industries/retail',
-  '/solutions/resilient-hybrid-cloud',
-  '/projects/demo-cloud-independent-iot',
   '/insights/blog/demo-ai-readiness',
-  '/services/cloud-solutions',
   '/contact',
   '/request-quote',
   '/privacy-policy',

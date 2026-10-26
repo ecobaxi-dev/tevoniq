@@ -1,4 +1,5 @@
 import { archiveCatalog } from '../admin/catalog-archive.js';
+import { retiredServiceSlugs, isRetiredService } from '@tevoniq/types';
 import { safeProjectReferences } from '../projects/project-public.js';
 import {
   Controller,
@@ -44,6 +45,7 @@ export class ServicesController {
   async list(@Query() query: unknown) {
     const { locale, page, limit, q } = parse(serviceQuerySchema, query);
     const where: Prisma.ServiceWhereInput = {
+      slug: { notIn: [...retiredServiceSlugs] },
       active: true,
       translations: {
         some: {
@@ -81,6 +83,7 @@ export class ServicesController {
     const parsedSlug = serviceSlugSchema.safeParse(raw);
     if (!parsedSlug.success) throw new NotFoundException();
     const slug = parsedSlug.data;
+    if (isRetiredService(slug)) throw new NotFoundException();
     const { locale } = parse(
       z.object({ locale: z.enum(['en', 'tr', 'ar']).default('en') }).strict(),
       query,

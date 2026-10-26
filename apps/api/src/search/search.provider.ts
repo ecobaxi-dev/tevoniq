@@ -4,6 +4,7 @@ import {
   type SearchRequest,
   type SearchResponse,
   type SearchResult,
+  retiredLocalizedPaths,
 } from '@tevoniq/types';
 import { DatabaseService } from '../database/database.service.js';
 import { projectContent } from '../projects/project-public.js';
@@ -25,6 +26,7 @@ export class PostgresSearchProvider extends SearchProvider {
             ts_rank(vector, plainto_tsquery('simple', ${q})) DESC, title, id) AS position
         FROM public_search_documents
         WHERE locale = ${locale} AND vector @@ plainto_tsquery('simple', ${q})
+          AND NOT (url = ANY(${retiredLocalizedPaths}::text[]))
       ) SELECT * FROM matches WHERE position <= ${limit + 1} ORDER BY type, position
     `;
     // Apply the same fail-closed identity and content validation as project detail pages.

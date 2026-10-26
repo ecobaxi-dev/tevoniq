@@ -13,8 +13,9 @@ import type { Prisma } from '../generated/prisma/client.js';
 import { LeadSubmissionGuard, LeadBotProtection, submissionIp } from '../leads/bot-protection.js';
 import { CvSecurity } from './cv-security.js';
 import { isDemoJob } from '@tevoniq/validation';
+import { retiredJobSlugs } from '@tevoniq/types';
 
-export const publicJobWhere = (now = new Date()): Prisma.CareerJobWhereInput => ({ status: 'PUBLISHED', publishedAt: { lte: now }, OR: [{ closingDate: null }, { closingDate: { gt: now } }] });
+export const publicJobWhere = (now = new Date()): Prisma.CareerJobWhereInput => ({ slug: { notIn: retiredJobSlugs }, status: 'PUBLISHED', publishedAt: { lte: now }, OR: [{ closingDate: null }, { closingDate: { gt: now } }] });
 export const publicJobSelect = { id: true, title: true, slug: true, department: true, location: true, employmentType: true, workMode: true, description: true, responsibilities: true, requirements: true, preferredQualifications: true, publishedAt: true, closingDate: true, updatedAt: true } as const;
 const cvSelect = { id: true, name: true, mimeType: true, size: true, scanStatus: true } as const;
 const applicationSelect = { id: true, jobId: true, name: true, email: true, phone: true, location: true, linkedIn: true, portfolio: true, coverLetter: true, consentAt: true, status: true, version: true, createdAt: true, updatedAt: true, job: { select: { id: true, title: true, slug: true, status: true } }, cv: { select: cvSelect } } as const;

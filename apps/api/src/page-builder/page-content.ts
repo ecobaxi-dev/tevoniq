@@ -9,6 +9,7 @@ import {
 } from '@tevoniq/validation';
 import type { Prisma } from '../generated/prisma/client.js';
 import { projectCard } from '../projects/project-public.js';
+import { retiredServiceSlugs, retiredSolutionSlugs } from '@tevoniq/types';
 export async function catalogCards(
   db: Prisma.TransactionClient,
   kind: CatalogKind,
@@ -23,7 +24,12 @@ export async function catalogCards(
   };
   if (kind === 'service') {
     const rows = await db.service.findMany({
-      where: { ...where, active: true, translations: { some: { locale, published: true } } },
+      where: {
+        ...where,
+        AND: [{ slug: { notIn: [...retiredServiceSlugs] } }],
+        active: true,
+        translations: { some: { locale, published: true } },
+      },
       include: { translations: { where: { locale, published: true } } },
       take: 100,
       orderBy: { slug: 'asc' },
@@ -39,6 +45,7 @@ export async function catalogCards(
     const rows = await db.solution.findMany({
       where: {
         ...where,
+        AND: [{ slug: { notIn: [...retiredSolutionSlugs] } }],
         active: true,
         published: true,
         status: 'PUBLISHED',

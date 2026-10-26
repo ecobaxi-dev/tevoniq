@@ -4,8 +4,8 @@ import { conceptPayload, loadConcepts } from '../scripts/lib/solution-concepts.m
 
 test('solution concepts have complete, distinct EN/TR/AR CMS sections and honest publication copy', async () => {
   const concepts = await loadConcepts();
-  assert.equal(concepts.length, 6);
-  assert.equal(new Set(concepts.map((c) => c.slug)).size, 6);
+  assert.equal(concepts.length, 5);
+  assert.equal(new Set(concepts.map((c) => c.slug)).size, 5);
   const allIds = new Set();
   for (const [order, concept] of concepts.entries()) {
     const payload = conceptPayload(concept, order);

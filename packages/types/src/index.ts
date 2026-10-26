@@ -5,3 +5,4 @@ export function directionFor(locale: Locale): 'ltr' | 'rtl' {
   return locale === 'ar' ? 'rtl' : 'ltr';
 }
 export * from './search.js';
+export * from './retired-catalog.js';

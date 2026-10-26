@@ -50,7 +50,93 @@ createServer(async (req, res) => {
   };
   if (url.pathname === '/health') return send(200, { ok: true });
   // Code-owned product sitemap entries are tested independently of CMS records.
-  if (url.pathname === '/api/v1/seo/routes') return send(200, { items: [], total: 0 });
+  if (url.pathname === '/api/v1/seo/routes') {
+    const entries = ['cloud-solutions', 'development-fixture'].map((slug) => ({
+      route: `/services/${slug}`,
+      locale: 'en',
+      title: 'SEO fixture',
+      canonical: '',
+      updatedAt: null,
+      seo: {},
+      translations: [{ locale: 'en', canonical: '', seo: {} }],
+    }));
+    const items = url.searchParams.has('path')
+      ? entries.filter((item) => item.route === url.searchParams.get('path'))
+      : entries;
+    return send(200, { items, total: items.length });
+  }
+  if (/^\/api\/v1\/navigation\/(en|ar|tr)$/.test(url.pathname))
+    return send(200, {
+      labels: {},
+      items: [
+        {
+          id,
+          label: 'Renamed legacy service',
+          href: '/services/sap-services',
+          group: 'services',
+          order: 100,
+        },
+      ],
+    });
+  if (url.pathname === '/api/v1/search' && url.searchParams.get('q') === 'retirement-check')
+    return send(200, {
+      query: 'retirement-check',
+      groups: [
+        {
+          type: 'service',
+          hasMore: false,
+          items: [
+            {
+              id: 'retired',
+              type: 'service',
+              title: 'Legacy service',
+              excerpt: 'Legacy published data',
+              url: '/en/services/cloud-solutions',
+            },
+            {
+              id,
+              type: 'service',
+              title: 'Development service fixture',
+              excerpt: 'Kept published data',
+              url: '/en/services/development-fixture',
+            },
+          ],
+        },
+      ],
+    });
+  if (url.pathname === '/api/v1/services' && url.searchParams.get('q') === 'retirement-check')
+    return send(200, {
+      items: [
+        {
+          id: 'retired',
+          slug: 'cloud-solutions',
+          title: 'Legacy published service',
+          summary: 'Old publication fixture',
+        },
+        {
+          id,
+          slug: record.slug,
+          title: record.translations[0].title,
+          summary: record.translations[0].summary,
+        },
+      ],
+      total: 2,
+      page: 1,
+      limit: 12,
+    });
+  if (url.pathname === '/api/v1/services/cloud-solutions')
+    return send(200, {
+      id,
+      slug: 'cloud-solutions',
+      locale: url.searchParams.get('locale') || 'en',
+      title: 'Legacy published service',
+      summary: 'Old publication fixture',
+      seoTitle: 'Legacy fixture',
+      seoDescription: 'Legacy fixture content for retirement regression',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
   const home = url.pathname.match(/^\/api\/v1\/home\/(en|tr|ar)$/);
   if (home)
     return send(200, {

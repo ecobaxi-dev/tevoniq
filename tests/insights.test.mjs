@@ -1,3 +1,4 @@
+import { retiredArticleSlugs } from '../packages/types/dist/index.js';
 import 'reflect-metadata';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -59,6 +60,7 @@ test('All public article queries share due-date, status, and language constraint
   const now = new Date('2026-09-09T12:00:00Z');
   assert.deepEqual(publicArticleWhere('ar', now), {
     language: 'ar',
+    slug: { notIn: retiredArticleSlugs },
     status: { in: ['published', 'scheduled'] },
     publicationDate: { lte: now },
   });

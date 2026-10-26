@@ -1,5 +1,6 @@
 import { approvedArabicHero } from './home-presentation.ts';
 import type { Locale } from '@tevoniq/types';
+import { isRetiredCatalogLabel } from '@tevoniq/types';
 
 export type HomeCopy = {
   eyebrow: string;
@@ -260,3 +261,12 @@ export const homeCopy: Record<Locale, HomeCopy> = {
     rights: 'جميع الحقوق محفوظة.',
   },
 };
+
+for (const locale of ['en', 'tr', 'ar'] as const) {
+  homeCopy[locale].solutions = homeCopy[locale].solutions.filter(
+    (item) => !isRetiredCatalogLabel(item.title),
+  );
+  homeCopy[locale].technologies = homeCopy[locale].technologies.filter(
+    (item) => !isRetiredCatalogLabel(item),
+  );
+}

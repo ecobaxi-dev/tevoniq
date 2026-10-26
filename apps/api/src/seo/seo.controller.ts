@@ -6,6 +6,7 @@ import { seoFieldsSchema, seoPathSchema } from '@tevoniq/validation';
 import { DatabaseService } from '../database/database.service.js';
 import { parse } from '../cms/content-policy.js';
 import { projectContent } from '../projects/project-public.js';
+import { retiredPublicPaths } from '@tevoniq/types';
 type Translation = { locale: 'en' | 'tr' | 'ar'; canonical: string; seo: unknown };
 type RouteRow = {
   id: string;
@@ -64,6 +65,7 @@ export class SeoController {
           ORDER BY "updatedAt" DESC, id ASC LIMIT 1
         ) o ON true
         WHERE (${path ?? ''} = '' OR v.route = ${path ?? ''})
+          AND NOT (v.route = ANY(${retiredPublicPaths}::text[]))
       )
       SELECT *, count(*) OVER () AS total,
         jsonb_agg(jsonb_build_object('locale', locale, 'canonical', canonical, 'seo', seo))

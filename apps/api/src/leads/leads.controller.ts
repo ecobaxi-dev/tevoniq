@@ -42,6 +42,7 @@ import { LeadSettingsService } from './lead-settings.service.js';
 import { LeadBotProtection, LeadSubmissionGuard, submissionIp } from './bot-protection.js';
 import { validateAttachments, scanAttachments, MAX_ATTACHMENT_SIZE } from './attachments.js';
 import type { Prisma } from '../generated/prisma/client.js';
+import { retiredServiceSlugs } from '@tevoniq/types';
 
 const adminOnly = (req: CmsRequest) => {
   requirePermission(req, 'leads.read');
@@ -67,7 +68,12 @@ export class LeadsController {
     const { locale } = parse(z.object({ locale: localeSchema.default('en') }).strict(), query),
       settings = await this.settings.get();
     const services = await this.db.service.findMany({
-      where: { active: true, deletedAt: null, translations: { some: { locale, published: true } } },
+      where: {
+        active: true,
+        deletedAt: null,
+        slug: { notIn: [...retiredServiceSlugs] },
+        translations: { some: { locale, published: true } },
+      },
       include: { translations: { where: { locale, published: true } } },
       orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
     });

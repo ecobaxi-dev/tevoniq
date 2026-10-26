@@ -1,6 +1,7 @@
 import { BadRequestException } from '@nestjs/common';
 import { z } from 'zod';
 import type { Locale, Prisma } from '../generated/prisma/client.js';
+import { retiredServiceSlugs, retiredProjectSlugs } from '@tevoniq/types';
 
 export function parse<T>(schema: z.ZodType<T>, input: unknown): T {
   const result = schema.safeParse(input);
@@ -16,10 +17,12 @@ export const localeQuerySchema = z
   .object({ locale: z.enum(['en', 'tr', 'ar']).default('en') })
   .strict();
 export const publicServiceWhere = (locale: Locale): Prisma.ServiceWhereInput => ({
+  slug: { notIn: [...retiredServiceSlugs] },
   active: true,
   translations: { some: { locale, published: true } },
 });
 export const publicProjectWhere = (locale: Locale): Prisma.ProjectWhereInput => ({
+  slug: { notIn: retiredProjectSlugs },
   published: true,
   verified: true,
   translations: { some: { locale, published: true } },

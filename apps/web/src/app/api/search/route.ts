@@ -1,4 +1,5 @@
 import { env } from '@/lib/env';
+import { pruneRetiredCatalog } from '@tevoniq/types';
 export async function GET(request: Request) {
   const input = new URL(request.url).searchParams;
   const query = new URLSearchParams();
@@ -18,7 +19,9 @@ export async function GET(request: Request) {
         { error: 'Search unavailable' },
         { status: response.status === 400 ? 400 : 503 },
       );
-    return Response.json(await response.json(), { headers: { 'Cache-Control': 'no-store' } });
+    return Response.json(pruneRetiredCatalog(await response.json()), {
+      headers: { 'Cache-Control': 'no-store' },
+    });
   } catch {
     return Response.json({ error: 'Search unavailable' }, { status: 503 });
   }
