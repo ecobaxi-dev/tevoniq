@@ -58,7 +58,7 @@ test('clean header groups all published destinations under five entries without 
     ['الرئيسية', 'خدماتنا', 'حلولنا', 'منتجاتنا', 'عن الشركة'],
   );
   assert.deepEqual(paths(result.items), paths(base.items));
-  assert.equal(result.labels.quote, 'لنناقش احتياجك');
+  assert.equal(result.labels.quote, 'وصول سريع');
   const products = result.items.find((item) => item.id === 'products');
   assert.deepEqual(
     products.children.map((item) => item.label),

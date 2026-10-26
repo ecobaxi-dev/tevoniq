@@ -52,7 +52,7 @@ export function headerNavigation(locale: Locale, content: NavigationContent): Na
   return {
     labels: {
       ...content.labels,
-      quote: locale === 'ar' ? 'لنناقش احتياجك' : 'Let’s talk',
+      quote: locale === 'ar' ? 'وصول سريع' : 'Let’s talk',
     },
     items: [home, services, solutions, products, company, ...(!company ? secondary : [])].filter(
       (item): item is NavigationItem => Boolean(item),
