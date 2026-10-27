@@ -1,3 +1,4 @@
+import { automationServiceCopy } from '@/content/intelligent-automation';
 import { consultingCopy } from '@/content/technology-consulting';
 import { Heading } from '@tevoniq/ui';
 import { VisualDiscovery } from '@/components/visual-discovery';
@@ -27,17 +28,19 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
   try {
     const service = await getService(locale, slug);
     if (!service) return { robots: { index: false, follow: false } };
-    const consulting =
+    const presentation =
       slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
         ? consultingCopy[locale]
-        : null;
+        : slug === 'business-automation' && (locale === 'ar' || locale === 'en')
+          ? automationServiceCopy[locale]
+          : null;
     return {
-      title: consulting ? `${consulting.serviceTitle} | TEVONIQ` : service.seoTitle,
-      description: consulting?.seoDescription ?? service.seoDescription,
+      title: presentation ? `${presentation.serviceTitle} | TEVONIQ` : service.seoTitle,
+      description: presentation?.seoDescription ?? service.seoDescription,
       alternates: { canonical: `/${locale}/services/${slug}` },
       openGraph: {
-        title: consulting ? `${consulting.serviceTitle} | TEVONIQ` : service.seoTitle,
-        description: consulting?.seoDescription ?? service.seoDescription,
+        title: presentation ? `${presentation.serviceTitle} | TEVONIQ` : service.seoTitle,
+        description: presentation?.seoDescription ?? service.seoDescription,
         type: 'website',
       },
     };
@@ -87,7 +90,7 @@ async function PublicPage({ params }: Props) {
         }}
       />
       <ServiceBlocks service={service} locale={locale} />
-      {!(slug === 'it-consulting' && locale !== 'tr') &&
+      {!(['it-consulting', 'business-automation'].includes(slug) && locale !== 'tr') &&
         ![
           'ui-ux-design',
           'mobile-application-development',

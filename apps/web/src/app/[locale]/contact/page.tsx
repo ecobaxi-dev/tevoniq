@@ -1,3 +1,4 @@
+import { automationJourneyLeadMessage } from '@/lib/automation-journey';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
 import { consultingLeadMessage } from '@/lib/consulting-guide';
@@ -50,7 +51,8 @@ async function PublicPage({
               ? `أرغب في مناقشة لوحة معلومات بالاستناد إلى نموذج: ${dashboard.ar.name}.\nما أريد متابعته ومصادر بياناتي: `
               : `I would like to discuss a dashboard based on: ${dashboard.en.name}.\nWhat I want to monitor and my data sources: `
             : locale === 'ar' || locale === 'en'
-              ? consultingLeadMessage(query, locale)
+              ? (consultingLeadMessage(query, locale) ??
+                automationJourneyLeadMessage(query, locale))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
