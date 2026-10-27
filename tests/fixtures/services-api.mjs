@@ -44,6 +44,7 @@ const token = 'a'.repeat(64);
 let consultingPublished = true;
 let businessAutomationPublished = true;
 let erpPublished = true;
+let engineeringPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -163,6 +164,35 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/engineering-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    engineeringPublished = JSON.parse(body).published === true;
+    return send(200, { published: engineeringPublished });
+  }
+  if (url.pathname === '/api/v1/services/software-product-engineering') {
+    const locale = url.searchParams.get('locale');
+    if (!engineeringPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const title =
+      locale === 'ar'
+        ? 'هندسة المنتجات البرمجية'
+        : locale === 'en'
+          ? 'Software Product Engineering'
+          : 'Yazılım Ürün Mühendisliği';
+    return send(200, {
+      id,
+      slug: 'software-product-engineering',
+      locale,
+      title,
+      summary: 'Isolated engineering fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated engineering fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/erp-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;

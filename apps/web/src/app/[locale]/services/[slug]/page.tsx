@@ -1,3 +1,4 @@
+import { engineeringCopy } from '@/content/software-engineering';
 import { erpCopy } from '@/content/erp-service';
 import { automationServiceCopy } from '@/content/intelligent-automation';
 import { consultingCopy } from '@/content/technology-consulting';
@@ -36,7 +37,9 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
           ? automationServiceCopy[locale]
           : slug === 'erp-solutions' && (locale === 'ar' || locale === 'en')
             ? erpCopy[locale]
-            : null;
+            : slug === 'software-product-engineering' && (locale === 'ar' || locale === 'en')
+              ? engineeringCopy[locale]
+              : null;
     return {
       title: presentation ? `${presentation.serviceTitle} | TEVONIQ` : service.seoTitle,
       description: presentation?.seoDescription ?? service.seoDescription,
@@ -94,7 +97,12 @@ async function PublicPage({ params }: Props) {
       />
       <ServiceBlocks service={service} locale={locale} />
       {!(
-        ['it-consulting', 'business-automation', 'erp-solutions'].includes(slug) && locale !== 'tr'
+        [
+          'it-consulting',
+          'business-automation',
+          'erp-solutions',
+          'software-product-engineering',
+        ].includes(slug) && locale !== 'tr'
       ) &&
         ![
           'ui-ux-design',

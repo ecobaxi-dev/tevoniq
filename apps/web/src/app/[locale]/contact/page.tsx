@@ -1,3 +1,4 @@
+import { engineeringLeadMessage } from '@/lib/software-engineering';
 import { erpLeadMessage } from '@/lib/erp-service';
 import { automationJourneyLeadMessage } from '@/lib/automation-journey';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -54,7 +55,8 @@ async function PublicPage({
             : locale === 'ar' || locale === 'en'
               ? (consultingLeadMessage(query, locale) ??
                 automationJourneyLeadMessage(query, locale) ??
-                erpLeadMessage(query, locale))
+                erpLeadMessage(query, locale) ??
+                engineeringLeadMessage(query, locale))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
