@@ -1,3 +1,4 @@
+import { erpLeadMessage } from '@/lib/erp-service';
 import { automationJourneyLeadMessage } from '@/lib/automation-journey';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -52,7 +53,8 @@ async function PublicPage({
               : `I would like to discuss a dashboard based on: ${dashboard.en.name}.\nWhat I want to monitor and my data sources: `
             : locale === 'ar' || locale === 'en'
               ? (consultingLeadMessage(query, locale) ??
-                automationJourneyLeadMessage(query, locale))
+                automationJourneyLeadMessage(query, locale) ??
+                erpLeadMessage(query, locale))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }

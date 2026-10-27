@@ -43,6 +43,7 @@ let record = {
 const token = 'a'.repeat(64);
 let consultingPublished = true;
 let businessAutomationPublished = true;
+let erpPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -162,6 +163,35 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/erp-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    erpPublished = JSON.parse(body).published === true;
+    return send(200, { published: erpPublished });
+  }
+  if (url.pathname === '/api/v1/services/erp-solutions') {
+    const locale = url.searchParams.get('locale');
+    if (!erpPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const title =
+      locale === 'ar'
+        ? 'حلول تخطيط موارد المؤسسات'
+        : locale === 'en'
+          ? 'ERP Solutions'
+          : 'ERP Çözümleri';
+    return send(200, {
+      id,
+      slug: 'erp-solutions',
+      locale,
+      title,
+      summary: 'Isolated ERP fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated ERP fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/business-automation-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;
