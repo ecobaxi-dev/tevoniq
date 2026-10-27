@@ -1,3 +1,4 @@
+import { TechnologyConsultingService } from './technology-consulting-service';
 import { conceptArt } from '@/config/concept-art';
 import type { PublicService } from '@tevoniq/validation';
 import type { Locale } from '@tevoniq/types';
@@ -7,6 +8,8 @@ import { MobileService } from './mobile-service';
 import { DigitalTransformationService } from './digital-transformation-service';
 import { AiDevelopmentService } from './ai-development-service';
 export function ServiceBlocks({ service, locale }: { service: PublicService; locale: Locale }) {
+  if (service.slug === 'it-consulting' && (locale === 'ar' || locale === 'en'))
+    return <TechnologyConsultingService locale={locale} />;
   if (service.slug === 'digital-transformation')
     return <DigitalTransformationService service={service} locale={locale} />;
   if (service.slug === 'ai-augmented-development')

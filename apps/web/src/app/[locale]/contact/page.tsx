@@ -1,5 +1,6 @@
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
+import { consultingLeadMessage } from '@/lib/consulting-guide';
 import { findDashboardModel } from '@/content/dashboard-models';
 import { findAutomationCase } from '@/content/automation-cases';
 import { findWorkSystem } from '@/content/work-systems';
@@ -48,7 +49,9 @@ async function PublicPage({
             ? locale === 'ar'
               ? `أرغب في مناقشة لوحة معلومات بالاستناد إلى نموذج: ${dashboard.ar.name}.\nما أريد متابعته ومصادر بياناتي: `
               : `I would like to discuss a dashboard based on: ${dashboard.en.name}.\nWhat I want to monitor and my data sources: `
-            : undefined;
+            : locale === 'ar' || locale === 'en'
+              ? consultingLeadMessage(query, locale)
+              : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
 

@@ -1,3 +1,4 @@
+import { consultingCopy } from '@/content/technology-consulting';
 import { Heading } from '@tevoniq/ui';
 import { VisualDiscovery } from '@/components/visual-discovery';
 import { StructuredData } from '@/components/seo/json-ld';
@@ -26,11 +27,19 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
   try {
     const service = await getService(locale, slug);
     if (!service) return { robots: { index: false, follow: false } };
+    const consulting =
+      slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
+        ? consultingCopy[locale]
+        : null;
     return {
-      title: service.seoTitle,
-      description: service.seoDescription,
+      title: consulting ? `${consulting.serviceTitle} | TEVONIQ` : service.seoTitle,
+      description: consulting?.seoDescription ?? service.seoDescription,
       alternates: { canonical: `/${locale}/services/${slug}` },
-      openGraph: { title: service.seoTitle, description: service.seoDescription, type: 'website' },
+      openGraph: {
+        title: consulting ? `${consulting.serviceTitle} | TEVONIQ` : service.seoTitle,
+        description: consulting?.seoDescription ?? service.seoDescription,
+        type: 'website',
+      },
     };
   } catch {
     return { robots: { index: false, follow: false } };
@@ -78,12 +87,13 @@ async function PublicPage({ params }: Props) {
         }}
       />
       <ServiceBlocks service={service} locale={locale} />
-      {![
-        'ui-ux-design',
-        'mobile-application-development',
-        'ai-augmented-development',
-        'digital-transformation',
-      ].includes(slug) && <VisualDiscovery locale={locale} serviceSlug={slug} />}
+      {!(slug === 'it-consulting' && locale !== 'tr') &&
+        ![
+          'ui-ux-design',
+          'mobile-application-development',
+          'ai-augmented-development',
+          'digital-transformation',
+        ].includes(slug) && <VisualDiscovery locale={locale} serviceSlug={slug} />}
     </main>
   );
 }

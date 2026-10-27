@@ -41,6 +41,7 @@ let record = {
   ],
 };
 const token = 'a'.repeat(64);
+let consultingPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -160,6 +161,35 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/consulting-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    consultingPublished = JSON.parse(body).published === true;
+    return send(200, { published: consultingPublished });
+  }
+  if (url.pathname === '/api/v1/services/it-consulting') {
+    const locale = url.searchParams.get('locale');
+    if (!consultingPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const title =
+      locale === 'ar'
+        ? 'الاستشارات التقنية'
+        : locale === 'en'
+          ? 'Technology Consulting'
+          : 'Teknoloji Danışmanlığı';
+    return send(200, {
+      id,
+      slug: 'it-consulting',
+      locale,
+      title,
+      summary: 'Isolated consulting fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated consulting fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname.startsWith('/api/v1/services/')) {
     const t = record.translations[0];
     if (
