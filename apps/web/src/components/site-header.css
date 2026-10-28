@@ -658,3 +658,99 @@
     padding-inline-end: 1.5rem;
   }
 }
+/* Vivid service previews occupy unused catalog cells without changing link order. */
+.site-services-content li.site-services-feature {
+  border-bottom: 0;
+  padding-block: 0.7rem 0.15rem;
+}
+.site-services-content li .site-services-feature-link {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #dce5f2;
+  border-radius: 13px;
+  background: #f8faff;
+  color: #16375d;
+  box-shadow: 0 6px 18px #183f6b08;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.site-services-feature-image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #1739d5;
+  aspect-ratio: 16/9;
+}
+.site-services-feature-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.site-services-feature-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px 15px;
+}
+.site-services-feature-copy > strong {
+  color: #16375d;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.site-services-feature-copy > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #315980;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.site-services-feature-copy svg {
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
+.site-services-content li .site-services-feature-link:hover {
+  background: #f1f6ff;
+  border-color: #8daeea;
+  box-shadow: 0 8px 24px #2355a71c;
+}
+.site-services-feature-link:is(:hover, :focus-visible) img {
+  transform: scale(1.035);
+}
+.site-services-feature[data-layout='banner'] {
+  grid-column: 1/-1;
+}
+.site-services-content li.site-services-feature[data-layout='banner'] .site-services-feature-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+}
+.site-services-feature[data-layout='banner'] .site-services-feature-image {
+  aspect-ratio: 3/2;
+}
+.site-services-feature[data-layout='banner'] .site-services-feature-copy {
+  padding: 20px 24px;
+  gap: 12px;
+}
+.site-services-feature[data-layout='banner'] .site-services-feature-copy > strong {
+  font-size: 22px;
+}
+.site-services-feature[data-layout='banner'] .site-services-feature-copy > span {
+  font-size: 13px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-services-feature-link,
+  .site-services-feature-image img {
+    transition: none !important;
+  }
+  .site-services-feature-link:is(:hover, :focus-visible) img {
+    transform: none;
+  }
+}

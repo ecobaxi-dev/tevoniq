@@ -1,4 +1,6 @@
 'use client';
+import Image from 'next/image';
+import { navigationVisuals } from '@/content/navigation-visuals';
 import { Heading } from '@tevoniq/ui';
 
 import { useId, useState } from 'react';
@@ -23,6 +25,12 @@ export function ServicesMenu({
   const [selected, setSelected] = useState(groups[0]?.id ?? '');
   const id = useId();
   const active = groups.find((group) => group.id === selected) ?? groups[0];
+  const visual =
+    locale !== 'tr' && active && Object.hasOwn(navigationVisuals, active.id)
+      ? navigationVisuals[active.id as keyof typeof navigationVisuals]
+      : undefined;
+  const featured =
+    visual && active?.items.some((item) => item.href === visual.href) ? visual : undefined;
   return (
     <div className="site-services-menu">
       <div className="site-services-categories" role="group" aria-label={allLabel}>
@@ -63,6 +71,39 @@ export function ServicesMenu({
               </NavigationMenu.Link>
             </li>
           ))}
+          {featured && (locale === 'ar' || locale === 'en') && (
+            <li
+              className="site-services-feature"
+              data-layout={(active?.items.length ?? 0) < 4 ? 'banner' : 'tile'}
+            >
+              <NavigationMenu.Link asChild>
+                <Link
+                  href={localizedHref(locale, featured.href)}
+                  onClick={onNavigate}
+                  className="site-services-feature-link"
+                >
+                  <span className="site-services-feature-image">
+                    <Image
+                      src={featured.src}
+                      alt=""
+                      width={560}
+                      height={373}
+                      unoptimized
+                      loading="lazy"
+                      sizes="(min-width: 1280px) 340px, 0px"
+                    />
+                  </span>
+                  <span className="site-services-feature-copy">
+                    <strong>{featured[locale].title}</strong>
+                    <span>
+                      {featured[locale].caption}
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </span>
+                  </span>
+                </Link>
+              </NavigationMenu.Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>
