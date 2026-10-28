@@ -15,7 +15,7 @@ test('modern directory shows published services in navigation categories and rem
       .locator('main a[href]')
       .evaluateAll((nodes) => nodes.map((node) => node.getAttribute('href')!));
     expect(links.some(isRetiredPublicPath)).toBe(false);
-    await expect(page.locator('.sd-card-note')).toHaveCount(4);
+    await expect(page.locator('.sd-card-note')).toHaveCount(5);
     await expect(page.locator('link[rel=canonical]')).toHaveAttribute(
       'href',
       `http://127.0.0.1:3100/${locale}/services`,

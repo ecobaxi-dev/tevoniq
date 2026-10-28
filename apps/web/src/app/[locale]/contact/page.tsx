@@ -1,3 +1,4 @@
+import { iotLeadMessage } from '@/lib/iot-simulator';
 import { engineeringLeadMessage } from '@/lib/software-engineering';
 import { erpLeadMessage } from '@/lib/erp-service';
 import { automationJourneyLeadMessage } from '@/lib/automation-journey';
@@ -56,7 +57,8 @@ async function PublicPage({
               ? (consultingLeadMessage(query, locale) ??
                 automationJourneyLeadMessage(query, locale) ??
                 erpLeadMessage(query, locale) ??
-                engineeringLeadMessage(query, locale))
+                engineeringLeadMessage(query, locale) ??
+                iotLeadMessage(query, locale))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }

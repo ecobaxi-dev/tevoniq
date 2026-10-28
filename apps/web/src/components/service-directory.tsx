@@ -1,3 +1,4 @@
+import { iotCopy } from '@/content/iot-service';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -29,6 +30,7 @@ import {
 import { serviceLabels } from '@/content/services';
 import './service-directory.css';
 const summaries = {
+  'iot-solutions': iotCopy,
   'it-consulting': consultingCopy,
   'business-automation': automationServiceCopy,
   'erp-solutions': erpCopy,

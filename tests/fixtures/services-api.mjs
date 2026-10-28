@@ -50,6 +50,7 @@ let consultingPublished = true;
 let businessAutomationPublished = true;
 let erpPublished = true;
 let engineeringPublished = true;
+let iotPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -224,6 +225,35 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/iot-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    iotPublished = JSON.parse(body).published === true;
+    return send(200, { published: iotPublished });
+  }
+  if (url.pathname === '/api/v1/services/iot-solutions') {
+    const locale = url.searchParams.get('locale');
+    if (!iotPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const title =
+      locale === 'ar'
+        ? 'الأنظمة المدمجة وإنترنت الأشياء'
+        : locale === 'en'
+          ? 'Embedded & IoT'
+          : 'Gömülü Sistemler ve IoT';
+    return send(200, {
+      id,
+      slug: 'iot-solutions',
+      locale,
+      title,
+      summary: 'Isolated IoT fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated IoT fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/engineering-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;
