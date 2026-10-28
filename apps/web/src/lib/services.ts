@@ -17,8 +17,10 @@ async function request(path: string) {
     throw new ServicesUnavailable('Services are unavailable');
   }
 }
-export async function getServices(locale: Locale, page: number, q: string) {
-  const data = await request(`?${new URLSearchParams({ locale, page: String(page), q })}`);
+export async function getServices(locale: Locale, page: number, q: string, limit = 12) {
+  const data = await request(
+    `?${new URLSearchParams({ locale, page: String(page), q, limit: String(limit) })}`,
+  );
   const parsed = serviceListSchema.safeParse(data);
   if (!parsed.success) throw new ServicesUnavailable();
   return parsed.data;

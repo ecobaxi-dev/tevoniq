@@ -17,9 +17,7 @@ test('service catalog, dynamic blocks, SEO and unavailable translations', async 
   ).toEqual([]);
   expect((await page.goto('/ar/services/development-fixture'))?.status()).toBe(404);
   await page.goto('/en/services?q=empty');
-  await expect(page.getByRole('status')).toHaveText(
-    'No services are currently published in this language.',
-  );
+  await expect(page.getByRole('status')).toHaveText('No published services match this search.');
 });
 test('CMS requires a session, rejects cross-origin writes and saves through a secure cookie proxy', async ({
   page,

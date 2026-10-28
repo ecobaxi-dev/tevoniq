@@ -1,3 +1,6 @@
+import { ServiceDirectory } from '@/components/service-directory';
+import { directoryCopy } from '@/content/service-directory';
+import { getNavigation } from '@/lib/navigation';
 import { Heading } from '@tevoniq/ui';
 import { CatalogVisual } from '@/components/concept-visual';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -24,6 +27,24 @@ async function PublicPage({
     q: query.q ?? '',
   });
   if (!parsed.success) notFound();
+  if (locale.data === 'ar' || locale.data === 'en') {
+    const [services, navigation] = await Promise.allSettled([
+      getServices(locale.data, parsed.data.page, parsed.data.q, 48),
+      getNavigation(locale.data),
+    ]);
+    return (
+      <ServiceDirectory
+        locale={locale.data}
+        result={services.status === 'fulfilled' ? services.value : undefined}
+        q={parsed.data.q}
+        navigation={
+          navigation.status === 'fulfilled'
+            ? (navigation.value.items.find((item) => item.href === '/services')?.groups ?? [])
+            : []
+        }
+      />
+    );
+  }
   const labels = serviceLabels[locale.data];
   let result;
   try {
@@ -104,7 +125,16 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string; slug: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  return routeMetadata(props, '/services', {});
+  const locale = localeSchema.parse((await props.params).locale);
+  const base =
+    locale === 'ar' || locale === 'en'
+      ? {
+          title: `${directoryCopy[locale].title} | TEVONIQ`,
+          description: directoryCopy[locale].intro,
+          alternates: { canonical: `/${locale}/services` },
+        }
+      : {};
+  return routeMetadata(props, '/services', base);
 }
 
 export default async function Page(props: Parameters<typeof PublicPage>[0]) {

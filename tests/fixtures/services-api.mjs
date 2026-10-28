@@ -1,5 +1,10 @@
 // Isolated Playwright-only API fixture. Never imported by application code.
 import { createServer } from 'node:http';
+import { readFileSync } from 'node:fs';
+import { retiredServiceSlugs } from '../../packages/types/src/retired-catalog.ts';
+const directoryCatalog = JSON.parse(
+  readFileSync(new URL('../../content/service-expansion.json', import.meta.url), 'utf8'),
+);
 import { homeCopy } from '../../apps/web/src/content/home.ts';
 import { referenceHeroCopy } from '../../apps/web/src/content/reference-hero.ts';
 const id = '11111111-1111-4111-8111-111111111111';
@@ -147,6 +152,61 @@ createServer(async (req, res) => {
       content: { copy: homeCopy[home[1]], hero: referenceHeroCopy[home[1]] },
       partners: [],
     });
+  if (url.pathname === '/api/v1/services' && url.searchParams.get('q')?.startsWith('directory-')) {
+    if (url.searchParams.get('q') === 'directory-error')
+      return send(503, { message: 'Unavailable fixture' });
+    const locale = url.searchParams.get('locale') || 'en';
+    const slugs = [
+      'it-consulting',
+      'software-product-engineering',
+      'business-automation',
+      'erp-solutions',
+      'iot-solutions',
+      'artificial-intelligence',
+      'cybersecurity',
+      'api-integration',
+    ];
+    const cards = slugs.map((slug, index) => {
+      const service = directoryCatalog.groups
+        .flatMap((group) => group.services)
+        .find((service) => service.slug === slug);
+      return {
+        id: `10000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+        slug,
+        title: service.translations[locale].title,
+        summary: service.translations[locale].summary,
+      };
+    });
+    if (locale === 'en')
+      cards.push({
+        id,
+        slug: 'development-fixture',
+        title: 'Development service fixture',
+        summary: 'Published service without a navigation category',
+      });
+    if (url.searchParams.get('q') === 'directory-pages') {
+      const page = Number(url.searchParams.get('page') || 1),
+        limit = 4;
+      return send(200, {
+        items: cards.slice((page - 1) * limit, page * limit),
+        total: cards.length,
+        page,
+        limit,
+      });
+    }
+    const retired = retiredServiceSlugs.map((slug, index) => ({
+      id: `20000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+      slug,
+      title: 'Archived offering',
+      summary: 'Must not be visible',
+    }));
+    return send(200, {
+      items: [...cards, ...retired],
+      total: cards.length + retired.length,
+      page: 1,
+      limit: 48,
+    });
+  }
   if (url.pathname === '/api/v1/services')
     return send(200, {
       items:
