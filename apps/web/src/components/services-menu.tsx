@@ -31,6 +31,7 @@ export function ServicesMenu({
       : undefined;
   const featured =
     visual && active?.items.some((item) => item.href === visual.href) ? visual : undefined;
+  const itemCount = active?.items.length ?? 0;
   return (
     <div className="site-services-menu">
       <div className="site-services-categories" role="group" aria-label={allLabel}>
@@ -57,7 +58,7 @@ export function ServicesMenu({
             </Link>
           </NavigationMenu.Link>
         </header>
-        <ul aria-label={active?.label}>
+        <ul aria-label={active?.label} data-item-count={itemCount}>
           {active?.items.map((item) => (
             <li key={item.id}>
               <NavigationMenu.Link asChild>
@@ -74,7 +75,7 @@ export function ServicesMenu({
           {featured && (locale === 'ar' || locale === 'en') && (
             <li
               className="site-services-feature"
-              data-layout={(active?.items.length ?? 0) < 4 ? 'banner' : 'tile'}
+              data-layout={itemCount === 1 || itemCount % 2 === 0 ? 'banner' : 'tile'}
             >
               <NavigationMenu.Link asChild>
                 <Link

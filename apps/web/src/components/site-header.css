@@ -754,3 +754,60 @@
     transform: none;
   }
 }
+/* Solutions illustration and supplied product marks share the light menu surface. */
+[data-design='clean'] .site-mega-panel {
+  max-height: calc(100dvh - var(--site-header-height) - 1rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.site-mega-solutions-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #1836cf;
+}
+.site-products-panel {
+  width: 22rem;
+  max-width: calc(100vw - 2rem);
+}
+.site-submenu-link.site-product-link {
+  gap: 16px;
+  padding: 12px;
+}
+.site-product-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 108px;
+  height: 64px;
+  padding: 7px;
+  background: #fff;
+  border: 1px solid #e0e7ef;
+  border-radius: 10px;
+}
+.site-product-mark img {
+  display: block;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.site-product-link > span:not(.site-product-mark) {
+  flex: 1;
+  font-weight: 600;
+}
+.site-product-link > svg {
+  flex-shrink: 0;
+}
+.site-services-content ul[data-item-count='1'] > li:not(.site-services-feature) {
+  grid-column: 1/-1;
+}
+
+.site-mega-visual-link {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}

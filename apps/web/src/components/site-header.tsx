@@ -23,6 +23,7 @@ import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import { isActivePath, localizedHref } from '@/config/navigation';
 import { assetCatalog } from '@/config/assets';
 import { ServicesMenu } from '@/components/services-menu';
+import { productNavigationMarks, solutionsNavigationVisual } from '@/content/navigation-visuals';
 import { headerNavigation } from '@/content/header-navigation';
 
 const GlobalSearch = dynamic(() => import('./global-search').then((module) => module.GlobalSearch));
@@ -104,13 +105,29 @@ export function SiteHeader({
 
   const itemLink = (item: NavigationItem, mega = false) => {
     const href = localizedHref(locale, item.href);
+    const mark =
+      cleanDesign && Object.hasOwn(productNavigationMarks, item.href)
+        ? productNavigationMarks[item.href as keyof typeof productNavigationMarks]
+        : undefined;
     return (
       <Link
-        className={mega ? 'site-mega-link' : 'site-submenu-link'}
+        className={`${mega ? 'site-mega-link' : 'site-submenu-link'}${mark ? ' site-product-link' : ''}`}
         href={href}
         onClick={closeMenus}
         aria-current={isActivePath(pathname, href, homeHref) ? 'page' : undefined}
       >
+        {mark && (
+          <span className="site-product-mark">
+            <img
+              src={mark.src}
+              width={mark.width}
+              height={mark.height}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+        )}
         <span>{item.label}</span>
         <ArrowUpRight size={16} className="tv-directional" aria-hidden="true" />
       </Link>
@@ -168,7 +185,7 @@ export function SiteHeader({
                             <ChevronDown size={12} aria-hidden="true" />
                           </NavigationMenu.Trigger>
                           <NavigationMenu.Content
-                            className={`site-menu-panel ${item.groups?.length ? 'site-services-panel' : item.menu === 'mega' ? 'site-mega-panel' : 'site-submenu-panel'}`}
+                            className={`site-menu-panel ${item.groups?.length ? 'site-services-panel' : item.menu === 'mega' ? 'site-mega-panel' : 'site-submenu-panel'}${cleanDesign && item.id === 'products' ? ' site-products-panel' : ''}`}
                             data-theme="light"
                           >
                             {item.groups?.length ? (
@@ -187,7 +204,7 @@ export function SiteHeader({
                                     onClick={closeMenus}
                                     className="site-mega-title"
                                   >
-                                    {item.label}
+                                    <span>{item.label}</span>
                                     <ArrowUpRight aria-hidden="true" size={22} />
                                   </Link>
                                   <Link
@@ -209,6 +226,30 @@ export function SiteHeader({
                                       {itemLink(child, true)}
                                     </NavigationMenu.Link>
                                   ))}
+                                  {cleanDesign && item.href === '/solutions' && (
+                                    <NavigationMenu.Link asChild>
+                                      <Link
+                                        href={href}
+                                        onClick={closeMenus}
+                                        className="site-mega-visual-link"
+                                        aria-label={
+                                          locale === 'ar'
+                                            ? 'استكشف حلولنا للأعمال'
+                                            : 'Explore our business solutions'
+                                        }
+                                      >
+                                        <img
+                                          className="site-mega-solutions-image"
+                                          src={solutionsNavigationVisual}
+                                          width={560}
+                                          height={373}
+                                          alt=""
+                                          loading="lazy"
+                                          decoding="async"
+                                        />
+                                      </Link>
+                                    </NavigationMenu.Link>
+                                  )}
                                 </div>
                               </>
                             ) : (

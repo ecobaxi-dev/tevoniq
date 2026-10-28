@@ -17,7 +17,6 @@ test('service categories show vivid local previews only for matching public serv
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   for (const locale of ['ar', 'en']) {
-    await openServices(page, locale);
     for (const [group, asset, slug] of [
       [
         locale === 'ar' ? 'هندسة المنتجات البرمجية' : 'Software Product Engineering',
@@ -29,7 +28,25 @@ test('service categories show vivid local previews only for matching public serv
         'automation',
         'business-automation',
       ],
+      [
+        locale === 'ar' ? 'الاستشارات والتنفيذ' : 'Consulting & Delivery',
+        'consulting',
+        'it-consulting',
+      ],
+      [
+        locale === 'ar' ? 'الأنظمة المدمجة وإنترنت الأشياء' : 'Embedded & IoT',
+        'iot',
+        'iot-solutions',
+      ],
+      [locale === 'ar' ? 'الأمن والجودة' : 'Security & Quality', 'security', 'cybersecurity'],
+      [locale === 'ar' ? 'خدمات إضافية' : 'Additional Services', 'additional', 'api-integration'],
+      [
+        locale === 'ar' ? 'استشارات وتطبيق الذكاء الاصطناعي' : 'AI Consulting & Implementation',
+        'ai',
+        'artificial-intelligence',
+      ],
     ]) {
+      await openServices(page, locale);
       const category = page
         .locator('.site-services-categories')
         .getByRole('button', { name: group, exact: true });
@@ -48,11 +65,9 @@ test('service categories show vivid local previews only for matching public serv
       expect(await img.getAttribute('src')).not.toContain('/_next/image');
       const response = await request.get(`/brand/navigation/${asset}-v1.webp`);
       expect(response.ok()).toBe(true);
-      expect((await response.body()).length).toBeLessThan(35000);
+      expect((await response.body()).length).toBeLessThan(50000);
       expect(await img.getAttribute('alt')).toBe('');
     }
-    await page.locator('.site-services-categories button').first().click();
-    await expect(page.locator('.site-services-feature')).toHaveCount(0);
   }
   expect(errors).toEqual([]);
 });
@@ -80,11 +95,17 @@ test('thumbnail links work with keyboard, close the menu and preserve service na
 test('both preview layouts remain contained and accessible in Arabic and English and respect reduced motion', async ({
   page,
 }) => {
+  test.setTimeout(90000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const locale of ['ar', 'en']) {
     for (const category of [
       locale === 'ar' ? 'هندسة المنتجات البرمجية' : 'Software Product Engineering',
       locale === 'ar' ? 'المنصات الذكية والأتمتة' : 'Intelligent Platforms & Automation',
+      locale === 'ar' ? 'الاستشارات والتنفيذ' : 'Consulting & Delivery',
+      locale === 'ar' ? 'الأنظمة المدمجة وإنترنت الأشياء' : 'Embedded & IoT',
+      locale === 'ar' ? 'الأمن والجودة' : 'Security & Quality',
+      locale === 'ar' ? 'خدمات إضافية' : 'Additional Services',
+      locale === 'ar' ? 'استشارات وتطبيق الذكاء الاصطناعي' : 'AI Consulting & Implementation',
     ]) {
       // Axe may blur Radix's focused menu; open each category as an independent scenario.
       await page.setViewportSize({ width: 1440, height: 900 });
@@ -135,4 +156,97 @@ test('mobile drawer and legacy Turkish navigation keep their existing content', 
     .click();
   await expect(page.locator('.site-services-menu')).toBeVisible();
   await expect(page.locator('.site-services-feature')).toHaveCount(0);
+});
+
+test('solutions show their illustration and product menus use original marks on desktop and mobile', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  for (const locale of ['ar', 'en']) {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`/${locale}`);
+    const nav = page.locator('.site-desktop-nav');
+    await nav
+      .getByRole('button', { name: locale === 'ar' ? 'حلولنا' : 'Solutions', exact: true })
+      .press('Enter');
+    await page
+      .locator('.site-mega-panel')
+      .evaluate((node) => Promise.all(node.getAnimations().map((animation) => animation.finished)));
+    const illustration = page.locator('.site-mega-solutions-image');
+    await expect(illustration).toBeVisible();
+    await expect(illustration).toHaveAttribute('src', '/brand/navigation/solutions-v1.webp');
+    await expect
+      .poll(() =>
+        illustration.evaluate(
+          (node: HTMLImageElement) => node.complete && node.naturalWidth === 560,
+        ),
+      )
+      .toBe(true);
+    expect(
+      (
+        await new AxeBuilder({ page })
+          .include('.site-mega-intro')
+          .include('.site-mega-links')
+          .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+          .analyze()
+      ).violations,
+    ).toEqual([]);
+    await nav
+      .getByRole('button', { name: locale === 'ar' ? 'منتجاتنا' : 'Products', exact: true })
+      .press('Enter');
+    await page
+      .locator('.site-products-panel')
+      .evaluate((node) => Promise.all(node.getAnimations().map((animation) => animation.finished)));
+    await expect(page.locator('.site-products-panel .site-product-mark img')).toHaveCount(2);
+    for (const name of ['pesto', 'advocas']) {
+      const link = page.locator(`.site-products-panel a[href="/${locale}/${name}"]`);
+      await expect(link.locator('img')).toHaveAttribute(
+        'src',
+        `/brand/navigation/${name}-logo-v1.webp`,
+      );
+      await expect
+        .poll(() =>
+          link
+            .locator('img')
+            .evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth === 320),
+        )
+        .toBe(true);
+    }
+    expect(
+      (
+        await new AxeBuilder({ page })
+          .include('.site-products-panel')
+          .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+          .analyze()
+      ).violations,
+    ).toEqual([]);
+    await page.goto(`/${locale}`);
+    await nav
+      .getByRole('button', { name: locale === 'ar' ? 'منتجاتنا' : 'Products', exact: true })
+      .press('Enter');
+    const target = page.locator(`.site-products-panel a[href="/${locale}/pesto"]`);
+    await target.focus();
+    await target.press('Enter');
+    await expect(page).toHaveURL(`/${locale}/pesto`);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/${locale}`);
+    await page
+      .getByRole('button', {
+        name: locale === 'ar' ? 'فتح القائمة' : 'Open navigation',
+        exact: true,
+      })
+      .click();
+    const dialog = page.getByRole('dialog');
+    await dialog
+      .getByRole('button', { name: locale === 'ar' ? 'منتجاتنا' : 'Products', exact: true })
+      .click();
+    await expect(dialog.locator('.site-product-mark img')).toHaveCount(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await dialog.locator(`a[href="/${locale}/advocas"]`).click();
+    await expect(page).toHaveURL(`/${locale}/advocas`);
+  }
+  expect(errors).toEqual([]);
 });

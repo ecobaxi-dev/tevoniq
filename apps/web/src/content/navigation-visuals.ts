@@ -12,4 +12,49 @@ export const navigationVisuals = {
     ar: { title: 'أدواتك تعمل معًا', caption: 'استكشف رحلة الأتمتة والربط' },
     en: { title: 'Your tools, connected', caption: 'Explore automation and integration' },
   },
+  consulting: {
+    href: '/services/it-consulting',
+    src: '/brand/navigation/consulting-v1.webp',
+    ar: { title: 'بداية واضحة لمشروعك', caption: 'استكشف الاستشارات وخطوات التنفيذ' },
+    en: { title: 'A clear project starting point', caption: 'Explore consulting and delivery' },
+  },
+  iot: {
+    href: '/services/iot-solutions',
+    src: '/brand/navigation/iot-v1.webp',
+    ar: { title: 'أجهزة مترابطة وبيانات أوضح', caption: 'استكشف الأنظمة المدمجة وإنترنت الأشياء' },
+    en: { title: 'Connected devices, clearer data', caption: 'Explore embedded systems and IoT' },
+  },
+  security: {
+    href: '/services/cybersecurity',
+    src: '/brand/navigation/security-v1.webp',
+    ar: { title: 'الجودة تبدأ من التفاصيل', caption: 'استكشف الأمن والتحقق من الأنظمة' },
+    en: {
+      title: 'Quality starts with the details',
+      caption: 'Explore security and system validation',
+    },
+  },
+  additional: {
+    href: '/services/api-integration',
+    src: '/brand/navigation/additional-v1.webp',
+    ar: { title: 'تقنياتك تعمل بانسجام', caption: 'استكشف الربط والخدمات التقنية' },
+    en: {
+      title: 'Technology working together',
+      caption: 'Explore integration and technical services',
+    },
+  },
+  ai: {
+    href: '/services/artificial-intelligence',
+    src: '/brand/navigation/ai-v1.webp',
+    ar: { title: 'ذكاء يخدم احتياجك', caption: 'استكشف تطبيقات الذكاء الاصطناعي' },
+    en: {
+      title: 'Intelligence with a purpose',
+      caption: 'Explore artificial intelligence applications',
+    },
+  },
+};
+
+export const solutionsNavigationVisual = '/brand/navigation/solutions-v1.webp';
+export const productNavigationMarks = {
+  '/pesto': { src: '/brand/navigation/pesto-logo-v1.webp', width: 320, height: 107 },
+  '/advocas': { src: '/brand/navigation/advocas-logo-v1.webp', width: 320, height: 185 },
 };
