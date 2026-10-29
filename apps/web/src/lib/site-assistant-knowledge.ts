@@ -1,3 +1,4 @@
+import { mlCopy } from '@/content/machine-learning';
 import { qaCopy } from '@/content/qa-automation';
 import 'server-only';
 import { customCopy } from '@/content/custom-software';
@@ -16,6 +17,7 @@ import { getService } from '@/lib/services';
 import type { AssistantLocale, AssistantSource } from './site-assistant-core';
 
 const presentations = {
+  'ai-machine-learning': mlCopy,
   'qa-automation': qaCopy,
   'custom-software-development': customCopy,
   'it-consulting': consultingCopy,

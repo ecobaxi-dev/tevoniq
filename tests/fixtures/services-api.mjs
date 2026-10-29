@@ -53,6 +53,7 @@ let engineeringPublished = true;
 let iotPublished = true;
 let customPublished = true;
 let qaPublished = true;
+let mlPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -168,6 +169,7 @@ createServer(async (req, res) => {
       'erp-solutions',
       'iot-solutions',
       'artificial-intelligence',
+      'ai-machine-learning',
       'cybersecurity',
       'api-integration',
     ];
@@ -229,6 +231,33 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/ml-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    mlPublished = JSON.parse(body).published === true;
+    return send(200, { published: mlPublished });
+  }
+  if (url.pathname === '/api/v1/services/ai-machine-learning') {
+    const locale = url.searchParams.get('locale');
+    if (!mlPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const item = directoryCatalog.groups
+      .flatMap((group) => group.services)
+      .find((service) => service.slug === 'ai-machine-learning');
+    const title = item.translations[locale].title;
+    return send(200, {
+      id,
+      slug: 'ai-machine-learning',
+      locale,
+      title,
+      summary: 'Isolated AI and ML fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated AI and ML fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/qa-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;

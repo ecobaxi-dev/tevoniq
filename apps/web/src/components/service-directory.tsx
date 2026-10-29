@@ -1,3 +1,4 @@
+import { mlCopy } from '@/content/machine-learning';
 import { qaCopy } from '@/content/qa-automation';
 import { customCopy } from '@/content/custom-software';
 import { iotCopy } from '@/content/iot-service';
@@ -32,6 +33,7 @@ import {
 import { serviceLabels } from '@/content/services';
 import './service-directory.css';
 const summaries = {
+  'ai-machine-learning': mlCopy,
   'qa-automation': qaCopy,
   'custom-software-development': customCopy,
   'iot-solutions': iotCopy,
