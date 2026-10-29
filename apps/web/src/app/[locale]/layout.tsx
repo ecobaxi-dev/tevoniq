@@ -13,6 +13,8 @@ import { env } from '@/lib/env';
 import { resolveFaviconAsset } from '@/config/assets';
 import { getNavigation } from '@/lib/navigation';
 import { SiteHeader } from '@/components/site-header';
+import { SiteSideNavigation } from '@/components/site-side-navigation';
+import '@/components/site-side-navigation.css';
 import { SiteStructuredData } from '@/components/seo/structured-data';
 import '../globals.css';
 import '@/components/site-header.css';
@@ -52,20 +54,36 @@ export default async function LocaleLayout({
   if (!parsed.success) notFound();
   const [navigation, settings] = await Promise.all([getNavigation(parsed.data), getSiteSettings()]);
   if (!settings.localization.enabledLanguages.includes(parsed.data)) notFound();
+  const header = (
+    <SiteHeader
+      content={navigation}
+      locale={parsed.data}
+      enabledLanguages={settings.localization.enabledLanguages}
+      brand={settings.brand}
+      siteName={settings.general.siteName}
+    />
+  );
+  const body = (
+    <>
+      <SiteStructuredData />
+      {children}
+      <SiteFooter locale={parsed.data} navigation={navigation} />
+    </>
+  );
   return (
     <html lang={parsed.data} dir={directionFor(parsed.data)}>
       <body className="public-site bg-mist font-sans text-navy antialiased">
         <NonceProvider nonce={nonce}>
-          <SiteHeader
-            content={navigation}
-            locale={parsed.data}
-            enabledLanguages={settings.localization.enabledLanguages}
-            brand={settings.brand}
-            siteName={settings.general.siteName}
-          />
-          <SiteStructuredData />
-          {children}
-          <SiteFooter locale={parsed.data} navigation={navigation} />
+          {parsed.data === 'tr' ? (
+            <>
+              {header}
+              {body}
+            </>
+          ) : (
+            <SiteSideNavigation locale={parsed.data} content={navigation} header={header}>
+              {body}
+            </SiteSideNavigation>
+          )}
           <SiteAnalytics
             nonce={nonce}
             analytics={settings.analytics}
