@@ -1,3 +1,4 @@
+import { networkCopy } from '@/content/network-infrastructure';
 import { mlCopy } from '@/content/machine-learning';
 import { qaCopy } from '@/content/qa-automation';
 import { customCopy } from '@/content/custom-software';
@@ -35,23 +36,26 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
     const service = await getService(locale, slug);
     if (!service) return { robots: { index: false, follow: false } };
     const presentation =
-      slug === 'ai-machine-learning' && (locale === 'ar' || locale === 'en')
-        ? mlCopy[locale]
-        : slug === 'qa-automation' && (locale === 'ar' || locale === 'en')
-          ? qaCopy[locale]
-          : slug === 'custom-software-development' && (locale === 'ar' || locale === 'en')
-            ? customCopy[locale]
-            : slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
-              ? consultingCopy[locale]
-              : slug === 'business-automation' && (locale === 'ar' || locale === 'en')
-                ? automationServiceCopy[locale]
-                : slug === 'erp-solutions' && (locale === 'ar' || locale === 'en')
-                  ? erpCopy[locale]
-                  : slug === 'software-product-engineering' && (locale === 'ar' || locale === 'en')
-                    ? engineeringCopy[locale]
-                    : slug === 'iot-solutions' && (locale === 'ar' || locale === 'en')
-                      ? iotCopy[locale]
-                      : null;
+      slug === 'network-infrastructure' && (locale === 'ar' || locale === 'en')
+        ? networkCopy[locale]
+        : slug === 'ai-machine-learning' && (locale === 'ar' || locale === 'en')
+          ? mlCopy[locale]
+          : slug === 'qa-automation' && (locale === 'ar' || locale === 'en')
+            ? qaCopy[locale]
+            : slug === 'custom-software-development' && (locale === 'ar' || locale === 'en')
+              ? customCopy[locale]
+              : slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
+                ? consultingCopy[locale]
+                : slug === 'business-automation' && (locale === 'ar' || locale === 'en')
+                  ? automationServiceCopy[locale]
+                  : slug === 'erp-solutions' && (locale === 'ar' || locale === 'en')
+                    ? erpCopy[locale]
+                    : slug === 'software-product-engineering' &&
+                        (locale === 'ar' || locale === 'en')
+                      ? engineeringCopy[locale]
+                      : slug === 'iot-solutions' && (locale === 'ar' || locale === 'en')
+                        ? iotCopy[locale]
+                        : null;
     return {
       title: presentation ? `${presentation.serviceTitle} | TEVONIQ` : service.seoTitle,
       description: presentation?.seoDescription ?? service.seoDescription,
@@ -110,6 +114,7 @@ async function PublicPage({ params }: Props) {
       <ServiceBlocks service={service} locale={locale} />
       {!(
         [
+          'network-infrastructure',
           'ai-machine-learning',
           'qa-automation',
           'custom-software-development',

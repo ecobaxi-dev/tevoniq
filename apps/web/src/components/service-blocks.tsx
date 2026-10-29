@@ -1,3 +1,4 @@
+import { NetworkInfrastructureService } from './network-infrastructure-service';
 import { MachineLearningService } from './machine-learning-service';
 import { QaAutomationService } from './qa-automation-service';
 import { CustomSoftwareService } from './custom-software-service';
@@ -15,6 +16,8 @@ import { MobileService } from './mobile-service';
 import { DigitalTransformationService } from './digital-transformation-service';
 import { AiDevelopmentService } from './ai-development-service';
 export function ServiceBlocks({ service, locale }: { service: PublicService; locale: Locale }) {
+  if (service.slug === 'network-infrastructure' && (locale === 'ar' || locale === 'en'))
+    return <NetworkInfrastructureService locale={locale} />;
   if (service.slug === 'ai-machine-learning' && (locale === 'ar' || locale === 'en'))
     return <MachineLearningService locale={locale} />;
   if (service.slug === 'qa-automation' && (locale === 'ar' || locale === 'en'))
