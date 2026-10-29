@@ -385,3 +385,32 @@
     transition: none !important;
   }
 }
+.site-side-item.tone-assistant {
+  --side-tone: #087b89;
+}
+.site-assistant-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px solid #bddfe6;
+  border-radius: 14px;
+  background: #edf9fb;
+  color: #075a6a;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.site-assistant-inline:focus-visible {
+  outline: 3px solid #2357d9;
+  outline-offset: 3px;
+}
+@media (max-height: 720px) and (min-width: 901px) {
+  .has-site-assistant .site-side-rail .site-side-item {
+    min-height: 38px;
+    padding: 7px 8px;
+  }
+}

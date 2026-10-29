@@ -13,6 +13,7 @@ import { env } from '@/lib/env';
 import { resolveFaviconAsset } from '@/config/assets';
 import { getNavigation } from '@/lib/navigation';
 import { SiteHeader } from '@/components/site-header';
+import { assistantConfig } from '@/lib/site-assistant-core';
 import { SiteSideNavigation } from '@/components/site-side-navigation';
 import '@/components/site-side-navigation.css';
 import '@/components/site-contact-widget.css';
@@ -84,6 +85,7 @@ export default async function LocaleLayout({
             <SiteSideNavigation
               locale={parsed.data}
               content={navigation}
+              assistantEnabled={!!assistantConfig({ ...process.env, SITE_URL: env.SITE_URL })}
               contactDetails={settings.contact}
               header={header}
             >

@@ -1,5 +1,7 @@
 import { Heading } from '@tevoniq/ui';
 import type { Locale } from '@tevoniq/types';
+import { assistantConfig } from '@/lib/site-assistant-core';
+import { env } from '@/lib/env';
 import { getSiteSettings } from '@/lib/site-settings';
 import { cookieCopy } from '@/content/cookies';
 import { CookieSettingsButton } from './cookie-settings-button';
@@ -40,6 +42,20 @@ export async function PolicyPage({
               <p>{copy.choicesText}</p>
               <CookieSettingsButton locale={locale} />
             </section>
+            {locale !== 'tr' && !!assistantConfig({ ...process.env, SITE_URL: env.SITE_URL }) && (
+              <section id="ai-assistant-privacy">
+                <Heading as="h2">
+                  {locale === 'ar'
+                    ? 'المساعد الذكي ومعالجة الرسائل'
+                    : 'AI assistant and message processing'}
+                </Heading>
+                <p>
+                  {locale === 'ar'
+                    ? 'بعد موافقتك على استخدام المساعد، تُرسل رسالتك وسياق محدود من المحادثة ومقتطفات من محتوى الموقع إلى Cloudflare لإعداد الإجابة. يحتفظ الموقع بحالة المحادثة مؤقتًا أثناء فتح المساعد، ولا يحفظ نصها في قاعدة بيانات أو ملفات ارتباط أو تخزين محلي. يمكنك مسح الجلسة ببدء محادثة جديدة أو إغلاق المساعد. لا تشارك كلمات مرور أو بيانات مالية أو معلومات حساسة.'
+                    : 'After you consent to using the assistant, your message, limited conversation context and website excerpts are sent to Cloudflare to generate an answer. The website keeps temporary conversation state while the assistant is open and does not store the transcript in its database, cookies or local storage. Start a new conversation or close the assistant to clear this state. Do not share passwords, financial data or sensitive information.'}
+                </p>
+              </section>
+            )}
             {settings.legal.privacyInformation && (
               <section>
                 <Heading as="h2">{copy.policyDetails}</Heading>

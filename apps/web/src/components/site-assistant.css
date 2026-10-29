@@ -1,0 +1,253 @@
+.site-assistant-dialog {
+  width: min(480px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  margin: auto;
+  border: 1px solid #dbe6f1;
+  border-radius: 24px;
+  background: #fff;
+  color: #17304c;
+  font: inherit;
+  box-shadow: 0 24px 90px #0a24364d;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.site-assistant-dialog::backdrop {
+  background: #11284070;
+  backdrop-filter: blur(3px);
+}
+.site-assistant-dialog * {
+  box-sizing: border-box;
+}
+.sa-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: linear-gradient(120deg, #123959, #075a6a);
+  color: #fff;
+}
+.sa-head > div {
+  flex: 1;
+}
+.sa-head h2 {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+.sa-head p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 3px 0 0;
+}
+.sa-head button {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff20;
+  color: #fff;
+  cursor: pointer;
+}
+.sa-content {
+  padding: 20px;
+  background: #f5f8fc;
+  max-height: 40dvh;
+  min-height: 150px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.sa-intro {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #445d75;
+  margin: 0 0 15px;
+}
+.sa-prompts {
+  display: grid;
+  gap: 8px;
+}
+.sa-prompts button {
+  padding: 10px 14px;
+  border: 1px solid #ccdae8;
+  border-radius: 12px;
+  background: #fff;
+  color: #264867;
+  text-align: start;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sa-prompts button:hover {
+  border-color: #07879b;
+  background: #f0fbff;
+}
+.sa-log {
+  display: grid;
+  gap: 14px;
+}
+.sa-message {
+  max-width: 94%;
+  padding: 13px 15px;
+  border: 1px solid #dce5ef;
+  border-radius: 16px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+.sa-user {
+  margin-inline-start: auto;
+  background: #e5f5f7;
+  border-color: #c6e3e6;
+}
+.sa-speaker {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4c627a;
+}
+.sa-message p {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 6px 0;
+}
+.sa-message nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+.sa-message nav a {
+  padding: 5px 8px;
+  border: 1px solid #c8dce7;
+  border-radius: 9px;
+  color: #075976;
+  background: #f0f8fb;
+  text-decoration: none;
+  font-size: 11px;
+}
+.sa-status,
+.sa-error {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 12px 0 0;
+}
+.sa-status {
+  color: #345976;
+}
+.sa-error {
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff2eb;
+  color: #8b3814;
+}
+.sa-form {
+  display: grid;
+  gap: 10px;
+  padding: 18px 20px;
+  border-top: 1px solid #e0e8f1;
+}
+.sa-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #3b5670;
+}
+.sa-consent input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: #086b7b;
+}
+.sa-consent a,
+.sa-form-actions > a {
+  color: #075976;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sa-form > small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #566b80;
+}
+.sa-question-label {
+  font-size: 13px;
+  font-weight: 700;
+}
+.sa-form textarea {
+  width: 100%;
+  min-height: 70px;
+  max-height: 160px;
+  padding: 11px 12px;
+  border: 1px solid #bdcfe1;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  color: #17304c;
+  background: #fff;
+  resize: vertical;
+}
+.sa-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.sa-form-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 13px;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.sa-send {
+  border: 1px solid #08687b;
+  background: #08687b;
+  color: #fff;
+}
+.sa-send:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.sa-reset {
+  border: 1px solid #cbd8e6;
+  background: #fff;
+  color: #35536e;
+}
+.sa-form-actions > a {
+  font-size: 12px;
+  margin-inline-start: auto;
+}
+.site-assistant-dialog :is(button, a, input, textarea):focus-visible {
+  outline: 3px solid #2357d9;
+  outline-offset: 3px;
+}
+@media (max-height: 550px) {
+  .sa-content {
+    max-height: 25dvh;
+    min-height: 70px;
+  }
+  .sa-head {
+    padding: 12px 18px;
+  }
+  .sa-form {
+    padding: 12px 18px;
+  }
+}
+@media (max-width: 380px) {
+  .sa-head h2 {
+    font-size: 16px;
+  }
+  .sa-head,
+  .sa-content,
+  .sa-form {
+    padding: 14px;
+  }
+}

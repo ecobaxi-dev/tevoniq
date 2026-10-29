@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import { flattenNavigation, isActivePath, localizedHref } from '@/config/navigation';
+import { SiteAssistantLauncher } from '@/components/site-assistant-launcher';
 import { SiteContactWidget, type SideContactDetails } from '@/components/site-contact-widget';
 import { headerNavigation } from '@/content/header-navigation';
 import { productNavigationMarks } from '@/content/navigation-visuals';
@@ -47,12 +48,14 @@ export function SiteSideNavigation({
   locale,
   content,
   contactDetails,
+  assistantEnabled = false,
   header,
   children,
 }: {
   locale: 'ar' | 'en';
   content: NavigationContent;
   contactDetails: SideContactDetails;
+  assistantEnabled?: boolean;
   header: ReactNode;
   children: ReactNode;
 }) {
@@ -91,7 +94,9 @@ export function SiteSideNavigation({
       isActivePath(pathname, localizedHref(locale, entry.href), localizedHref(locale, '/')),
     );
   return (
-    <div className={`site-navigation-frame ${compact ? 'is-compact' : 'is-expanded'}`}>
+    <div
+      className={`site-navigation-frame ${compact ? 'is-compact' : 'is-expanded'} ${assistantEnabled ? 'has-site-assistant' : ''}`}
+    >
       {header}
       <aside className="site-side-rail" aria-label={t('شريط الوصول السريع', 'Quick access rail')}>
         <nav aria-label={t('الوصول السريع', 'Quick access')}>
@@ -146,6 +151,9 @@ export function SiteSideNavigation({
               </Link>
             );
           })}
+          {assistantEnabled && (
+            <SiteAssistantLauncher key={`assistant-${pathname}`} locale={locale} />
+          )}
         </nav>
         <button
           type="button"
@@ -230,6 +238,9 @@ export function SiteSideNavigation({
             placeholder={t('ابحث عن خدمة أو منتج…', 'Search services and products…')}
           />
         </label>
+        {assistantEnabled && (
+          <SiteAssistantLauncher key={`assistant-inline-${pathname}`} locale={locale} inline />
+        )}
         {current.href === '/contact' && !query.trim() && (
           <SiteContactWidget key={pathname} locale={locale} details={contactDetails} inline />
         )}
