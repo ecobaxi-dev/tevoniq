@@ -1,3 +1,4 @@
+import { assistantContactSource } from '../apps/web/src/lib/site-assistant-contact.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
@@ -5,6 +6,7 @@ import {
   assistantRequestSchema,
   selectAssistantSources,
   assistantSystemPrompt,
+  assistantContactIntent,
   requestAssistant,
   AssistantFailure,
   createAssistantBudget,
@@ -59,7 +61,7 @@ test('activation requires explicit enablement, server credentials and exact orig
 test('bounded retrieval ranks Arabic content and system instructions preserve company boundaries', () => {
   assert.equal(selectAssistantSources('أريد موقع', sources)[0].href, '/ar/website-designs');
   const prompt = assistantSystemPrompt('ar', sources);
-  assert.match(prompt, /natural Arabic/);
+  assert.match(prompt, /عربية سهلة ودافئة/);
   assert.match(prompt, /untrusted/);
   assert.match(prompt, /not delivered customer work/);
   assert.match(prompt, /Do not offer unlisted services/);
@@ -163,4 +165,69 @@ test('single-process budget bounds concurrency and minute/hour/day windows; fail
   lease = budget.reserve();
   assert.equal(lease.ok, true);
   lease.release();
+});
+
+test('location intent separates geographic questions and trust follow-ups from an explicit website URL request', () => {
+  for (const query of [
+    'أين موقعكم؟',
+    'وينكم؟',
+    'أقصد الموقع الجغرافي',
+    'هل عندكم مكان للرجوع إليه؟',
+    'عنوان مكتبكم',
+    'رقم واتساب',
+    'Where are you located?',
+    'I need a physical address',
+  ])
+    assert.equal(assistantContactIntent(query), true, query);
+  for (const query of [
+    'أريد رابط موقعكم الإلكتروني',
+    'What is your website URL?',
+    'أريد تصميم متجر',
+  ])
+    assert.equal(assistantContactIntent(query), false, query);
+});
+const publicContact = {
+  streetAddress: '',
+  city: 'İstanbul',
+  region: '',
+  postalCode: '',
+  country: 'TR',
+  phone: '+12025550123',
+  whatsApp: '+12025550124',
+  email: 'hello@example.test',
+  salesEmail: '',
+  supportEmail: '',
+};
+test('public contact facts include the published city and channels, with no invented street, remote-only operation or visitor policy', () => {
+  const source = assistantContactSource('ar', publicContact, 'Example Ltd');
+  assert.equal(source.href, '/ar/contact');
+  assert.match(source.text, /مقر الشركة الرئيسي: إسطنبول/);
+  assert.match(source.text, /İstanbul/);
+  assert.match(source.text, /تركيا/);
+  assert.match(source.text, /\+12025550123/);
+  assert.match(source.text, /hello@example.test/);
+  assert.match(source.text, /العنوان التفصيلي للشارع غير منشور/);
+  assert.match(source.text, /لا تستنتج وجود مكتب أو عدم وجوده/);
+  const full = assistantContactSource('en', {
+    ...publicContact,
+    streetAddress: 'Example street 1',
+  });
+  assert.match(full.text, /Example street 1/);
+  assert.doesNotMatch(full.text, /No street address is published/);
+  assert.match(full.text, /do not confirm a visitor reception office/);
+  const missing = assistantContactSource(
+    'ar',
+    Object.fromEntries(Object.keys(publicContact).map((key) => [key, ''])),
+  );
+  assert.doesNotMatch(missing.text, /İstanbul|1202555|hello@example/);
+  assert.match(missing.text, /إسطنبول، تركيا/);
+  assert.match(missing.text, /لا توجد بيانات عنوان إضافية منشورة/);
+});
+test('conversation guidance uses corrections and context rather than recycling a cold referral', () => {
+  const prompt = assistantSystemPrompt('ar', [assistantContactSource('ar', publicContact)]);
+  assert.match(prompt, /Use conversation history to understand intent, corrections/);
+  assert.match(prompt, /لا تكرر التحية أو الخاتمة أو نفس الإجابة/);
+  assert.match(prompt, /لا تجب «الموقع الذي تتصفحه الآن»/);
+  assert.match(prompt, /مكتبًا أو إمكانية زيارة/);
+  assert.match(prompt, /عربية سهلة ودافئة/);
 });

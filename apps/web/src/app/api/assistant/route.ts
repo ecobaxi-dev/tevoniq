@@ -2,6 +2,7 @@ import { env } from '@/lib/env';
 import { assistantKnowledge } from '@/lib/site-assistant-knowledge';
 import {
   assistantConfig,
+  assistantContactIntent,
   assistantRequestSchema,
   AssistantFailure,
   createAssistantBudget,
@@ -45,13 +46,20 @@ export async function POST(request: Request) {
     const knowledge = await assistantKnowledge(parsed.data.locale);
     const previousQuestion =
       parsed.data.history.filter((message) => message.role === 'user').at(-1)?.content ?? '';
-    const selected = selectAssistantSources(
-      `${previousQuestion} ${parsed.data.message}`,
-      knowledge,
-    );
-    // Company boundaries accompany every retrieval, even when only technical pages match.
+    let selected = selectAssistantSources(`${previousQuestion} ${parsed.data.message}`, knowledge);
+    const contact = knowledge.find((source) => source.href === `/${parsed.data.locale}/contact`);
+    if (contact && assistantContactIntent(`${previousQuestion} ${parsed.data.message}`)) {
+      selected = [contact, ...selected.filter((source) => source !== contact)].slice(0, 4);
+    }
+    // Company and contact facts are authoritative in every turn, including ambiguous follow-ups.
     const company = knowledge[0];
-    const context = company && !selected.includes(company) ? [company, ...selected] : selected;
+    const context = [
+      ...new Set(
+        [company, contact, ...selected].filter(
+          (source): source is NonNullable<typeof source> => !!source,
+        ),
+      ),
+    ];
     const answer = await requestAssistant(config, parsed.data, context);
     return Response.json(
       { answer, sources: selected.map(({ title, href }) => ({ title, href })) },

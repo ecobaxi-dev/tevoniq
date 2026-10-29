@@ -8,6 +8,8 @@ import { automationServiceCopy } from '@/content/intelligent-automation';
 import { erpCopy } from '@/content/erp-service';
 import { engineeringCopy } from '@/content/software-engineering';
 import { iotCopy } from '@/content/iot-service';
+import { getSiteSettings } from '@/lib/site-settings';
+import { assistantContactSource } from './site-assistant-contact';
 import { getService } from '@/lib/services';
 import type { AssistantLocale, AssistantSource } from './site-assistant-core';
 
@@ -26,6 +28,22 @@ const paths = {
 };
 export async function assistantKnowledge(locale: AssistantLocale): Promise<AssistantSource[]> {
   const ar = locale === 'ar';
+  const servicesTask = Promise.all(
+    Object.entries(presentations).map(async ([slug, copy]) => {
+      if (isRetiredService(slug)) return null;
+      try {
+        if (!(await getService(locale, slug))) return null;
+        return {
+          title: copy[locale].serviceTitle,
+          href: `/${locale}/services/${slug}`,
+          text: copy[locale].seoDescription,
+        } satisfies AssistantSource;
+      } catch {
+        return null;
+      }
+    }),
+  );
+  const settings = await getSiteSettings();
   const company: AssistantSource = {
     title: ar ? 'عن TEVONIQ وخدماتنا' : 'About TEVONIQ and our services',
     href: `/${locale}/services`,
@@ -60,29 +78,9 @@ export async function assistantKnowledge(locale: AssistantLocale): Promise<Assis
       text: advocasCopy[locale].intro,
       keywords: 'محامي محامون قانونية lawyers legal',
     },
-    {
-      title: ar ? 'التواصل ومناقشة المتطلبات' : 'Contact and discuss requirements',
-      href: `/${locale}/contact`,
-      text: ar
-        ? 'يمكنك إرسال متطلبات مشروعك من نموذج التواصل، أو استخدام خيارات الهاتف وواتساب المنشورة في الموقع. لا تُرسل كلمات مرور أو معلومات مالية حساسة.'
-        : 'Share project requirements through the contact form or the published phone and WhatsApp options. Do not share passwords or sensitive financial data.',
-    },
+    assistantContactSource(locale, settings.contact, settings.general.legalCompanyName),
   ];
-  const services = await Promise.all(
-    Object.entries(presentations).map(async ([slug, copy]) => {
-      if (isRetiredService(slug)) return null;
-      try {
-        if (!(await getService(locale, slug))) return null;
-        return {
-          title: copy[locale].serviceTitle,
-          href: `/${locale}/services/${slug}`,
-          text: copy[locale].seoDescription,
-        } satisfies AssistantSource;
-      } catch {
-        return null;
-      }
-    }),
-  );
+  const services = await servicesTask;
   return [
     ...base,
     ...services.filter((source): source is NonNullable<typeof source> => source !== null),
