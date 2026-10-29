@@ -551,3 +551,82 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Combined-navigation preview: the existing header stays above the quick-access rail. */
+.vnp-preview-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 28px;
+  background: #e9f1fb;
+  color: #385575;
+  font-size: 12px;
+  border-bottom: 1px solid #dce5f2;
+}
+.vnp-preview-banner a {
+  color: #1b5593;
+  text-underline-offset: 4px;
+  flex-shrink: 0;
+}
+.vnp .site-header-shell {
+  z-index: 40;
+}
+.vnp-rail {
+  top: 170px;
+  max-height: 620px;
+}
+.vnp-compact .vnp-rail nav {
+  overflow: visible;
+}
+.vnp-compact .vnp-tooltip {
+  position: absolute;
+  inset-inline-start: calc(100% + 18px);
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+  display: block;
+  white-space: nowrap;
+  background: #193557;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.vnp-compact .vnp-rail-item:hover .vnp-tooltip,
+.vnp-compact .vnp-rail-item:focus-visible .vnp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%);
+}
+@media (max-height: 720px) and (min-width: 601px) {
+  .vnp-rail {
+    top: 156px;
+    bottom: 12px;
+    padding: 12px 8px;
+  }
+  .vnp-rail-mark {
+    margin-bottom: 6px;
+  }
+  .vnp-rail nav {
+    gap: 3px;
+  }
+  .vnp-rail-item {
+    min-height: 42px;
+    padding: 8px;
+  }
+  .vnp-collapse {
+    padding: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .vnp-preview-banner {
+    padding: 12px 20px;
+    font-size: 11px;
+  }
+}

@@ -1,12 +1,11 @@
 'use client';
 /* eslint-disable @next/next/no-img-element -- Lightweight existing local navigation artwork. */
-import { useRef, useState } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import {
   Home,
   Layers3,
   Boxes,
   Sparkles,
-  Building2,
   MessageCircle,
   Search,
   X,
@@ -20,26 +19,28 @@ import { headerNavigation } from '@/content/header-navigation';
 import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import { localizedHref } from '@/config/navigation';
 import { productNavigationMarks } from '@/content/navigation-visuals';
-const icons = [Home, Layers3, Boxes, Sparkles, Building2, MessageCircle];
+const icons = [Home, Layers3, Boxes, Sparkles, MessageCircle];
 const colors = ['cyan', 'violet', 'orange', 'pink', 'blue', 'green'];
 export function VerticalNavigationPreview({
   locale,
   content,
+  header,
 }: {
   locale: 'ar' | 'en';
   content: NavigationContent;
+  header: ReactNode;
 }) {
   const ar = locale === 'ar';
   const t = (a: string, e: string) => (ar ? a : e);
   const nav = headerNavigation(locale, content);
   const items = [
-    ...nav.items,
+    ...nav.items.filter((item) => item.href !== '/company'),
     ...(!nav.items.some((i) => i.href === '/contact')
       ? [{ id: 'contact-preview', label: t('تواصل معنا', 'Contact'), href: '/contact' }]
       : []),
   ];
   const [active, setActive] = useState(0);
-  const [compact, setCompact] = useState(false);
+  const [compact, setCompact] = useState(true);
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<NavigationItem | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -60,23 +61,24 @@ export function VerticalNavigationPreview({
   );
   return (
     <div className={`vnp ${compact ? 'vnp-compact' : ''}`} dir={ar ? 'rtl' : 'ltr'}>
-      <a className="vnp-skip" href="#preview-content">
+      <a className="vnp-skip" href="#main-content">
         {t('انتقل للمحتوى', 'Skip to content')}
       </a>
-      <header className="vnp-top">
-        <a href={localizedHref(locale, '/')} className="vnp-brand">
-          TEVONIQ<span>PREMIUM TECHNOLOGY</span>
-        </a>
-        <span className="vnp-preview-label">
-          {t('مختبر التصميم · معاينة تفاعلية', 'Design lab · Interactive preview')}
+      {header}
+      <div className="vnp-preview-banner">
+        <span>
+          {t(
+            'معاينة: التنقّل العلوي الكامل + شريط جانبي للوصول السريع',
+            'Preview: full top navigation + a quick-access side rail',
+          )}
         </span>
         <a href={`/previews/${ar ? 'en' : 'ar'}/navigation`}>{ar ? 'English' : 'العربية'}</a>
-      </header>
+      </div>
       <aside className="vnp-rail" aria-label={t('التنقل التجريبي', 'Preview navigation')}>
         <span className="vnp-rail-mark" aria-hidden="true">
           T<span>●</span>
         </span>
-        <nav>
+        <nav aria-label={t('الوصول السريع', 'Quick access')}>
           {items.map((item, index) => {
             const Icon = icons[index % icons.length] ?? Home;
             return (
@@ -117,7 +119,7 @@ export function VerticalNavigationPreview({
         <Menu />
         {t('تصفّح الموقع', 'Explore')}
       </button>
-      <main id="preview-content" className="vnp-main">
+      <main id="main-content" className="vnp-main">
         <div className="vnp-eyebrow">
           <span />
           {t('تنقّل يرافقك. تجربة تُلهمك.', 'Always within reach. Designed to inspire.')}
@@ -129,8 +131,8 @@ export function VerticalNavigationPreview({
         </h1>
         <p className="vnp-intro">
           {t(
-            'جرّب الشريط الجانبي: افتح خدماتنا، استكشف المنتجات، أو ابحث عن وجهتك. طوينا المسافات وتركنا مساحة للأفكار.',
-            'Try the side rail: explore services, discover products, or search for your destination. More room for your ideas.',
+            'القائمة العلوية للتصفّح الكامل، والشريط الجانبي للوصول السريع. افتح إحدى الأيقونات أو جرّب طيّ الشريط وتوسيعه أثناء التمرير.',
+            'Use the top menu to browse the full site and the side rail for quick access. Try an icon, or expand and collapse the rail as you scroll.',
           )}
         </p>
         <div className="vnp-actions">
