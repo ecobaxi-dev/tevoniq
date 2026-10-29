@@ -1,3 +1,4 @@
+import { qaLeadMessage } from '@/lib/qa-automation';
 import { customSoftwareLeadMessage } from '@/lib/custom-software';
 import { iotLeadMessage } from '@/lib/iot-simulator';
 import { engineeringLeadMessage } from '@/lib/software-engineering';
@@ -60,7 +61,8 @@ async function PublicPage({
                 erpLeadMessage(query, locale) ??
                 engineeringLeadMessage(query, locale) ??
                 iotLeadMessage(query, locale) ??
-                customSoftwareLeadMessage(locale, query))
+                customSoftwareLeadMessage(locale, query) ??
+                qaLeadMessage(locale, query))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }

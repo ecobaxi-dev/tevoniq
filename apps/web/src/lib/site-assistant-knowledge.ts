@@ -1,3 +1,4 @@
+import { qaCopy } from '@/content/qa-automation';
 import 'server-only';
 import { customCopy } from '@/content/custom-software';
 import { isRetiredService, isRetiredPublicPath } from '@tevoniq/types';
@@ -15,6 +16,7 @@ import { getService } from '@/lib/services';
 import type { AssistantLocale, AssistantSource } from './site-assistant-core';
 
 const presentations = {
+  'qa-automation': qaCopy,
   'custom-software-development': customCopy,
   'it-consulting': consultingCopy,
   'business-automation': automationServiceCopy,

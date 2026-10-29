@@ -1,3 +1,4 @@
+import { qaCopy } from '@/content/qa-automation';
 import { customCopy } from '@/content/custom-software';
 import { iotCopy } from '@/content/iot-service';
 import Image from 'next/image';
@@ -31,6 +32,7 @@ import {
 import { serviceLabels } from '@/content/services';
 import './service-directory.css';
 const summaries = {
+  'qa-automation': qaCopy,
   'custom-software-development': customCopy,
   'iot-solutions': iotCopy,
   'it-consulting': consultingCopy,

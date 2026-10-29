@@ -1,3 +1,4 @@
+import { QaAutomationService } from './qa-automation-service';
 import { CustomSoftwareService } from './custom-software-service';
 import { IotService } from './iot-service';
 import { SoftwareEngineeringService } from './software-engineering-service';
@@ -13,6 +14,8 @@ import { MobileService } from './mobile-service';
 import { DigitalTransformationService } from './digital-transformation-service';
 import { AiDevelopmentService } from './ai-development-service';
 export function ServiceBlocks({ service, locale }: { service: PublicService; locale: Locale }) {
+  if (service.slug === 'qa-automation' && (locale === 'ar' || locale === 'en'))
+    return <QaAutomationService locale={locale} />;
   if (service.slug === 'custom-software-development' && (locale === 'ar' || locale === 'en'))
     return <CustomSoftwareService locale={locale} />;
   if (service.slug === 'iot-solutions' && (locale === 'ar' || locale === 'en'))

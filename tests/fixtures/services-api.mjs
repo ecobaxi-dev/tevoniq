@@ -52,6 +52,7 @@ let erpPublished = true;
 let engineeringPublished = true;
 let iotPublished = true;
 let customPublished = true;
+let qaPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -162,6 +163,7 @@ createServer(async (req, res) => {
       'it-consulting',
       'custom-software-development',
       'software-product-engineering',
+      'qa-automation',
       'business-automation',
       'erp-solutions',
       'iot-solutions',
@@ -227,6 +229,33 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/qa-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    qaPublished = JSON.parse(body).published === true;
+    return send(200, { published: qaPublished });
+  }
+  if (url.pathname === '/api/v1/services/qa-automation') {
+    const locale = url.searchParams.get('locale');
+    if (!qaPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const item = directoryCatalog.groups
+      .flatMap((group) => group.services)
+      .find((service) => service.slug === 'qa-automation');
+    const title = item.translations[locale].title;
+    return send(200, {
+      id,
+      slug: 'qa-automation',
+      locale,
+      title,
+      summary: 'Isolated QA automation fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated QA automation fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/custom-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;
