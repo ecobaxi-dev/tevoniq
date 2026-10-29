@@ -33,16 +33,6 @@
 .site-side-dialog * {
   box-sizing: border-box;
 }
-.site-side-mark {
-  font:
-    bold 26px 'Plus Jakarta Sans Variable',
-    sans-serif;
-  text-align: center;
-}
-.site-side-mark span {
-  color: #00899f;
-  font-size: 12px;
-}
 .site-side-rail nav {
   display: grid;
   gap: 8px;
@@ -103,6 +93,7 @@
   background: var(--side-tone);
 }
 .site-side-label {
+  color: #334b68;
   display: none;
   font-size: 12px;
   font-weight: 700;
@@ -313,7 +304,7 @@
   outline: 3px solid #2357d9;
   outline-offset: 4px;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-height: 450px) {
   .site-side-rail {
     display: none;
   }
@@ -359,7 +350,6 @@
     bottom: 12px;
     gap: 10px;
     padding: 12px 10px;
-    overflow-y: auto;
   }
   .site-side-rail nav {
     gap: 3px;
@@ -370,6 +360,19 @@
   }
   .site-side-collapse {
     padding: 8px;
+  }
+}
+/* Keep the active destination legible while its glow gently brightens and fades. */
+.site-side-item.is-active .site-side-icon {
+  animation: site-side-active-glow 2.8s ease-in-out infinite;
+}
+@keyframes site-side-active-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px currentColor);
   }
 }
 @media (prefers-reduced-motion: reduce) {

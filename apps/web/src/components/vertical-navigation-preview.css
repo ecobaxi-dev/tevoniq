@@ -75,17 +75,6 @@
   backdrop-filter: blur(18px);
   transition: width 0.3s;
 }
-.vnp-rail-mark {
-  font:
-    bold 26px 'Inter Variable',
-    sans-serif;
-  text-align: center;
-  margin-bottom: 18px;
-}
-.vnp-rail-mark span {
-  color: #08bad4;
-  font-size: 12px;
-}
 .vnp-rail nav {
   display: grid;
   gap: 8px;
@@ -150,6 +139,7 @@
   border-radius: 8px;
 }
 .vnp-item-label {
+  color: #334b68;
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
@@ -544,6 +534,18 @@
     font-size: 15px;
   }
 }
+.vnp-rail-item.is-active .vnp-icon {
+  animation: vnp-active-glow 2.8s ease-in-out infinite;
+}
+@keyframes vnp-active-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .vnp * {
     animation: none !important;
@@ -609,9 +611,6 @@
     top: 156px;
     bottom: 12px;
     padding: 12px 8px;
-  }
-  .vnp-rail-mark {
-    margin-bottom: 6px;
   }
   .vnp-rail nav {
     gap: 3px;

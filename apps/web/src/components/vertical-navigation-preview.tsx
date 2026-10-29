@@ -75,9 +75,6 @@ export function VerticalNavigationPreview({
         <a href={`/previews/${ar ? 'en' : 'ar'}/navigation`}>{ar ? 'English' : 'العربية'}</a>
       </div>
       <aside className="vnp-rail" aria-label={t('التنقل التجريبي', 'Preview navigation')}>
-        <span className="vnp-rail-mark" aria-hidden="true">
-          T<span>●</span>
-        </span>
         <nav aria-label={t('الوصول السريع', 'Quick access')}>
           {items.map((item, index) => {
             const Icon = icons[index % icons.length] ?? Home;

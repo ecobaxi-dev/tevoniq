@@ -94,9 +94,6 @@ export function SiteSideNavigation({
     <div className={`site-navigation-frame ${compact ? 'is-compact' : 'is-expanded'}`}>
       {header}
       <aside className="site-side-rail" aria-label={t('شريط الوصول السريع', 'Quick access rail')}>
-        <span className="site-side-mark" aria-hidden="true">
-          T<span>●</span>
-        </span>
         <nav aria-label={t('الوصول السريع', 'Quick access')}>
           {rail.map(({ item, icon: Icon, color }) => {
             const label = t(`انتقل إلى ${item.label}`, `Go to ${item.label}`);
