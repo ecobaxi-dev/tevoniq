@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import type { NavigationContent, NavigationItem } from '@/config/navigation';
 import { flattenNavigation, isActivePath, localizedHref } from '@/config/navigation';
+import { SiteContactWidget, type SideContactDetails } from '@/components/site-contact-widget';
 import { headerNavigation } from '@/content/header-navigation';
 import { productNavigationMarks } from '@/content/navigation-visuals';
 
@@ -45,11 +46,13 @@ function destinationsFor(items: NavigationItem[]) {
 export function SiteSideNavigation({
   locale,
   content,
+  contactDetails,
   header,
   children,
 }: {
   locale: 'ar' | 'en';
   content: NavigationContent;
+  contactDetails: SideContactDetails;
   header: ReactNode;
   children: ReactNode;
 }) {
@@ -109,6 +112,17 @@ export function SiteSideNavigation({
               </>
             );
             const className = `site-side-item tone-${color} ${active(item) ? 'is-active' : ''}`;
+            if (item.href === '/contact')
+              return (
+                <SiteContactWidget
+                  key={pathname}
+                  locale={locale}
+                  details={contactDetails}
+                  className={className}
+                >
+                  {inside}
+                </SiteContactWidget>
+              );
             return item.menu ? (
               <button
                 key={item.id}
@@ -219,6 +233,9 @@ export function SiteSideNavigation({
             placeholder={t('ابحث عن خدمة أو منتج…', 'Search services and products…')}
           />
         </label>
+        {current.href === '/contact' && !query.trim() && (
+          <SiteContactWidget key={pathname} locale={locale} details={contactDetails} inline />
+        )}
         <nav
           className="site-side-results"
           aria-label={t('وجهات الوصول السريع', 'Quick access destinations')}

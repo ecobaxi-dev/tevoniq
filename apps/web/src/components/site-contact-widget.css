@@ -1,0 +1,245 @@
+.site-contact-widget {
+  position: relative;
+  min-width: 0;
+}
+.site-contact-widget > .site-side-item {
+  width: 100%;
+}
+.site-contact-widget .sc-is-open {
+  background: #5366c6;
+  color: #fff;
+}
+.sc-actions {
+  position: absolute;
+  inset-inline-start: calc(100% + 18px);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #dee7ef;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px #13264025;
+  animation: sc-reveal 0.18s ease-out;
+}
+.sc-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 30px;
+  background: #087e56;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sc-phone {
+  background: #006b72;
+}
+.sc-choice:hover {
+  background: #075f45;
+}
+.sc-phone:hover {
+  background: #004e55;
+}
+.sc-wa-mark {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  direction: ltr;
+}
+.sc-wa-mark > svg:last-child {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+}
+.sc-contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #315171;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 12px;
+  padding: 5px;
+}
+.sc-unavailable {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #4e6177;
+  margin: 0;
+}
+.sc-inline .sc-actions {
+  position: static;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-shadow: none;
+  min-width: 0;
+  margin-top: 18px;
+}
+.sc-inline .sc-choice {
+  width: auto;
+  flex: 1;
+}
+.sc-inline .sc-contact-page {
+  width: 100%;
+}
+.sc-chat {
+  position: fixed;
+  inset: 0;
+  width: min(390px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #e0e7ed;
+  border-radius: 22px;
+  background: #fff;
+  color: #183b31;
+  box-shadow: 0 24px 90px #102b3b40;
+  font: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.sc-chat::backdrop {
+  background: #12283e55;
+  backdrop-filter: blur(3px);
+}
+.sc-chat-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: #087e56;
+  color: #fff;
+}
+.sc-chat-head > div {
+  flex: 1;
+}
+.sc-chat-head strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.sc-chat-head span:not(.sc-wa-mark) {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.sc-chat-head button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff20;
+  color: #fff;
+  cursor: pointer;
+}
+.sc-chat-body {
+  min-height: 200px;
+  padding: 25px 20px;
+  background-color: #eeeae2;
+  background-image: radial-gradient(#a7b8a637 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.sc-greeting {
+  max-width: 90%;
+  padding: 14px 18px;
+  border-radius: 16px 4px 16px 16px;
+  background: #fff;
+  box-shadow: 0 3px 8px #3554480a;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.sc-chat-body p {
+  margin: 22px 0 0;
+  color: #53645b;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.sc-compose {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+}
+.sc-compose label {
+  font-size: 13px;
+  font-weight: 700;
+}
+.sc-compose textarea {
+  resize: vertical;
+  min-height: 85px;
+  width: 100%;
+  max-height: 180px;
+  padding: 12px;
+  border: 1px solid #cad8d1;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  color: #183b31;
+  background: #fff;
+}
+.sc-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #087e56;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+.sc-start:hover {
+  background: #075f45;
+}
+.sc-compose small {
+  color: #54675e;
+  line-height: 1.9;
+  font-size: 11px;
+}
+:is(.site-contact-widget, .sc-chat) :is(button, a, textarea):focus-visible {
+  outline: 3px solid #2357d9;
+  outline-offset: 3px;
+}
+@keyframes sc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  .sc-chat-body {
+    min-height: 145px;
+  }
+  .sc-chat-head {
+    padding: 16px;
+  }
+  .sc-compose {
+    padding: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-actions {
+    animation: none;
+  }
+}

@@ -15,6 +15,7 @@ import { getNavigation } from '@/lib/navigation';
 import { SiteHeader } from '@/components/site-header';
 import { SiteSideNavigation } from '@/components/site-side-navigation';
 import '@/components/site-side-navigation.css';
+import '@/components/site-contact-widget.css';
 import { SiteStructuredData } from '@/components/seo/structured-data';
 import '../globals.css';
 import '@/components/site-header.css';
@@ -80,7 +81,12 @@ export default async function LocaleLayout({
               {body}
             </>
           ) : (
-            <SiteSideNavigation locale={parsed.data} content={navigation} header={header}>
+            <SiteSideNavigation
+              locale={parsed.data}
+              content={navigation}
+              contactDetails={settings.contact}
+              header={header}
+            >
               {body}
             </SiteSideNavigation>
           )}
