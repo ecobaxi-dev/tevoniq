@@ -51,6 +51,7 @@ let businessAutomationPublished = true;
 let erpPublished = true;
 let engineeringPublished = true;
 let iotPublished = true;
+let customPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -159,6 +160,7 @@ createServer(async (req, res) => {
     const locale = url.searchParams.get('locale') || 'en';
     const slugs = [
       'it-consulting',
+      'custom-software-development',
       'software-product-engineering',
       'business-automation',
       'erp-solutions',
@@ -225,6 +227,33 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/custom-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    customPublished = JSON.parse(body).published === true;
+    return send(200, { published: customPublished });
+  }
+  if (url.pathname === '/api/v1/services/custom-software-development') {
+    const locale = url.searchParams.get('locale');
+    if (!customPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const item = directoryCatalog.groups
+      .flatMap((group) => group.services)
+      .find((service) => service.slug === 'custom-software-development');
+    const title = item.translations[locale].title;
+    return send(200, {
+      id,
+      slug: 'custom-software-development',
+      locale,
+      title,
+      summary: 'Isolated custom software fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated custom software fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/iot-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;

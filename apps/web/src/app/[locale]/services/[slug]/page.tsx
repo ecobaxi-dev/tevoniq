@@ -1,3 +1,4 @@
+import { customCopy } from '@/content/custom-software';
 import { iotCopy } from '@/content/iot-service';
 import { engineeringCopy } from '@/content/software-engineering';
 import { erpCopy } from '@/content/erp-service';
@@ -32,17 +33,19 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
     const service = await getService(locale, slug);
     if (!service) return { robots: { index: false, follow: false } };
     const presentation =
-      slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
-        ? consultingCopy[locale]
-        : slug === 'business-automation' && (locale === 'ar' || locale === 'en')
-          ? automationServiceCopy[locale]
-          : slug === 'erp-solutions' && (locale === 'ar' || locale === 'en')
-            ? erpCopy[locale]
-            : slug === 'software-product-engineering' && (locale === 'ar' || locale === 'en')
-              ? engineeringCopy[locale]
-              : slug === 'iot-solutions' && (locale === 'ar' || locale === 'en')
-                ? iotCopy[locale]
-                : null;
+      slug === 'custom-software-development' && (locale === 'ar' || locale === 'en')
+        ? customCopy[locale]
+        : slug === 'it-consulting' && (locale === 'ar' || locale === 'en')
+          ? consultingCopy[locale]
+          : slug === 'business-automation' && (locale === 'ar' || locale === 'en')
+            ? automationServiceCopy[locale]
+            : slug === 'erp-solutions' && (locale === 'ar' || locale === 'en')
+              ? erpCopy[locale]
+              : slug === 'software-product-engineering' && (locale === 'ar' || locale === 'en')
+                ? engineeringCopy[locale]
+                : slug === 'iot-solutions' && (locale === 'ar' || locale === 'en')
+                  ? iotCopy[locale]
+                  : null;
     return {
       title: presentation ? `${presentation.serviceTitle} | TEVONIQ` : service.seoTitle,
       description: presentation?.seoDescription ?? service.seoDescription,
@@ -101,6 +104,7 @@ async function PublicPage({ params }: Props) {
       <ServiceBlocks service={service} locale={locale} />
       {!(
         [
+          'custom-software-development',
           'it-consulting',
           'business-automation',
           'erp-solutions',

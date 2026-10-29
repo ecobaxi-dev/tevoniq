@@ -1,3 +1,4 @@
+import { CustomSoftwareService } from './custom-software-service';
 import { IotService } from './iot-service';
 import { SoftwareEngineeringService } from './software-engineering-service';
 import { ErpService } from './erp-service';
@@ -12,6 +13,8 @@ import { MobileService } from './mobile-service';
 import { DigitalTransformationService } from './digital-transformation-service';
 import { AiDevelopmentService } from './ai-development-service';
 export function ServiceBlocks({ service, locale }: { service: PublicService; locale: Locale }) {
+  if (service.slug === 'custom-software-development' && (locale === 'ar' || locale === 'en'))
+    return <CustomSoftwareService locale={locale} />;
   if (service.slug === 'iot-solutions' && (locale === 'ar' || locale === 'en'))
     return <IotService locale={locale} />;
   if (service.slug === 'software-product-engineering' && (locale === 'ar' || locale === 'en'))

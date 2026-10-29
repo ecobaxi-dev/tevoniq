@@ -1,4 +1,5 @@
 import 'server-only';
+import { customCopy } from '@/content/custom-software';
 import { isRetiredService, isRetiredPublicPath } from '@tevoniq/types';
 import { homeServices } from '@/content/home-services';
 import { pestoCopy } from '@/content/pesto';
@@ -14,6 +15,7 @@ import { getService } from '@/lib/services';
 import type { AssistantLocale, AssistantSource } from './site-assistant-core';
 
 const presentations = {
+  'custom-software-development': customCopy,
   'it-consulting': consultingCopy,
   'business-automation': automationServiceCopy,
   'erp-solutions': erpCopy,
