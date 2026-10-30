@@ -1,3 +1,4 @@
+import { cyberCopy } from '@/content/cybersecurity';
 import { networkCopy } from '@/content/network-infrastructure';
 import { mlCopy } from '@/content/machine-learning';
 import { qaCopy } from '@/content/qa-automation';
@@ -18,6 +19,7 @@ import { getService } from '@/lib/services';
 import type { AssistantLocale, AssistantSource } from './site-assistant-core';
 
 const presentations = {
+  cybersecurity: cyberCopy,
   'network-infrastructure': networkCopy,
   'ai-machine-learning': mlCopy,
   'qa-automation': qaCopy,

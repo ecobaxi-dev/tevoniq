@@ -1,3 +1,4 @@
+import { cyberCopy } from '@/content/cybersecurity';
 import { networkCopy } from '@/content/network-infrastructure';
 import { mlCopy } from '@/content/machine-learning';
 import { qaCopy } from '@/content/qa-automation';
@@ -34,6 +35,7 @@ import {
 import { serviceLabels } from '@/content/services';
 import './service-directory.css';
 const summaries = {
+  cybersecurity: cyberCopy,
   'network-infrastructure': networkCopy,
   'ai-machine-learning': mlCopy,
   'qa-automation': qaCopy,

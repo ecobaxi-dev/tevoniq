@@ -64,6 +64,7 @@ let customPublished = true;
 let qaPublished = true;
 let mlPublished = true;
 let networkPublished = true;
+let cyberPublished = true;
 createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   const url = new URL(req.url, 'http://localhost');
@@ -265,6 +266,33 @@ createServer(async (req, res) => {
       page: 1,
       limit: 12,
     });
+  if (url.pathname === '/fixture/cyber-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    cyberPublished = JSON.parse(body).published === true;
+    return send(200, { published: cyberPublished });
+  }
+  if (url.pathname === '/api/v1/services/cybersecurity') {
+    const locale = url.searchParams.get('locale');
+    if (!cyberPublished || !['ar', 'en', 'tr'].includes(locale))
+      return send(404, { message: 'Not found' });
+    const item = directoryCatalog.groups
+      .flatMap((group) => group.services)
+      .find((service) => service.slug === 'cybersecurity');
+    const title = item.translations[locale].title;
+    return send(200, {
+      id,
+      slug: 'cybersecurity',
+      locale,
+      title,
+      summary: 'Isolated cybersecurity fixture',
+      seoTitle: title,
+      seoDescription: 'Isolated cybersecurity fixture',
+      blocks,
+      relatedServices: [],
+      relatedProjects: [],
+    });
+  }
   if (url.pathname === '/fixture/network-state' && req.method === 'POST') {
     let body = '';
     for await (const chunk of req) body += chunk;

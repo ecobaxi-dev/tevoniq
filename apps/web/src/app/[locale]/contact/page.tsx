@@ -1,3 +1,4 @@
+import { cyberLeadMessage } from '@/lib/cyber-guide';
 import { networkLeadMessage } from '@/lib/network-guide';
 import { mlLeadMessage } from '@/lib/ml-guide';
 import { qaLeadMessage } from '@/lib/qa-automation';
@@ -66,7 +67,8 @@ async function PublicPage({
                 customSoftwareLeadMessage(locale, query) ??
                 qaLeadMessage(locale, query) ??
                 mlLeadMessage(locale, query) ??
-                networkLeadMessage(locale, query))
+                networkLeadMessage(locale, query) ??
+                cyberLeadMessage(locale, query))
               : undefined;
   return <ContactPage locale={locale} type="contact" initialMessage={initialMessage} />;
 }
