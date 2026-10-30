@@ -14,7 +14,7 @@ import {
   Cloud,
   TrendingUp,
 } from 'lucide-react';
-import type { Locale } from '@tevoniq/types';
+import { isRetiredService, type Locale } from '@tevoniq/types';
 import type { PublicService } from '@tevoniq/validation';
 import copy from '@/content/digital-transformation.json';
 import assets from '@/content/digital-transformation-assets.json';
@@ -269,7 +269,7 @@ export async function DigitalTransformationService({
           </div>
           <ul className="digital-related-links">
             {links
-              .filter((link) => link.slug)
+              .filter((link) => link.slug && !isRetiredService(link.slug))
               .map((link) => (
                 <li key={link.titles.en}>
                   <a href={`/${locale}/services/${link.slug}`}>

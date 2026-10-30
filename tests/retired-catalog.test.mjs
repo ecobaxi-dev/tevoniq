@@ -21,7 +21,7 @@ test('retired offerings cannot return through localized, encoded or builder URLs
   assert.equal(isRetiredPublicPath('/ar/solutions/resilient-hybrid-cloud'), true);
   for (const path of [
     '/ar/services/business-automation',
-    '/en/services/api-integration',
+    '/en/services/network-infrastructure',
     '/ar/services/ui-ux-design',
     '/ar/pesto',
     '/ar/advocas',
@@ -32,6 +32,7 @@ test('retired offerings cannot return through localized, encoded or builder URLs
     await readFile(new URL('../content/service-expansion.json', import.meta.url)),
   );
   assert.equal(catalog.groups.flatMap((g) => g.services).length, 23);
+  assert.equal(pruneRetiredCatalog(catalog).groups.flatMap((g) => g.services).length, 16);
   assert.ok(catalog.groups.every((g) => !['cloud', 'data', 'games'].includes(g.id)));
 });
 
@@ -93,7 +94,7 @@ test('API retirement boundary returns 404 publicly and preserves private CMS rec
   const records = {
     items: [
       { slug: 'sap-services', title: 'Custom title' },
-      { slug: 'api-integration', title: 'Integration' },
+      { slug: 'custom-software-development', title: 'Custom software' },
     ],
   };
   const publicResult = await firstValueFrom(
@@ -132,4 +133,44 @@ test('retired service detail fails before a database call and catalog counts use
   await controller.list({ locale: 'ar' });
   assert.deepEqual(queries[0], queries[1]);
   assert.ok(queries[0].slug.notIn.includes('cloud-solutions'));
+});
+
+test('owner-selected seven services stay archived while every public alias is hidden', async () => {
+  const requested = [
+    'managed-it-services',
+    'api-integration',
+    'business-continuity',
+    'computer-vision',
+    'ai-agent-development',
+    'generative-ai',
+    'rag-development',
+  ];
+  const catalog = JSON.parse(
+    await readFile(new URL('../content/service-expansion.json', import.meta.url)),
+  );
+  const stored = catalog.groups
+    .flatMap((group) => group.services)
+    .filter((item) => requested.includes(item.slug));
+  assert.equal(stored.length, 7);
+  const before = structuredClone(stored);
+  assert.deepEqual(pruneRetiredCatalog(stored), []);
+  assert.deepEqual(
+    pruneRetiredCatalog([
+      'Managed IT Services',
+      'خدمات تقنية المعلومات المُدارة',
+      'Yönetilen BT Hizmetleri',
+      'System Integration',
+      'تكامل الأنظمة',
+      'Sistem Entegrasyonu',
+      'Automation',
+    ]),
+    ['Automation'],
+  );
+  assert.deepEqual(stored, before);
+  for (const slug of requested) {
+    assert.ok(retiredServiceSlugs.includes(slug));
+    for (const locale of ['ar', 'en', 'tr'])
+      for (const kind of ['services', 'solutions'])
+        assert.equal(isRetiredPublicPath(`/${locale}/${kind}/${slug}`), true);
+  }
 });

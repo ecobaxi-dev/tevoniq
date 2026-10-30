@@ -9,7 +9,7 @@ test('modern directory shows published services in navigation categories and rem
     await expect(page.locator('.sd-directory')).toBeVisible();
     await expect(page.locator('.sd-paths>a')).toHaveCount(4);
     await expect(page.locator('.sd-service-group')).toHaveCount(locale === 'en' ? 8 : 7);
-    await expect(page.locator('.sd-service-card')).toHaveCount(locale === 'en' ? 13 : 12);
+    await expect(page.locator('.sd-service-card')).toHaveCount(locale === 'en' ? 12 : 11);
     await expect(page.getByText('Archived offering', { exact: true })).toHaveCount(0);
     const links = await page
       .locator('main a[href]')
@@ -123,7 +123,7 @@ test('directory grouping, search and anchors work without JavaScript and Turkish
   const context = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await context.newPage();
   await staticPage.goto('/ar/services?q=directory-check');
-  await expect(staticPage.locator('.sd-service-card')).toHaveCount(12);
+  await expect(staticPage.locator('.sd-service-card')).toHaveCount(11);
   const category = staticPage.locator('.sd-category-nav a').nth(2);
   await category.click();
   await expect(staticPage).toHaveURL(/#service-group-automation$/);

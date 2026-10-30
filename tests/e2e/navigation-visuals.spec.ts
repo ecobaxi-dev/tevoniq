@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-async function openServices(page: import('@playwright/test').Page, locale: string) {
+async function openServices(page: Page, locale: string) {
   await page.mouse.move(0, 0);
   await page.goto(`/${locale}`);
   await page
@@ -39,7 +40,11 @@ test('service categories show vivid local previews only for matching public serv
         'iot-solutions',
       ],
       [locale === 'ar' ? 'الأمن والجودة' : 'Security & Quality', 'security', 'cybersecurity'],
-      [locale === 'ar' ? 'خدمات إضافية' : 'Additional Services', 'additional', 'api-integration'],
+      [
+        locale === 'ar' ? 'خدمات إضافية' : 'Additional Services',
+        'additional',
+        'network-infrastructure',
+      ],
       [
         locale === 'ar' ? 'استشارات وتطبيق الذكاء الاصطناعي' : 'AI Consulting & Implementation',
         'ai',

@@ -7,6 +7,15 @@ const directoryCatalog = JSON.parse(
 );
 import { homeCopy } from '../../apps/web/src/content/home.ts';
 import { referenceHeroCopy } from '../../apps/web/src/content/reference-hero.ts';
+const hiddenSelections = [
+  'managed-it-services',
+  'api-integration',
+  'business-continuity',
+  'computer-vision',
+  'ai-agent-development',
+  'generative-ai',
+  'rag-development',
+];
 const id = '11111111-1111-4111-8111-111111111111';
 const blocks = [
   {
@@ -65,7 +74,7 @@ createServer(async (req, res) => {
   if (url.pathname === '/health') return send(200, { ok: true });
   // Code-owned product sitemap entries are tested independently of CMS records.
   if (url.pathname === '/api/v1/seo/routes') {
-    const entries = ['cloud-solutions', 'development-fixture'].map((slug) => ({
+    const entries = ['cloud-solutions', ...hiddenSelections, 'development-fixture'].map((slug) => ({
       route: `/services/${slug}`,
       locale: 'en',
       title: 'SEO fixture',
@@ -83,6 +92,13 @@ createServer(async (req, res) => {
     return send(200, {
       labels: {},
       items: [
+        ...hiddenSelections.map((slug, index) => ({
+          id: `hidden-${index}`,
+          label: 'Renamed hidden service',
+          href: `/services/${slug}`,
+          group: 'services',
+          order: 101 + index,
+        })),
         {
           id,
           label: 'Renamed legacy service',
@@ -100,6 +116,13 @@ createServer(async (req, res) => {
           type: 'service',
           hasMore: false,
           items: [
+            ...hiddenSelections.map((slug) => ({
+              id: slug,
+              type: 'service',
+              title: 'Hidden published service',
+              excerpt: 'Old stored record',
+              url: `/en/services/${slug}`,
+            })),
             {
               id: 'retired',
               type: 'service',
@@ -121,6 +144,12 @@ createServer(async (req, res) => {
   if (url.pathname === '/api/v1/services' && url.searchParams.get('q') === 'retirement-check')
     return send(200, {
       items: [
+        ...hiddenSelections.map((slug) => ({
+          id,
+          slug,
+          title: 'Hidden published service',
+          summary: 'Old stored record',
+        })),
         {
           id: 'retired',
           slug: 'cloud-solutions',
@@ -134,14 +163,17 @@ createServer(async (req, res) => {
           summary: record.translations[0].summary,
         },
       ],
-      total: 2,
+      total: 2 + hiddenSelections.length,
       page: 1,
       limit: 12,
     });
-  if (url.pathname === '/api/v1/services/cloud-solutions')
+  if (
+    url.pathname.startsWith('/api/v1/services/') &&
+    retiredServiceSlugs.includes(url.pathname.split('/').at(-1))
+  )
     return send(200, {
       id,
-      slug: 'cloud-solutions',
+      slug: url.pathname.split('/').at(-1),
       locale: url.searchParams.get('locale') || 'en',
       title: 'Legacy published service',
       summary: 'Old publication fixture',

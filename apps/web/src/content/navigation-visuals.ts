@@ -34,12 +34,12 @@ export const navigationVisuals = {
     },
   },
   additional: {
-    href: '/services/api-integration',
+    href: '/services/network-infrastructure',
     src: '/brand/navigation/additional-v1.webp',
-    ar: { title: 'تقنياتك تعمل بانسجام', caption: 'استكشف الربط والخدمات التقنية' },
+    ar: { title: 'اتصال يدعم أعمالك', caption: 'استكشف الشبكات وإعداد التشغيل' },
     en: {
-      title: 'Technology working together',
-      caption: 'Explore integration and technical services',
+      title: 'Connectivity for your business',
+      caption: 'Explore network infrastructure and operations',
     },
   },
   ai: {

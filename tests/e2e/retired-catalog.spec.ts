@@ -34,7 +34,9 @@ test('legacy CMS records cannot restore retired navigation, service cards, searc
   expect(result.groups[0].items[0].url).toBe('/en/services/development-fixture');
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
-  expect(await sitemap.text()).not.toContain('/services/cloud-solutions');
+  const { retiredServiceSlugs } = await import('../../packages/types/dist/retired-catalog.js');
+  const xml = await sitemap.text();
+  for (const slug of retiredServiceSlugs) expect(xml).not.toContain(`/services/${slug}`);
 });
 
 test('retired public pages are 404 even while the old upstream CMS record remains published', async ({
@@ -44,8 +46,15 @@ test('retired public pages are 404 even while the old upstream CMS record remain
   expect(
     (await request.get('http://127.0.0.1:4100/api/v1/services/cloud-solutions?locale=en')).status(),
   ).toBe(200);
-  for (const slug of retiredServiceSlugs)
-    expect((await request.get(`/en/services/${slug}`)).status(), slug).toBe(404);
+  for (const slug of retiredServiceSlugs) {
+    expect(
+      (await request.get(`http://127.0.0.1:4100/api/v1/services/${slug}?locale=en`)).status(),
+    ).toBe(200);
+    for (const locale of ['ar', 'en', 'tr'])
+      expect((await request.get(`/${locale}/services/${slug}`)).status(), `${locale}/${slug}`).toBe(
+        404,
+      );
+  }
   for (const path of [
     '/ar/services/cloud-solutions',
     '/tr/services/sap-services',
