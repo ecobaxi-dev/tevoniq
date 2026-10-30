@@ -90,7 +90,7 @@ export function showcaseFixture(url) {
     ogImage: '',
     canonicalUrl: '',
   }));
-  const isPath = /^\/api\/v1\/(industries|projects|insights|company\/partners)(\/|$)/.test(
+  const isPath = /^\/api\/v1\/(industries|projects|insights|company\/(partners|about))(\/|$)/.test(
     url.pathname,
   );
   if (!isPath) return undefined;
@@ -189,6 +189,23 @@ export function showcaseFixture(url) {
       ? { status: 200, body: { article, related: articles.filter((v) => v.id !== article.id) } }
       : { status: 404, body: { message: 'Not found' } };
   }
+  if (url.pathname === '/api/v1/company/about')
+    return showcaseState.visible
+      ? {
+          status: 200,
+          body: {
+            ...defaultCompanyContent('about'),
+            title: t('عن TEVONIQ', 'About TEVONIQ'),
+            intro: t('محتوى الشركة المنشور للاختبار.', 'Published company fixture.'),
+            sections: [
+              {
+                title: t('هوية الشركة', 'Company identity'),
+                body: 'Company identity fixture — Istanbul.',
+              },
+            ],
+          },
+        }
+      : { status: 404, body: { message: 'Not found' } };
   if (url.pathname === '/api/v1/company/partners')
     return showcaseState.visible
       ? {

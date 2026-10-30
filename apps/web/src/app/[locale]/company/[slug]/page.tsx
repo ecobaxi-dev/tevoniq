@@ -1,3 +1,4 @@
+import { AboutStudio } from '@/components/about-studio';
 import { TechnologyPartnersPage } from '@/components/showcase-pages';
 import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
@@ -37,7 +38,9 @@ async function PublicPage({ params }: Props) {
   return (
     <main id="main-content" className="company-page">
       {content ? (
-        slug === 'partners' && locale !== 'tr' ? (
+        slug === 'about' && locale !== 'tr' ? (
+          <AboutStudio locale={locale} content={content} />
+        ) : slug === 'partners' && locale !== 'tr' ? (
           <TechnologyPartnersPage locale={locale} partners={partners} />
         ) : (
           <CompanyContentView content={content} locale={locale} partners={partners} team={team} />
