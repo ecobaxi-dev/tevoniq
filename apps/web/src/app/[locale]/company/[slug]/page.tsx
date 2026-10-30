@@ -1,3 +1,5 @@
+import { TechnologyPartnersPage } from '@/components/showcase-pages';
+import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -21,7 +23,7 @@ async function baseMetadata({ params }: Props): Promise<Metadata> {
     content = await getCompany(locale, slug);
   if (!content) return { robots: { index: false, follow: false } };
   return {
-    title: content.title,
+    title: slug === 'partners' && locale !== 'tr' ? showcaseCopy[locale].partners : content.title,
     description: content.seoDescription,
     alternates: { canonical: `/${locale}/company/${slug}` },
   };
@@ -35,7 +37,11 @@ async function PublicPage({ params }: Props) {
   return (
     <main id="main-content" className="company-page">
       {content ? (
-        <CompanyContentView content={content} locale={locale} partners={partners} team={team} />
+        slug === 'partners' && locale !== 'tr' ? (
+          <TechnologyPartnersPage locale={locale} partners={partners} />
+        ) : (
+          <CompanyContentView content={content} locale={locale} partners={partners} team={team} />
+        )
       ) : (
         <Section>
           <Container>

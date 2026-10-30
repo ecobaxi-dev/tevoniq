@@ -3,7 +3,7 @@ export const projectLabels = {
   en: {
     title: 'Projects',
     eyebrow: 'PROJECTS & CASE STUDIES',
-    intro: 'Explore the challenges, decisions and outcomes behind our published work.',
+    intro: 'Explore published projects and illustrative concepts, with their scope and boundaries.',
     empty: 'No published projects match these filters.',
     error: 'Projects are temporarily unavailable. Please try again later.',
     search: 'Search projects',
@@ -83,7 +83,7 @@ export const projectLabels = {
   ar: {
     title: 'المشاريع',
     eyebrow: 'المشاريع ودراسات الحالة',
-    intro: 'استكشف التحديات والقرارات والنتائج وراء أعمالنا المنشورة.',
+    intro: 'استكشف المشاريع والتصورات التوضيحية المنشورة، مع نطاقها وحدودها.',
     empty: 'لا توجد مشاريع منشورة تطابق عوامل التصفية.',
     error: 'المشاريع غير متاحة مؤقتاً. يرجى المحاولة لاحقاً.',
     search: 'البحث في المشاريع',

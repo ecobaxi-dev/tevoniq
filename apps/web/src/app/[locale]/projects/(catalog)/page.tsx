@@ -1,3 +1,6 @@
+import { ShowcaseHero } from '@/components/showcase-pages';
+import { ProjectShowcaseCard } from '@/components/showcase-cards';
+import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -53,15 +56,29 @@ async function PublicPage({ params, searchParams }: Props) {
         .map(([k, v]) => [k, String(v)]),
     )}`;
   return (
-    <main id="main-content" className="projects-page">
-      <header className="projects-intro">
-        <Container>
-          <p className="tv-eyebrow">{l.eyebrow}</p>
-          <Heading as="h1">{l.title}</Heading>
-          <p className="tv-description">{l.intro}</p>
-        </Container>
-      </header>
-      <section className="projects-catalog">
+    <main
+      id="main-content"
+      className={`projects-page${locale.data !== 'tr' ? ' showcase-modern' : ''}`}
+    >
+      {locale.data !== 'tr' ? (
+        <ShowcaseHero
+          locale={locale.data}
+          kind="project"
+          title={showcaseCopy[locale.data].projects}
+          intro={showcaseCopy[locale.data].projectIntro}
+        />
+      ) : (
+        <>
+          <header className="projects-intro">
+            <Container>
+              <p className="tv-eyebrow">{l.eyebrow}</p>
+              <Heading as="h1">{l.title}</Heading>
+              <p className="tv-description">{l.intro}</p>
+            </Container>
+          </header>
+        </>
+      )}
+      <section className="projects-catalog" id="showcase-content">
         <Container>
           <form method="get" className="project-filters">
             <label>
@@ -97,51 +114,71 @@ async function PublicPage({ params, searchParams }: Props) {
               <a href={`/${locale.data}/projects`}>{l.clear}</a>
             </div>
           </form>
+          {locale.data !== 'tr' && <h2 className="showcase-sr-only">{l.title}</h2>}
           {!result || !result.items.length ? (
             <div className="project-empty">
               <p role="status">{result ? l.empty : l.error}</p>
             </div>
           ) : (
             <div className="project-grid">
-              {result.items.map((p, i) => (
-                <article className="project-card" key={p.id}>
-                  <div className="project-card-media">
-                    {p.heroImage ? (
-                      <Image
-                        src={p.heroImage.url}
-                        alt={p.heroImage.alt}
-                        fill
-                        unoptimized
-                        sizes="(max-width:600px) 100vw,50vw"
-                      />
-                    ) : (
-                      <div className="project-card-placeholder" aria-hidden="true">
-                        <span>
-                          {String((result.page - 1) * result.limit + i + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-                    )}
-                    {p.featured && <span className="project-featured">{l.featured}</span>}
-                  </div>
-                  <div className="project-card-copy">
-                    <p className="tv-eyebrow">{p.clientLabel ?? l.caseStudy}</p>
-                    <Heading as="h2">{p.title}</Heading>
-                    <p className="project-card-summary">{p.summary}</p>
-                    {(p.country || p.city) && (
-                      <p className="project-card-location">
-                        {[p.city, p.country].filter(Boolean).join(', ')}
-                      </p>
-                    )}
-                    <a
-                      href={`/${locale.data}/projects/${p.slug}`}
-                      aria-label={`${l.view}: ${p.title}`}
-                    >
-                      {l.view}
-                      <span aria-hidden="true">{locale.data === 'ar' ? '←' : '→'}</span>
-                    </a>
-                  </div>
-                </article>
-              ))}
+              {result.items.map((p, i) =>
+                locale.data !== 'tr' ? (
+                  <ProjectShowcaseCard
+                    key={p.id}
+                    locale={locale.data}
+                    index={i}
+                    item={{
+                      id: p.id,
+                      title: p.title,
+                      description: p.summary,
+                      slug: p.slug,
+                      href: `/projects/${p.slug}`,
+                      published: true,
+                      featured: p.featured,
+                      image: p.heroImage?.url,
+                      imageAlt: p.heroImage?.alt,
+                    }}
+                  />
+                ) : (
+                  <article className="project-card" key={p.id}>
+                    <div className="project-card-media">
+                      {p.heroImage ? (
+                        <Image
+                          src={p.heroImage.url}
+                          alt={p.heroImage.alt}
+                          fill
+                          unoptimized
+                          sizes="(max-width:600px) 100vw,50vw"
+                        />
+                      ) : (
+                        <div className="project-card-placeholder" aria-hidden="true">
+                          <span>
+                            {String((result.page - 1) * result.limit + i + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+                      )}
+                      {p.featured && <span className="project-featured">{l.featured}</span>}
+                    </div>
+                    <div className="project-card-copy">
+                      <p className="tv-eyebrow">{p.clientLabel ?? l.caseStudy}</p>
+                      <Heading as="h2">{p.title}</Heading>
+                      <p className="project-card-summary">{p.summary}</p>
+                      {(p.country || p.city) && (
+                        <p className="project-card-location">
+                          {[p.city, p.country].filter(Boolean).join(', ')}
+                        </p>
+                      )}
+                      <a
+                        href={`/${locale.data}/projects/${p.slug}`}
+                        aria-label={`${l.view}: ${p.title}`}
+                      >
+                        {l.view}
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    </div>
+                  </article>
+                ),
+              )}
             </div>
           )}
           {result && result.total > result.limit && (

@@ -1,3 +1,5 @@
+import { isIllustrativeProject, showcaseCopy, projectExamples } from '@/content/showcase';
+import './showcase.css';
 import { Heading } from '@tevoniq/ui';
 import Image from 'next/image';
 import { Container, ButtonLink } from '@tevoniq/ui';
@@ -6,7 +8,10 @@ import { projectLabels } from '@/content/projects';
 
 export function ProjectCaseStudy({ project }: { project: PublicProject }) {
   const p = project,
-    l = projectLabels[p.locale];
+    l = projectLabels[p.locale],
+    modern = p.locale !== 'tr',
+    demo = modern && isIllustrativeProject(p.slug),
+    sc = p.locale !== 'tr' ? showcaseCopy[p.locale] : null;
   const sections = (['challenge', 'approach', 'solution', 'implementation'] as const).filter(
     (key) => p[key],
   );
@@ -16,7 +21,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
       )
     : null;
   return (
-    <article className="case-study">
+    <article className={`case-study${modern ? ' showcase-modern' : ''}`}>
       <header className={`case-hero ${p.heroImage ? 'has-image' : ''}`}>
         <Container>
           <nav className="project-breadcrumb" aria-label={l.back}>
@@ -26,23 +31,25 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
           </nav>
           <div className="case-hero-grid">
             <div className="case-hero-copy">
-              <p className="tv-eyebrow">{p.featured ? l.featured : l.caseStudy}</p>
+              <p className="tv-eyebrow">
+                {demo ? sc?.demo : p.featured ? l.featured : l.caseStudy}
+              </p>
               <Heading as="h1">{p.title}</Heading>
               <p className="case-summary">{p.summary}</p>
               <dl className="case-facts">
                 {p.clientLabel && (
                   <div>
-                    <dt>{l.client}</dt>
+                    <dt>{demo ? sc?.projectContext : l.client}</dt>
                     <dd>{p.clientLabel}</dd>
                   </div>
                 )}
-                {(p.country || p.city) && (
+                {!demo && (p.country || p.city) && (
                   <div>
                     <dt>{l.location}</dt>
                     <dd>{[p.city, p.country].filter(Boolean).join(', ')}</dd>
                   </div>
                 )}
-                {date && (
+                {!demo && date && (
                   <div>
                     <dt>{l.date}</dt>
                     <dd>
@@ -68,11 +75,26 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
           </div>
         </Container>
       </header>
+      {demo && (
+        <div className="showcase-model-note">
+          <Container>
+            <p>{sc?.demoNote}</p>
+            {projectExamples[p.slug] && (
+              <a href={`/${p.locale}${projectExamples[p.slug]}`}>
+                {p.locale === 'ar'
+                  ? 'استكشف مثالًا مرتبطًا بالفكرة'
+                  : 'Explore a related starting point'}{' '}
+                ↗
+              </a>
+            )}
+          </Container>
+        </div>
+      )}
       {p.results.length > 0 && (
         <section className="case-results" aria-labelledby="project-results">
           <Container>
             <p id="project-results" className="tv-eyebrow">
-              {l.results}
+              {demo ? sc?.resultNote : l.results}
             </p>
             <dl>
               {p.results.map((r, i) => (
@@ -119,7 +141,7 @@ export function ProjectCaseStudy({ project }: { project: PublicProject }) {
                 </ul>
               </section>
             )}
-            {p.testimonial && (
+            {p.testimonial && !demo && (
               <section className="case-quote">
                 <p className="tv-eyebrow">{l.testimonial}</p>
                 <blockquote>

@@ -1,3 +1,4 @@
+import { HomeShowcases } from '@/components/showcase-cards';
 import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -46,7 +47,7 @@ async function PublicPage({ params }: PageProps) {
   const parsed = localeSchema.safeParse((await params).locale);
   if (!parsed.success) notFound();
   const locale = parsed.data;
-  const { copy, hero, collections } = await getHomeContent(locale);
+  const { copy, hero, collections, partnersPageAvailable } = await getHomeContent(locale);
   const href = (path: string) => localizedHref(locale, path);
 
   return (
@@ -95,41 +96,45 @@ async function PublicPage({ params }: PageProps) {
           <TechnologyEcosystem locale={locale} copy={copy} />
           <WhyTevoniq locale={locale} copy={copy} />
           <ConnectedThinking locale={locale} copy={copy} />
-          {(['industries', 'projects', 'partners', 'insights'] as const).map(
-            (key) =>
-              collections[key].length > 0 && (
-                <Section key={key} id={key} spacing="generous">
-                  <Container>
-                    <div data-entrance>
-                      <div className="home-collection-heading">
-                        <SectionHeader title={copy[key]} />
-                        <a
-                          className="home-section-link"
-                          href={href(key === 'partners' ? '/company/partners' : `/${key}`)}
-                        >
-                          {locale === 'ar'
-                            ? 'عرض الكل'
-                            : locale === 'tr'
-                              ? 'Tümünü gör'
-                              : 'View all'}
-                          <ArrowRight size={18} aria-hidden="true" />
-                        </a>
-                      </div>
-                      <div className="home-records">
-                        {collections[key].map((record) => (
-                          <Card key={record.id}>
-                            <Heading as="h3" className="tv-h3">
-                              <a href={href(record.href)}>{record.title}</a>
-                            </Heading>
-                            <p className="tv-description">{record.description}</p>
-                          </Card>
-                        ))}
-                      </div>
-                    </div>
-                  </Container>
-                </Section>
-              ),
+          {locale !== 'tr' && (
+            <HomeShowcases
+              locale={locale}
+              collections={collections}
+              partnersAvailable={partnersPageAvailable}
+            />
           )}
+          {locale === 'tr' &&
+            (['industries', 'projects', 'partners', 'insights'] as const).map(
+              (key) =>
+                collections[key].length > 0 && (
+                  <Section key={key} id={key} spacing="generous">
+                    <Container>
+                      <div data-entrance>
+                        <div className="home-collection-heading">
+                          <SectionHeader title={copy[key]} />
+                          <a
+                            className="home-section-link"
+                            href={href(key === 'partners' ? '/company/partners' : `/${key}`)}
+                          >
+                            Tümünü gör
+                            <ArrowRight size={18} aria-hidden="true" />
+                          </a>
+                        </div>
+                        <div className="home-records">
+                          {collections[key].map((record) => (
+                            <Card key={record.id}>
+                              <Heading as="h3" className="tv-h3">
+                                <a href={href(record.href)}>{record.title}</a>
+                              </Heading>
+                              <p className="tv-description">{record.description}</p>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    </Container>
+                  </Section>
+                ),
+            )}
           <Section spacing="compact" className="home-closing">
             <Container>
               <div data-entrance>

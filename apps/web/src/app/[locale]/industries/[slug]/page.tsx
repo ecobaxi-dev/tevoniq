@@ -1,3 +1,4 @@
+import { ShowcaseHero, IndustryPathways } from '@/components/showcase-pages';
 import { Heading } from '@tevoniq/ui';
 import { headers } from 'next/headers';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
@@ -82,7 +83,10 @@ async function PublicPage({ params }: Props) {
     })),
   };
   return (
-    <main id="main-content" className="industries-page">
+    <main
+      id="main-content"
+      className={`industries-page${locale !== 'tr' ? ' showcase-modern' : ''}`}
+    >
       <Container>
         <nav aria-label={labels.all}>
           <ol className="industry-breadcrumb">
@@ -98,7 +102,29 @@ async function PublicPage({ params }: Props) {
           </ol>
         </nav>
       </Container>
-      <IndustryBlocks industry={industry} />
+      {locale === 'tr' ? (
+        <IndustryBlocks industry={industry} />
+      ) : (
+        <>
+          <ShowcaseHero
+            locale={locale}
+            kind="industry"
+            title={industry.name}
+            intro={industry.shortDescription}
+          />
+          <div id="showcase-content">
+            <IndustryPathways locale={locale} slug={slug} />
+          </div>
+          <div className="showcase-industry-content">
+            <IndustryBlocks
+              industry={{
+                ...industry,
+                blocks: industry.blocks.filter((block) => block.area !== 'hero'),
+              }}
+            />
+          </div>
+        </>
+      )}
       <script
         nonce={(await headers()).get('x-nonce') || undefined}
         type="application/ld+json"

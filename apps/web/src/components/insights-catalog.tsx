@@ -1,3 +1,5 @@
+import { ShowcaseHero } from './showcase-pages';
+import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -65,30 +67,60 @@ export async function InsightsCatalog({
     return `?${q}`;
   };
   return (
-    <main id="main-content" className="insights-page">
-      <Section className="insights-hero">
-        <Container>
-          <p className="insight-kicker">TEVONIQ / {labels.title}</p>
-          <Heading as="h1" className="tv-h1">
-            {title}
-          </Heading>
-          <p className="insights-intro">{labels.intro}</p>
-          <nav className="insight-nav" aria-label={labels.title}>
-            {[
-              ['', labels.all],
-              ['/blog', labels.blog],
-              ['/resources', labels.resources],
-              ['/case-studies', labels.cases],
-            ].map(([path, name]) => (
-              <Link key={path} href={`/${locale.data}/insights${path}`}>
-                {name}
-              </Link>
-            ))}
-            <a href={`/insights/rss.xml?locale=${locale.data}`}>{labels.rss}</a>
-          </nav>
-        </Container>
-      </Section>
-      <Section>
+    <main
+      id="main-content"
+      className={`insights-page${locale.data !== 'tr' ? ' showcase-modern' : ''}`}
+    >
+      {locale.data !== 'tr' ? (
+        <>
+          <ShowcaseHero
+            locale={locale.data}
+            kind={kind === 'resource' ? 'resource' : 'blog'}
+            title={kind ? title : showcaseCopy[locale.data].insights}
+            intro={showcaseCopy[locale.data].insightIntro}
+          />
+          <div className="showcase-container">
+            <nav className="showcase-pills" aria-label={title}>
+              {[
+                ['', labels.all],
+                ['/blog', labels.blog],
+                ['/resources', labels.resources],
+                ['/case-studies', labels.cases],
+              ].map(([path, name]) => (
+                <Link key={path} href={`/${locale.data}/insights${path}`}>
+                  {name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </>
+      ) : (
+        <>
+          <Section className="insights-hero">
+            <Container>
+              <p className="insight-kicker">TEVONIQ / {labels.title}</p>
+              <Heading as="h1" className="tv-h1">
+                {title}
+              </Heading>
+              <p className="insights-intro">{labels.intro}</p>
+              <nav className="insight-nav" aria-label={labels.title}>
+                {[
+                  ['', labels.all],
+                  ['/blog', labels.blog],
+                  ['/resources', labels.resources],
+                  ['/case-studies', labels.cases],
+                ].map(([path, name]) => (
+                  <Link key={path} href={`/${locale.data}/insights${path}`}>
+                    {name}
+                  </Link>
+                ))}
+                <a href={`/insights/rss.xml?locale=${locale.data}`}>{labels.rss}</a>
+              </nav>
+            </Container>
+          </Section>
+        </>
+      )}
+      <Section id="showcase-content">
         <Container>
           <form className="insight-filters" method="get">
             <label>
@@ -119,6 +151,7 @@ export async function InsightsCatalog({
             </label>
             <button type="submit">{labels.apply}</button>
           </form>
+          {locale.data !== 'tr' && <h2 className="showcase-sr-only">{title}</h2>}
           {catalog.items.length ? (
             <InsightCards articles={catalog.items} locale={locale.data} />
           ) : (

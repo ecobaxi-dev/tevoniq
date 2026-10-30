@@ -1,3 +1,4 @@
+import { isPlaceholderPartner } from './showcase.ts';
 export type HomeRecord = {
   id: string;
   title: string;
@@ -7,6 +8,11 @@ export type HomeRecord = {
   featured?: boolean;
   verified?: boolean;
   publishedAt?: string;
+  slug?: string;
+  image?: string | undefined;
+  imageAlt?: string | undefined;
+  kind?: 'blog' | 'resource' | 'case-study';
+  readingTime?: number;
 };
 export type HomeCollections = {
   industries: HomeRecord[];
@@ -22,7 +28,9 @@ export function selectHomeCollections(records: HomeCollections): HomeCollections
     projects: published(records.projects)
       .filter((item) => item.featured === true)
       .slice(0, 3),
-    partners: published(records.partners).filter((item) => item.verified === true),
+    partners: published(records.partners).filter(
+      (item) => item.verified === true && !isPlaceholderPartner(item.title),
+    ),
     insights: published(records.insights)
       .filter(
         (item) =>

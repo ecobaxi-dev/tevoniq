@@ -1,3 +1,4 @@
+import { showcaseFixture, showcaseState } from './showcase-data.mjs';
 // Isolated Playwright-only API fixture. Never imported by application code.
 import { createServer } from 'node:http';
 import { readFileSync } from 'node:fs';
@@ -73,6 +74,14 @@ createServer(async (req, res) => {
     res.end(JSON.stringify(body));
   };
   if (url.pathname === '/health') return send(200, { ok: true });
+  if (url.pathname === '/fixture/showcase-state' && req.method === 'POST') {
+    let body = '';
+    for await (const chunk of req) body += chunk;
+    Object.assign(showcaseState, JSON.parse(body));
+    return send(200, showcaseState);
+  }
+  const showcase = showcaseFixture(url);
+  if (showcase) return send(showcase.status, showcase.body);
   // Code-owned product sitemap entries are tested independently of CMS records.
   if (url.pathname === '/api/v1/seo/routes') {
     const entries = ['cloud-solutions', ...hiddenSelections, 'development-fixture'].map((slug) => ({
@@ -188,7 +197,13 @@ createServer(async (req, res) => {
   if (home)
     return send(200, {
       content: { copy: homeCopy[home[1]], hero: referenceHeroCopy[home[1]] },
-      partners: [],
+      partners: [
+        {
+          id,
+          title: home[1] === 'ar' ? 'شريك توضيحي: مثال قديم' : 'Illustrative partner: old example',
+          description: 'Fixture placeholder, not a genuine relationship',
+        },
+      ],
     });
   if (url.pathname === '/api/v1/services' && url.searchParams.get('q')?.startsWith('directory-')) {
     if (url.searchParams.get('q') === 'directory-error')

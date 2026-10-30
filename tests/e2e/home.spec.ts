@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-test('homepage contains approved capabilities, hides empty CMS sections, and links its calls to action', async ({
+test('homepage contains approved capabilities, published showcase sections, and working calls to action', async ({
   page,
 }) => {
   await page.goto('/en');
@@ -11,7 +11,7 @@ test('homepage contains approved capabilities, hides empty CMS sections, and lin
   await expect(page.locator('.technology-ecosystem__choices button')).toHaveCount(7);
   await expect(page.locator('.why-tevoniq__value')).toHaveCount(6);
   for (const id of ['industries', 'projects', 'partners', 'insights'])
-    await expect(page.locator(`main #${id}`)).toHaveCount(0);
+    await expect(page.locator(`main #${id}`)).toHaveCount(1);
   await page.getByRole('link', { name: 'Get Started', exact: true }).first().click();
   await expect(page).toHaveURL('/en#solutions');
   await page.getByRole('link', { name: 'Contact Us', exact: true }).first().click();

@@ -1,3 +1,6 @@
+import { ShowcaseHero } from '@/components/showcase-pages';
+import { IndustryShowcaseCard } from '@/components/showcase-cards';
+import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
 import { PageBreadcrumbs } from '@/components/seo/structured-data';
 import { routeMetadata } from '@/lib/seo';
@@ -59,17 +62,31 @@ async function PublicPage({ params, searchParams }: Props) {
   const href = (page: number) =>
     `/${locale.data}/industries?${new URLSearchParams({ q: query.data.q, page: String(page), ...(query.data.featured ? { featured: query.data.featured } : {}), ...(query.data.service ? { service: query.data.service } : {}) })}`;
   return (
-    <main id="main-content" className="industries-page">
-      <Section tone="navy" spacing="generous" className="industries-hero">
-        <Container>
-          <p className="tv-eyebrow">{labels.eyebrow}</p>
-          <Heading as="h1" className="tv-h1">
-            {labels.title}
-          </Heading>
-          <p className="tv-description">{labels.intro}</p>
-        </Container>
-      </Section>
-      <Section spacing="generous">
+    <main
+      id="main-content"
+      className={`industries-page${locale.data !== 'tr' ? ' showcase-modern' : ''}`}
+    >
+      {locale.data !== 'tr' ? (
+        <ShowcaseHero
+          locale={locale.data}
+          kind="industry"
+          title={showcaseCopy[locale.data].industries}
+          intro={showcaseCopy[locale.data].industryIntro}
+        />
+      ) : (
+        <>
+          <Section tone="navy" spacing="generous" className="industries-hero">
+            <Container>
+              <p className="tv-eyebrow">{labels.eyebrow}</p>
+              <Heading as="h1" className="tv-h1">
+                {labels.title}
+              </Heading>
+              <p className="tv-description">{labels.intro}</p>
+            </Container>
+          </Section>
+        </>
+      )}
+      <Section spacing="generous" id="showcase-content">
         <Container>
           <form method="get" className="industries-filters">
             <label>
@@ -91,27 +108,43 @@ async function PublicPage({ params, searchParams }: Props) {
             </button>
             <a href={`/${locale.data}/industries`}>{labels.clear}</a>
           </form>
+          {locale.data !== 'tr' && <h2 className="showcase-sr-only">{labels.all}</h2>}
           {!result || !result.items.length ? (
             <div className="industry-empty">
               <p role="status">{result ? labels.empty : labels.error}</p>
             </div>
           ) : (
             <div className="industries-grid">
-              {result.items.map((s) => (
-                <Card key={s.id} className="industry-card" data-featured={s.featured}>
-                  {s.featured && <Badge>{labels.featuredBadge}</Badge>}
-                  <Heading as="h2" className="tv-h3">
-                    {s.name}
-                  </Heading>
-                  <p className="tv-description">{s.shortDescription}</p>
-                  <a
-                    href={`/${locale.data}/industries/${s.slug}`}
-                    aria-label={`${labels.view}: ${s.name}`}
-                  >
-                    {labels.view} <span aria-hidden="true">{locale.data === 'ar' ? '←' : '→'}</span>
-                  </a>
-                </Card>
-              ))}
+              {result.items.map((s, index) =>
+                locale.data !== 'tr' ? (
+                  <IndustryShowcaseCard
+                    key={s.id}
+                    locale={locale.data}
+                    index={index}
+                    item={{
+                      id: s.id,
+                      title: s.name,
+                      description: s.shortDescription,
+                      slug: s.slug,
+                      href: `/industries/${s.slug}`,
+                    }}
+                  />
+                ) : (
+                  <Card key={s.id} className="industry-card" data-featured={s.featured}>
+                    {s.featured && <Badge>{labels.featuredBadge}</Badge>}
+                    <Heading as="h2" className="tv-h3">
+                      {s.name}
+                    </Heading>
+                    <p className="tv-description">{s.shortDescription}</p>
+                    <a
+                      href={`/${locale.data}/industries/${s.slug}`}
+                      aria-label={`${labels.view}: ${s.name}`}
+                    >
+                      {labels.view} <span aria-hidden="true">→</span>
+                    </a>
+                  </Card>
+                ),
+              )}
             </div>
           )}
           {result && result.total > result.limit && (

@@ -1,3 +1,5 @@
+import { articlePath } from '@/lib/insight-format';
+import { InsightShowcaseCard } from './showcase-cards';
 import { Heading } from '@tevoniq/ui';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +13,31 @@ export function InsightCards({
   locale: 'en' | 'tr' | 'ar';
 }) {
   const labels = insightLabels[locale];
+  if (locale !== 'tr')
+    return (
+      <div className="showcase-three-grid">
+        {articles.map((article, index) => (
+          <InsightShowcaseCard
+            key={article.id}
+            locale={locale}
+            index={index}
+            item={{
+              id: article.id,
+              title: article.title,
+              description: article.excerpt,
+              slug: article.slug,
+              href: articlePath(article).replace(/^\/(en|ar|tr)/, ''),
+              published: true,
+              publishedAt: article.publicationDate,
+              image: article.coverImage || undefined,
+              imageAlt: article.coverImageAlt,
+              kind: article.kind,
+              readingTime: article.readingTime,
+            }}
+          />
+        ))}
+      </div>
+    );
   return (
     <div className="insight-grid">
       {articles.map((article) => (

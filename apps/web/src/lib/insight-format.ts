@@ -1,6 +1,16 @@
 import type { OrganizationSettings, PublicArticle } from '@tevoniq/validation';
-export function articleUrl(article: Pick<PublicArticle, 'language' | 'slug'>, site: string) {
-  return new URL(`/${article.language}/insights/blog/${article.slug}`, site).href;
+export function articlePath(
+  article: Pick<PublicArticle, 'language' | 'slug'> & Partial<Pick<PublicArticle, 'kind'>>,
+) {
+  // CMS case studies keep their existing blog detail route; authored studies have a separate route.
+  const section = article.language !== 'tr' && article.kind === 'resource' ? 'resources' : 'blog';
+  return `/${article.language}/insights/${section}/${article.slug}`;
+}
+export function articleUrl(
+  article: Pick<PublicArticle, 'language' | 'slug'> & Partial<Pick<PublicArticle, 'kind'>>,
+  site: string,
+) {
+  return new URL(articlePath(article), site).href;
 }
 export function articleStructuredData(
   article: PublicArticle,
