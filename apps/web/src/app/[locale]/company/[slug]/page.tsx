@@ -1,3 +1,4 @@
+import { WhyCompany } from '@/components/why-company';
 import { AboutStudio } from '@/components/about-studio';
 import { TechnologyPartnersPage } from '@/components/showcase-pages';
 import { showcaseCopy } from '@/content/showcase';
@@ -38,7 +39,9 @@ async function PublicPage({ params }: Props) {
   return (
     <main id="main-content" className="company-page">
       {content ? (
-        slug === 'about' && locale !== 'tr' ? (
+        slug === 'why-tevoniq' && locale !== 'tr' ? (
+          <WhyCompany locale={locale} content={content} />
+        ) : slug === 'about' && locale !== 'tr' ? (
           <AboutStudio locale={locale} content={content} />
         ) : slug === 'partners' && locale !== 'tr' ? (
           <TechnologyPartnersPage locale={locale} partners={partners} />

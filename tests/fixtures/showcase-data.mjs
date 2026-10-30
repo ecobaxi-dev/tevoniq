@@ -90,9 +90,10 @@ export function showcaseFixture(url) {
     ogImage: '',
     canonicalUrl: '',
   }));
-  const isPath = /^\/api\/v1\/(industries|projects|insights|company\/(partners|about))(\/|$)/.test(
-    url.pathname,
-  );
+  const isPath =
+    /^\/api\/v1\/(industries|projects|insights|company\/(partners|about|why-tevoniq))(\/|$)/.test(
+      url.pathname,
+    );
   if (!isPath) return undefined;
   if (showcaseState.unavailable)
     return { status: 503, body: { message: 'Unavailable showcase fixture' } };
@@ -189,6 +190,23 @@ export function showcaseFixture(url) {
       ? { status: 200, body: { article, related: articles.filter((v) => v.id !== article.id) } }
       : { status: 404, body: { message: 'Not found' } };
   }
+  if (url.pathname === '/api/v1/company/why-tevoniq')
+    return showcaseState.visible
+      ? {
+          status: 200,
+          body: {
+            ...defaultCompanyContent('why-tevoniq'),
+            title: t('لماذا TEVONIQ', 'Why TEVONIQ'),
+            intro: 'Published why fixture.',
+            sections: [
+              {
+                title: t('مبادئ منشورة', 'Published principles'),
+                body: 'Published principles fixture for preservation.',
+              },
+            ],
+          },
+        }
+      : { status: 404, body: { message: 'Not found' } };
   if (url.pathname === '/api/v1/company/about')
     return showcaseState.visible
       ? {
