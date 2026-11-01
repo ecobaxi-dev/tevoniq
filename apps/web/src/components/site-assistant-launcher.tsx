@@ -43,7 +43,10 @@ export function SiteAssistantLauncher({
           locale={locale}
           onDismiss={() => {
             setOpen(false);
-            requestAnimationFrame(() => trigger.current?.focus());
+            requestAnimationFrame(() => {
+              if (trigger.current?.getClientRects().length) trigger.current.focus();
+              else document.querySelector<HTMLButtonElement>('.site-side-mobile')?.focus();
+            });
           }}
         />
       )}
