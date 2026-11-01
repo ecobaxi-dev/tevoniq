@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import type { Request } from '@playwright/test';
 
 test('gallery thumbnails and system screenshots load directly without runtime image processing', async ({
   page,
@@ -13,7 +14,7 @@ test('gallery thumbnails and system screenshots load directly without runtime im
     '/en/automation-demos/order-sync',
   ]) {
     const processed: string[] = [];
-    const listener = (request: import('@playwright/test').Request) => {
+    const listener = (request: Request) => {
       if (new URL(request.url()).pathname === '/_next/image') processed.push(request.url());
     };
     page.on('request', listener);

@@ -1,3 +1,4 @@
+import { boundedRequestBody } from '@/lib/bounded-request-body';
 import { createHmac } from 'node:crypto';
 import { isIP } from 'node:net';
 import { NextResponse } from 'next/server';
@@ -14,23 +15,12 @@ async function bodyText(request: Request, upload = false): Promise<string | Arra
       ?.startsWith(upload ? 'multipart/form-data;' : 'application/json')
   )
     throw new Error('Expected JSON');
-  const reader = request.body?.getReader();
-  if (!reader) return '';
-  const chunks: Uint8Array[] = [];
-  let size = 0;
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    size += value.length;
-    if (size > (upload ? 51 * 1024 * 1024 : MAX_BODY)) {
-      await reader.cancel();
-      throw new Error('Body too large');
-    }
-    chunks.push(value);
-  }
-  return upload
-    ? new Uint8Array(Buffer.concat(chunks)).buffer
-    : Buffer.concat(chunks).toString('utf8');
+  const bytes = await boundedRequestBody(
+    request.body,
+    upload ? 51 * 1024 * 1024 : MAX_BODY,
+    AbortSignal.timeout(upload ? 60000 : 10000),
+  );
+  return upload ? new Uint8Array(bytes).buffer : bytes.toString('utf8');
 }
 async function handle(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const { path } = await params;

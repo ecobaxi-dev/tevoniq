@@ -1,3 +1,4 @@
+import { boundedRequestBody, RequestBodyError } from '@/lib/bounded-request-body';
 import { createHmac } from 'node:crypto';
 import { isIP } from 'node:net';
 import { env } from '@/lib/env';
@@ -8,21 +9,8 @@ export async function POST(request: Request) {
   const type = request.headers.get('content-type') || '';
   if (!type.startsWith('multipart/form-data;'))
     return Response.json({ message: 'Expected form data' }, { status: 400 });
-  const reader = request.body?.getReader();
-  if (!reader) return Response.json({ message: 'Missing form data' }, { status: 400 });
-  const chunks: Uint8Array[] = [];
-  let size = 0;
   try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      size += value.length;
-      if (size > MAX_BODY) {
-        await reader.cancel();
-        return Response.json({ message: 'Attachments exceed the upload limit' }, { status: 413 });
-      }
-      chunks.push(value);
-    }
+    const body = await boundedRequestBody(request.body, MAX_BODY, AbortSignal.timeout(60000));
     const headers: Record<string, string> = {
       'Content-Type': type,
       Origin: new URL(env.SITE_URL).origin,
@@ -38,7 +26,7 @@ export async function POST(request: Request) {
     const response = await fetch(`${env.API_URL}/leads/submit`, {
       method: 'POST',
       headers,
-      body: Buffer.concat(chunks),
+      body,
       signal: AbortSignal.timeout(20000),
       cache: 'no-store',
     });
@@ -46,7 +34,15 @@ export async function POST(request: Request) {
       status: response.status,
       headers: { 'Cache-Control': 'no-store' },
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof RequestBodyError)
+      return Response.json(
+        { message: 'Invalid, oversized or timed out request body' },
+        {
+          status: error.code === 'large' ? 413 : error.code === 'timeout' ? 408 : 400,
+          headers: { 'Cache-Control': 'private, no-store' },
+        },
+      );
     return Response.json(
       { message: 'Unable to submit right now. Please try again.' },
       { status: 503, headers: { 'Cache-Control': 'no-store' } },

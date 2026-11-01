@@ -130,7 +130,18 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string; slug: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  return routeMetadata(props, '/careers', baseMetadata);
+  const locale = localeSchema.parse((await props.params).locale);
+  return routeMetadata(
+    props,
+    '/careers',
+    locale === 'ar'
+      ? {
+          ...baseMetadata,
+          title: 'الوظائف | TEVONIQ',
+          description: careersCopy.ar.intro,
+        }
+      : baseMetadata,
+  );
 }
 
 export default async function Page(props: Parameters<typeof PublicPage>[0]) {

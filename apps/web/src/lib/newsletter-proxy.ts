@@ -1,3 +1,4 @@
+import { boundedRequestBody, RequestBodyError } from '@/lib/bounded-request-body';
 import { createHmac } from 'node:crypto';
 import { isIP } from 'node:net';
 import { env } from '@/lib/env';
@@ -6,21 +7,8 @@ export async function forwardNewsletter(request: Request, path = 'pages/newslett
     return Response.json({ message: 'Invalid origin' }, { status: 403 });
   if (!request.headers.get('content-type')?.startsWith('application/json'))
     return Response.json({ message: 'Expected JSON' }, { status: 400 });
-  const reader = request.body?.getReader();
-  if (!reader) return Response.json({ message: 'Missing body' }, { status: 400 });
-  let size = 0;
-  const chunks: Uint8Array[] = [];
   try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      size += value.length;
-      if (size > 8192) {
-        await reader.cancel();
-        return Response.json({ message: 'Request too large' }, { status: 413 });
-      }
-      chunks.push(value);
-    }
+    const body = await boundedRequestBody(request.body, 8192);
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
       Origin: new URL(env.SITE_URL).origin,
@@ -35,7 +23,7 @@ export async function forwardNewsletter(request: Request, path = 'pages/newslett
     const response = await fetch(`${env.API_URL}/${path}`, {
       method: 'POST',
       headers,
-      body: Buffer.concat(chunks),
+      body,
       cache: 'no-store',
       signal: AbortSignal.timeout(15000),
     });
@@ -43,8 +31,15 @@ export async function forwardNewsletter(request: Request, path = 'pages/newslett
       status: response.status,
       headers: { 'Cache-Control': 'no-store' },
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof RequestBodyError)
+      return Response.json(
+        { message: 'Invalid, oversized or timed out request body' },
+        {
+          status: error.code === 'large' ? 413 : error.code === 'timeout' ? 408 : 400,
+          headers: { 'Cache-Control': 'private, no-store' },
+        },
+      );
     return Response.json({ message: 'Subscription service unavailable' }, { status: 503 });
   }
 }
-

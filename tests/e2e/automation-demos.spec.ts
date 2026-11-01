@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const slugs = [
   'lead-capture',
@@ -8,7 +9,7 @@ const slugs = [
   'stock-alerts',
   'daily-summary',
 ];
-const run = async (page: import('@playwright/test').Page) => {
+const run = async (page: Page) => {
   await page.locator('.ad-inputs .ad-primary').click();
   await expect(page.locator('.ad-outcome')).toBeVisible();
 };

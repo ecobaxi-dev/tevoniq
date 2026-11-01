@@ -14,6 +14,7 @@ export function indexableRoute(
 ) {
   const canonical = route.seo.canonical || route.canonical;
   return (
+    !/^\/careers\/demo-/.test(route.route) &&
     !route.seo.robots.startsWith('noindex') &&
     (!canonical ||
       absoluteUrl(canonical, site) === absoluteUrl(localizedPath(route.locale, route.route), site))
@@ -22,9 +23,9 @@ export function indexableRoute(
 export function routeLanguages(route: SeoRoute, site: string, defaultLanguage = 'en') {
   const languages: Record<string, string> = {};
   for (const translation of route.translations) {
-    if (indexableRoute({ ...translation, route: route.route }, site))
+    if (indexableRoute({ ...translation, route: translation.route ?? route.route }, site))
       languages[translation.locale] = absoluteUrl(
-        localizedPath(translation.locale, route.route),
+        localizedPath(translation.locale, translation.route ?? route.route),
         site,
       );
   }

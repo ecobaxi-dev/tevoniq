@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
-async function completeGuide(page: import('@playwright/test').Page, values: string[]) {
+async function completeGuide(page: Page, values: string[]) {
   for (let i = 0; i < values.length; i++) {
     await page.locator(`.tc-guide-main input[value="${values[i]}"]`).check();
     await page.locator('.tc-guide-controls button[type=submit]').click();

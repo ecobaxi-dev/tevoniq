@@ -93,7 +93,12 @@ export const seoRouteSchema = z.object({
   updatedAt: z.string().nullable(),
   seo: seoFieldsSchema,
   translations: z.array(
-    z.object({ locale: z.enum(['en', 'tr', 'ar']), canonical: z.string(), seo: seoFieldsSchema }),
+    z.object({
+      locale: z.enum(['en', 'tr', 'ar']),
+      route: seoPathSchema.optional(),
+      canonical: z.string(),
+      seo: seoFieldsSchema,
+    }),
   ),
 });
 export type SeoRoute = z.infer<typeof seoRouteSchema>;

@@ -20,7 +20,7 @@ import { localeSchema } from '@tevoniq/validation';
 async function baseMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const locale = localeSchema.parse((await params).locale);
   return {
-    title: 'Contact | TEVONIQ',
+    title: locale === 'ar' ? 'تواصل معنا | TEVONIQ' : 'Contact | TEVONIQ',
     description: leadCopy[locale].contactIntro,
     robots: { index: true, follow: true },
     alternates: { canonical: `/${locale}/contact` },

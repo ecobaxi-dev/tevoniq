@@ -1,3 +1,4 @@
+import { publicSeoPath } from './seo-policy.js';
 import { SiteSettingsService } from '../site-settings/site-settings.service.js';
 import { settingsOrganization, publicSiteSettings } from '@tevoniq/validation';
 import { Controller, Get, Header, Inject, Query } from '@nestjs/common';
@@ -61,10 +62,14 @@ export class SeoController {
         LEFT JOIN LATERAL (
           SELECT data FROM "AdminRecord"
           WHERE module = 'seo' AND status = 'published' AND "deletedAt" IS NULL
-            AND language::text = v.locale AND data->>'path' = v.route
-          ORDER BY "updatedAt" DESC, id ASC LIMIT 1
+            AND language::text = v.locale
+            AND (data->>'path' = v.route OR
+              (v.type = 'resource' AND v.locale <> 'tr' AND data->>'path' = replace(v.route, '/insights/blog/', '/insights/resources/')))
+          ORDER BY (data->>'path' <> v.route) DESC, "updatedAt" DESC, id ASC LIMIT 1
         ) o ON true
-        WHERE (${path ?? ''} = '' OR v.route = ${path ?? ''})
+        WHERE (${path ?? ''} = '' OR v.route = ${path ?? ''}
+          OR (v.type = 'resource' AND replace(v.route, '/insights/blog/', '/insights/resources/') = ${path ?? ''}))
+          AND NOT (v.type = 'job' AND v.route LIKE '/careers/demo-%')
           AND NOT (v.route = ANY(${retiredPublicPaths}::text[]))
       )
       SELECT *, count(*) OVER () AS total,
@@ -90,7 +95,7 @@ export class SeoController {
       items: rows
         .filter((r) => r.type !== 'project' || publicLocales.get(r.id)?.includes(r.locale))
         .map((r) => ({
-          route: r.route,
+          route: publicSeoPath(r.route, r.type, r.locale),
           locale: r.locale,
           title: r.title,
           canonical: r.canonical,
@@ -98,7 +103,11 @@ export class SeoController {
           seo: publicSeoFields(r.seo),
           translations: r.translations
             .filter((t) => r.type !== 'project' || publicLocales.get(r.id)?.includes(t.locale))
-            .map((t) => ({ ...t, seo: publicSeoFields(t.seo) })),
+            .map((t) => ({
+              ...t,
+              route: publicSeoPath(r.route, r.type, t.locale),
+              seo: publicSeoFields(t.seo),
+            })),
         })),
     };
   }
