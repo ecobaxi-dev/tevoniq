@@ -183,12 +183,13 @@ function workerFixture({
   attempts = 0,
   enabled = true,
   status = 'NEW',
+  language = 'en',
 } = {}) {
   const lead = {
     id: randomUUID(),
     name: 'Person',
     email: 'sender@example.test',
-    language: 'en',
+    language,
     type: 'quote',
     status,
     deletedAt: null,
@@ -276,4 +277,65 @@ test('Email failure retries safely, stops after five attempts, and spam cancels 
   await spam.worker.flush();
   assert.equal(spam.sent.length, 0);
   assert.equal(spam.updates[0].status, 'cancelled');
+});
+
+test('Lead phones enforce numbering plans and normalize Arabic digits and legacy country names', () => {
+  for (const phone of [
+    '12345',
+    '+999123456789',
+    '+12001234567',
+    'call +905555555555',
+    '+905555555555 ext 1',
+  ]) {
+    assert.equal(leadSubmissionSchema.safeParse({ ...contact, phone }).success, false, phone);
+  }
+  const local = leadSubmissionSchema.parse({ ...contact, country: 'SA', phone: '٠٥٠١٢٣٤٥٦٧' });
+  assert.equal(local.phone, '+966501234567');
+  assert.equal(local.country, 'SA');
+  const international = leadSubmissionSchema.parse({
+    ...contact,
+    country: 'SA',
+    phone: '0090 555 555 5555',
+  });
+  assert.equal(international.phone, '+905555555555');
+  assert.equal(leadSubmissionSchema.parse(contact).country, 'TR');
+  assert.equal(
+    leadSubmissionSchema.safeParse({ ...contact, country: 'Unknown country' }).success,
+    false,
+  );
+});
+
+test('Worker sends Arabic HTML alongside readable plain-text fallback', async () => {
+  const f = workerFixture({ language: 'ar' });
+  await f.worker.flush();
+  const message = f.sent.find((message) => message.to.includes('sender@example.test'));
+  assert.ok(message.html.includes('lang="ar" dir="rtl"'));
+  assert.ok(message.text.includes('\u2066'));
+  assert.ok(!message.text.includes('فريقنا'));
+});
+
+test('API rejects invalid phones before accessing persistence or email queues', async () => {
+  const { LeadsController } = await import('../apps/api/dist/leads/leads.controller.js');
+  const inaccessible = new Proxy(
+    {},
+    {
+      get() {
+        throw new Error('Persistence must not be accessed');
+      },
+    },
+  );
+  const controller = new LeadsController(
+    inaccessible,
+    inaccessible,
+    inaccessible,
+    new ConfigService({ CORS_ORIGIN: 'https://tevoniq.test' }),
+  );
+  await assert.rejects(
+    controller.submit({ payload: JSON.stringify({ ...contact, phone: '+999123456789' }) }, [], {
+      header: () => undefined,
+      ip: '127.0.0.1',
+      socket: {},
+    }),
+    (error) => error.getStatus?.() === 400,
+  );
 });

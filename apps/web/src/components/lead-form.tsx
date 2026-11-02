@@ -3,7 +3,7 @@ import { Heading } from '@tevoniq/ui';
 
 import { useState, useRef, useCallback } from 'react';
 import { Button, Input, Select, Textarea, Checkbox } from '@tevoniq/ui';
-import { leadSubmissionSchema } from '@tevoniq/validation';
+import { leadSubmissionSchema, leadCountries } from '@tevoniq/validation';
 import type { LeadOptions } from '@/lib/lead-options';
 import { leadCopy } from '@/content/leads';
 import { Turnstile } from './turnstile';
@@ -26,7 +26,24 @@ export function LeadForm({
     [reference, setReference] = useState(''),
     [token, setToken] = useState(''),
     [resetKey, setResetKey] = useState(0),
+    [country, setCountry] = useState(''),
     [method, setMethod] = useState('email');
+  const countries = leadCountries(locale);
+  const contactCopy =
+    locale === 'ar'
+      ? {
+          select: 'اختر بلدك',
+          invalid: 'أدخل رقم هاتف صالحًا للبلد المختار، أو استخدم رمز الاتصال الدولي +.',
+          country: 'اختر بلدًا من القائمة.',
+          hint: 'يمكنك إدخال الرقم المحلي للبلد المختار، أو رقم دولي يبدأ بـ +.',
+        }
+      : {
+          select: 'Select your country',
+          invalid:
+            'Enter a valid number for your country, or include the international calling code +.',
+          country: 'Select a country from the list.',
+          hint: 'Enter a local number for your selected country, or an international number starting with +.',
+        };
   const id = useRef(''),
     form = useRef<HTMLFormElement>(null);
   const onToken = useCallback((value: string) => setToken(value), []);
@@ -39,7 +56,7 @@ export function LeadForm({
         </Heading>
         <p>{copy.successBody}</p>
         <p className="lead-reference">
-          {copy.reference}: {reference}
+          {copy.reference}: <bdi dir="ltr">{reference}</bdi>
         </p>
       </section>
     );
@@ -90,7 +107,16 @@ export function LeadForm({
         const parsed = leadSubmissionSchema.safeParse(value);
         if (!parsed.success) {
           setErrors(
-            Object.fromEntries(parsed.error.issues.map((i) => [String(i.path[0]), i.message])),
+            Object.fromEntries(
+              parsed.error.issues.map((i) => [
+                String(i.path[0]),
+                locale !== 'tr' && i.path[0] === 'phone'
+                  ? contactCopy.invalid
+                  : locale !== 'tr' && i.path[0] === 'country'
+                    ? contactCopy.country
+                    : i.message,
+              ]),
+            ),
           );
           setError(copy.error);
           return;
@@ -134,7 +160,14 @@ export function LeadForm({
     >
       <fieldset disabled={busy}>
         <div className="lead-form-grid">
-          {(['name', 'company', 'email', 'phone', 'country'] as const).map((key) => (
+          {(
+            [
+              'name',
+              'company',
+              'email',
+              ...(locale === 'tr' ? (['phone', 'country'] as const) : []),
+            ] as const
+          ).map((key) => (
             <Input
               key={key}
               name={key}
@@ -157,6 +190,38 @@ export function LeadForm({
               {...(errors[key] ? { error: errors[key] } : {})}
             />
           ))}
+          {locale !== 'tr' && (
+            <>
+              <Select
+                name="country"
+                label={copy.country}
+                required
+                autoComplete="country"
+                value={country}
+                onChange={(event) => setCountry(event.target.value)}
+                {...(errors.country ? { error: errors.country } : {})}
+              >
+                <option value="">{contactCopy.select}</option>
+                {countries.map((item) => (
+                  <option key={item.code} value={item.code}>
+                    {item.name} (+{item.callingCode})
+                  </option>
+                ))}
+              </Select>
+              <Input
+                name="phone"
+                label={copy.phone}
+                type="tel"
+                dir="ltr"
+                inputMode="tel"
+                autoComplete="tel"
+                maxLength={50}
+                required={quote || method === 'phone'}
+                hint={`${country ? '+' + countries.find((item) => item.code === country)?.callingCode + ' · ' : ''}${contactCopy.hint}`}
+                {...(errors.phone ? { error: errors.phone } : {})}
+              />
+            </>
+          )}
         </div>
         {quote ? (
           <>

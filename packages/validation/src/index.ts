@@ -98,3 +98,5 @@ export * from './home.js';
 export * from './navigation.js';
 
 export * from './pesto-registration.js';
+
+export * from './lead-contact.js';

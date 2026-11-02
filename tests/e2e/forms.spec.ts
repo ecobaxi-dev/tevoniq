@@ -11,7 +11,7 @@ test('contact and quote forms validate required fields and submit deterministic 
 
   await contactForm.getByLabel('Name', { exact: true }).fill('Casey Fixture');
   await contactForm.getByLabel('Email', { exact: true }).fill('casey.fixture@example.test');
-  await contactForm.getByLabel('Country', { exact: true }).fill('Türkiye');
+  await contactForm.getByLabel('Country', { exact: true }).selectOption('TR');
   await contactForm.getByLabel('Subject', { exact: true }).fill('Fixture enquiry');
   await contactForm
     .getByLabel('Message', { exact: true })
@@ -25,7 +25,7 @@ test('contact and quote forms validate required fields and submit deterministic 
   await quoteForm.getByLabel('Name', { exact: true }).fill('Casey Fixture');
   await quoteForm.getByLabel('Email', { exact: true }).fill('casey.quote@example.test');
   await quoteForm.getByLabel('Phone', { exact: true }).fill('+90 555 555 5555');
-  await quoteForm.getByLabel('Country', { exact: true }).fill('Türkiye');
+  await quoteForm.getByLabel('Country', { exact: true }).selectOption('TR');
   await quoteForm.getByLabel('Industry', { exact: true }).fill('Technology');
   await quoteForm.getByLabel('Project type', { exact: true }).fill('Portal');
   await quoteForm.getByLabel('Timeline', { exact: true }).fill('This quarter');
@@ -42,4 +42,34 @@ test('contact and quote forms validate required fields and submit deterministic 
     .check();
   await quoteForm.getByRole('button', { name: 'Request a quote', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Your reference: lead-fixture-001');
+});
+
+test('Arabic contact form rejects invalid numbers and submits normalized Arabic digits', async ({
+  page,
+}) => {
+  await page.goto('/ar/contact');
+  const form = page.locator('.lead-form');
+  await form.locator('[name="name"]').fill('زائر تجريبي');
+  await form.locator('[name="email"]').fill('visitor@example.test');
+  await form.locator('[name="country"]').selectOption('SA');
+  await form.locator('[name="phone"]').fill('12345');
+  await form.locator('[name="subject"]').fill('طلب موقع');
+  await form.locator('[name="message"]').fill('أرغب في مناقشة موقع أعمال.');
+  let submissions = 0;
+  await page.route('**/api/leads', async (route) => {
+    submissions++;
+    expect(route.request().postData()).toContain('+966501234567');
+    await route.fulfill({
+      status: 202,
+      contentType: 'application/json',
+      body: JSON.stringify({ reference: 'arabic-fixture-001' }),
+    });
+  });
+  await form.locator('[type="submit"]').click();
+  await expect(form.getByRole('alert')).toContainText('أدخل رقم هاتف صالحًا');
+  expect(submissions).toBe(0);
+  await form.locator('[name="phone"]').fill('٠٥٠١٢٣٤٥٦٧');
+  await form.locator('[type="submit"]').click();
+  await expect(page.locator('.lead-reference bdi')).toHaveText('arabic-fixture-001');
+  expect(submissions).toBe(1);
 });

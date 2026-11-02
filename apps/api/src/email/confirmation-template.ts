@@ -4,39 +4,86 @@ const escapeHtml = (value: string) =>
     (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!,
   );
 
+/** Table layout and inline styles deliberately support email clients without scripts or remote assets. */
 export function confirmationHtml(input: {
   name: string;
   reference: string;
   quote: boolean;
   origin: string;
+  locale?: 'ar' | 'en';
 }) {
-  const name = escapeHtml(input.name);
-  const reference = escapeHtml(input.reference);
-  const site = escapeHtml(new URL(input.origin).origin);
-  const request = input.quote ? 'quote request' : 'enquiry';
-  return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Your ${request} has been received — TEVONIQ</title>
-<style>@media only screen and (max-width:620px){.outer{padding:16px 8px!important}.pad{padding:28px 22px!important}.title{font-size:30px!important;line-height:38px!important}.footer{padding:24px 22px!important}}</style></head>
-<body style="margin:0;padding:0;background:#f1f4f7;color:#152737;font-family:Arial,Helvetica,sans-serif">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all">Thank you for contacting TEVONIQ. Your ${request} is with our team.</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f4f7"><tr><td class="outer" align="center" style="padding:40px 16px">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid #dce3e9;border-radius:12px;overflow:hidden">
-<tr><td style="height:5px;background:#D4AF37;font-size:0;line-height:0">&nbsp;</td></tr>
-<tr><td class="pad" style="padding:32px 40px;background:#0A1F44"><a href="${site}/en" style="color:#ffffff;text-decoration:none;font-size:25px;font-weight:bold;letter-spacing:4px">TEVONIQ<span style="color:#D4AF37">.</span></a><p style="margin:10px 0 0;color:#becbd3;font-size:11px;letter-spacing:2px">TECHNOLOGY &amp; BUSINESS SOLUTIONS</p></td></tr>
-<tr><td class="pad" style="padding:36px 40px">
-<p style="margin:0 0 18px;color:#467661;font-size:12px;font-weight:bold;letter-spacing:2px">REQUEST RECEIVED</p>
-<h1 class="title" style="margin:0 0 22px;font-size:36px;line-height:43px;font-weight:bold;color:#0A1F44">Thank you for<br>reaching out.</h1>
-<p style="margin:0 0 12px;font-size:16px;line-height:26px">Hello ${name},</p>
-<p style="margin:0 0 26px;color:#536271;font-size:15px;line-height:25px">Your ${request} has been successfully received. Our team will review the details and follow up using the contact information you provided.</p>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f6f8;border:1px solid #dce3e9;border-radius:8px"><tr><td style="padding:20px"><p style="margin:0 0 9px;font-size:11px;color:#536271;letter-spacing:1px;font-weight:bold">YOUR REFERENCE NUMBER</p><p style="margin:0;font:13px/22px 'Courier New',monospace;color:#0A1F44;word-break:break-all">${reference}</p><p style="margin:10px 0 0;font-size:12px;line-height:19px;color:#637180">Keep this number handy when contacting our team.</p></td></tr></table>
-<h2 style="margin:30px 0 18px;font-size:18px;color:#0A1F44">What happens next?</h2>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-<tr><td width="32" valign="top" style="padding:0 0 18px;font-size:14px;font-weight:bold;color:#a57935">01</td><td style="padding:0 0 18px;font-size:14px;line-height:23px"><strong>We review your request</strong><br><span style="color:#637180">We look at your requirements and identify the right next steps.</span></td></tr>
-<tr><td width="32" valign="top" style="font-size:14px;font-weight:bold;color:#a57935">02</td><td style="font-size:14px;line-height:23px"><strong>Our team gets in touch</strong><br><span style="color:#637180">We follow up to discuss your needs and any further details.</span></td></tr></table>
-<p style="margin:28px 0 20px;font-size:14px;line-height:23px;color:#536271">Need to add something? Email our team and include your reference number.</p>
-<table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#0A1F44" style="border-radius:6px"><a href="mailto:kallas.hossam@gmail.com?subject=Enquiry%20${encodeURIComponent(input.reference)}" style="display:inline-block;padding:15px 24px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;border:1px solid #0A1F44;border-radius:6px">Contact our team &rarr;</a></td></tr></table>
-<p style="margin:28px 0 0;font-size:14px;line-height:23px;color:#536271">We look forward to learning more about your project.<br><strong style="color:#0A1F44">The TEVONIQ team</strong></p>
-</td></tr>
-<tr><td class="footer" style="padding:26px 40px;background:#f8fafb;border-top:1px solid #e3e9ed"><p style="margin:0 0 10px;font-size:12px;line-height:21px;color:#536271"><a href="${site}/en" style="color:#0A1F44;text-decoration:underline">Visit our website</a> &nbsp;&middot;&nbsp; İstanbul, Türkiye<br><a href="tel:+905550188126" style="color:#536271;text-decoration:none">+90 555 018 81 26</a></p><p style="margin:0 0 10px;font-size:10px;line-height:17px;color:#71808c">EVE WASEL ALIŞVERİŞ İTHALAT İHRACAT LİMİTED ŞİRKETİ</p><p style="margin:0;font-size:11px;line-height:18px;color:#71808c">You received this email because an enquiry was submitted through TEVONIQ. This is a confirmation of receipt.</p></td></tr>
-</table></td></tr></table></body></html>`;
+  const ar = input.locale === 'ar';
+  const locale = ar ? 'ar' : 'en';
+  const origin = new URL(input.origin);
+  if (!['https:', 'http:'].includes(origin.protocol) || origin.username || origin.password)
+    throw new Error('Invalid email origin');
+  const site = escapeHtml(origin.origin);
+  const name = escapeHtml(input.name),
+    reference = escapeHtml(input.reference);
+  const copy = ar
+    ? {
+        type: input.quote ? 'طلب عرض سعر' : 'رسالة تواصل',
+        status: 'تم الاستلام بنجاح',
+        title: input.quote ? 'لنحوّل احتياجك<br>إلى خطة واضحة.' : 'بداية تواصل.<br>وفرص جديدة.',
+        hello: `مرحبًا ${name}،`,
+        body: input.quote
+          ? 'وصلنا طلب عرض السعر. سنراجع متطلباتك ونتواصل معك لتوضيح النطاق والخطوة المناسبة لمشروعك.'
+          : 'شكرًا لتواصلك مع TEVONIQ. وصلتنا رسالتك، وسنراجع تفاصيلها ونتواصل معك عبر بيانات الاتصال التي شاركتها.',
+        reference: 'رقم طلبك المرجعي',
+        keep: 'احتفظ بهذا الرقم واذكره عند متابعة طلبك.',
+        next: 'ماذا يحدث بعد ذلك؟',
+        steps: [
+          ['نفهم احتياجك', 'نراجع التفاصيل ونحدد ما يحتاج إلى توضيح.'],
+          ['نتواصل معك', 'نناقش أهدافك والأسئلة المتعلقة بطلبك.'],
+          ['نحدد الخطوة التالية', 'نتفق على مسار واضح يناسب احتياجك.'],
+        ],
+        cta: 'لديك تفاصيل إضافية؟ تواصل معنا',
+        footer: 'إسطنبول، تركيا',
+        website: 'استكشف TEVONIQ',
+        privacy: 'الخصوصية',
+        note: 'هذه رسالة لتأكيد استلام طلبك، وليست عرض سعر أو اتفاقًا على التنفيذ.',
+        tagline: 'حلول رقمية تنظّم أعمالك',
+      }
+    : {
+        type: input.quote ? 'quote request' : 'enquiry',
+        status: 'SUCCESSFULLY RECEIVED',
+        title: input.quote
+          ? 'Your idea.<br>A clearer way forward.'
+          : 'A conversation.<br>New possibilities.',
+        hello: `Hello ${name},`,
+        body: input.quote
+          ? 'Your quote request has arrived. We will review your requirements and contact you to clarify the scope and a suitable next step for your project.'
+          : 'Thank you for contacting TEVONIQ. We have received your message and will follow up using the contact details you shared.',
+        reference: 'YOUR REQUEST REFERENCE',
+        keep: 'Keep this number and include it when following up.',
+        next: 'What happens next?',
+        steps: [
+          ['Understand your needs', 'We review the details and identify any questions.'],
+          ['Connect with you', 'We discuss your goals and clarify your request.'],
+          ['Define the next step', 'We agree on a clear way forward for your needs.'],
+        ],
+        cta: 'Have more details? Contact us',
+        footer: 'Istanbul, Türkiye',
+        website: 'Explore TEVONIQ',
+        privacy: 'Privacy',
+        note: 'This email confirms receipt of your request. It is not a quotation or an agreement to deliver work.',
+        tagline: 'Digital solutions that organise your business',
+      };
+  const align = ar ? 'right' : 'left';
+  const steps = copy.steps
+    .map(
+      ([title, body], index) =>
+        `<tr><td width="42" valign="top" style="padding:16px 0;border-bottom:1px solid #e9eef3"><span style="font:700 18px/28px Arial;color:#008da7">0${index + 1}</span></td><td style="padding:16px 0;border-bottom:1px solid #e9eef3;font-size:15px;line-height:25px"><strong style="color:#102747">${title}</strong><br><span style="color:#617184">${body}</span></td></tr>`,
+    )
+    .join('');
+  return `<!doctype html><html lang="${locale}" dir="${ar ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${copy.status} — TEVONIQ</title><style>@media only screen and (max-width:620px){.outer{padding:16px 8px!important}.pad{padding:26px 22px!important}.title{font-size:31px!important;line-height:43px!important}}</style></head>
+<body style="margin:0;background:#edf2f7;font-family:Tahoma,Arial,sans-serif;color:#102747"><div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all">${copy.status} · ${copy.type} — TEVONIQ</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#edf2f7"><tr><td class="outer" align="center" style="padding:40px 16px"><table role="presentation" width="600" cellpadding="0" cellspacing="0" dir="${ar ? 'rtl' : 'ltr'}" style="width:100%;max-width:600px;background:#ffffff;border:1px solid #dde5ef;border-radius:20px;overflow:hidden;text-align:${align}">
+<tr><td class="pad" bgcolor="#0a2041" style="padding:35px 40px;background:#0a2041;background-image:linear-gradient(125deg,#0a2041,#104c65);color:#ffffff"><a href="${site}/${locale}" dir="ltr" style="display:inline-block;color:#ffffff;font:700 27px Arial;letter-spacing:3px;text-decoration:none">TEVONIQ<span style="color:#20d3ee">.</span></a><p style="margin:12px 0 30px;color:#c5e6ed;font-size:12px;line-height:22px">${copy.tagline}</p><span style="color:#b9efce;font-size:12px;font-weight:bold">✓ &nbsp; ${copy.status}</span><h1 class="title" style="font-size:38px;line-height:51px;margin:17px 0;color:#ffffff">${copy.title}</h1><p style="margin:0;color:#aee9f3;font-size:13px">${copy.type}</p></td></tr>
+<tr><td height="4" bgcolor="#1ac9e6" style="font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td class="pad" style="padding:32px 40px"><p style="font-size:18px;line-height:30px;margin:0 0 12px;font-weight:bold">${copy.hello}</p><p style="font-size:15px;line-height:28px;color:#53667c;margin:0 0 25px">${copy.body}</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef7fa" style="background:#eef7fa;border:1px solid #cde5ed;border-radius:12px"><tr><td style="padding:20px"><p style="margin:0 0 10px;color:#37637a;font-size:12px;font-weight:bold">${copy.reference}</p><div dir="ltr" style="direction:ltr;unicode-bidi:isolate;text-align:left;font:700 12px/24px 'Courier New',monospace;color:#102747;word-break:break-all">${reference}</div><p style="margin:10px 0 0;font-size:12px;line-height:21px;color:#617184">${copy.keep}</p></td></tr></table>
+<h2 style="font-size:20px;margin:29px 0 0">${copy.next}</h2><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${steps}</table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px"><tr><td align="center" bgcolor="#0b3d57" style="border-radius:9px"><a href="${site}/${locale}/contact" style="display:block;padding:17px 16px;color:#ffffff;font-size:14px;font-weight:bold;line-height:24px;text-decoration:none">${copy.cta} &nbsp; ${ar ? '←' : '→'}</a></td></tr></table>
+</td></tr><tr><td class="pad" bgcolor="#f7f9fc" style="padding:25px 40px;border-top:1px solid #e3eaf1"><p style="margin:0 0 12px;color:#3f5770;font-size:12px;line-height:24px"><strong dir="ltr">TEVONIQ</strong> &nbsp; · &nbsp; ${copy.footer}<br><a href="${site}/${locale}" style="color:#17637e">${copy.website}</a> &nbsp; · &nbsp; <a href="${site}/${locale}/privacy-policy" style="color:#17637e">${copy.privacy}</a></p><p style="margin:0;color:#687a8d;font-size:11px;line-height:21px">${copy.note}</p></td></tr></table></td></tr></table></body></html>`;
 }

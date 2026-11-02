@@ -28,7 +28,7 @@ export const leadCopy = {
     sending: 'Sending…',
     success: 'Thank you. Your enquiry has been received.',
     successBody:
-      'Our team will review your request and follow up using the contact details you provided.',
+      'We will review your request and follow up using the contact details you provided.',
     reference: 'Your reference',
     error: 'We couldn’t submit your enquiry. Please try again.',
     unavailable: 'The form is temporarily unavailable. Please try again shortly.',
@@ -114,7 +114,7 @@ export const leadCopy = {
     sendQuote: 'طلب عرض سعر',
     sending: 'جارٍ الإرسال…',
     success: 'شكرًا لك. تم استلام طلبك.',
-    successBody: 'سيراجع فريقنا طلبك ويتواصل معك باستخدام بيانات الاتصال المقدمة.',
+    successBody: 'سنراجع طلبك ونتواصل معك عبر بيانات الاتصال التي شاركتها.',
     reference: 'الرقم المرجعي',
     error: 'تعذر إرسال طلبك. يرجى المحاولة مرة أخرى.',
     unavailable: 'النموذج غير متاح مؤقتًا. يرجى المحاولة لاحقًا.',

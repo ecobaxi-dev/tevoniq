@@ -71,16 +71,20 @@ export class LeadEmailWorker implements OnModuleInit, OnModuleDestroy {
           const lead = current;
           const confirmation = {
             en: {
-              subject: 'We received your enquiry — TEVONIQ',
-              text: `Hello ${lead.name},\n\nThank you for contacting TEVONIQ. We have received your ${lead.type === 'quote' ? 'quote request' : 'message'}. Our team will review it and follow up using the contact details you provided.\n\nReference: ${lead.id}\n\nTEVONIQ`,
+              subject:
+                lead.type === 'quote'
+                  ? 'Your quote request is received — TEVONIQ'
+                  : 'We received your enquiry — TEVONIQ',
+              text: `Hello ${lead.name},\n\nThank you for contacting TEVONIQ. We have received your ${lead.type === 'quote' ? 'quote request' : 'message'}. We will review it and follow up using the contact details you provided.\n\nReference: ${lead.id}\n\nTEVONIQ`,
             },
             tr: {
               subject: 'Talebinizi aldık — TEVONIQ',
               text: `Merhaba ${lead.name},\n\nTEVONIQ ile iletişime geçtiğiniz için teşekkür ederiz. Talebinizi aldık. Ekibimiz inceleyerek paylaştığınız iletişim bilgileri üzerinden size dönüş yapacaktır.\n\nReferans: ${lead.id}\n\nTEVONIQ`,
             },
             ar: {
-              subject: 'تم استلام طلبك — TEVONIQ',
-              text: `مرحبًا ${lead.name}،\n\nشكرًا لتواصلك مع TEVONIQ. لقد استلمنا طلبك وسيراجعه فريقنا ويتواصل معك باستخدام بيانات الاتصال التي قدمتها.\n\nالمرجع: ${lead.id}\n\nTEVONIQ`,
+              subject:
+                lead.type === 'quote' ? 'وصلنا طلب عرض السعر — TEVONIQ' : 'وصلتنا رسالتك — TEVONIQ',
+              text: `مرحبًا ${lead.name}،\n\nشكرًا لتواصلك مع TEVONIQ. لقد استلمنا طلبك وسنراجع تفاصيله ونتواصل معك باستخدام بيانات الاتصال التي قدمتها.\n\nالرقم المرجعي:\n\u2066${lead.id}\u2069\n\nTEVONIQ`,
             },
           }[lead.language];
           const message: EmailMessage =
@@ -88,10 +92,11 @@ export class LeadEmailWorker implements OnModuleInit, OnModuleDestroy {
               ? {
                   to: [lead.email],
                   ...confirmation,
-                  ...(lead.language === 'en'
+                  ...(lead.language !== 'tr'
                     ? {
                         html: confirmationHtml({
                           name: lead.name,
+                          locale: lead.language,
                           reference: lead.id,
                           quote: lead.type === 'quote',
                           origin: this.config.getOrThrow<string>('CORS_ORIGIN'),

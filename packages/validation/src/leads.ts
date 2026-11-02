@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { leadCountryCode, normalizeLeadPhone } from './lead-contact.js';
 // Plain text only: strip markup and nonprinting characters before storage or email rendering.
 export function cleanLeadText(value: string) {
   return value
@@ -65,11 +66,8 @@ export const leadSubmissionSchema = z
     name: required(120),
     company: line(160),
     email: z.string().trim().toLowerCase().pipe(z.email().max(254)),
-    phone: line(50).refine(
-      (v) => !v || /^[+\d\s().-]{5,50}$/.test(v),
-      'Enter a valid phone number',
-    ),
-    country: required(100),
+    phone: line(50),
+    country: required(100).refine((value) => !!leadCountryCode(value), 'Select a valid country'),
     subject: line(200).default(''),
     message: plain(10000).default(''),
     preferredContactMethod: z.enum(['email', 'phone']).default('email'),
@@ -108,6 +106,13 @@ export const leadSubmissionSchema = z
       if (!v[key]) ctx.addIssue({ code: 'custom', path: [key], message: 'Required field' });
     if ((v.preferredContactMethod === 'phone' || v.type === 'quote') && !v.phone)
       ctx.addIssue({ code: 'custom', path: ['phone'], message: 'Phone number required' });
+    if (v.phone && !normalizeLeadPhone(v.phone, v.country))
+      ctx.addIssue({
+        code: 'custom',
+        path: ['phone'],
+        message:
+          'Enter a valid phone number for the selected country, or include the international calling code',
+      });
     if (v.type === 'quote' && !v.consent)
       ctx.addIssue({ code: 'custom', path: ['consent'], message: 'Consent is required' });
     if (
@@ -115,7 +120,12 @@ export const leadSubmissionSchema = z
       (v.type === 'quote' && v.sourcePage.endsWith('contact'))
     )
       ctx.addIssue({ code: 'custom', path: ['sourcePage'], message: 'Source does not match form' });
-  });
+  })
+  .transform((value) => ({
+    ...value,
+    country: leadCountryCode(value.country)!,
+    phone: value.phone ? normalizeLeadPhone(value.phone, value.country)! : '',
+  }));
 export const leadQuerySchema = z
   .object({
     q: z.string().trim().max(200).default(''),
