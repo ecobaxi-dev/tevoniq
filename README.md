@@ -1,5 +1,7 @@
 # TEVONIQ
 
+Current owner handover and operations reference: [دليل المشروع والتشغيل والتطوير](docs/project-handover-ar.md) (verified 2 November 2026; credentials are kept in a separate ignored local file).
+
 TEVONIQ is a multilingual corporate website and content platform. It combines a Next.js public site, a NestJS CMS/API, PostgreSQL, controlled media storage, role-based administration, consent-aware analytics, and an editorial workflow for published content.
 
 The public website is intentionally content-led: real services, projects, partners, testimonials, certifications, awards, locations, and statistics are shown only when an authorized editor has entered and published them. The development seed creates no public business records.
@@ -29,7 +31,7 @@ For the owner-requested populated demonstration catalog, see [demo content](docs
 
 Local endpoints:
 
-- Public web: `http://localhost:3000` (redirects to `/en`)
+- Public web: `http://localhost:3000` (Arabic is the primary entry; a consented language preference and enabled-language settings are respected)
 - Turkish: `http://localhost:3000/tr`
 - Arabic RTL: `http://localhost:3000/ar`
 - API liveness: `http://localhost:4000/api/v1/health/live`
