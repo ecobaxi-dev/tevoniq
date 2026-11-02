@@ -14,6 +14,16 @@ test('desktop header supports scroll state, menus, routes, search, and locale pr
   await expect(header).toHaveAttribute('data-transparent', 'false');
   const after = await header.boundingBox();
   expect(after?.height).toBeCloseTo(before?.height ?? 0, 3);
+  await expect
+    .poll(() => header.evaluate((node) => node.getBoundingClientRect().bottom))
+    .toBeLessThanOrEqual(0);
+  await expect(page.locator('.site-side-rail')).toBeVisible();
+  await expect
+    .poll(() =>
+      page.locator('.site-side-rail').evaluate((node) => node.getBoundingClientRect().top),
+    )
+    .toBe(124);
+  await page.evaluate(() => window.scrollTo(0, 0));
   await expect.poll(async () => (await header.boundingBox())?.y).toBe(0);
   const mainNavigation = page.getByRole('navigation', { name: 'Main navigation' });
   const solutions = mainNavigation.getByRole('button', { name: 'Solutions', exact: true });

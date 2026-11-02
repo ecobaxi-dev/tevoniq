@@ -489,6 +489,7 @@
 /* Approved white header: a clear five-entry navigation and restrained interactive detail. */
 .site-header-shell[data-design='clean'] {
   --site-header-height: 5.5rem;
+  position: relative;
 }
 [data-design='clean'] .site-header-inner {
   gap: clamp(1rem, 2vw, 2rem);
@@ -810,4 +811,10 @@
   display: block;
   border-radius: 12px;
   overflow: hidden;
+}
+
+/* Section tabs sit at the viewport edge once the public header scrolls away. */
+.public-site:is(:lang(ar), :lang(en))
+  :is(.tc-section-nav, .ai-dev-nav, .ai-case-nav, .digital-nav, .solution-section-nav) {
+  top: 0;
 }
