@@ -46,9 +46,9 @@ test('service categories show vivid local previews only for matching public serv
         'network-infrastructure',
       ],
       [
-        locale === 'ar' ? 'استشارات وتطبيق الذكاء الاصطناعي' : 'AI Consulting & Implementation',
+        locale === 'ar' ? 'الذكاء الاصطناعي وتعلّم الآلة' : 'AI & Machine Learning',
         'ai',
-        'artificial-intelligence',
+        'ai-machine-learning',
       ],
     ]) {
       await openServices(page, locale);
@@ -110,7 +110,7 @@ test('both preview layouts remain contained and accessible in Arabic and English
       locale === 'ar' ? 'الأنظمة المدمجة وإنترنت الأشياء' : 'Embedded & IoT',
       locale === 'ar' ? 'الأمن والجودة' : 'Security & Quality',
       locale === 'ar' ? 'خدمات إضافية' : 'Additional Services',
-      locale === 'ar' ? 'استشارات وتطبيق الذكاء الاصطناعي' : 'AI Consulting & Implementation',
+      locale === 'ar' ? 'الذكاء الاصطناعي وتعلّم الآلة' : 'AI & Machine Learning',
     ]) {
       // Axe may blur Radix's focused menu; open each category as an independent scenario.
       await page.setViewportSize({ width: 1440, height: 900 });

@@ -1,5 +1,7 @@
 /** Owner-requested public catalog removals. Archived CMS records remain private. */
 export const retiredServiceSlugs = [
+  'application-modernization',
+  'artificial-intelligence',
   'managed-it-services',
   'api-integration',
   'business-continuity',
@@ -32,6 +34,15 @@ export const retiredServiceSlugs = [
 ] as const;
 export const retiredSolutionSlugs = ['resilient-hybrid-cloud'] as const;
 export const retiredCatalogLabels = [
+  'Application Modernization',
+  'Uygulama Modernizasyonu',
+  'تحديث التطبيقات',
+  'AI Consulting and Implementation',
+  'AI Consulting & Implementation',
+  'Yapay Zekâ Danışmanlığı ve Uygulama',
+  'استشارات وتطبيق الذكاء الاصطناعي',
+  'استشارات تطبيقات الذكاء الاصطناعي',
+  'تطبيقات الذكاء الاصطناعي',
   'Yönetilen BT Hizmetleri',
   'خدمات تقنية المعلومات المُدارة',
   'System Integration',

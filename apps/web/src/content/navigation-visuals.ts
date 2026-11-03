@@ -43,12 +43,12 @@ export const navigationVisuals = {
     },
   },
   ai: {
-    href: '/services/artificial-intelligence',
+    href: '/services/ai-machine-learning',
     src: '/brand/navigation/ai-v1.webp',
-    ar: { title: 'ذكاء يخدم احتياجك', caption: 'استكشف تطبيقات الذكاء الاصطناعي' },
+    ar: { title: 'ذكاء يخدم احتياجك', caption: 'استكشف الذكاء الاصطناعي وتعلّم الآلة' },
     en: {
       title: 'Intelligence with a purpose',
-      caption: 'Explore artificial intelligence applications',
+      caption: 'Explore AI and machine learning',
     },
   },
 };

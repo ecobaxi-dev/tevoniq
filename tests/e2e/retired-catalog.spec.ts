@@ -18,6 +18,8 @@ test('legacy CMS records cannot restore retired navigation, service cards, searc
     'البيانات والتحليلات',
     'تطوير الألعاب',
     'Renamed legacy service',
+    'تحديث التطبيقات',
+    'استشارات وتطبيق الذكاء الاصطناعي',
   ])
     await expect(menu.getByText(label, { exact: true })).toHaveCount(0);
   const links = await page

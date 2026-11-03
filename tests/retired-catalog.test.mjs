@@ -32,7 +32,7 @@ test('retired offerings cannot return through localized, encoded or builder URLs
     await readFile(new URL('../content/service-expansion.json', import.meta.url)),
   );
   assert.equal(catalog.groups.flatMap((g) => g.services).length, 23);
-  assert.equal(pruneRetiredCatalog(catalog).groups.flatMap((g) => g.services).length, 16);
+  assert.equal(pruneRetiredCatalog(catalog).groups.flatMap((g) => g.services).length, 14);
   assert.ok(catalog.groups.every((g) => !['cloud', 'data', 'games'].includes(g.id)));
 });
 
@@ -173,4 +173,26 @@ test('owner-selected seven services stay archived while every public alias is hi
       for (const kind of ['services', 'solutions'])
         assert.equal(isRetiredPublicPath(`/${locale}/${kind}/${slug}`), true);
   }
+});
+
+test('modernization and AI consulting are retired while machine learning remains available', () => {
+  for (const slug of ['application-modernization', 'artificial-intelligence']) {
+    assert.ok(retiredServiceSlugs.includes(slug));
+    for (const locale of ['ar', 'en', 'tr'])
+      for (const kind of ['services', 'solutions'])
+        assert.ok(isRetiredPublicPath(`/${locale}/${kind}/${slug}`));
+    assert.deepEqual(
+      pruneRetiredCatalog([{ title: 'Renamed card', href: `/services/${slug}` }]),
+      [],
+    );
+  }
+  assert.equal(isRetiredPublicPath('/ar/services/ai-machine-learning'), false);
+  assert.deepEqual(
+    pruneRetiredCatalog([
+      'تحديث التطبيقات',
+      'AI Consulting and Implementation',
+      'تطبيقات الذكاء الاصطناعي',
+    ]),
+    [],
+  );
 });

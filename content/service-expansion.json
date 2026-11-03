@@ -247,9 +247,9 @@
     {
       "id": "ai",
       "labels": {
-        "en": "AI Consulting & Implementation",
-        "tr": "Yapay Zekâ Danışmanlığı ve Uygulama",
-        "ar": "استشارات وتطبيق الذكاء الاصطناعي"
+        "en": "AI & Machine Learning",
+        "tr": "Yapay Zekâ ve Makine Öğrenimi",
+        "ar": "الذكاء الاصطناعي وتعلّم الآلة"
       },
       "services": [
         {
