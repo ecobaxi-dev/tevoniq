@@ -1,0 +1,38 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+const root = new URL('../', import.meta.url),
+  output = new URL('../docs/marketing/pesto-post/', import.meta.url);
+await mkdir(output, { recursive: true });
+const data = async (path) => (await readFile(new URL(path, root))).toString('base64');
+const font = await data(
+  'node_modules/@fontsource-variable/cairo/files/cairo-arabic-wght-normal.woff2',
+);
+const latin = await data(
+  'node_modules/@fontsource-variable/cairo/files/cairo-latin-wght-normal.woff2',
+);
+const logo = await data('apps/web/public/brand/pesto-logo.png');
+const icons = {
+  phone:
+    '<rect x="10" y="3" width="20" height="34" rx="4"/><path d="M17 8h6M18 32h4m-8-16 4 4 8-9"/>',
+  desktop: '<rect x="3" y="5" width="34" height="24" rx="3"/><path d="M15 35h10M20 29v6M8 23h24"/>',
+  receipt: '<path d="M9 4h22v32l-4-3-4 3-4-3-4 3-6-3zM14 12h12M14 18h12M14 24h7"/>',
+};
+const icon = (n) =>
+  `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[n]}</svg>`;
+const card = (key, title, desc, num) =>
+  `<div class="flow-card"><i>${icon(key)}</i><span class="number">${num}</span><h3>${title}</h3><p>${desc}</p></div>`;
+const css = `@font-face{font-family:Cairo;src:url(data:font/woff2;base64,${font}) format('woff2');font-weight:200 1000}@font-face{font-family:Cairo;src:url(data:font/woff2;base64,${latin}) format('woff2');font-weight:200 1000;unicode-range:U+0000-00FF}*{box-sizing:border-box}body{margin:0;background:#dfe8d9;color:#12392a;font-family:Cairo,Tahoma,sans-serif}.poster{width:1080px;height:1350px;padding:48px 66px 36px;background:radial-gradient(ellipse at 4% 68%,#2b63485e,transparent 58%),#10382a;color:#fffdf0;position:relative;overflow:hidden;display:flex;flex-direction:column;isolation:isolate}.poster:before{content:'';position:absolute;inset:16px;border:1px solid #a3bd8a45;pointer-events:none}.top{display:flex;justify-content:space-between;align-items:center;color:#c4d9b7;font-size:20px;direction:ltr}.top b{font:700 22px Arial;letter-spacing:3px;color:#fffdf0}.top span{direction:rtl}.logo-wrap{background:#fffefa;border:1px solid #d2dfc7;box-shadow:0 20px 60px #0002;border-radius:6px 30px 6px 30px;align-self:center;width:440px;padding:14px 22px;margin:22px 0 12px;transform:rotate(-2deg)}.logo-wrap img{display:block;width:100%;height:auto}.kicker{font-size:22px;color:#d9b684;margin:15px 0 12px;display:flex;align-items:center;gap:14px}.kicker:before{content:'';width:10px;height:10px;border-radius:50%;background:#b4d887;box-shadow:0 0 0 7px #b4d88717}.poster h1{font-size:70px;line-height:1.35;margin:0;font-weight:800}.poster h1 span{color:#c3e29a;display:block}.intro{font-size:28px;line-height:1.7;color:#d4e0cf;max-width:900px;margin:18px 0 20px}.flow-wrap{flex:1;position:relative;display:flex;align-items:center;padding:20px 0}.flow{background:#faf8f1;border:1px solid #becdb3;border-radius:4px;padding:22px;width:100%;color:#173b2e;position:relative;box-shadow:10px 13px 0 #6c8a5c33}.flow:before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#9dc96e 72%,#d4ab7a 72%)}.flow-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:17px;margin-bottom:18px;border-bottom:1px solid #d1dbc8}.flow-head b{font-size:26px}.flow-head span{font-size:17px;color:#607559}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.flow-card{position:relative;background:#eaf0e2;border:1px solid #d2ddc6;border-radius:5px;padding:18px 16px 16px;min-width:0}.flow-card:nth-child(2){background:#f1e7d5;border-color:#e3d1b5}.flow-card>i{width:62px;height:62px;display:grid;place-items:center;background:#fffdf3;border-radius:50%;color:#386637}.flow-card svg{width:37px;height:37px}.number{position:absolute;left:18px;top:28px;font:18px monospace;color:#77906a}.flow-card h3{font-size:24px;line-height:1.5;margin:12px 0 6px}.flow-card p{font-size:18px;line-height:1.7;color:#52694d;margin:0}.flow-foot{margin-top:22px;padding-top:18px;border-top:1px dashed #becdb3;display:flex;align-items:center;gap:12px;font-size:21px;color:#42633c}.flow-foot>span{width:8px;height:8px;background:#61984b;border-radius:50%}.flow-foot small{margin-inline-start:auto;font-size:14px;color:#6c7a66}.bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #69825f;padding-top:26px;margin-top:24px}.bottom strong{font-size:27px;display:flex;align-items:center;gap:15px}.bottom strong span{color:#c3e29a;font-size:34px}.bottom b{font:600 26px Arial;direction:ltr;letter-spacing:.5px}.footnote{font-size:15px;line-height:1.8;color:#a9c29c;margin:17px 0 0}.square{height:1080px;padding:32px 60px 24px}.square .logo-wrap{width:380px;margin:18px 0 12px;padding:12px 20px}.square .kicker{margin:8px 0;font-size:19px}.square h1{font-size:66px;line-height:1.35}.square h1 span{display:inline}.square h1 span:before{content:" "}.square .intro{font-size:27px;margin:15px 0 14px}.square .flow-wrap{padding:10px 0}.square .flow{padding:22px}.square .flow-head{padding-bottom:15px;margin-bottom:16px}.square .flow-card{padding:16px}.square .flow-card>i{width:51px;height:51px}.square .flow-card h3{font-size:24px;margin:10px 0 5px}.square .flow-card p{font-size:18px}.square .flow-foot{font-size:19px;padding-top:13px;margin-top:15px}.square .bottom{margin-top:18px;padding-top:20px}.square .footnote{font-size:13px;margin-top:12px}`;
+const markup = `<header class="top"><b>TEVONIQ</b><span>بيستو لايت · برنامج المطاعم</span></header><div class="logo-wrap"><img src="data:image/png;base64,${logo}" alt="PESTO Restaurant System"></div><p class="kicker">من أول طلب إلى آخر إيصال</p><h1>بيستو.<span>ينظّم يوم مطعمك.</span></h1><p class="intro">طلبات متصلة من النادل، ودفع لدى الكاشير.<br>ومسار أوضح للعمل داخل مطعمك.</p><div class="flow-wrap"><div class="flow"><div class="flow-head"><b>نظام محلي. وأدوار متصلة.</b><span>شبكة المطعم المحلية</span></div><div class="cards">${card('phone', 'النادل', 'يرسل الطلبات من أندرويد عبر واي فاي المطعم.', '01')}${card('desktop', 'الكمبيوتر الرئيسي', 'يستضيف الخادم وقاعدة البيانات على ويندوز.', '02')}${card('receipt', 'الكاشير', 'يتولى الدفع وإصدار الإيصال.', '03')}</div><div class="flow-foot"><span></span>بيانات مطعمك على الكمبيوتر الرئيسي لديك.<small>رسم توضيحي لمسار العمل</small></div></div></div><footer class="bottom"><strong>تعرّف على بيستو<span>←</span></strong><b>tevoniq.com/ar/pesto</b></footer><p class="footnote">من برامج TEVONIQ · تفاصيل الإصدار والتفعيل متاحة في صفحة المنتج.</p>`;
+for (const square of [false, true])
+  await writeFile(
+    new URL(square ? 'pesto-square.html' : 'pesto-portrait.html', output),
+    `<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><title>بيستو لإدارة المطاعم — TEVONIQ</title><style>${css}</style><main class="poster ${square ? 'square' : ''}">${markup}</main></html>`,
+  );
+await writeFile(
+  new URL('caption-ar.md', output),
+  `# منشور بيستو لإدارة المطاعم\n\nمن أول طلب يرسله النادل إلى آخر إيصال يصدره الكاشير… بيستو ينظّم يوم مطعمك.\n\nبيستو لايت، من برامج TEVONIQ، يجمع العمل على شبكة المطعم المحلية:\n\n• النادل يرسل الطلبات من أندرويد عبر واي فاي المطعم.\n• الكمبيوتر الرئيسي على ويندوز يستضيف الخادم وقاعدة البيانات.\n• الدفع وإصدار الإيصال لدى الكاشير.\n\nوتبقى بيانات مطعمك على الكمبيوتر الرئيسي لديك.\n\nتعرّف على بيستو ومعلومات الإصدار والتفعيل:\nhttps://www.tevoniq.com/ar/pesto\n\n#بيستو #Pesto #إدارة_المطاعم #برنامج_مطاعم #TEVONIQ\n`,
+);
+await writeFile(
+  new URL('FONT-LICENSE.txt', output),
+  await readFile(new URL('node_modules/@fontsource-variable/cairo/LICENSE', root)),
+);
+console.log('Prepared Pesto portrait, square and caption.');
