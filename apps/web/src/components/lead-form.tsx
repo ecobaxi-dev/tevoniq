@@ -6,6 +6,7 @@ import { Button, Input, Select, Textarea, Checkbox } from '@tevoniq/ui';
 import { leadSubmissionSchema, leadCountries } from '@tevoniq/validation';
 import type { LeadOptions } from '@/lib/lead-options';
 import { leadCopy } from '@/content/leads';
+import { leadMetricEvent } from '@/lib/growth-events';
 import { Turnstile } from './turnstile';
 export function LeadForm({
   type,
@@ -148,6 +149,7 @@ export function LeadForm({
           const result = (await response.json()) as { reference?: string; message?: string };
           if (!response.ok || !result.reference)
             throw new Error(typeof result.message === 'string' ? result.message : copy.error);
+          window.dispatchEvent(new CustomEvent(leadMetricEvent, { detail: type }));
           setReference(result.reference);
         } catch (e) {
           setError(e instanceof Error ? e.message : copy.error);

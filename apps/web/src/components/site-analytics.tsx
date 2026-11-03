@@ -22,6 +22,7 @@ import {
 } from '@/lib/cookie-consent';
 import { browserConsent, storeConsent, clearOptionalStorage } from '@/lib/cookie-storage';
 import './site-analytics.css';
+import { growthPage, growthLink, growthCampaign, leadMetricEvent } from '@/lib/growth-events';
 export function SiteAnalytics({
   analytics,
   legal,
@@ -40,6 +41,7 @@ export function SiteAnalytics({
     [loaded, setLoaded] = useState(false),
     [open, setOpen] = useState(false),
     [storageError, setStorageError] = useState(false);
+  const [analyticsReady, setAnalyticsReady] = useState(false);
   const [draft, setDraft] = useState<ConsentCategories>(necessaryOnly);
   const previousFingerprint = useRef(fingerprint),
     visitConsent = useRef<ConsentRecord | null>(null),
@@ -102,6 +104,69 @@ export function SiteAnalytics({
     }
     running.current = providers;
   }, [sensitive, providers]);
+  useEffect(() => {
+    if (!analyticsReady || sensitive || (!providers.googleAnalytics && !providers.googleTagManager))
+      return;
+    const page = growthPage(pathname);
+    const analyticsWindow = window as typeof window & {
+      gtag?: (...args: unknown[]) => void;
+      dataLayer?: unknown[];
+    };
+    const send = (event: string, extra: Record<string, string> = {}) => {
+      const payload = {
+        ...page,
+        ...growthCampaign(window.location.search),
+        ...extra,
+        page_location: window.location.origin + page.page_path,
+        page_referrer: '',
+        page_title: page.page_type,
+      };
+      if (providers.googleAnalytics && analyticsWindow.gtag)
+        analyticsWindow.gtag('event', event, payload);
+      else if (providers.googleTagManager && !providers.googleAnalytics)
+        (analyticsWindow.dataLayer ||= []).push({ event: `tevoniq_${event}`, ...payload });
+    };
+    send('page_view');
+    if (page.page_type === 'services') send('service_view');
+    const started = new WeakSet<HTMLFormElement>();
+    const interacted = (event: Event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const form = target.closest<HTMLFormElement>('form.lead-form');
+      if (form && !started.has(form)) {
+        started.add(form);
+        send('form_start', { form_type: page.page_type === 'request-quote' ? 'quote' : 'contact' });
+      }
+    };
+    const clicked = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest<HTMLAnchorElement>('a[href]');
+      const metric = link && growthLink(link.href, window.location.origin);
+      if (metric) send(metric.event, { destination: metric.destination });
+    };
+    const received = (event: Event) => {
+      const detail = (event as CustomEvent).detail;
+      if (detail === 'contact' || detail === 'quote') send('generate_lead', { form_type: detail });
+    };
+    const played = (event: Event) => {
+      if (
+        event.target instanceof HTMLVideoElement &&
+        ['website', 'requests', 'automation', 'dashboard'].includes(event.target.dataset.film || '')
+      )
+        send('demo_video_play', { model: event.target.dataset.film! });
+    };
+    document.addEventListener('input', interacted);
+    document.addEventListener('click', clicked);
+    document.addEventListener('play', played, true);
+    window.addEventListener(leadMetricEvent, received);
+    return () => {
+      document.removeEventListener('input', interacted);
+      document.removeEventListener('click', clicked);
+      document.removeEventListener('play', played, true);
+      window.removeEventListener(leadMetricEvent, received);
+    };
+  }, [pathname, analyticsReady, sensitive, providers.googleAnalytics, providers.googleTagManager]);
   const privacy = footerHref(locale, legal.privacyPolicyUrl || '/privacy-policy'),
     policy = footerHref(locale, legal.cookiePolicyUrl || '/cookie-policy');
   function save(categories: ConsentCategories) {
@@ -153,6 +218,9 @@ export function SiteAnalytics({
             <Script
               nonce={nonce}
               id="site-gtm"
+              onReady={() => {
+                if (!providers.googleAnalytics) setAnalyticsReady(true);
+              }}
               strategy="afterInteractive"
             >{`window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});var gtm=document.createElement('script');gtm.async=true;gtm.src='https://www.googletagmanager.com/gtm.js?id=${analytics.googleTagManager}';document.head.appendChild(gtm);`}</Script>
           )}
@@ -166,8 +234,9 @@ export function SiteAnalytics({
               <Script
                 nonce={nonce}
                 id="site-ga"
+                onReady={() => setAnalyticsReady(true)}
                 strategy="afterInteractive"
-              >{`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());window.gtag('config','${analytics.googleAnalytics}');`}</Script>
+              >{`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());window.gtag('config','${analytics.googleAnalytics}',{send_page_view:false});`}</Script>
             </>
           )}
           {providers.microsoftClarity && (

@@ -1,3 +1,5 @@
+import { addGrowthResults } from '@/lib/growth-search';
+import type { SearchResponse } from '@tevoniq/types';
 import { env } from '@/lib/env';
 import { pruneRetiredCatalog } from '@tevoniq/types';
 export async function GET(request: Request) {
@@ -19,7 +21,14 @@ export async function GET(request: Request) {
         { error: 'Search unavailable' },
         { status: response.status === 400 ? 400 : 503 },
       );
-    return Response.json(pruneRetiredCatalog(await response.json()), {
+    const result = pruneRetiredCatalog(await response.json()) as SearchResponse;
+    const merged = addGrowthResults(
+      result,
+      query.get('locale') || 'en',
+      query.get('q') || '',
+      Math.max(1, Math.min(50, Number(query.get('limit')) || 8)),
+    );
+    return Response.json(merged, {
       headers: { 'Cache-Control': 'no-store' },
     });
   } catch {

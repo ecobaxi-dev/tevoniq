@@ -1,3 +1,4 @@
+import { publicSiteSettingsSchema } from '../../packages/validation/dist/index.js';
 import { showcaseFixture, showcaseState } from './showcase-data.mjs';
 // Isolated Playwright-only API fixture. Never imported by application code.
 import { createServer } from 'node:http';
@@ -73,6 +74,11 @@ createServer(async (req, res) => {
     res.writeHead(status);
     res.end(JSON.stringify(body));
   };
+  if (url.pathname === '/api/v1/site-settings' && process.env.GROWTH_METRICS_FIXTURE === '1')
+    return send(
+      200,
+      publicSiteSettingsSchema.parse({ analytics: { googleAnalytics: 'G-GROWTH1234' } }),
+    );
   if (url.pathname === '/health') return send(200, { ok: true });
   if (url.pathname === '/fixture/showcase-state' && req.method === 'POST') {
     let body = '';
@@ -118,6 +124,8 @@ createServer(async (req, res) => {
         },
       ],
     });
+  if (url.pathname === '/api/v1/search' && url.searchParams.get('q') === 'Excel')
+    return send(200, { query: 'Excel', groups: [] });
   if (url.pathname === '/api/v1/search' && url.searchParams.get('q') === 'retirement-check')
     return send(200, {
       query: 'retirement-check',

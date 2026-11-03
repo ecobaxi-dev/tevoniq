@@ -1,3 +1,4 @@
+import { GrowthLinks } from '@/components/growth-pages';
 import { ShowcaseHero } from '@/components/showcase-pages';
 import { IndustryShowcaseCard } from '@/components/showcase-cards';
 import { showcaseCopy } from '@/content/showcase';
@@ -86,6 +87,7 @@ async function PublicPage({ params, searchParams }: Props) {
           </Section>
         </>
       )}
+      <GrowthLinks locale={locale.data} kind="sectors" />
       <Section spacing="generous" id="showcase-content">
         <Container>
           <form method="get" className="industries-filters">

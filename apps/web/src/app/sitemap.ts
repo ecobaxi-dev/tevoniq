@@ -1,3 +1,4 @@
+import { growthPaths } from '@/content/growth';
 import { getSiteSettings } from '@/lib/site-settings';
 import type { MetadataRoute } from 'next';
 import { getAllSeoRoutes } from '@/lib/seo';
@@ -22,6 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
   const existing = new Set(entries.map((entry) => entry.url));
   for (const path of [
+    ...growthPaths,
     '/pesto',
     '/advocas',
     '/website-designs',
@@ -36,7 +38,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]) {
     const locales = settings.localization.enabledLanguages.filter(
       (locale) =>
-        (path !== '/advocas' &&
+        (!growthPaths.includes(path) &&
+          path !== '/advocas' &&
           !path.startsWith('/website-designs') &&
           !path.startsWith('/work-systems') &&
           !path.startsWith('/automation-demos') &&

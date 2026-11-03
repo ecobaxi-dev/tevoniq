@@ -1,5 +1,7 @@
 # TEVONIQ
 
+Marketing launch kit: [خطة الشهر الأول والمحتوى والقياس](docs/marketing/month-one-ar.md).
+
 Current owner handover and operations reference: [دليل المشروع والتشغيل والتطوير](docs/project-handover-ar.md) (verified 2 November 2026; credentials are kept in a separate ignored local file).
 
 TEVONIQ is a multilingual corporate website and content platform. It combines a Next.js public site, a NestJS CMS/API, PostgreSQL, controlled media storage, role-based administration, consent-aware analytics, and an editorial workflow for published content.

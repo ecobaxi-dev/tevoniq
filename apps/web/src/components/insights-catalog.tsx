@@ -1,3 +1,4 @@
+import { GrowthLinks } from './growth-pages';
 import { ShowcaseHero } from './showcase-pages';
 import { showcaseCopy } from '@/content/showcase';
 import { Heading } from '@tevoniq/ui';
@@ -119,6 +120,11 @@ export async function InsightsCatalog({
             </Container>
           </Section>
         </>
+      )}
+      {locale.data !== 'tr' && (!kind || kind === 'blog' || kind === 'resource') && (
+        <div className="showcase-container">
+          <GrowthLinks locale={locale.data} kind="guides" />
+        </div>
       )}
       <Section id="showcase-content">
         <Container>
