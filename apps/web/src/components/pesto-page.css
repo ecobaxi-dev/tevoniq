@@ -306,15 +306,10 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.pesto-download button {
+.pesto-download > a {
   font-size: 0.8rem;
   max-width: 15rem;
   padding: 0.9rem 1.1rem;
-  background: #edf0f4;
-  color: #536277;
-  border: 1px solid #d5dde6;
-  border-radius: 0.25rem;
-  cursor: not-allowed;
 }
 .pesto-activation {
   display: grid;
@@ -554,7 +549,7 @@
   .pesto-download {
     grid-template-columns: 40px 1fr;
   }
-  .pesto-download button {
+  .pesto-download > a {
     grid-column: 2;
     justify-self: start;
   }

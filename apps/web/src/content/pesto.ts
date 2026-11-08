@@ -50,8 +50,7 @@ export const pestoCopy = {
       ],
     ],
     downloadTitle: 'The right companion for each role.',
-    downloadBody:
-      'Customer packages will appear here after installation, licensing and release checks are complete. Development builds are not distributed from this page.',
+    downloadBody: 'Choose your platform to open its download folder on Google Drive.',
     preparing: 'Preparing release',
     windows: 'Windows · Main computer',
     windowsBody:
@@ -59,7 +58,7 @@ export const pestoCopy = {
     android: 'Android · Restaurant companion',
     androidBody:
       'For staff connected to the main computer over local Wi-Fi. A waiter sends orders; payment remains at the cashier.',
-    unavailable: 'Download not available yet',
+    downloadWindows: 'Download for Windows', downloadAndroid: 'Download for Android',
     activationTitle: 'A clear path from trial to ownership.',
     activationBody:
       'The following is the planned activation process. Self-service registration and activation are not live yet; no keys or personal details are collected on this page.',
@@ -156,8 +155,7 @@ export const pestoCopy = {
       ],
     ],
     downloadTitle: 'الأداة المناسبة لكل دور.',
-    downloadBody:
-      'ستظهر حزم العملاء هنا بعد اكتمال اختبارات التثبيت والترخيص والإصدار. لا نوزّع نسخ التطوير من هذه الصفحة.',
+    downloadBody: 'اختر نظام جهازك لفتح مجلد التنزيل على Google Drive.',
     preparing: 'جارٍ تجهيز الإصدار',
     windows: 'ويندوز · الكمبيوتر الرئيسي',
     windowsBody:
@@ -165,7 +163,7 @@ export const pestoCopy = {
     android: 'أندرويد · مساعد فريق المطعم',
     androidBody:
       'للموظفين المتصلين بالكمبيوتر الرئيسي عبر واي فاي المطعم. يرسل النادل الطلبات، ويبقى الدفع لدى الكاشير.',
-    unavailable: 'التحميل غير متاح بعد',
+    downloadWindows: 'تنزيل Windows', downloadAndroid: 'تنزيل Android',
     activationTitle: 'خطوات واضحة من التجربة إلى التملّك.',
     activationBody:
       'هذه آلية التفعيل المخططة. التسجيل والتفعيل الذاتي غير متاحين بعد، ولا تجمع هذه الصفحة مفاتيح أو بيانات شخصية.',
@@ -262,8 +260,7 @@ export const pestoCopy = {
       ],
     ],
     downloadTitle: 'Her görev için doğru araç.',
-    downloadBody:
-      'Kurulum, lisans ve sürüm kontrolleri tamamlandığında müşteri paketleri burada yer alacak. Geliştirme sürümleri bu sayfadan dağıtılmaz.',
+    downloadBody: 'Google Drive indirme klasörünü açmak için platformunuzu seçin.',
     preparing: 'Sürüm hazırlanıyor',
     windows: 'Windows · Ana bilgisayar',
     windowsBody:
@@ -271,7 +268,7 @@ export const pestoCopy = {
     android: 'Android · Restoran yardımcısı',
     androidBody:
       'Yerel Wi-Fi üzerinden ana bilgisayara bağlanan personel için. Garson siparişi gönderir; ödeme kasiyerde kalır.',
-    unavailable: 'İndirme henüz mevcut değil',
+    downloadWindows: 'Windows için indir', downloadAndroid: 'Android için indir',
     activationTitle: 'Denemeden kalıcı kullanıma açık bir yol.',
     activationBody:
       'Aşağıdaki süreç planlanmaktadır. Kayıt ve etkinleştirme henüz açık değildir; bu sayfada anahtar veya kişisel bilgi toplanmaz.',

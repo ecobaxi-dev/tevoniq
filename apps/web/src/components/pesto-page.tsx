@@ -182,19 +182,16 @@ export function PestoPage({ locale }: { locale: Locale }) {
           </div>
           <div className="pesto-download-list">
             {[
-              { Icon: Monitor, title: c.windows, body: c.windowsBody },
-              { Icon: Smartphone, title: c.android, body: c.androidBody },
-            ].map(({ Icon, title, body }) => (
+              { Icon: Monitor, title: c.windows, body: c.windowsBody, label: c.downloadWindows, href: 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing' },
+              { Icon: Smartphone, title: c.android, body: c.androidBody, label: c.downloadAndroid, href: 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing' },
+            ].map(({ Icon, title, body, label, href }) => (
               <article className="pesto-download" key={title}>
                 <Icon size={34} strokeWidth={1.5} aria-hidden="true" />
                 <div>
-                  <span className="pesto-availability">{c.preparing}</span>
                   <Heading as="h3">{title}</Heading>
                   <p>{body}</p>
                 </div>
-                <button disabled type="button">
-                  {c.unavailable}
-                </button>
+                <ButtonLink href={href}>{label}</ButtonLink>
               </article>
             ))}
           </div>

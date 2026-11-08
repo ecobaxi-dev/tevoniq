@@ -8,9 +8,10 @@ for (const locale of ['en', 'ar', 'tr']) {
     await page.goto(`/${locale}/pesto`);
     await expect(page.locator('html')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
     await expect(page.locator('main h1')).toHaveCount(1);
-    await expect(page.locator('.pesto-download button')).toHaveCount(2);
-    for (const button of await page.locator('.pesto-download button').all())
-      await expect(button).toBeDisabled();
+    const downloads = page.locator('.pesto-download > a');
+    await expect(downloads).toHaveCount(2);
+    await expect(downloads.nth(0)).toHaveAttribute('href', 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing');
+    await expect(downloads.nth(1)).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing');
     await expect(
       page.locator(
         'main a[download], main a[href$=".apk"], main a[href$=".exe"], main input, main form',
