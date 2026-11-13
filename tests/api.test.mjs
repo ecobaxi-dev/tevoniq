@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { createHmac } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { setTimeout } from 'node:timers/promises';
 import { HealthController } from '../apps/api/dist/health/health.controller.js';
@@ -33,6 +34,8 @@ test('API boots with validated configuration and serves protected HTTP health en
       DATABASE_URL: 'postgresql://localhost:1/absent',
       CORS_ORIGIN: 'http://localhost:3000',
       LOG_LEVEL: 'info',
+      LEAD_PROXY_SECRET: 'test-only-secret-'.repeat(4),
+      API_BIND_HOST: '127.0.0.1',
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
@@ -69,7 +72,23 @@ test('API boots with validated configuration and serves protected HTTP health en
     headers: { Origin: 'http://localhost:3000' },
   });
   assert.equal(allowed.headers.get('access-control-allow-origin'), 'http://localhost:3000');
-  for (let i = 0; i < 118; i++) await fetch(`http://localhost:${port}/api/v1/health/live`);
-  const limited = await fetch(`http://localhost:${port}/api/v1/health/live`);
-  assert.equal(limited.status, 429);
+  const signed = (ip) => ({
+    'x-lead-client-ip': ip,
+    'x-lead-ip-signature': createHmac('sha256', 'test-only-secret-'.repeat(4))
+      .update(ip)
+      .digest('hex'),
+  });
+  const write = (headers) =>
+    fetch(`http://127.0.0.1:${port}/api/v1/not-a-route`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...headers },
+      body: '{}',
+    });
+  for (let i = 0; i < 120; i++) assert.equal((await write(signed('198.51.100.1'))).status, 404);
+  assert.equal((await write(signed('198.51.100.1'))).status, 429);
+  assert.equal((await write(signed('203.0.113.2'))).status, 404);
+  assert.equal((await fetch(`http://127.0.0.1:${port}/api/v1/health/live`)).status, 200);
+  // Loopback SSR reads never share one visitor's quota; CMS reads remain protected.
+  for (let i = 0; i < 125; i++)
+    assert.equal((await fetch(`http://127.0.0.1:${port}/api/v1/no-content`)).status, 404);
 });

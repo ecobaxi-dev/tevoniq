@@ -51,7 +51,7 @@ test('footer desktop/mobile/RTL rendering, configured settings, and newsletter i
       return res.end(JSON.stringify(configured ? settings : {}));
     if (path.endsWith('/seo/routes')) return res.end(JSON.stringify({ items: [], total: 0 }));
     if (path.endsWith('/newsletter/config'))
-      return res.end(JSON.stringify({ turnstileSiteKey: null }));
+      return res.end(JSON.stringify({ turnstileSiteKey: null, available: true }));
     if (path.endsWith('/newsletter/subscribe')) {
       let body = '';
       for await (const chunk of req) body += chunk;

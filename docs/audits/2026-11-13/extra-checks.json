@@ -1,0 +1,21 @@
+{
+  "liveMobile": {
+    "viewport": 390,
+    "scroll": 390,
+    "header": {
+      "x": 16,
+      "y": 16.5,
+      "width": 188,
+      "height": 46,
+      "top": 16.5,
+      "right": 204,
+      "bottom": 62.5,
+      "left": 16
+    }
+  },
+  "noJsNewsletter": {
+    "method": null,
+    "actualMethod": "GET",
+    "queryContainsEmail": true
+  }
+}

@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: readiness probes PostgreSQL and hides connection details on failure
+ok 1 - readiness probes PostgreSQL and hides connection details on failure
+  ---
+  duration_ms: 1.128917
+  type: 'test'
+  ...
+# Subtest: API boots with validated configuration and serves protected HTTP health endpoints
+ok 2 - API boots with validated configuration and serves protected HTTP health endpoints
+  ---
+  duration_ms: 697.730833
+  type: 'test'
+  ...
+# Subtest: Jobs validate all requested fields, enums and publication dates
+ok 3 - Jobs validate all requested fields, enums and publication dates
+  ---
+  duration_ms: 4.301375
+  type: 'test'
+  ...
+# Subtest: Application schema rejects status injection, unsafe URLs, missing consent and unsupported fields
+ok 4 - Application schema rejects status injection, unsafe URLs, missing consent and unsupported fields
+  ---
+  duration_ms: 1.952792
+  type: 'test'
+  ...
+# Subtest: Public job selection enforces publication, schedule and closing dates without applicant relations
+ok 5 - Public job selection enforces publication, schedule and closing dates without applicant relations
+  ---
+  duration_ms: 0.685208
+  type: 'test'
+  ...
+# Subtest: CV validation bounds bytes, verifies MIME/signature/completeness and sanitizes names
+ok 6 - CV validation bounds bytes, verifies MIME/signature/completeness and sanitizes names
+  ---
+  duration_ms: 1.576084
+  type: 'test'
+  ...
+# Subtest: Production CV uploads fail closed without a scanner
+ok 7 - Production CV uploads fail closed without a scanner
+  ---
+  duration_ms: 0.379333
+  type: 'test'
+  ...
+# Subtest: ClamAV stream adapter accepts only a clean verdict and rejects infection or scanner errors
+ok 8 - ClamAV stream adapter accepts only a clean verdict and rejects infection or scanner errors
+  ---
+  duration_ms: 9.950291
+  type: 'test'
+  ...
+# Subtest: Only HR and administrators may read applications, history and CVs or add review updates
+ok 9 - Only HR and administrators may read applications, history and CVs or add review updates
+  ---
+  duration_ms: 0.667917
+  type: 'test'
+  ...
+# Subtest: Stale application reviews cannot change status or append history
+ok 10 - Stale application reviews cannot change status or append history
+  ---
+  duration_ms: 0.457208
+  type: 'test'
+  ...
+# Subtest: SVG is rebuilt with escaped text and bounded dimensions
+ok 11 - SVG is rebuilt with escaped text and bounded dimensions
+  ---
+  duration_ms: 2.279166
+  type: 'test'
+  ...
+# Subtest: SVG rejects active content, external fetches, entities and complexity attacks
+ok 12 - SVG rejects active content, external fetches, entities and complexity attacks
+  ---
+  duration_ms: 1.226208
+  type: 'test'
+  ...
+# Subtest: Raster MIME validation fully decodes supported files and preserves originals
+ok 13 - Raster MIME validation fully decodes supported files and preserves originals
+  ---
+  duration_ms: 101.390666
+  type: 'test'
+  ...
+# Subtest: Protected originals generate no derivatives; pixel limits prevent image bombs
+ok 14 - Protected originals generate no derivatives; pixel limits prevent image bombs
+  ---
+  duration_ms: 3.039
+  type: 'test'
+  ...
+# Subtest: Protected SVG rejects encoding declarations that disagree with validation
+ok 15 - Protected SVG rejects encoding declarations that disagree with validation
+  ---
+  duration_ms: 0.741125
+  type: 'test'
+  ...
+# Subtest: Derivatives encode once from oriented source pixels without upscaling
+ok 16 - Derivatives encode once from oriented source pixels without upscaling
+  ---
+  duration_ms: 11.199333
+  type: 'test'
+  ...
+# Subtest: Local provider prevents traversal and overwrite
+ok 17 - Local provider prevents traversal and overwrite
+  ---
+  duration_ms: 3.042083
+  type: 'test'
+  ...
+# Subtest: S3 provider supports private compatible endpoints and immutable writes
+ok 18 - S3 provider supports private compatible endpoints and immutable writes
+  ---
+  duration_ms: 26.961916
+  type: 'test'
+  ...
+# Subtest: Usage checks include derivative links in drafts and archived generic content
+ok 19 - Usage checks include derivative links in drafts and archived generic content
+  ---
+  duration_ms: 0.525584
+  type: 'test'
+  ...
+# Subtest: Media configuration bounds file and pixel limits and requires an S3 bucket
+ok 20 - Media configuration bounds file and pixel limits and requires an S3 bucket
+  ---
+  duration_ms: 1.659917
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1013.402917

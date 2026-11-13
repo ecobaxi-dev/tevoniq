@@ -1,0 +1,49 @@
+{
+  "rate_limit": {
+    "environment": "local API with unavailable test database; no production traffic",
+    "first_signed_logical_client_successes": 120,
+    "second_distinct_signed_logical_client_status": 429,
+    "response_message": "Too many requests. Please try again shortly."
+  },
+  "public_retest": {
+    "ar_start": 404,
+    "en_start": 404,
+    "missing_page": 404,
+    "descriptions_restored_on_retest": [
+      "/ar/services/ai-machine-learning",
+      "/ar/projects/demo-enterprise-knowledge-search",
+      "/ar/insights/blog/demo-secure-integrations"
+    ]
+  },
+  "public_contact_turnstile": {
+    "turnstileSiteKey": null,
+    "submitted": false
+  },
+  "unit_tests": {
+    "total": 283,
+    "first_run_pass": 280,
+    "first_run_sandbox_failures": 3,
+    "network_capable_retest_pass": 20,
+    "network_capable_retest_fail": 0
+  },
+  "browser_tests": {
+    "webpack_total": 110,
+    "webpack_pass": 90,
+    "webpack_fail": 20,
+    "turbopack_retest_total": 20,
+    "turbopack_retest_pass": 20,
+    "turbopack_retest_fail": 0
+  },
+  "secrets_scan": {
+    "tracked_paths": 1024,
+    "high_confidence_pattern_matches": 0,
+    "history_scanned": false
+  },
+  "environment": {
+    "node": "22.21.1",
+    "npm": "11.3.0",
+    "declared_node": ">=24.0.0 <25",
+    "git_head": "133b347ac45fbf9768c787839478f86522af5e97",
+    "uncommitted_landing_changes_included": true
+  }
+}

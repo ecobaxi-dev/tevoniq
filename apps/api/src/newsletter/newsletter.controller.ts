@@ -14,6 +14,7 @@ import {
   UseGuards,
   BadRequestException,
 } from '@nestjs/common';
+import { NewsletterProvider } from './newsletter.provider.js';
 import { ConfigService } from '@nestjs/config';
 import type { Request, Response } from 'express';
 import {
@@ -72,11 +73,13 @@ export class NewsletterController {
     @Inject(NewsletterService) private readonly service: NewsletterService,
     @Inject(LeadBotProtection) private readonly bot: LeadBotProtection,
     @Inject(ConfigService) private readonly config: ConfigService,
+    @Inject(NewsletterProvider) private readonly provider: NewsletterProvider,
   ) {}
   @Get('config')
   @Header('Cache-Control', 'no-store')
   publicConfig() {
     return {
+      available: this.provider.confirmationEnabled,
       turnstileSiteKey:
         this.config.get('TURNSTILE_MODE') === 'turnstile'
           ? this.config.get<string>('TURNSTILE_SITE_KEY') || null

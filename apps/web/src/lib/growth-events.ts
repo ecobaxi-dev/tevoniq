@@ -19,6 +19,7 @@ const safePaths = new Set([
   ].map((slug) => `/services/${slug}`),
   ...growthPaths,
   ...growthFilms.map((film) => film.path),
+  '/start',
   '/services',
   '/contact',
   '/request-quote',
@@ -38,6 +39,7 @@ export function growthPage(pathname: string) {
   const rest = match?.[2] || '/';
   const section = rest.split('/')[1] || 'home';
   const category = [
+    'start',
     'services',
     'industries',
     'insights',
@@ -89,9 +91,10 @@ export function growthLink(href: string, origin: string) {
 export function growthCampaign(search: string) {
   const query = new URLSearchParams(search);
   const allowed = {
-    source: ['site', 'linkedin', 'instagram', 'youtube', 'referral'],
-    medium: ['social', 'video', 'sector', 'guide', 'partner'],
+    source: ['site', 'facebook', 'meta', 'google', 'linkedin', 'instagram', 'youtube', 'referral'],
+    medium: ['social', 'paid_social', 'cpc', 'ppc', 'video', 'sector', 'guide', 'partner'],
     campaign: [
+      'sme-start',
       'month1-website',
       'month1-requests',
       'month1-automation',

@@ -1,0 +1,14 @@
+✔ readiness probes PostgreSQL and hides connection details on failure (1.0815ms)
+✔ API boots with validated configuration and serves protected HTTP health endpoints (946.974583ms)
+(node:88179) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Rate keys accept only signed identities and group IPv6 addresses in the same subnet (5.547875ms)
+✔ BFF replaces caller signatures and accepts forwarding chains only with explicit trusted hops (11.129ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1201.499208

@@ -600,7 +600,7 @@ createServer(async (req, res) => {
       maxAttachmentBytes: 2097152,
       turnstileSiteKey: null,
     });
-  if (url.pathname === '/api/v1/newsletter/config') return send(200, { turnstileSiteKey: null });
+  if (url.pathname === '/api/v1/newsletter/config') return send(200, { turnstileSiteKey: null, available: true });
   if (url.pathname === '/api/v1/leads/submit' && req.method === 'POST')
     return send(202, { reference: 'lead-fixture-001' });
   if (url.pathname === '/api/v1/cms/auth/login') return send(200, { token });

@@ -2,9 +2,11 @@ import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { renderEnvironment } from './environment.mjs';
+import { assertReleaseSecurity } from '../release-security.mjs';
 import { bootstrapPreview } from './bootstrap.mjs';
 
 const env = renderEnvironment();
+if (env.ENFORCE_RELEASE_SECURITY === 'true') assertReleaseSecurity(env, env);
 if (!env.DATABASE_URL) throw new Error('DATABASE_URL is required');
 if (env.MEDIA_STORAGE !== 'disabled')
   throw new Error(

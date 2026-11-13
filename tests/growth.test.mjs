@@ -63,3 +63,26 @@ test('Campaign reporting accepts only the agreed non-personal labels', () => {
     { campaign_source: 'linkedin', campaign_medium: 'video', campaign_name: 'month1-website' },
   );
 });
+
+test('Paid campaign labels remain bounded and landing routes keep their identity', () => {
+  assert.deepEqual(growthPage('/ar/start?email=private@example.test'), {
+    locale: 'ar',
+    page_type: 'start',
+    page_path: '/ar/start',
+  });
+  assert.deepEqual(
+    growthCampaign('?utm_source=facebook&utm_medium=paid_social&utm_campaign=sme-start'),
+    {
+      campaign_source: 'facebook',
+      campaign_medium: 'paid_social',
+      campaign_name: 'sme-start',
+    },
+  );
+  assert.deepEqual(
+    growthCampaign('?utm_source=google&utm_medium=cpc&utm_campaign=person@example.test'),
+    {
+      campaign_source: 'google',
+      campaign_medium: 'cpc',
+    },
+  );
+});

@@ -1,0 +1,33 @@
+[
+  {
+    "locale": "ar",
+    "route": 200,
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "axeViolations": 0,
+    "failedLeadEvents": 0,
+    "successfulLeadEvents": 1
+  },
+  {
+    "locale": "en",
+    "route": 200,
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "axeViolations": 0,
+    "failedLeadEvents": 0,
+    "successfulLeadEvents": 1
+  },
+  {
+    "newsletterNoJavaScript": {
+      "method": "POST",
+      "disabled": true,
+      "noPersonalQuery": true
+    }
+  }
+]

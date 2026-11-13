@@ -82,7 +82,7 @@ export const leadSubmissionSchema = z
     timeline: line(160).default(''),
     projectDescription: plain(15000).default(''),
     consent: z.boolean().default(false),
-    sourcePage: z.string().regex(/^\/(en\/|tr\/|ar\/)?(contact|request-quote)$/),
+    sourcePage: z.string().regex(/^\/((en\/|tr\/|ar\/)?(contact|request-quote)|(ar|en)\/start)$/),
     utm: z
       .object({
         source: line(200).optional(),
@@ -113,11 +113,11 @@ export const leadSubmissionSchema = z
         message:
           'Enter a valid phone number for the selected country, or include the international calling code',
       });
-    if (v.type === 'quote' && !v.consent)
+    if ((v.type === 'quote' || v.sourcePage.endsWith('/start')) && !v.consent)
       ctx.addIssue({ code: 'custom', path: ['consent'], message: 'Consent is required' });
     if (
       (v.type === 'contact' && v.sourcePage.endsWith('request-quote')) ||
-      (v.type === 'quote' && v.sourcePage.endsWith('contact'))
+      (v.type === 'quote' && (v.sourcePage.endsWith('contact') || v.sourcePage.endsWith('/start')))
     )
       ctx.addIssue({ code: 'custom', path: ['sourcePage'], message: 'Source does not match form' });
   })

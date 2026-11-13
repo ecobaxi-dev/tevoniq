@@ -1,0 +1,82 @@
+[
+  {
+    "test": "tests/e2e/automation-demos.spec.ts:130:5 › gallery, flow details and previews meet accessibility and indexing expectations",
+    "error": "Error: /ar/automation-demos\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      146 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      147 |         path,\n    > 148 |       ).toBe(true);\n          |         ^\n      149 |     }\n      150 |     const scan = await new AxeBuilder({ page })\n      151 |       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/automation-demos.spec.ts:148:9"
+  },
+  {
+    "test": "tests/e2e/consulting.spec.ts:130:5 › new consulting page is responsive, accessible, uses local links and has no browser errors",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      142 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      143 |         `${locale}/${width}`,\n    > 144 |       ).toBe(true);\n          |         ^\n      145 |     }\n      146 |     for (const href of await page\n      147 |       .locator('.tc-consulting a')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/consulting.spec.ts:144:9"
+  },
+  {
+    "test": "tests/e2e/dashboard-demos.spec.ts:112:5 › dashboard pages meet accessibility, indexing and progressive rendering expectations",
+    "error": "Error: /ar/dashboard-demos\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      128 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      129 |         path,\n    > 130 |       ).toBe(true);\n          |         ^\n      131 |     }\n      132 |     const scan = await new AxeBuilder({ page })\n      133 |       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/dashboard-demos.spec.ts:130:9"
+  },
+  {
+    "test": "tests/e2e/erp-service.spec.ts:100:5 › ERP page fits desktop and mobile, meets accessibility checks and has only local links",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      115 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      116 |         `${locale}/${width}`,\n    > 117 |       ).toBe(true);\n          |         ^\n      118 |     }\n      119 |     for (const href of await page\n      120 |       .locator('.erp-service a')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/erp-service.spec.ts:117:9"
+  },
+  {
+    "test": "tests/e2e/growth.spec.ts:10:5 › month-one pathways are bilingual, linked, indexable and fit small screens",
+    "error": "Error: ar/business/professional-services:390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      31 |           await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      32 |           `${locale}${path}:${width}`,\n    > 33 |         ).toBe(true);\n         |           ^\n      34 |       }\n      35 |       await page.setViewportSize({ width: 1280, height: 900 });\n      36 |     }\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/growth.spec.ts:33:11"
+  },
+  {
+    "test": "tests/e2e/header.spec.ts:75:5 › mobile drawer closes on navigation and Arabic layout works ────",
+    "error": "Error: expect(received).toBeTruthy()\n\n    Received: false\n\n       96 |   expect(\n       97 |     await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n    >  98 |   ).toBeTruthy();\n          |     ^\n       99 | });\n      100 |\n      101 | test('Arabic hero shows two useful actions and the chosen clean header exposes product links', async ({\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/header.spec.ts:98:5"
+  },
+  {
+    "test": "tests/e2e/home.spec.ts:20:5 › localized homepages are accessible and responsive with reduced motion",
+    "error": "Error: expect(received).toBeTruthy()\n\n    Received: false\n\n      27 |       expect(\n      28 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n    > 29 |       ).toBeTruthy();\n         |         ^\n      30 |     }\n      31 |     const scan = await new AxeBuilder({ page })\n      32 |       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/home.spec.ts:29:9"
+  },
+  {
+    "test": "tests/e2e/home.spec.ts:100:5 › service cards have individual actions, warm identities and single-line headings that fit",
+    "error": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      124 |       );\n      125 |       expect(headings.every((heading) => heading.lines === 1 && heading.fits)).toBe(true);\n    > 126 |       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(\n          |                                                                                             ^\n      127 |         true,\n      128 |       );\n      129 |     }\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/home.spec.ts:126:93"
+  },
+  {
+    "test": "tests/e2e/home.spec.ts:182:5 › Advocas title fits one line, matches Pesto lighting, and keeps readable hover colors",
+    "error": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      199 |     expect(title.lines).toBe(1);\n      200 |     expect(title.fits).toBe(true);\n    > 201 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(\n          |                                                                                           ^\n      202 |       true,\n      203 |     );\n      204 |   }\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/home.spec.ts:201:91"
+  },
+  {
+    "test": "tests/e2e/intelligent-automation.spec.ts:97:5 › automation page is accessible and responsive, with local demo links and stable reduced motion",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      111 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      112 |         `${locale}/${width}`,\n    > 113 |       ).toBe(true);\n          |         ^\n      114 |     }\n      115 |     const circles = await page\n      116 |       .locator('.ia-stage-number')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/intelligent-automation.spec.ts:113:9"
+  },
+  {
+    "test": "tests/e2e/iot-service.spec.ts:111:5 › IoT page and simulator fit mobile, are accessible and expose no browser errors or retired offerings",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      140 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      141 |         `${locale}/${width}`,\n    > 142 |       ).toBe(true);\n          |         ^\n      143 |     }\n      144 |     for (const href of await page\n      145 |       .locator('.iot-service a')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/iot-service.spec.ts:142:9"
+  },
+  {
+    "test": "tests/e2e/navigation-visuals.spec.ts:147:5 › mobile drawer and legacy Turkish navigation keep their existing content",
+    "error": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      153 |   await expect(page.getByRole('dialog')).toBeVisible();\n      154 |   await expect(page.locator('.site-services-feature')).toHaveCount(0);\n    > 155 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);\n          |                                                                                         ^\n      156 |   await page.setViewportSize({ width: 1440, height: 900 });\n      157 |   await page.goto('/tr');\n      158 |   await page\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/navigation-visuals.spec.ts:155:89"
+  },
+  {
+    "test": "tests/e2e/navigation-visuals.spec.ts:166:5 › solutions show their illustration and product menus use original marks on desktop and mobile",
+    "error": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      248 |       .click();\n      249 |     await expect(dialog.locator('.site-product-mark img')).toHaveCount(2);\n    > 250 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(\n          |                                                                                           ^\n      251 |       true,\n      252 |     );\n      253 |     await dialog.locator(`a[href=\"/${locale}/advocas\"]`).click();\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/navigation-visuals.spec.ts:250:91"
+  },
+  {
+    "test": "tests/e2e/pesto.spec.ts:5:7 › Pesto en: honest availability, useful navigation and accessible mobile layout",
+    "error": "Error: expect(received).toBeTruthy()\n\n    Received: false\n\n      35 |       expect(\n      36 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n    > 37 |       ).toBeTruthy();\n         |         ^\n      38 |     }\n      39 |     const scan = await new AxeBuilder({ page })\n      40 |       .include('main')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/pesto.spec.ts:37:9"
+  },
+  {
+    "test": "tests/e2e/pesto.spec.ts:5:7 › Pesto ar: honest availability, useful navigation and accessible mobile layout",
+    "error": "Error: expect(received).toBeTruthy()\n\n    Received: false\n\n      35 |       expect(\n      36 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n    > 37 |       ).toBeTruthy();\n         |         ^\n      38 |     }\n      39 |     const scan = await new AxeBuilder({ page })\n      40 |       .include('main')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/pesto.spec.ts:37:9"
+  },
+  {
+    "test": "tests/e2e/pesto.spec.ts:5:7 › Pesto tr: honest availability, useful navigation and accessible mobile layout",
+    "error": "Error: expect(received).toBeTruthy()\n\n    Received: false\n\n      35 |       expect(\n      36 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n    > 37 |       ).toBeTruthy();\n         |         ^\n      38 |     }\n      39 |     const scan = await new AxeBuilder({ page })\n      40 |       .include('main')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/pesto.spec.ts:37:9"
+  },
+  {
+    "test": "tests/e2e/service-directory.spec.ts:86:5 › directory is responsive, accessible, uses lightweight local images and has no browser errors",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n       98 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n       99 |         `${locale}/${width}`,\n    > 100 |       ).toBe(true);\n          |         ^\n      101 |     }\n      102 |     for (const src of await page\n      103 |       .locator('.sd-directory img')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/service-directory.spec.ts:100:9"
+  },
+  {
+    "test": "tests/e2e/software-engineering.spec.ts:92:5 › engineering layout is responsive, accessible and uses local links and reduced motion",
+    "error": "Error: ar/390\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      105 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      106 |         `${locale}/${width}`,\n    > 107 |       ).toBe(true);\n          |         ^\n      108 |     }\n      109 |     for (const href of await page\n      110 |       .locator('.se-service a')\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/software-engineering.spec.ts:107:9"
+  },
+  {
+    "test": "tests/e2e/website-designs.spec.ts:99:5 › gallery and details fit small screens, missing designs are 404 and previews are noindex",
+    "error": "Error: expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      105 |       for (const width of [1440, 390, 320]) {\n      106 |         await page.setViewportSize({ width, height: 1000 });\n    > 107 |         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(\n          |                                                                                               ^\n      108 |           true,\n      109 |         );\n      110 |       }\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/website-designs.spec.ts:107:95"
+  },
+  {
+    "test": "tests/e2e/work-systems.spec.ts:141:5 › system gallery, details and previews are accessible, responsive and correctly indexed",
+    "error": "Error: /ar/work-systems\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: true\n    Received: false\n\n      154 |         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),\n      155 |         path,\n    > 156 |       ).toBe(true);\n          |         ^\n      157 |     }\n      158 |     const scan = await new AxeBuilder({ page })\n      159 |       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])\n        at /Users/hussamkallas/Downloads/TEVONIQ/tests/e2e/work-systems.spec.ts:156:9"
+  }
+]

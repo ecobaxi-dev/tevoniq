@@ -818,3 +818,26 @@
   :is(.tc-section-nav, .ai-dev-nav, .ai-case-nav, .digital-nav, .solution-section-nav) {
   top: 0;
 }
+
+/* Keep mobile navigation controls in the viewport with either supported bundler. */
+@media (width < 40rem) {
+  .site-header-shell .site-header .site-header-inner {
+    gap: 0.5rem;
+    padding-inline: 1rem;
+  }
+  .site-header-shell .site-header .site-header-actions {
+    gap: 0.25rem;
+    margin-inline-start: auto;
+    min-width: 0;
+  }
+  .site-header-shell .site-header .site-quote {
+    display: none;
+  }
+  .site-header-shell .site-header .site-logo {
+    width: 5.5rem;
+  }
+  .site-header-shell .site-header .site-header-actions .tv-language select {
+    width: 5.5rem;
+    min-width: 0;
+  }
+}

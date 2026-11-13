@@ -1,0 +1,31 @@
+[WebServer] (node:84505) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:84556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:84594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/automation-demos.spec.ts:130:5 › gallery, flow details and previews meet accessibility and indexing expectations (9.5s)
+  ✓   2 tests/e2e/consulting.spec.ts:130:5 › new consulting page is responsive, accessible, uses local links and has no browser errors (4.5s)
+  ✓   3 tests/e2e/dashboard-demos.spec.ts:112:5 › dashboard pages meet accessibility, indexing and progressive rendering expectations (10.0s)
+  ✓   4 tests/e2e/erp-service.spec.ts:100:5 › ERP page fits desktop and mobile, meets accessibility checks and has only local links (3.1s)
+  ✓   5 tests/e2e/growth.spec.ts:10:5 › month-one pathways are bilingual, linked, indexable and fit small screens (3.0s)
+  ✓   6 tests/e2e/header.spec.ts:75:5 › mobile drawer closes on navigation and Arabic layout works (1.6s)
+  ✓   7 tests/e2e/home.spec.ts:20:5 › localized homepages are accessible and responsive with reduced motion (5.1s)
+  ✓   8 tests/e2e/home.spec.ts:100:5 › service cards have individual actions, warm identities and single-line headings that fit (1.1s)
+  ✓   9 tests/e2e/home.spec.ts:182:5 › Advocas title fits one line, matches Pesto lighting, and keeps readable hover colors (1.7s)
+  ✓  10 tests/e2e/intelligent-automation.spec.ts:97:5 › automation page is accessible and responsive, with local demo links and stable reduced motion (2.3s)
+  ✓  11 tests/e2e/iot-service.spec.ts:111:5 › IoT page and simulator fit mobile, are accessible and expose no browser errors or retired offerings (2.7s)
+  ✓  12 tests/e2e/navigation-visuals.spec.ts:147:5 › mobile drawer and legacy Turkish navigation keep their existing content (896ms)
+  ✓  13 tests/e2e/navigation-visuals.spec.ts:166:5 › solutions show their illustration and product menus use original marks on desktop and mobile (4.4s)
+  ✓  14 tests/e2e/pesto.spec.ts:5:7 › Pesto en: honest availability, useful navigation and accessible mobile layout (2.3s)
+  ✓  15 tests/e2e/pesto.spec.ts:5:7 › Pesto ar: honest availability, useful navigation and accessible mobile layout (2.4s)
+  ✓  16 tests/e2e/pesto.spec.ts:5:7 › Pesto tr: honest availability, useful navigation and accessible mobile layout (2.1s)
+  ✓  17 tests/e2e/service-directory.spec.ts:86:5 › directory is responsive, accessible, uses lightweight local images and has no browser errors (1.5s)
+  ✓  18 tests/e2e/software-engineering.spec.ts:92:5 › engineering layout is responsive, accessible and uses local links and reduced motion (2.8s)
+  ✓  19 tests/e2e/website-designs.spec.ts:99:5 › gallery and details fit small screens, missing designs are 404 and previews are noindex (1.1s)
+  ✓  20 tests/e2e/work-systems.spec.ts:141:5 › system gallery, details and previews are accessible, responsive and correctly indexed (6.0s)
+
+  20 passed (1.2m)

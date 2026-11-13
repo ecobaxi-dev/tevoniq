@@ -93,6 +93,7 @@ export function SiteSideNavigation({
     flattenNavigation([item]).some((entry) =>
       isActivePath(pathname, localizedHref(locale, entry.href), localizedHref(locale, '/')),
     );
+  if (/^\/(ar|en)\/start\/?$/.test(pathname)) return <>{children}</>;
   return (
     <div
       className={`site-navigation-frame ${compact ? 'is-compact' : 'is-expanded'} ${assistantEnabled ? 'has-site-assistant' : ''}`}

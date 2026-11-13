@@ -1,6 +1,5 @@
+import { trustedClientHeaders } from '@/lib/client-ip';
 import { boundedRequestBody, RequestBodyError } from '@/lib/bounded-request-body';
-import { createHmac } from 'node:crypto';
-import { isIP } from 'node:net';
 import { env } from '@/lib/env';
 export async function forwardNewsletter(request: Request, path = 'pages/newsletter') {
   if (request.headers.get('origin') !== new URL(env.SITE_URL).origin)
@@ -13,13 +12,7 @@ export async function forwardNewsletter(request: Request, path = 'pages/newslett
       'Content-Type': 'application/json',
       Origin: new URL(env.SITE_URL).origin,
     };
-    const trusted = process.env.LEAD_CLIENT_IP_HEADER,
-      secret = process.env.LEAD_PROXY_SECRET,
-      ip = trusted ? request.headers.get(trusted) : null;
-    if (secret && ip && isIP(ip)) {
-      headers['x-lead-client-ip'] = ip;
-      headers['x-lead-ip-signature'] = createHmac('sha256', secret).update(ip).digest('hex');
-    }
+    Object.assign(headers, trustedClientHeaders(request));
     const response = await fetch(`${env.API_URL}/${path}`, {
       method: 'POST',
       headers,

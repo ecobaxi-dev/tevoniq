@@ -339,3 +339,50 @@ test('API rejects invalid phones before accessing persistence or email queues', 
     (error) => error.getStatus?.() === 400,
   );
 });
+
+test('Campaign contact submissions accept only AR/EN landing paths with contact consent', () => {
+  for (const language of ['ar', 'en']) {
+    assert.equal(
+      leadSubmissionSchema.safeParse({
+        ...contact,
+        language,
+        sourcePage: `/${language}/start`,
+        consent: true,
+      }).success,
+      true,
+    );
+    assert.equal(
+      leadSubmissionSchema.safeParse({
+        ...contact,
+        language,
+        sourcePage: `/${language}/start`,
+        consent: false,
+      }).success,
+      false,
+    );
+  }
+  for (const sourcePage of [
+    '/tr/start',
+    '/start',
+    '/ar/start/unknown',
+    'https://evil.test/ar/start',
+  ])
+    assert.equal(
+      leadSubmissionSchema.safeParse({ ...contact, sourcePage, consent: true }).success,
+      false,
+    );
+  assert.equal(
+    leadSubmissionSchema.safeParse({
+      ...contact,
+      type: 'quote',
+      sourcePage: '/ar/start',
+      consent: true,
+      phone: '+905551234567',
+      industry: 'Services',
+      projectType: 'Website',
+      timeline: 'Next month',
+      projectDescription: 'A business website',
+    }).success,
+    false,
+  );
+});

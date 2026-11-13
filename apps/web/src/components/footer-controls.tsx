@@ -1,6 +1,6 @@
 'use client';
 import { rememberPreferredLanguage } from '@/lib/cookie-storage';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useSyncExternalStore } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ArrowRight, Globe2, Check } from 'lucide-react';
 import type { Locale } from '@tevoniq/types';
@@ -43,6 +43,8 @@ export function FooterLanguage({
   );
 }
 
+const subscribeToHydration = () => () => {};
+
 export function FooterNewsletter({
   locale,
   siteKey,
@@ -53,6 +55,11 @@ export function FooterNewsletter({
   available: boolean;
 }) {
   const copy = footerCopy[locale];
+  const hydrated = useSyncExternalStore(
+    subscribeToHydration,
+    () => true,
+    () => false,
+  );
   const [busy, setBusy] = useState(false),
     [done, setDone] = useState(false),
     [error, setError] = useState('');
@@ -68,6 +75,8 @@ export function FooterNewsletter({
     );
   return (
     <form
+      method="post"
+      action="/api/newsletter/subscribe"
       className="footer-newsletter-form"
       aria-label={copy.newsletter}
       onSubmit={async (e) => {
@@ -100,7 +109,16 @@ export function FooterNewsletter({
         }
       }}
     >
-      <fieldset disabled={busy || !available}>
+      <noscript>
+        <p className="footer-form-message">
+          {locale === 'ar'
+            ? 'فعّل JavaScript لاستخدام نموذج الاشتراك.'
+            : locale === 'en'
+              ? 'Enable JavaScript to use the subscription form.'
+              : copy.unavailable}
+        </p>
+      </noscript>
+      <fieldset disabled={!hydrated || busy || !available}>
         <label className="tv-sr-only" htmlFor="footer-email">
           {copy.email}
         </label>

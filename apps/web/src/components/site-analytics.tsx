@@ -123,7 +123,7 @@ export function SiteAnalytics({
       };
       if (providers.googleAnalytics && analyticsWindow.gtag)
         analyticsWindow.gtag('event', event, payload);
-      else if (providers.googleTagManager && !providers.googleAnalytics)
+      if (providers.googleTagManager)
         (analyticsWindow.dataLayer ||= []).push({ event: `tevoniq_${event}`, ...payload });
     };
     send('page_view');
@@ -142,6 +142,15 @@ export function SiteAnalytics({
       const target = event.target;
       if (!(target instanceof Element)) return;
       const link = target.closest<HTMLAnchorElement>('a[href]');
+      const cta = link?.dataset.campaignCta;
+      if (page.page_type === 'start' && (cta === 'hero' || cta === 'mobile'))
+        send('campaign_cta_click', { placement: cta });
+      if (
+        page.page_type === 'start' &&
+        link &&
+        /^(tel:|mailto:)/.test(link.getAttribute('href') || '')
+      )
+        send('contact_click', { destination: link.protocol === 'tel:' ? 'phone' : 'email' });
       const metric = link && growthLink(link.href, window.location.origin);
       if (metric) send(metric.event, { destination: metric.destination });
     };
@@ -167,6 +176,18 @@ export function SiteAnalytics({
       window.removeEventListener(leadMetricEvent, received);
     };
   }, [pathname, analyticsReady, sensitive, providers.googleAnalytics, providers.googleTagManager]);
+  // Meta lead measurement is independent of analytics consent and fires only after server receipt.
+  useEffect(() => {
+    if (!providers.metaPixel || sensitive) return;
+    const received = (event: Event) => {
+      const detail = (event as CustomEvent).detail;
+      if (detail !== 'contact' && detail !== 'quote') return;
+      const pixelWindow = window as typeof window & { fbq?: (...args: unknown[]) => void };
+      pixelWindow.fbq?.('track', 'Lead', { content_name: detail });
+    };
+    window.addEventListener(leadMetricEvent, received);
+    return () => window.removeEventListener(leadMetricEvent, received);
+  }, [providers.metaPixel, sensitive]);
   const privacy = footerHref(locale, legal.privacyPolicyUrl || '/privacy-policy'),
     policy = footerHref(locale, legal.cookiePolicyUrl || '/cookie-policy');
   function save(categories: ConsentCategories) {

@@ -1,3 +1,4 @@
+import { adminSearchQueries, type AdminSearchRow } from './search-query.js';
 import {
   Controller,
   Get,
@@ -15,7 +16,6 @@ import {
   Header,
 } from '@nestjs/common';
 import { z } from 'zod';
-import { pageSummary } from '../page-builder/page-content.js';
 import {
   adminModuleSchema,
   adminDefinitions,
@@ -559,179 +559,30 @@ export class AdminController {
       limit: q.limit,
     };
   }
-  @Get('search')
-  async search(@Query() query: unknown, @Req() req: CmsRequest) {
+  private async searchPage(query: unknown, req: CmsRequest, trash = false) {
     const q = parse(adminQuerySchema, query);
-    const match = (text: string) => text.toLowerCase().includes(q.q.toLowerCase());
-    const [records, articles, services, solutions, industries, projects, pages, leads, builtPages] =
-      await Promise.all([
-        this.db.adminRecord.findMany({
-          where: {
-            deletedAt: null,
-            module: {
-              in: adminModules.filter(
-                (m) =>
-                  !['leads', 'messages', 'site-settings'].includes(m) &&
-                  hasPermission(req.cmsUser.role, `${moduleResource(m)}.read`),
-              ),
-            },
-          },
-        }),
-        this.db.insightArticle.findMany(),
-        this.db.service.findMany({ where: { deletedAt: null }, include: { translations: true } }),
-        this.db.solution.findMany({ where: { deletedAt: null }, include: { translations: true } }),
-        this.db.industry.findMany({ where: { deletedAt: null }, include: { translations: true } }),
-        this.db.project.findMany({ where: { deletedAt: null }, include: { translations: true } }),
-        this.db.companyPage.findMany(),
-        privileged(req)
-          ? this.db.lead.findMany({
-              where: {
-                deletedAt: null,
-                ...(q.q
-                  ? {
-                      OR: [
-                        { name: { contains: q.q, mode: 'insensitive' } },
-                        { email: { contains: q.q, mode: 'insensitive' } },
-                        { company: { contains: q.q, mode: 'insensitive' } },
-                      ],
-                    }
-                  : {}),
-              },
-              select: {
-                id: true,
-                name: true,
-                company: true,
-                email: true,
-                status: true,
-                createdAt: true,
-                updatedAt: true,
-                updatedById: true,
-              },
-            })
-          : Promise.resolve([]),
-        this.db.cmsPage.findMany({ where: { deletedAt: null } }),
-      ]);
-    const items = [
-      ...builtPages.map((r) => ({
-        ...pageSummary(r),
-        module: 'pages',
-        href: `/admin/pages?id=${r.id}`,
-      })),
-      ...leads.map((r) => ({
-        ...r,
-        title: `${r.name} ${r.company} ${r.email}`,
-        module: 'leads',
-        createdById: null,
-        href: `/admin/leads?lead=${r.id}`,
-      })),
-      ...records.map((r) => ({
-        ...r,
-        href: `/admin/${r.module === 'pages' ? 'page-records' : r.module}`,
-      })),
-      ...articles.map((r) => ({
-        ...r,
-        module: r.kind === 'resource' ? 'resources' : 'blog',
-        href: '/admin/insights',
-      })),
-      ...services.map((r) => ({
-        ...r,
-        title: r.translations[0]?.title || r.slug,
-        status: r.active && r.translations.some((t) => t.published) ? 'published' : 'draft',
-        module: 'services',
-        href: '/admin/services',
-      })),
-      ...solutions.map((r) => ({
-        ...r,
-        title: r.translations[0]?.name || r.slug,
-        status: r.status.toLowerCase(),
-        module: 'solutions',
-        href: '/admin/solutions',
-      })),
-      ...industries.map((r) => ({
-        ...r,
-        title: r.translations[0]?.name || r.slug,
-        status: r.status.toLowerCase(),
-        module: 'industries',
-        href: '/admin/industries',
-      })),
-      ...projects.map((r) => ({
-        ...r,
-        title: r.translations[0]?.title || r.slug,
-        status: r.published ? 'published' : 'draft',
-        module: 'projects',
-        href: '/admin/projects',
-      })),
-      ...pages.map((r) => ({
-        ...r,
-        id: `${r.slug}/${r.locale}`,
-        title: `Company / ${r.slug} (${r.locale})`,
-        status: r.published ? 'published' : 'draft',
-        module: 'company',
-        href: '/admin/company',
-      })),
-    ]
-      .filter(
-        (r) =>
-          (match(r.title) || ('path' in r && typeof r.path === 'string' && match(r.path))) &&
-          (!q.status || r.status === q.status),
-      )
-      .map((r) => ({
-        id: r.id,
-        title: r.title,
-        status: r.status,
-        module: r.module,
-        href: r.href,
-        createdAt: r.createdAt,
-        updatedAt: r.updatedAt,
-        createdById: r.createdById,
-        updatedById: r.updatedById,
-      }));
-    items.sort(
-      (a, b) =>
-        (q.sort === 'createdAt' || q.sort === 'updatedAt'
-          ? a[q.sort].getTime() - b[q.sort].getTime()
-          : String(a[q.sort]).localeCompare(String(b[q.sort]))) *
-          (q.direction === 'asc' ? 1 : -1) || a.id.localeCompare(b.id),
+    const sql = adminSearchQueries(q, req.cmsUser.role, trash);
+    const [totals, items] = await this.db.$transaction(
+      [
+        this.db.$queryRaw<{ total: number }[]>(sql.count),
+        this.db.$queryRaw<AdminSearchRow[]>(sql.rows),
+      ],
+      { isolationLevel: 'RepeatableRead' },
     );
     return {
-      items: await this.annotate(items.slice((q.page - 1) * q.limit, q.page * q.limit)),
-      total: items.length,
+      items: await this.annotate(items),
+      total: totals[0]?.total ?? 0,
       page: q.page,
       limit: q.limit,
     };
   }
+  @Get('search')
+  search(@Query() query: unknown, @Req() req: CmsRequest) {
+    return this.searchPage(query, req);
+  }
   @Get('trash')
-  async trash(@Query() query: unknown) {
-    const q = parse(adminQuerySchema, query);
-    const where = {
-      deletedAt: { not: null },
-      ...(q.q ? { slug: { contains: q.q, mode: 'insensitive' as const } } : {}),
-    };
-    const [services, solutions, industries, projects] = await Promise.all([
-      this.db.service.findMany({ where }),
-      this.db.solution.findMany({ where }),
-      this.db.industry.findMany({ where }),
-      this.db.project.findMany({ where }),
-    ]);
-    const items = [
-      ...services.map((r) => ({ ...r, module: 'service' })),
-      ...solutions.map((r) => ({ ...r, module: 'solution' })),
-      ...industries.map((r) => ({ ...r, module: 'industry' })),
-      ...projects.map((r) => ({ ...r, module: 'project' })),
-    ].map((r) => ({ ...r, title: r.slug, status: 'archived' }));
-    items.sort(
-      (a, b) =>
-        (q.sort === 'createdAt' || q.sort === 'updatedAt'
-          ? a[q.sort].getTime() - b[q.sort].getTime()
-          : String(a[q.sort]).localeCompare(String(b[q.sort]))) *
-          (q.direction === 'asc' ? 1 : -1) || a.id.localeCompare(b.id),
-    );
-    return {
-      items: await this.annotate(items.slice((q.page - 1) * q.limit, q.page * q.limit)),
-      total: items.length,
-      page: q.page,
-      limit: q.limit,
-    };
+  trash(@Query() query: unknown, @Req() req: CmsRequest) {
+    return this.searchPage(query, req, true);
   }
   @Post('restore/:kind/:id')
   async restore(

@@ -16,6 +16,8 @@ services:
         value: '24'
       - key: NODE_ENV
         value: production
+      - key: ENFORCE_RELEASE_SECURITY
+        value: 'true'
       - key: PREVIEW_DEMO_CONTENT_RELEASE
         value: '2026-10-25'
       - key: NEXT_TELEMETRY_DISABLED
@@ -29,7 +31,19 @@ services:
       - key: RESEND_API_KEY
         sync: false
       - key: TURNSTILE_MODE
-        value: disabled
+        value: turnstile
+      - key: TURNSTILE_SITE_KEY
+        sync: false
+      - key: TURNSTILE_SECRET_KEY
+        sync: false
+      - key: TURNSTILE_HOSTNAMES
+        sync: false
+      - key: LEAD_PROXY_SECRET
+        generateValue: true
+      - key: LEAD_CLIENT_IP_HEADER
+        sync: false
+      - key: LEAD_TRUSTED_PROXY_HOPS
+        sync: false
       - key: LOG_LEVEL
         value: warn
       - key: CMS_ADMIN_EMAIL

@@ -1,6 +1,5 @@
+import { trustedClientHeaders } from '@/lib/client-ip';
 import { boundedRequestBody, RequestBodyError } from '@/lib/bounded-request-body';
-import { createHmac } from 'node:crypto';
-import { isIP } from 'node:net';
 import { env } from '@/lib/env';
 const MAX_BODY = 7 * 1024 * 1024;
 export async function POST(request: Request) {
@@ -16,13 +15,7 @@ export async function POST(request: Request) {
       Origin: new URL(env.SITE_URL).origin,
     };
     // Only enable this for a header overwritten by your trusted ingress; arbitrary forwarded headers are ignored.
-    const trustedHeader = process.env.LEAD_CLIENT_IP_HEADER,
-      secret = process.env.LEAD_PROXY_SECRET;
-    const ip = trustedHeader ? request.headers.get(trustedHeader)?.trim() : undefined;
-    if (ip && secret && isIP(ip)) {
-      headers['x-lead-client-ip'] = ip;
-      headers['x-lead-ip-signature'] = createHmac('sha256', secret).update(ip).digest('hex');
-    }
+    Object.assign(headers, trustedClientHeaders(request));
     const response = await fetch(`${env.API_URL}/leads/submit`, {
       method: 'POST',
       headers,

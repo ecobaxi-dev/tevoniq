@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createHmac, timingSafeEqual } from 'node:crypto';
+import { ipKeyGenerator } from 'express-rate-limit';
 import { isIP } from 'node:net';
 import type { Request } from 'express';
 import { DatabaseService } from '../database/database.service.js';
@@ -25,9 +26,9 @@ export function submissionIp(req: Request, secret?: string) {
     /^[a-f0-9]{64}$/.test(signature)
   ) {
     const expected = createHmac('sha256', secret).update(ip).digest();
-    if (timingSafeEqual(expected, Buffer.from(signature, 'hex'))) return ip;
+    if (timingSafeEqual(expected, Buffer.from(signature, 'hex'))) return ipKeyGenerator(ip);
   }
-  return req.ip || req.socket?.remoteAddress || 'unknown';
+  return ipKeyGenerator(req.ip || req.socket?.remoteAddress || 'unknown');
 }
 @Injectable()
 export class LeadBotProtection {

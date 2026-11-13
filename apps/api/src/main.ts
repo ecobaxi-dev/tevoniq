@@ -5,7 +5,7 @@ import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from 'nestjs-pino';
 import helmet from 'helmet';
-import { rateLimit } from 'express-rate-limit';
+import { apiRateLimiter } from './security/rate-limit.js';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module.js';
 import { RetiredCatalogInterceptor } from './cms/retired-catalog.interceptor.js';
@@ -22,13 +22,10 @@ app.use('/api/v1/cms', (_req: Request, res: Response, next: NextFunction) => {
   next();
 });
 app.use(
-  rateLimit({
-    windowMs: 60000,
-    limit: 120,
-    standardHeaders: 'draft-8',
-    legacyHeaders: false,
-    message: { message: 'Too many requests. Please try again shortly.' },
-  }),
+  apiRateLimiter(
+    app.get(ConfigService).get<string>('LEAD_PROXY_SECRET'),
+    process.env.API_BIND_HOST === '127.0.0.1',
+  ),
 );
 app.useBodyParser('json', { limit: '100kb' });
 app.useBodyParser('urlencoded', { extended: false, limit: '100kb' });

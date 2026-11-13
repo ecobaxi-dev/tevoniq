@@ -21,7 +21,7 @@ try {
   await server.start();
   db = new PrismaClient({ adapter: new PrismaPg({ connectionString: `postgresql://postgres:postgres@${server.getServerConn()}/postgres`, max: 1 }), transactionOptions: { maxWait: 10000, timeout: 10000 } });
   const config = { get: (key) => key === 'NODE_ENV' ? 'test' : undefined, getOrThrow: () => 'http://localhost:3000' };
-  const service = new NewsletterService(db), sent = [], synced = [];
+  const service = new NewsletterService(db, { confirmationEnabled: true }), sent = [], synced = [];
   const worker = new NewsletterWorker(db, { confirmationEnabled: true, sendConfirmation: async (message) => sent.push(message), syncContact: async (contact) => synced.push(contact) }, config);
   const input = { email: 'integration@example.test', name: 'Test person', language: 'en', source: 'integration' };
   await service.subscribe(input, 'Test consent');

@@ -1,8 +1,12 @@
 import 'server-only';
 import { z } from 'zod';
+import { leadCountries, localeSchema } from '@tevoniq/validation';
 import { env } from './env';
 import { fetchPublicContent } from './public-content-cache';
 export const leadOptionsSchema = z.object({
+  countries: z
+    .array(z.object({ code: z.string(), name: z.string(), callingCode: z.string() }))
+    .optional(),
   budgetRanges: z.array(z.object({ value: z.string(), label: z.string() })),
   services: z.array(z.object({ id: z.string().uuid(), title: z.string() })),
   attachmentsEnabled: z.boolean(),
@@ -16,5 +20,8 @@ export async function getLeadOptions(locale: string) {
     signal: AbortSignal.timeout(5000),
   });
   if (!response.ok) throw new Error('Contact forms unavailable');
-  return leadOptionsSchema.parse(await response.json());
+  return {
+    ...leadOptionsSchema.parse(await response.json()),
+    countries: leadCountries(localeSchema.parse(locale)),
+  };
 }

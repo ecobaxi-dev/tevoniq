@@ -55,7 +55,10 @@
   },
   "overrides": {
     "deepmerge-ts": "8.0.2",
-    "mysql2": "3.24.3"
+    "mysql2": "3.24.3",
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
+    }
   },
   "dependencies": {
     "@neon/config": "^1.9.3",

@@ -39,8 +39,10 @@ export async function SiteFooter({
         if (!r.ok) return null;
         const data: unknown = await r.json();
         if (!data || typeof data !== 'object' || !('turnstileSiteKey' in data)) return null;
-        return data.turnstileSiteKey === null || typeof data.turnstileSiteKey === 'string'
-          ? { siteKey: data.turnstileSiteKey }
+        return 'available' in data &&
+          typeof data.available === 'boolean' &&
+          (data.turnstileSiteKey === null || typeof data.turnstileSiteKey === 'string')
+          ? { siteKey: data.turnstileSiteKey, available: data.available }
           : null;
       })
       .catch(() => null),
@@ -101,7 +103,7 @@ export async function SiteFooter({
           <FooterNewsletter
             locale={locale}
             siteKey={newsletter?.siteKey || null}
-            available={!!newsletter}
+            available={newsletter?.available === true}
           />
         </section>
         <div className="footer-main">

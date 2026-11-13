@@ -13,11 +13,13 @@ export function LeadForm({
   locale,
   options,
   initialMessage,
+  campaign = false,
 }: {
   type: 'contact' | 'quote';
   locale: 'en' | 'tr' | 'ar';
   options: LeadOptions;
   initialMessage?: string | undefined;
+  campaign?: boolean;
 }) {
   const copy = leadCopy[locale],
     quote = type === 'quote';
@@ -29,7 +31,8 @@ export function LeadForm({
     [resetKey, setResetKey] = useState(0),
     [country, setCountry] = useState(''),
     [method, setMethod] = useState('email');
-  const countries = leadCountries(locale);
+  // Use the server snapshot: browser and Node ICU versions can sort country names differently.
+  const countries = options.countries ?? leadCountries(locale);
   const contactCopy =
     locale === 'ar'
       ? {
@@ -64,6 +67,9 @@ export function LeadForm({
   return (
     <form
       ref={form}
+      method="post"
+      action="/api/leads"
+      encType="multipart/form-data"
       className="lead-form"
       onSubmit={async (event) => {
         event.preventDefault();
@@ -258,7 +264,7 @@ export function LeadForm({
             <Textarea
               label={copy.projectDescription}
               name="projectDescription"
-              rows={7}
+              rows={campaign ? 4 : 7}
               required
               maxLength={15000}
             />
@@ -276,11 +282,41 @@ export function LeadForm({
           </>
         ) : (
           <>
-            <Input label={copy.subject} name="subject" required maxLength={200} />
+            {campaign ? (
+              <Select
+                label={locale === 'ar' ? 'ما الذي تحتاجه؟' : 'What do you need?'}
+                name="subject"
+                required
+              >
+                <option value="">{copy.select}</option>
+                {(locale === 'ar'
+                  ? [
+                      'موقع أعمال',
+                      'نظام لإدارة العمل',
+                      'أتمتة وربط',
+                      'لوحة معلومات',
+                      'أحتاج مساعدة في تحديد الحل',
+                    ]
+                  : [
+                      'Business website',
+                      'Work management system',
+                      'Automation and integration',
+                      'Dashboard',
+                      'Help choosing the right solution',
+                    ]
+                ).map((label) => (
+                  <option key={label} value={label}>
+                    {label}
+                  </option>
+                ))}
+              </Select>
+            ) : (
+              <Input label={copy.subject} name="subject" required maxLength={200} />
+            )}
             <Textarea
               label={copy.message}
               name="message"
-              rows={7}
+              rows={campaign ? 4 : 7}
               required
               maxLength={10000}
               defaultValue={initialMessage}
@@ -296,6 +332,7 @@ export function LeadForm({
             </Select>
           </>
         )}
+        {campaign && !quote && <Checkbox name="consent" label={copy.consent} required />}
         <div className="lead-honeypot" aria-hidden="true">
           <label>
             Website

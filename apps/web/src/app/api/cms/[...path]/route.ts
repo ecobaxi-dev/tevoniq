@@ -1,6 +1,5 @@
+import { trustedClientHeaders } from '@/lib/client-ip';
 import { boundedRequestBody } from '@/lib/bounded-request-body';
-import { createHmac } from 'node:crypto';
-import { isIP } from 'node:net';
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
@@ -98,14 +97,7 @@ async function handle(request: Request, { params }: { params: Promise<{ path: st
     }
   }
   try {
-    const trusted = process.env.LEAD_CLIENT_IP_HEADER;
-    const secret = process.env.LEAD_PROXY_SECRET;
-    const ip = trusted ? request.headers.get(trusted)?.trim() : undefined;
-    const clientHeaders: Record<string, string> = {};
-    if (secret && ip && isIP(ip)) {
-      clientHeaders['x-lead-client-ip'] = ip;
-      clientHeaders['x-lead-ip-signature'] = createHmac('sha256', secret).update(ip).digest('hex');
-    }
+    const clientHeaders = trustedClientHeaders(request);
     const result = await fetch(`${env.API_URL}/cms/${route}${new URL(request.url).search}`, {
       method,
       headers: {

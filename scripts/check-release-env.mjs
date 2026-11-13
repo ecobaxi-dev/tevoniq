@@ -1,3 +1,4 @@
+import { releaseSecurityIssues } from './release-security.mjs';
 import { readFile } from 'node:fs/promises';
 import { parse } from 'dotenv';
 import { webEnvironmentSchema } from '@tevoniq/validation';
@@ -6,7 +7,7 @@ const args = process.argv.slice(2);
 if (args.length !== 2)
   throw new Error('Usage: node scripts/check-release-env.mjs <api-env-file> <web-env-file>');
 const [api, web] = await Promise.all(args.map(async (file) => parse(await readFile(file))));
-const issues = [];
+const issues = releaseSecurityIssues(api, web);
 for (const [name, values] of [
   ['API', api],
   ['web', web],
@@ -23,7 +24,6 @@ try {
 }
 if (!webEnvironmentSchema.safeParse(web).success) issues.push('Web environment validation failed');
 if (api.NODE_ENV !== 'production') issues.push('API NODE_ENV must be production');
-if (web.SITE_URL !== 'https://tevoniq.com') issues.push('Web SITE_URL must be https://tevoniq.com');
 if (api.CORS_ORIGIN !== web.SITE_URL) issues.push('API CORS_ORIGIN must match web SITE_URL');
 if (!api.CV_CLAMAV_HOST)
   issues.push('Configure private CV_CLAMAV_HOST before enabling job uploads');
@@ -32,9 +32,9 @@ if (
   (!web.LEAD_PROXY_SECRET || web.LEAD_PROXY_SECRET !== api.LEAD_PROXY_SECRET)
 )
   issues.push('Trusted client IP forwarding requires the same secret on API and web');
-if (api.EMAIL_TRANSPORT !== 'smtp')
+if (!['smtp', 'resend'].includes(api.EMAIL_TRANSPORT))
   issues.push(
-    'Email is disabled; enable SMTP and verify delivery before accepting public enquiries',
+    'Email is disabled; enable SMTP or Resend and verify delivery before accepting public enquiries',
   );
 if (issues.length) {
   console.error(issues.map((issue) => `- ${issue}`).join('\n'));
