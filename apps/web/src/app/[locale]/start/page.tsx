@@ -12,11 +12,13 @@ import {
 } from 'lucide-react';
 import { homeServices } from '@/content/home-services';
 import { LeadForm } from '@/components/lead-form';
+import { BrandLogo } from '@/components/brand-image';
 import { getLeadOptions } from '@/lib/lead-options';
 import { getSiteSettings } from '@/lib/site-settings';
 import { routeMetadata } from '@/lib/seo';
 import '@/components/lead-form.css';
 import './start.css';
+import './start-ar.css';
 
 const icons = [Globe2, PanelsTopLeft, Workflow, ChartNoAxesCombined];
 const demos = ['website-designs', 'work-systems', 'automation-demos', 'dashboard-demos'];
@@ -45,10 +47,20 @@ export default async function CampaignPage({ params }: { params: Promise<{ local
   ]);
   const services = homeServices[locale];
   return (
-    <main id="main-content" className="campaign-page">
+    <main id="main-content" className={`campaign-page${ar ? ' campaign-ar' : ''}`}>
       <nav className="campaign-nav" aria-label={t('تنقل الصفحة', 'Page navigation')}>
-        <Link href={`/${locale}`} className="campaign-wordmark">
-          TEVONIQ<span aria-hidden="true">●</span>
+        <Link
+          href={`/${locale}`}
+          className="campaign-wordmark"
+          aria-label={t('TEVONIQ — الرئيسية', 'TEVONIQ — Home')}
+        >
+          {ar ? (
+            <BrandLogo variant="horizontal" eager />
+          ) : (
+            <>
+              TEVONIQ<span aria-hidden="true">●</span>
+            </>
+          )}
         </Link>
         <a href="#services">{t('ما الذي نقدّمه؟', 'What we build')}</a>
         <a href="#process">{t('كيف نبدأ؟', 'How it works')}</a>

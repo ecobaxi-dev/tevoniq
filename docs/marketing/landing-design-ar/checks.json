@@ -1,0 +1,28 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "formSuccess": true,
+  "utmPreserved": true,
+  "englishUnchanged": true,
+  "jsErrors": []
+}
