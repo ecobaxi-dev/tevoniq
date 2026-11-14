@@ -1,12 +1,15 @@
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { articleWriteSchema, estimateReadingTime } from '@tevoniq/validation';
-const root = new URL('../../content/blog-ar/', import.meta.url);
+
 export const editorialReleaseId = '2026-11-14-sme-guides';
-export function editorialId(key) {
-  const h = createHash('sha256')
-    .update(`tevoniq:editorial:${editorialReleaseId}:${key}`)
-    .digest('hex');
+export const editorialReleases = [editorialReleaseId, '2026-11-14-growth-guides'];
+const releaseRoots = {
+  [editorialReleaseId]: 'blog-ar',
+  '2026-11-14-growth-guides': 'blog-ar-growth',
+};
+export function editorialId(key, release = editorialReleaseId) {
+  const h = createHash('sha256').update(`tevoniq:editorial:${release}:${key}`).digest('hex');
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-4${h.slice(13, 16)}-a${h.slice(17, 20)}-${h.slice(20, 32)}`;
 }
 export function markdownBlocks(markdown) {
@@ -35,7 +38,13 @@ export function markdownBlocks(markdown) {
       return [{ type: 'paragraph', text: paragraph }];
     });
 }
-export async function buildEditorialArticles(origin, publishedAt = new Date()) {
+export async function buildEditorialArticles(
+  origin,
+  publishedAt = new Date(),
+  release = editorialReleaseId,
+) {
+  if (!Object.hasOwn(releaseRoots, release)) throw new Error('Unknown editorial release');
+  const root = new URL(`../../content/${releaseRoots[release]}/`, import.meta.url);
   const site = new URL(origin);
   if (
     !['https:', 'http:'].includes(site.protocol) ||
@@ -45,10 +54,10 @@ export async function buildEditorialArticles(origin, publishedAt = new Date()) {
   )
     throw new Error('Exact HTTP(S) site origin required');
   const manifest = JSON.parse(await readFile(new URL('manifest.json', root), 'utf8'));
-  if (manifest.release !== editorialReleaseId) throw new Error('Unexpected editorial release');
+  if (manifest.release !== release) throw new Error('Unexpected editorial release');
   const categories = [
     {
-      id: editorialId('websites'),
+      id: editorialId('websites', release),
       name: 'المواقع وتجربة المستخدم',
       slug: 'websites-and-experience',
       language: 'ar',
@@ -56,7 +65,7 @@ export async function buildEditorialArticles(origin, publishedAt = new Date()) {
       version: 1,
     },
     {
-      id: editorialId('operations'),
+      id: editorialId('operations', release),
       name: 'إدارة العمل الرقمي',
       slug: 'digital-business-operations',
       language: 'ar',
@@ -96,14 +105,19 @@ export async function buildEditorialArticles(origin, publishedAt = new Date()) {
       canonicalUrl: '',
       version: 0,
     });
-    articles.push({ id: editorialId(item.slug), ...data });
+    articles.push({ id: editorialId(item.slug, release), ...data });
   }
   return { categories, articles };
 }
 /** One atomic release, insert-only: CMS edits, drafts, archives and deletions survive restarts. */
-export async function publishEditorialArticles(db, origin, actorId) {
-  const releaseId = editorialId('release');
-  const release = await buildEditorialArticles(origin);
+export async function publishEditorialArticles(
+  db,
+  origin,
+  actorId,
+  releaseName = editorialReleaseId,
+) {
+  const releaseId = editorialId('release', releaseName);
+  const release = await buildEditorialArticles(origin, new Date(), releaseName);
   return db.$transaction(
     async (tx) => {
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(7411142026)`;
@@ -153,4 +167,11 @@ export async function publishEditorialArticles(db, origin, actorId) {
     },
     { timeout: 30000 },
   );
+}
+
+export async function publishEditorialReleases(db, origin, actorId) {
+  const results = [];
+  for (const release of editorialReleases)
+    results.push({ release, ...(await publishEditorialArticles(db, origin, actorId, release)) });
+  return results;
 }

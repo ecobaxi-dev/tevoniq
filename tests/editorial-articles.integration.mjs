@@ -8,7 +8,10 @@ import { PGlite } from '@electric-sql/pglite';
 import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../apps/api/dist/generated/prisma/client.js';
-import { publishEditorialArticles } from '../scripts/lib/editorial-articles.mjs';
+import {
+  publishEditorialArticles,
+  publishEditorialReleases,
+} from '../scripts/lib/editorial-articles.mjs';
 const embedded = await PGlite.create();
 const server = new PGLiteSocketServer({ db: embedded, port: 0, host: '127.0.0.1' });
 let db;
@@ -81,6 +84,27 @@ try {
     'Owner updated title',
   );
   assert.equal(await db.cmsAudit.count({ where: { action: 'editorial.release.publish' } }), 1);
+  const second = await publishEditorialArticles(
+    db,
+    'https://www.tevoniq.com',
+    actorId,
+    '2026-11-14-growth-guides',
+  );
+  assert.equal(second.created, 5);
+  assert.equal(await db.insightTaxonomy.count(), 2);
+  assert.equal(await db.insightArticle.count(), 9);
+  const all = await publishEditorialReleases(db, 'https://www.tevoniq.com', actorId);
+  assert.ok(all.every((r) => r.alreadyApplied && r.created === 0));
+  assert.equal(
+    await db.insightArticle.count({ where: { slug: 'business-dashboard-kpi-guide' } }),
+    0,
+  );
+  await db.insightArticle.deleteMany({ where: { slug: 'contact-form-design-checklist' } });
+  await publishEditorialReleases(db, 'https://www.tevoniq.com', actorId);
+  assert.equal(
+    await db.insightArticle.count({ where: { slug: 'contact-form-design-checklist' } }),
+    0,
+  );
   console.log(
     'PASS: insert-only release, existing category reuse, draft preservation, restart idempotency, owner edits and deletions retained.',
   );

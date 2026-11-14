@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "slug": "landing-page-vs-business-website",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "contact-form-design-checklist",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "arabic-english-business-website",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "spreadsheets-vs-business-system",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "newsletter-double-opt-in-guide",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    }
+  ],
+  "rssAllArticles": true,
+  "jsErrors": []
+}

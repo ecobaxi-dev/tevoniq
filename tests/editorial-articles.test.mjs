@@ -46,3 +46,31 @@ test('Structured Markdown converts headings, lists and adjacent source links wit
     ['heading', 'paragraph', 'link', 'list'],
   );
 });
+
+test('Second release adds five distinct guides while preserving the first release IDs', async () => {
+  const first = await buildEditorialArticles('https://www.tevoniq.com');
+  const second = await buildEditorialArticles(
+    'https://www.tevoniq.com',
+    new Date(),
+    '2026-11-14-growth-guides',
+  );
+  assert.equal(second.articles.length, 5);
+  assert.equal(new Set([...first.articles, ...second.articles].map((a) => a.id)).size, 10);
+  assert.equal(new Set([...first.articles, ...second.articles].map((a) => a.slug)).size, 10);
+  for (const { id, ...article } of second.articles) {
+    assert.equal(articleWriteSchema.safeParse(article).success, true);
+    assert.ok(article.content.filter((b) => b.type === 'heading').length >= 4);
+    assert.ok(
+      article.content.filter((b) => b.type === 'link' && !b.url.includes('tevoniq.com')).length >=
+        2,
+    );
+    await access(
+      new URL('../apps/web/public' + new URL(article.coverImage).pathname, import.meta.url),
+    );
+    assert.ok(id);
+  }
+  await assert.rejects(
+    () => buildEditorialArticles('https://www.tevoniq.com', new Date(), '../../unknown'),
+    /Unknown editorial release/,
+  );
+});
