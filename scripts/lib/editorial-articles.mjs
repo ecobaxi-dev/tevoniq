@@ -3,10 +3,15 @@ import { createHash } from 'node:crypto';
 import { articleWriteSchema, estimateReadingTime } from '@tevoniq/validation';
 
 export const editorialReleaseId = '2026-11-14-sme-guides';
-export const editorialReleases = [editorialReleaseId, '2026-11-14-growth-guides'];
+export const editorialReleases = [
+  editorialReleaseId,
+  '2026-11-14-growth-guides',
+  '2026-11-14-resource-library',
+];
 const releaseRoots = {
   [editorialReleaseId]: 'blog-ar',
   '2026-11-14-growth-guides': 'blog-ar-growth',
+  '2026-11-14-resource-library': 'resources-ar',
 };
 export function editorialId(key, release = editorialReleaseId) {
   const h = createHash('sha256').update(`tevoniq:editorial:${release}:${key}`).digest('hex');
@@ -98,7 +103,7 @@ export async function buildEditorialArticles(
       featured: item.featured,
       status: 'published',
       language: 'ar',
-      kind: 'blog',
+      kind: item.kind || 'blog',
       seoTitle: item.seoTitle,
       seoDescription: item.excerpt,
       ogImage: '',

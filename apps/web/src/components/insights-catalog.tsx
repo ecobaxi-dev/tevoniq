@@ -78,7 +78,13 @@ export async function InsightsCatalog({
             locale={locale.data}
             kind={kind === 'resource' ? 'resource' : 'blog'}
             title={kind ? title : showcaseCopy[locale.data].insights}
-            intro={showcaseCopy[locale.data].insightIntro}
+            intro={
+              kind === 'resource'
+                ? locale.data === 'ar'
+                  ? 'قوالب وقوائم فحص مجانية تساعدك على تحديد احتياجك ومراجعة العروض والاستعداد للإطلاق. اطّلع على التعليمات ونزّل الملف مباشرة دون إدخال بريدك.'
+                  : 'Free templates and checklists to scope your project, compare proposals and prepare for launch. Preview each resource and download directly without an email address.'
+                : showcaseCopy[locale.data].insightIntro
+            }
           />
           <div className="showcase-container">
             <nav className="showcase-pills" aria-label={title}>
@@ -130,7 +136,11 @@ export async function InsightsCatalog({
         <Container>
           <form className="insight-filters" method="get">
             <label>
-              {labels.search}
+              {kind === 'resource' && locale.data !== 'tr'
+                ? locale.data === 'ar'
+                  ? 'ابحث في الموارد'
+                  : 'Search resources'
+                : labels.search}
               <input name="q" type="search" defaultValue={parsed.data.q} maxLength={200} />
             </label>
             {(['category', 'tag'] as const).map((type) => (

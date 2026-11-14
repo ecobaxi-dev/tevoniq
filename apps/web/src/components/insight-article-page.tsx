@@ -13,6 +13,7 @@ import { getInsight } from '@/lib/insights';
 import { articlePath, articleUrl, articleStructuredData } from '@/lib/insight-format';
 import { env } from '@/lib/env';
 import { insightLabels } from '@/content/insights';
+import { ResourceDownloadPanel } from './resource-library';
 import { ArticleContent } from '@/components/article-content';
 import { InsightCards } from '@/components/insight-cards';
 export type InsightArticleProps = { params: Promise<{ locale: string; slug: string }> };
@@ -141,6 +142,9 @@ export async function renderInsightArticle({ params }: InsightArticleProps, kind
                 <ShowcaseArt kind={article.kind} index={article.kind === 'resource' ? 1 : 2} />
               ) : null}
             </header>
+            {locale === 'ar' && article.kind === 'resource' && (
+              <ResourceDownloadPanel slug={article.slug} />
+            )}
             <ArticleContent
               blocks={article.content}
               compactLastParagraph={article.slug.startsWith('demo-')}

@@ -1,0 +1,35 @@
+{
+  "release": "2026-11-14-resource-library",
+  "articles": [
+    {
+      "slug": "business-website-brief-template",
+      "title": "نموذج متطلبات موقع شركة: جهّز وصف مشروعك قبل طلب عرض",
+      "seoTitle": "نموذج متطلبات موقع شركة مجاني | TEVONIQ",
+      "excerpt": "قالب عملي لتحديد هدف الموقع والجمهور والصفحات والوظائف والمحتوى ومسؤوليات التسليم، مع نسخة PDF مباشرة للطباعة.",
+      "category": "websites",
+      "featured": false,
+      "kind": "resource",
+      "coverAlt": "قالب عربي لتنظيم متطلبات موقع شركة"
+    },
+    {
+      "slug": "website-launch-checklist",
+      "title": "قائمة فحص إطلاق الموقع: اختبر الصفحات والنماذج والتسليم",
+      "seoTitle": "قائمة فحص إطلاق موقع مجانيّة PDF | TEVONIQ",
+      "excerpt": "راجع تجربة الهاتف والنماذج والروابط والفهرسة والصلاحيات والنسخ الاحتياطية، وسجّل نتيجة كل اختبار قبل الإطلاق.",
+      "category": "websites",
+      "featured": false,
+      "kind": "resource",
+      "coverAlt": "قائمة فحص عربية لمراجعة جاهزية الموقع للإطلاق"
+    },
+    {
+      "slug": "website-proposal-comparison",
+      "title": "جدول مقارنة عروض تطوير المواقع: قارن النطاق والتكلفة والتسليم",
+      "seoTitle": "جدول مقارنة عروض تطوير المواقع Excel | TEVONIQ",
+      "excerpt": "ملف Excel قابل للتعبئة لمقارنة ثلاثة عروض بالنطاق والملكية والدعم وتكاليف السنة الأولى، مع تعليمات وأمثلة استخدام.",
+      "category": "operations",
+      "featured": false,
+      "kind": "resource",
+      "coverAlt": "جدول مقارنة ثلاثة عروض لتطوير موقع شركة"
+    }
+  ]
+}

@@ -94,7 +94,9 @@ try {
   assert.equal(await db.insightTaxonomy.count(), 2);
   assert.equal(await db.insightArticle.count(), 9);
   const all = await publishEditorialReleases(db, 'https://www.tevoniq.com', actorId);
-  assert.ok(all.every((r) => r.alreadyApplied && r.created === 0));
+  assert.ok(all.slice(0, 2).every((r) => r.alreadyApplied && r.created === 0));
+  assert.equal(all[2].created, 3);
+  assert.equal(await db.insightArticle.count({ where: { kind: 'resource' } }), 3);
   assert.equal(
     await db.insightArticle.count({ where: { slug: 'business-dashboard-kpi-guide' } }),
     0,

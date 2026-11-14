@@ -1,3 +1,4 @@
+import { ResourceCards } from './resource-library';
 import { articlePath } from '@/lib/insight-format';
 import { InsightShowcaseCard } from './showcase-cards';
 import { Heading } from '@tevoniq/ui';
@@ -13,6 +14,8 @@ export function InsightCards({
   locale: 'en' | 'tr' | 'ar';
 }) {
   const labels = insightLabels[locale];
+  if (locale === 'ar' && articles.every((a) => a.kind === 'resource'))
+    return <ResourceCards articles={articles} />;
   if (locale !== 'tr')
     return (
       <div className="showcase-three-grid">

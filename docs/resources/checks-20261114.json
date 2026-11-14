@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "url": "http://localhost:3101/ar/insights/resources/business-website-brief-template",
+      "download": "/downloads/resources/business-website-brief-ar.pdf",
+      "bytes": 587113,
+      "status": 200,
+      "accessible": true
+    },
+    {
+      "url": "http://localhost:3101/ar/insights/resources/website-launch-checklist",
+      "download": "/downloads/resources/website-launch-checklist-ar.pdf",
+      "bytes": 605615,
+      "status": 200,
+      "accessible": true
+    },
+    {
+      "url": "http://localhost:3101/ar/insights/resources/website-proposal-comparison",
+      "download": "/downloads/resources/website-proposal-comparison-ar.xlsx",
+      "bytes": 5747,
+      "status": 200,
+      "accessible": true
+    },
+    {
+      "url": "http://localhost:3101/ar/insights/resources/demo-discovery-checklist",
+      "download": "/downloads/resources/project-discovery-checklist-ar.pdf",
+      "bytes": 576297,
+      "status": 200,
+      "accessible": true
+    }
+  ],
+  "directDownload": true,
+  "rssResources": true,
+  "jsErrors": []
+}

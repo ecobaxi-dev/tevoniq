@@ -3,7 +3,7 @@ import { getAllSeoRoutes } from '@/lib/seo';
 import { indexableRoute } from '@/lib/seo-core';
 import { localeSchema } from '@tevoniq/validation';
 import { getInsights } from '@/lib/insights';
-import { insightsRss } from '@/lib/insight-format';
+import { articlePath, insightsRss } from '@/lib/insight-format';
 import { env } from '@/lib/env';
 export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
@@ -21,7 +21,9 @@ export async function GET(request: Request) {
         .filter((r) => r.locale === locale.data && indexableRoute(r, env.SITE_URL))
         .map((r) => r.route),
     );
-    result.items = result.items.filter((a) => allowed.has('/insights/blog/' + a.slug));
+    result.items = result.items.filter((a) =>
+      allowed.has(articlePath(a).replace(/^\/(en|ar|tr)/, '')),
+    );
     return new Response(insightsRss(result.items, env.SITE_URL, locale.data), {
       headers: {
         'Content-Type': 'application/rss+xml; charset=utf-8',
