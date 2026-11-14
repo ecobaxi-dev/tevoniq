@@ -27,7 +27,10 @@ export function articleStructuredData(
     url: canonical,
     datePublished: article.publicationDate,
     dateModified: article.updatedAt,
-    author: { '@type': 'Person', name: article.author },
+    author: {
+      '@type': article.author === 'TEVONIQ' ? 'Organization' : 'Person',
+      name: article.author,
+    },
     ...(organization?.companyName
       ? { publisher: { '@id': new URL('/#organization', site).href } }
       : {}),

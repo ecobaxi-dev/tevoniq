@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "slug": "business-website-planning",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "website-performance-core-web-vitals",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "small-business-workflow-automation",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "business-dashboard-kpi-guide",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    },
+    {
+      "slug": "business-website-security-checklist",
+      "status": 200,
+      "canonical": true,
+      "organizationAuthor": true,
+      "coverLoaded": true,
+      "widths": [
+        320,
+        1440
+      ]
+    }
+  ],
+  "rssAllArticles": true,
+  "jsErrors": []
+}

@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process';
+import { publishEditorialArticles } from '../lib/editorial-articles.mjs';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../../apps/api/dist/generated/prisma/client.js';
 import { hashPassword } from '../../apps/api/dist/cms/password.js';
@@ -48,6 +49,9 @@ export async function bootstrapPreview(env) {
       );
       if (result.status !== 0) throw new Error('Demo preview content import failed');
     }
+    // Owner-authorized editorial release; marked once, never restores CMS edits/deletions.
+    const editorial = await publishEditorialArticles(db, env.SITE_URL, admin.id);
+    console.log('Editorial release:', editorial);
   } finally {
     await db.$disconnect();
   }

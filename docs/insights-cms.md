@@ -27,7 +27,7 @@ Related articles share the category or a tag, match the language, and are alread
 
 `/sitemap.xml` includes Insights collection routes and public articles across all languages, reading all API pages. Articles with a canonical URL different from their own URL are omitted. `/robots.txt` advertises the sitemap and excludes admin/API routes. The initial sitemap covers the Insights section; other site collections can be added to the sitemap provider later.
 
-Article pages emit canonical links, Open Graph article fields, Twitter cards, and JSON-LD Article data. Article author is modeled as a named person. Set verified authorship and image URLs in the CMS. No demonstration articles or invented case studies are seeded.
+Article pages emit canonical links, Open Graph article fields, Twitter cards, and JSON-LD Article data. Article authors are modeled as named people, except the corporate byline TEVONIQ, which uses Organization. Set verified authorship and image URLs in the CMS. No demonstration articles or invented case studies are seeded.
 
 ## Deployment and checks
 
