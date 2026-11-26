@@ -17,3 +17,4 @@ artifacts/
 .zencoder/
 .DS_Store
 .neon
+!.env.home.example
