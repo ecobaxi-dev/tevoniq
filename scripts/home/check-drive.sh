@@ -18,8 +18,16 @@ probe() {
     code=$?
     printf '%s: FAILED exit=%s (%ss)\n' "$label" "$code" "$((SECONDS-start))"
     python3 - "$work/error" <<'PY'
-import sys
-s = open(sys.argv[1]).read().lower()
+import re, sys
+raw = open(sys.argv[1]).read()
+s = raw.lower()
+# Only a normal Google error description; never enable verbose/header logging.
+match = re.search(r'Error 403: ([^\n]+)', raw, re.I)
+if match:
+    detail = re.sub(r'https?://\S+', '[URL omitted]', match[1])
+    detail = re.sub(r'[\w.+-]+@[\w.-]+', '[email omitted]', detail)
+    detail = re.sub(r'[A-Za-z0-9_+/=-]{24,}', '[identifier omitted]', detail)
+    print('  Google 403: ' + detail[:600])
 if 'invalid_grant' in s or 'invalid token' in s or 'unauthorized' in s:
     print('  Category: authorization rejected')
 elif '403' in s or 'permission' in s:
@@ -42,6 +50,7 @@ probe 'Drive direct / default network' rclone cat tevoniq-drive:TEVONIQ-Backups/
   --contimeout 10s --timeout 15s --retries 1 --low-level-retries 1
 probe 'Drive direct / IPv4' rclone --bind 0.0.0.0 cat tevoniq-drive:TEVONIQ-Backups/restic/config \
   --contimeout 10s --timeout 15s --retries 1 --low-level-retries 1
+if [[ "${1:-}" == --quick ]]; then exit 0; fi
 probe 'Restic backend / default network' restic -o rclone.timeout=35s cat config
 probe 'Restic backend / IPv4' env RCLONE_BIND=0.0.0.0 restic -o rclone.timeout=35s cat config
 systemctl show tevoniq-monitor.timer -p ActiveState -p SubState -p NextElapseUSecMonotonic
