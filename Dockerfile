@@ -6,9 +6,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends openssl ca-cert
 COPY . .
 # Reuse completed downloads when the home connection times out; keep lockfile installs.
 RUN --mount=type=cache,id=tevoniq-npm,target=/root/.npm,sharing=locked \
-    npm ci --prefer-offline --no-audit --no-fund \
-    --fetch-retries=5 --fetch-retry-mintimeout=10000 \
-    --fetch-retry-maxtimeout=60000 --fetch-timeout=120000 --maxsockets=5
+    set -eu; \
+    for attempt in 1 2 3; do \
+      if npm ci --prefer-offline --no-audit --no-fund \
+        --fetch-retries=3 --fetch-retry-mintimeout=10000 \
+        --fetch-retry-maxtimeout=30000 --fetch-timeout=120000 \
+        --maxsockets=2 --loglevel=http; then \
+        exit 0; \
+      else \
+        status=$?; \
+        if [ "$attempt" -eq 3 ]; then exit "$status"; fi; \
+        echo "npm install attempt $attempt failed; retrying with cached downloads in 10 seconds"; \
+        sleep 10; \
+      fi; \
+    done
 RUN npm run build
 
 FROM build AS migrate
