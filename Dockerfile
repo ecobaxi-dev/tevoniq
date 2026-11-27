@@ -4,7 +4,11 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN apt-get update && apt-get install -y --no-install-recommends openssl ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY . .
-RUN npm ci
+# Reuse completed downloads when the home connection times out; keep lockfile installs.
+RUN --mount=type=cache,id=tevoniq-npm,target=/root/.npm,sharing=locked \
+    npm ci --prefer-offline --no-audit --no-fund \
+    --fetch-retries=5 --fetch-retry-mintimeout=10000 \
+    --fetch-retry-maxtimeout=60000 --fetch-timeout=120000 --maxsockets=5
 RUN npm run build
 
 FROM build AS migrate
