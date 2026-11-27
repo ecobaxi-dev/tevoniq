@@ -1,0 +1,12 @@
+[Unit]
+Description=TEVONIQ backup, disk and container monitoring
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/python3 /home/tevoniq/apps/tevoniq/scripts/home/monitor.py
+UMask=0077
+TimeoutStartSec=5min
+NoNewPrivileges=true
