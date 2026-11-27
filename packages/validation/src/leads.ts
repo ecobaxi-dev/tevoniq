@@ -82,7 +82,12 @@ export const leadSubmissionSchema = z
     timeline: line(160).default(''),
     projectDescription: plain(15000).default(''),
     consent: z.boolean().default(false),
-    sourcePage: z.string().regex(/^\/((en\/|tr\/|ar\/)?(contact|request-quote)|(ar|en)\/start)$/),
+    // Only routes that actually embed a lead form; keep the original source for attribution.
+    sourcePage: z
+      .string()
+      .regex(
+        /^\/((en\/|tr\/|ar\/)?(contact|request-quote)|(ar|en)\/start|(ar|en|tr)\/services\/(digital-transformation|ai-augmented-development|mobile-application-development))$/,
+      ),
     utm: z
       .object({
         source: line(200).optional(),
@@ -117,7 +122,10 @@ export const leadSubmissionSchema = z
       ctx.addIssue({ code: 'custom', path: ['consent'], message: 'Consent is required' });
     if (
       (v.type === 'contact' && v.sourcePage.endsWith('request-quote')) ||
-      (v.type === 'quote' && (v.sourcePage.endsWith('contact') || v.sourcePage.endsWith('/start')))
+      (v.type === 'quote' &&
+        (v.sourcePage.endsWith('contact') ||
+          v.sourcePage.endsWith('/start') ||
+          v.sourcePage.includes('/services/')))
     )
       ctx.addIssue({ code: 'custom', path: ['sourcePage'], message: 'Source does not match form' });
   })

@@ -386,3 +386,51 @@ test('Campaign contact submissions accept only AR/EN landing paths with contact 
     false,
   );
 });
+
+test('Embedded service contact forms preserve allowed source routes and reject arbitrary paths', () => {
+  const services = [
+    'digital-transformation',
+    'ai-augmented-development',
+    'mobile-application-development',
+  ];
+  for (const language of ['ar', 'en', 'tr']) {
+    for (const service of services) {
+      const sourcePage = `/${language}/services/${service}`;
+      const parsed = leadSubmissionSchema.safeParse({ ...contact, language, sourcePage });
+      assert.equal(parsed.success, true, sourcePage);
+      assert.equal(parsed.data.sourcePage, sourcePage);
+      assert.equal(
+        leadSubmissionSchema.safeParse({
+          ...contact,
+          language,
+          sourcePage,
+          type: 'quote',
+          consent: true,
+          phone: '+905551234567',
+          industry: 'Services',
+          projectType: 'Website',
+          timeline: 'Next month',
+          projectDescription: 'A business website',
+        }).success,
+        false,
+        'Service contact route must not accept quote submissions',
+      );
+    }
+  }
+  for (const sourcePage of [
+    '/ar/services/unknown',
+    '/ar/services/cybersecurity',
+    '/services/digital-transformation',
+    '//ar/services/digital-transformation',
+    '/ar/services/digital-transformation/extra',
+    '/ar/services/digital-transformation#digital-contact',
+    '/ar/services/digital-transformation?source=test',
+    'https://www.tevoniq.com/ar/services/digital-transformation',
+    '/ar/services/../digital-transformation',
+  ])
+    assert.equal(
+      leadSubmissionSchema.safeParse({ ...contact, sourcePage }).success,
+      false,
+      sourcePage,
+    );
+});
