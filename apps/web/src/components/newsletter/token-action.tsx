@@ -1,5 +1,5 @@
 'use client';
-import { Heading } from '@tevoniq/ui';
+import { Button, Heading } from '@tevoniq/ui';
 
 import { useEffect, useRef, useState } from 'react';
 const copy = {
@@ -77,9 +77,16 @@ export function NewsletterTokenAction({
       ) : (
         <>
           <p>{ready ? text.intro : text.invalid}</p>
-          <button className="tv-button" disabled={!ready || busy} onClick={() => void submit()}>
-            {busy ? '…' : text[action]}
-          </button>
+          <Button
+            variant="primary"
+            size="lg"
+            loading={busy}
+            disabled={!ready}
+            onClick={() => void submit()}
+            style={{ marginTop: '1.25rem', minHeight: 52, minWidth: 220 }}
+          >
+            {text[action]}
+          </Button>
           {error && <p role="alert">{error}</p>}
         </>
       )}
