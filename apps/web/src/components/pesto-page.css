@@ -731,3 +731,27 @@
     }
   }
 }
+
+.pesto-download .pesto-download-file {
+  margin-block-start: 0.75rem;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+  text-align: start;
+}
+.pesto-download-guide {
+  margin-block-start: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid #c89a4a55;
+  border-radius: 1rem;
+  background: #c89a4a0a;
+}
+.pesto-download-guide ol {
+  padding-inline-start: 1.5rem;
+  line-height: 1.9;
+}
+.pesto-download-guide li + li {
+  margin-block-start: 0.5rem;
+}
+.pesto-download-guide p {
+  line-height: 1.8;
+}

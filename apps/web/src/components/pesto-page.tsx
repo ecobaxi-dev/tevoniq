@@ -16,6 +16,7 @@ import {
 import { Container, ButtonLink, Heading } from '@tevoniq/ui';
 import type { Locale } from '@tevoniq/types';
 import { pestoCopy, pestoSupport } from '@/content/pesto';
+import { pestoDownloads, pestoDownloadGuide } from '@/content/pesto-downloads';
 import './pesto-page.css';
 
 export function PestoHomeEntry({ locale }: { locale: Locale }) {
@@ -41,7 +42,7 @@ export function PestoHomeEntry({ locale }: { locale: Locale }) {
           </div>
           <div className="pesto-entry-actions">
             <ButtonLink
-              href={`/${locale}/pesto#downloads`}
+              href={locale === 'tr' ? `/${locale}/pesto#downloads` : pestoDownloads.windows.href}
               variant="gold-accent"
               className="pesto-entry-cta pesto-entry-download"
               aria-describedby="pesto-entry-trial"
@@ -182,19 +183,55 @@ export function PestoPage({ locale }: { locale: Locale }) {
           </div>
           <div className="pesto-download-list">
             {[
-              { Icon: Monitor, title: c.windows, body: c.windowsBody, label: c.downloadWindows, href: 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing' },
-              { Icon: Smartphone, title: c.android, body: c.androidBody, label: c.downloadAndroid, href: 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing' },
-            ].map(({ Icon, title, body, label, href }) => (
+              {
+                Icon: Monitor,
+                title: c.windows,
+                body: c.windowsBody,
+                label: c.downloadWindows,
+                href:
+                  locale === 'tr'
+                    ? 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing'
+                    : pestoDownloads.windows.href,
+                file: pestoDownloads.windows,
+              },
+              {
+                Icon: Smartphone,
+                title: c.android,
+                body: c.androidBody,
+                label: c.downloadAndroid,
+                href:
+                  locale === 'tr'
+                    ? 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing'
+                    : pestoDownloads.android.href,
+                file: pestoDownloads.android,
+              },
+            ].map(({ Icon, title, body, label, href, file }) => (
               <article className="pesto-download" key={title}>
                 <Icon size={34} strokeWidth={1.5} aria-hidden="true" />
                 <div>
                   <Heading as="h3">{title}</Heading>
                   <p>{body}</p>
+                  {locale !== 'tr' && (
+                    <p className="pesto-download-file" dir="ltr">
+                      {file.filename} · {file.size}
+                    </p>
+                  )}
                 </div>
                 <ButtonLink href={href}>{label}</ButtonLink>
               </article>
             ))}
           </div>
+          {locale !== 'tr' && (
+            <div className="pesto-download-guide">
+              <Heading as="h3">{pestoDownloadGuide[locale].title}</Heading>
+              <ol>
+                {pestoDownloadGuide[locale].steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+              <p>{pestoDownloadGuide[locale].note}</p>
+            </div>
+          )}
         </section>
         <section
           id="activation"

@@ -18,14 +18,15 @@ export const pestoCopy = {
     activation: 'Activation',
     support: 'Support',
     overview: 'Overview',
-    status: 'Preparing the customer release',
-    statusBody: 'Public installers and online activation are not available yet.',
+    status: 'Version 1.3.4 files are available',
+    statusBody:
+      'Download the Windows ZIP or Android APK below. Self-service registration and online activation are not enabled yet.',
     homeTitle: 'Meet Pesto. Built around your restaurant.',
     homeBody:
       'A local point of sale, connected waiters and a clearer working day. Discover our restaurant software and release plans.',
     homeLink: 'Discover Pesto',
-    homeDownload: 'Download free now',
-    homeTrial: '15-day free trial',
+    homeDownload: 'Download Windows package',
+    homeTrial: 'Windows ZIP · Version 1.3.4',
     preview: 'Illustrative interface · not a live terminal',
     terminal: 'Pesto / Lite',
     connected: 'LOCAL RESTAURANT NETWORK',
@@ -50,15 +51,17 @@ export const pestoCopy = {
       ],
     ],
     downloadTitle: 'The right companion for each role.',
-    downloadBody: 'Choose your platform to open its download folder on Google Drive.',
+    downloadBody:
+      'Download the Windows package in one file, or the Android companion for your staff device.',
     preparing: 'Preparing release',
     windows: 'Windows · Main computer',
     windowsBody:
-      'The planned offline installation package includes the application, local server and database. First setup creates your manager account.',
+      'One ZIP package contains the Windows program, local server and database components. Extract it before opening Install.cmd.',
     android: 'Android · Restaurant companion',
     androidBody:
       'For staff connected to the main computer over local Wi-Fi. A waiter sends orders; payment remains at the cashier.',
-    downloadWindows: 'Download for Windows', downloadAndroid: 'Download for Android',
+    downloadWindows: 'Download Windows ZIP',
+    downloadAndroid: 'Download Android APK',
     activationTitle: 'A clear path from trial to ownership.',
     activationBody:
       'The following is the planned activation process. Self-service registration and activation are not live yet; no keys or personal details are collected on this page.',
@@ -98,7 +101,7 @@ export const pestoCopy = {
     faqs: [
       [
         'Can I download Pesto now?',
-        'Not yet. This page will provide approved Windows and Android packages when the customer release is ready. Contact us for availability.',
+        'Yes. Download the Windows ZIP package or Android APK from this page. Self-service registration and online activation remain unavailable; contact us about starting to use the software.',
       ],
       [
         'Does every device need internet?',
@@ -123,14 +126,15 @@ export const pestoCopy = {
     activation: 'التفعيل',
     support: 'الدعم',
     overview: 'نظرة عامة',
-    status: 'جارٍ تجهيز إصدار العملاء',
-    statusBody: 'حزم التنصيب والتفعيل عبر الإنترنت غير متاحة بعد.',
+    status: 'ملفات الإصدار 1.3.4 متاحة للتنزيل',
+    statusBody:
+      'نزّل حزمة Windows أو تطبيق Android أدناه. التسجيل والتفعيل الذاتي عبر الإنترنت غير مفعّلين بعد.',
     homeTitle: 'بيستو. برنامج ينظّم يوم مطعمك.',
     homeBody:
       'نقطة بيع محلية، وطلبات متصلة من النُدُل، ويوم عمل أوضح. تعرّف على برنامجنا للمطاعم وخطة إصداره.',
     homeLink: 'اكتشف بيستو',
-    homeDownload: 'حمّله مجانًا الآن',
-    homeTrial: 'تجربة مجانية لمدة 15 يومًا',
+    homeDownload: 'حمّل حزمة Windows مجانًا',
+    homeTrial: 'حزمة Windows · الإصدار 1.3.4',
     preview: 'تصميم توضيحي للواجهة · ليس نظام بيع مباشرًا',
     terminal: 'Pesto / Lite',
     connected: 'شبكة المطعم المحلية',
@@ -155,15 +159,16 @@ export const pestoCopy = {
       ],
     ],
     downloadTitle: 'الأداة المناسبة لكل دور.',
-    downloadBody: 'اختر نظام جهازك لفتح مجلد التنزيل على Google Drive.',
+    downloadBody: 'نزّل حزمة Windows في ملف واحد، أو تطبيق Android لجهاز فريق المطعم.',
     preparing: 'جارٍ تجهيز الإصدار',
     windows: 'ويندوز · الكمبيوتر الرئيسي',
     windowsBody:
-      'تشمل حزمة التثبيت المخططة دون إنترنت البرنامج والخادم المحلي وقاعدة البيانات. ينشئ العميل حساب المدير عند التشغيل الأول.',
+      'ملف ZIP واحد يجمع برنامج Windows ومكوّنات الخادم المحلي وقاعدة البيانات. استخرج الملفات قبل فتح Install.cmd.',
     android: 'أندرويد · مساعد فريق المطعم',
     androidBody:
       'للموظفين المتصلين بالكمبيوتر الرئيسي عبر واي فاي المطعم. يرسل النادل الطلبات، ويبقى الدفع لدى الكاشير.',
-    downloadWindows: 'تنزيل Windows', downloadAndroid: 'تنزيل Android',
+    downloadWindows: 'تنزيل حزمة Windows كاملة',
+    downloadAndroid: 'تنزيل تطبيق Android',
     activationTitle: 'خطوات واضحة من التجربة إلى التملّك.',
     activationBody:
       'هذه آلية التفعيل المخططة. التسجيل والتفعيل الذاتي غير متاحين بعد، ولا تجمع هذه الصفحة مفاتيح أو بيانات شخصية.',
@@ -203,7 +208,7 @@ export const pestoCopy = {
     faqs: [
       [
         'هل يمكن تحميل بيستو الآن؟',
-        'ليس بعد. ستتوفر هنا حزم ويندوز وأندرويد المعتمدة عند جاهزية إصدار العملاء. تواصل معنا للاستفسار عن التوفر.',
+        'نعم، يمكنك تنزيل حزمة Windows أو تطبيق Android من هذه الصفحة. التسجيل والتفعيل الذاتي غير متاحين بعد؛ تواصل معنا لبدء استخدام البرنامج.',
       ],
       [
         'هل تحتاج جميع الأجهزة إلى الإنترنت؟',
@@ -268,7 +273,8 @@ export const pestoCopy = {
     android: 'Android · Restoran yardımcısı',
     androidBody:
       'Yerel Wi-Fi üzerinden ana bilgisayara bağlanan personel için. Garson siparişi gönderir; ödeme kasiyerde kalır.',
-    downloadWindows: 'Windows için indir', downloadAndroid: 'Android için indir',
+    downloadWindows: 'Windows için indir',
+    downloadAndroid: 'Android için indir',
     activationTitle: 'Denemeden kalıcı kullanıma açık bir yol.',
     activationBody:
       'Aşağıdaki süreç planlanmaktadır. Kayıt ve etkinleştirme henüz açık değildir; bu sayfada anahtar veya kişisel bilgi toplanmaz.',

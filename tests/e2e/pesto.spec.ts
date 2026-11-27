@@ -10,8 +10,29 @@ for (const locale of ['en', 'ar', 'tr']) {
     await expect(page.locator('main h1')).toHaveCount(1);
     const downloads = page.locator('.pesto-download > a');
     await expect(downloads).toHaveCount(2);
-    await expect(downloads.nth(0)).toHaveAttribute('href', 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing');
-    await expect(downloads.nth(1)).toHaveAttribute('href', 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing');
+    const windowsDownload =
+      'https://drive.usercontent.google.com/download?id=1AJAjkWdW4LuPCM-aMrtRHoiLlIulSUJ2&export=download&confirm=t';
+    const androidDownload =
+      'https://drive.usercontent.google.com/download?id=1xEqQLlFxWcnvOUPGEbaRhiGXAktj-0NX&export=download&confirm=t';
+    await expect(downloads.nth(0)).toHaveAttribute(
+      'href',
+      locale === 'tr'
+        ? 'https://drive.google.com/drive/folders/18g2en3no9GaycW7ZO1xOsz78hdsLUtpc?usp=sharing'
+        : windowsDownload,
+    );
+    await expect(downloads.nth(1)).toHaveAttribute(
+      'href',
+      locale === 'tr'
+        ? 'https://drive.google.com/drive/folders/1PQch1M8qowjffUSUv4gSBYjWZBYGwIRg?usp=sharing'
+        : androidDownload,
+    );
+    if (locale !== 'tr') {
+      await expect(page.locator('.pesto-download-guide li')).toHaveCount(3);
+      await expect(page.locator('.pesto-download-guide')).toContainText('Install.cmd');
+      await expect(page.locator('.pesto-download-file').first()).toContainText(
+        'PestoLite-Windows-1.3.4.zip',
+      );
+    } else await expect(page.locator('.pesto-download-guide')).toHaveCount(0);
     await expect(
       page.locator(
         'main a[download], main a[href$=".apk"], main a[href$=".exe"], main input, main form',
@@ -137,9 +158,13 @@ for (const locale of ['en', 'ar', 'tr']) {
     await page.locator(`.pesto-home-entry a[href="/${locale}/pesto"]`).click();
     await expect(page).toHaveURL(`/${locale}/pesto`);
     await page.goto(`/${locale}`);
-    await page.locator(`.pesto-home-entry a[href="/${locale}/pesto#downloads"]`).click();
-    await expect(page).toHaveURL(`/${locale}/pesto#downloads`);
-    await expect(page.locator('#downloads')).toBeInViewport();
+    if (locale === 'tr') {
+      await page.locator(`.pesto-home-entry a[href="/${locale}/pesto#downloads"]`).click();
+      await expect(page).toHaveURL(`/${locale}/pesto#downloads`);
+      await expect(page.locator('#downloads')).toBeInViewport();
+    } else {
+      await expect(page.locator('.pesto-entry-download')).toHaveAttribute('href', windowsDownload);
+    }
   });
 }
 
